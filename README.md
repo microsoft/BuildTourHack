@@ -8,13 +8,13 @@ If you are blocked, a representative from the leadership team is always there to
 
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties 
-  1.1 **Deliverable** - Make app more responsive
-    * [1.1.1][111] [Commited] - Create Service Worker
-    * [1.1.2][112] [Commited] - Generate Progressive Web App (d. 1.1.1)
-    * [1.1.3][113] [Proposed] - Make app offline (d. 1.1.1)
-  1.2 **Deliverable** - Add Native functionality
-    * [1.2.1][121] [Proposed] - Register for push notifications (d. 1.1.2)
-    * [1.2.2][122] [Proposed] - Integrate camera for scanning barcodes (d. 1.1.2)
+    * **Deliverable** - Make app more responsive
+        * [1.1.1][111] [Commited] - Create Service Worker
+        * [1.1.2][112] [Commited] - Generate Progressive Web App (d. 1.1.1)
+        * [1.1.3][113] [Proposed] - Make app offline (d. 1.1.1) 
+    * **Deliverable** - Add Native functionality
+        * [1.2.1][121] [Proposed] - Register for push notifications (d. 1.1.2)
+        * [1.2.2][122] [Proposed] - Integrate camera for scanning barcodes (d. 1.1.2)
 
 2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development lifecycle
     * **Deliverable** - Enable integration of UWP APIs
