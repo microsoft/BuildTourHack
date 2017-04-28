@@ -46,8 +46,8 @@ If you are blocked, a representative from the leadership team is always there to
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
         * [4.1.1][411] - Create a shared DocumentDB to store all data
-        * [4.1.2][412] - Crete API endpoint for shipping services (d. 4.1.1)
-        * [4.1.3][412] - Crete API endpoint for product services (d. 4.1.1)
+        * [4.1.2][412] - Create API endpoint for shipping services (d. 4.1.1)
+        * [4.1.3][412] - Create API endpoint for product services (d. 4.1.1)
         * [4.1.4][414] - Configure Kubernetes and publish to Azure (d. 4.1.2, 4.1.3)
 
 
