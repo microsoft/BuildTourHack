@@ -1,4 +1,4 @@
-# Contoso KNOWZY Backlog
+# Adventure Works KNOWZY Backlog
 
 There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. Tasks marked as committed have been committed to our leadership, and task marked as proposed have been requested or proposed.
 
@@ -9,8 +9,8 @@ If you are blocked, a representative from the leadership team is always there to
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties 
     * **Deliverable** - Make app more responsive
-        * [1.1.1][111] [Commited] - Create Service Worker
-        * [1.1.2][112] [Commited] - Generate Progressive Web App (d. 1.1.1)
+        * [1.1.1][111] [Committed] - Create Service Worker
+        * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
         * [1.1.3][113] [Proposed] - Make app offline (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
         * [1.2.1][121] [Proposed] - Register for push notifications (d. 1.1.2)
@@ -18,8 +18,8 @@ If you are blocked, a representative from the leadership team is always there to
 
 2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development lifecycle
     * **Deliverable** - Enable integration of UWP APIs
-        * [2.1.1][211] [Commited] - Add Centennial support in Visual Studio
-        * [2.1.2][212] [Commited] - Integrate LiveTiles (d. 2.1.1)
+        * [2.1.1][211] [Committed] - Add Centennial support in Visual Studio
+        * [2.1.2][212] [Committed] - Integrate LiveTiles (d. 2.1.1)
         * [2.1.3][213] [Proposed] - Integrate Windows Hello authentication (d. 2.1.1)
     * **Deliverable** - Add UWP XAML support
         * [2.2.1][221] [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)
@@ -32,9 +32,9 @@ If you are blocked, a representative from the leadership team is always there to
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Andorid mobile app
-        * [3.1.1][311] [Commited] - Create a Xamarin.Forms app with shared UI
-        * [3.1.2][312] [Commited] - Integrate native camera to capture image for each platform (d. 3.1.1)
-        * [3.1.3][313] [Commited] - Add InkCanvas support for UWP (d. 3.1.2)
+        * [3.1.1][311] [Committed] - Create a Xamarin.Forms app with shared UI
+        * [3.1.2][312] [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)
+        * [3.1.3][313] [Committed] - Add InkCanvas support for UWP (d. 3.1.2)
     * **Deliverable** - Create a fun social experience
         * [3.2.1][321] [Proposed] - Support sharing images to Social Networks (d. 3.1.2)
         * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
