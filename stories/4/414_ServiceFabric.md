@@ -1,4 +1,4 @@
-# Task 4.1.4 - Configure Service Fabric and publish to Azure
+# Task 4.1.4 - Configure Kubernetes and publish to Azure
 
 ## Prerequisites 
 

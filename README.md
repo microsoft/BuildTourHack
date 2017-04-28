@@ -48,7 +48,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.1][411] - Create a shared DocumentDB to store all data
         * [4.1.2][412] - Crete API endpoint for shipping services (d. 4.1.1)
         * [4.1.3][412] - Crete API endpoint for product services (d. 4.1.1)
-        * [4.1.4][414] - Configure Service Fabric and publish to Azure (d. 4.1.2, 4.1.3)
+        * [4.1.4][414] - Configure Kubernetes and publish to Azure (d. 4.1.2, 4.1.3)
 
 
 
@@ -79,4 +79,4 @@ If you are blocked, a representative from the leadership team is always there to
 
 [411]: stories/4/411_DocumentDB.md
 [412]: stories/4/412_413_API.md
-[414]: stories/4/414_ServiceFabric.md
+[414]: stories/4/414_Kubernetes.md
