@@ -10,13 +10,13 @@ Azure cloud shell comes with the Azure CLI and KubeCTL already configured, which
 ### 1. Access Azure Cloud Shell using the '>_' Icon in the top right corner of the portal.
 ### 2. point to your azure subscription
         
-    If you have more than one subscription in your azure portal, its a good idea to first check which one your CLI is pointed to, the command for this is:
+If you have more than one subscription in your azure portal, its a good idea to first check which one your CLI is pointed to, the command for this is:
 
-        az account show
+    az account show
 
-    If it's not pointed to the subscription you want to use, you can re-point your CLI to the correct subscription using:
+If it's not pointed to the subscription you want to use, you can re-point your CLI to the correct subscription using:
 
-        az account set --subscription <SubscriptionId>
+    az account set --subscription <SubscriptionId>
 
 ## Create a resource group 
 
