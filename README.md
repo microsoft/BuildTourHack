@@ -16,7 +16,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [1.2.1][121] [Proposed] - Register for push notifications (d. 1.1.2)
         * [1.2.2][122] [Proposed] - Integrate camera for scanning barcodes (d. 1.1.2)
 
-2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development lifecycle
+2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development life cycle
     * **Deliverable** - Enable integration of UWP APIs
         * [2.1.1][211] [Committed] - Add Centennial support in Visual Studio
         * [2.1.2][212] [Committed] - Integrate LiveTiles (d. 2.1.1)
@@ -28,10 +28,10 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
         * [2.3.1][231] [Proposed] - Integrate the UWP Community Toolkit to add animations, new controls, services to the new view (d. 2.2.*)
         * [2.3.2][232] [Proposed] - Add support for ink or dial (d. 2.2.*)
-        * [2.3.3][233] [Proposed] - Add ccomposition effects or (connected) annimations (d. 2.2.*)
+        * [2.3.3][233] [Proposed] - Add composition effects or (connected) animations (d. 2.2.*)
 
 3. **User Story** - Consumers have a fun mobile experience 
-    * **Deliverable** - Create a UWP and Andorid mobile app
+    * **Deliverable** - Create a UWP and Android mobile app
         * [3.1.1][311] [Committed] - Create a Xamarin.Forms app with shared UI
         * [3.1.2][312] [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)
         * [3.1.3][313] [Committed] - Add InkCanvas support for UWP (d. 3.1.2)
@@ -39,7 +39,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.2.1][321] [Proposed] - Support sharing images to Social Networks (d. 3.1.2)
         * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
     * **Deliverable** - Add automatic image analysis
-        * [3.3.1][331] [Proposed] - Set up Cogntive Services for image face analysis in Azure (d. 312)
+        * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
         * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location (d. 3.3.1)
         * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
 
