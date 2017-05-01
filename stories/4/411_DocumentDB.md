@@ -1,11 +1,36 @@
 # Task 4.1.1 - Create a shared DocumentDB to store all data
 
-## Prerequisites 
+## Pre-Requisites
 
-What to do first, what to know, machine requirements
+* Access to azure subscription.
+* Azure Cloud shell should be [configured for persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md).
 
-## Task 
+## Create a resource group 
 
-Walkthrough goes here
+We need to create a resource-group to ring-fence all of our work, we'll start out by storing a couple of variables we're going to use again in our shell. _(Note; many resources within Azure require a unique name, as such we reccomend you use the guidelines in the published [naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions))_
+
+### 1. First store the name you want to use for your resource group:
+
+    RESOURCE_GROUP=<unique name>
+
+
+### 2. Then the location we're going to create it in _(for our example you should pick from: 'southcentralus', )_
+
+    LOCATION=southcentralus
+
+### 3. Create our new resource group within our current subscription:
+```bash 
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+```
+
+## Create a DocumentDB
+
+Need to create a documentDB
+
+### 1. First store the name you want to use for your resource group:
+
+    az documentdb create -g rg-test -n docdb-test
+
 
 ## References
+[DocumentDB Migration Tool Download](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
