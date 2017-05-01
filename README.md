@@ -47,8 +47,9 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Unify and Publish all services
         * [4.1.1][411] - Create a shared DocumentDB to store all data
         * [4.1.2][412] - Create API endpoint for shipping services (d. 4.1.1)
-        * [4.1.3][412] - Create API endpoint for product services (d. 4.1.1)
-        * [4.1.4][414] - Configure Kubernetes and publish to Azure (d. 4.1.2, 4.1.3)
+        * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
+        * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
+        * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
 
 
 
@@ -78,5 +79,7 @@ If you are blocked, a representative from the leadership team is always there to
 [333]: stories/3/333_NoseAnalysys.md
 
 [411]: stories/4/411_DocumentDB.md
-[412]: stories/4/412_413_API.md
-[414]: stories/4/414_Kubernetes.md
+[412]: stories/4/412_OrdersAPI.md
+[413]: stories/4/413_ProductsAPI.md
+[414]: stories/4/414_Docker.md
+[415]: stories/4/415_Kubernetes.md
