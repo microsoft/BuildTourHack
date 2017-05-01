@@ -1,6 +1,6 @@
 # Task 3.1.1 - Create a Xamarin.Forms app with shared UI
 
-Building a cross platform mobile application will help our marketting department reach an even wider audience and potential customers. Xamarin.Forms will allow us to build the application only once and still be able to reach multiple platforms. 
+Building a cross platform mobile application will help our marketing department reach an even wider audience and potential customers. Xamarin.Forms will allow us to build the application only once and still be able to reach multiple platforms. 
 
 **Requirements for this task:**
 * Mobile application with Shared App running on Android and UWP
@@ -27,7 +27,7 @@ That's it. At this point, you should probably spend some time checking out the n
 
 ![Select Project](images/select_platform.png)
 
-We will focus on UWP and Andorid for our first release. To run on your machine as UWP, select the UWP project first. Then change the architecture (the dropdown on the left of the Startup projects dropdown) and select x86 or x64. Then simply click the play button to build and run the app:
+We will focus on UWP and Android for our first release. To run on your machine as UWP, select the UWP project first. Then change the architecture (the dropdown on the left of the Startup projects dropdown) and select x86 or x64. Then simply click the play button to build and run the app:
 
 ![Run](images/run.png)
 
@@ -39,7 +39,7 @@ Now get to know your new app.
 
 > Note: Use the x86 version of the Android emulator as that will run much faster than the ARM version
 
-> Note: If you have Hyper-V enabled, the Android emulator will not work. You will need to desable Hyper-V and reboot your machine
+> Note: If you have Hyper-V enabled, the Android emulator will not work. You will need to disable Hyper-V and reboot your machine
 
 > Note: Since we will not be using the iOS project for this release, feel free to remove it from your solution
 
@@ -47,7 +47,7 @@ Now get to know your new app.
 
 #### Add shared UI
 
-For our first task, we want to be able to list all the different Knowzy products. Fortunatly, the Win32 app used by our friends over at the Product Development department already has the code to retreive the products so we can reuse that in our app.
+For our first task, we want to be able to list all the different Knowzy products. Fortunately, the Win32 app used by our friends over at the Product Development department already has the code to retrieve the products so we can reuse that in our app.
 
 ### TODO - walktrough of copy paste code from product development app
 
@@ -71,7 +71,7 @@ protected async override void OnAppearing()
 }
 ```
 
-3. Finaly, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/):
+3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/):
 
 ```xaml
 <ListView x:Name="NoseList" ItemsSource="{Binding Items}" ItemTapped="NoseList_ItemTapped">
@@ -87,7 +87,7 @@ protected async override void OnAppearing()
 
 **Task Complete**. Go ahead and run the the app on your machine and in the Android emulator.
 
-[Go to the next Task](313_Camera.md) where you will add another page and the capability to capture an image by using APIs specific to each platform.
+[Go to the next Task](312_Camera.md) where you will add another page and the capability to capture an image by using APIs specific to each platform.
 
 ## Resources
 
