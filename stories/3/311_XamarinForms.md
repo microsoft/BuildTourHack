@@ -21,7 +21,7 @@ This walkthrough assumes that you have:
 2. Under **Templates -> Visual C# -> Cross-Platform** select *Cross Platform App (Xamarin.Forms or Native)*. Pick a name and Create the project
 3. We will start with a Blank App. Make sure Xamarin.Forms is selected under **Technology** and Shared Project under **Code Sharing Strategy**
 
-    ![New Project](images/new_project.PNG)
+    ![New Project](images/new_project.png)
 
 That's it. At this point, you should probably spend some time checking out the new solution. You will notice there are four project in the solution, one shared project and three platform specific projects. To run the app on the specific platform, use the drop down at the top of Visual Studio to select what project to run:
 
