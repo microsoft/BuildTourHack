@@ -15,7 +15,7 @@ If you encounter a firewall error when sharing drives with Docker, you may need 
 ## Case sensitivity
 
 If you're using Windows to follow along, it's important to note that we're using Linux containers on Docker.
-This means that if you have a mismatch between file/folder names, you may encounter errors when building or
+This means that if you have a case mismatch between file/folder names, you may encounter errors when building or
 running containers because Linux uses a case-sensitive file system.
 
 For example, this could happen if you named your folder `ordersApi`, which by default will produce a dll with

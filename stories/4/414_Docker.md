@@ -155,7 +155,7 @@ So far, we've developed a few applications, packaged them in Docker images, and 
 
 We're going to create a private registry to hold our images, using [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro). We'll do this for a few reasons. First, we want to make sure our images aren't available to just anyone on the Internet. We want to be able to control access to our images! We also want our images to be available in the same region as our compute resources for quick deployments.
 
-### 1. Create an Azure Container Registry
+### <a id="acr"></a> 1. Create an Azure Container Registry
 
 Using the Azure Cloud Shell, set up some variables for your registry. These will be specific to you:
 
