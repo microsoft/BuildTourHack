@@ -106,7 +106,6 @@ Now that the Win32 binaries are copied to the UWP project after a build, we need
 We can automate this process by editing the MyDesktopApp.Package.jsproj project. Following the same procedure you just completed when editing the MyDesktopApp.csproj file, 
 you will unload, edit and reload the MyDesktopApp.Package.jsproj project file. Add the following XML to the end of the MyDesktopApp.Package.jsproj project file.
 
-
 ```xml
   <ItemGroup>
     <Content Include="win32\*.dll">
@@ -130,7 +129,17 @@ you will unload, edit and reload the MyDesktopApp.Package.jsproj project file. A
 
 After you reload the MyDesktopApp.Package.jsproj project file, your project should now contain the Win32 binaries from your desktop app.
 
-![Reload project](images/uwp-win32-binaries.png)
+![Win32 Binaries](images/uwp-win32-binaries.png)
+
+Right click on the MyDesktopApp.exe file and select **Properties**. In the Properties window notice that the file is marked Content and Copy if newer is enabled.
+These settings will ensure that your Win32 binaries will become part of the UWP app's AppX package.
+
+![Content](images/content.png)
+
+#### Step 4: Edit the App Manifest to enable the Desktop Bridge Extensions
+
+The MyDesktopApp.Package project contains a file called package.appxmanifest that describes how to package your app for the Windows Store and its dependencies.
+We need to edit this file so it 
 
 
 	
