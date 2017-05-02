@@ -1,4 +1,4 @@
-# Task 2.1.1 - Add Centennial support in Visual Studio
+# Task 2.1.1 - Add Centennial Support using Visual Studio 2017
 
 This task will guide you through the process of converting a Win32 Desktop app to a UWP App using Visual Studio 2017. 
 
@@ -266,7 +266,7 @@ Press F5 to start your UWP app. You will probably encounter the following error:
 
 ![Debug Error](images/211-debug-error.png)
 
-We will fix this error in the next task.
+We will fix this error in the [next task](212_Debugging.md).
 
 
 ## References
