@@ -74,13 +74,14 @@ Modify the xml to the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <MyProjectOutputPath>..\MyDesktopApp.Package\win32</MyProjectOutputPath>
+    <MyProjectOutputPath>$(PackageLayout)</MyProjectOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <LayoutFile Include="$(MyProjectOutputPath)\MyDeskTopApp.exe">
-      <PackagePath>$(PackageLayout)\win32\MyDeskTopApp.exe</PackagePath>
+    <LayoutFile Include="$(MyProjectOutputPath)\win32\MyDesktopApp.exe">
+      <PackagePath>$(PackageLayout)\win32\MyDesktopApp.exe</PackagePath>
     </LayoutFile>
   </ItemGroup>
 </Project>
