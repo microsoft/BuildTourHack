@@ -16,7 +16,7 @@ This task will guide you through the process of converting a Win32 Desktop app t
 
 If you don't have an existing project, create a new C# Windows Classic Desktop Windows Forms App or WPF App project. Name the project MyDesktopApp.
 
-![New C# Project](images/new-project.png)
+![New C# Project](images/211-new-project.png)
 
 #### Step 2: Add a UWP Project
 
@@ -27,28 +27,28 @@ to convert your Win32 app to a UWP app.
 
 Right-click on the Solution folder and select **Add | New Project...**
 
-![Add Project](images/add-project.png)
+![Add Project](images/211-add-project.png)
 
 Select the **JavaScript | Windows Universal | Blank App (Universal Windows)** project template. Name the project MyDesktopApp.Package.
 
-![Add JS UWP Project](images/add-js-uwp.png)
+![Add JS UWP Project](images/211-add-js-uwp.png)
 
 Make sure the minimum Windows SDK version is **14393** or higher. Windows 10 14393 or higher is required for Desktop Bridge apps.
 
-![Minimum SDK version](images/sdk-version.png)
+![Minimum SDK version](images/211-sdk-version.png)
 
 You solution should now contain 2 projects.
 
-![Solution projects](images/solution.png)
+![Solution projects](images/211-solution.png)
 
 In order for the UWP app to pick up any changes you make to the Win32 app, you should add a Project Build Dependency to the UWP app so it depends on the Win32 app.
 Right-click on the MyDesktopApp.Package project and select **Build Dependencies | Project Dependencies...** from the menu.
 
-![Build dependencies](images/build-dependencies.png)
+![Build dependencies](images/211-build-dependencies.png)
 
 Select **MyDesktopApp** and click **OK**
 
-![Build dependencies](images/win32-dependency.png)
+![Build dependencies](images/211-win32-dependency.png)
 
 Press F7 or select Build Solution from the Visual Studio Build menu. The Win32 and UWP projects will build and the MyDesktopApp Win32 binaries will be copied to the 
 win32 folder of the MyDesktopApp.Package project.
@@ -77,11 +77,11 @@ to include an AfterBuild target that will copy all the Win32 output files to the
 
 You can edit the MyDesktopApp.csproj in Visual Studio by right clicking on the project and selecting **Unload project**
 
-![Unload project](images/unload-project.png)
+![Unload project](images/211-unload-project.png)
 
 Right-click again on MyDesktopApp.csproj and select **Edit MyDesktopApp.csproj**
 
-![Edit project](images/edit-project.png)
+![Edit project](images/211-edit-project.png)
 
 Scroll to the end of the xml file and paste the above xml code to the end of the file before the final project tag.
 
@@ -100,7 +100,7 @@ Scroll to the end of the xml file and paste the above xml code to the end of the
 
 Save your changes and then reload MyDesktopApp.csproj.
 
-![Reload project](images/reload-project.png)
+![Reload project](images/211-reload-project.png)
 
 Now that the Win32 binaries are copied to the UWP project after a build, we need to add the binaries to the UWP project so they will be packaged with the UWP app.
 We can automate this process by editing the MyDesktopApp.Package.jsproj project. Following the same procedure you just completed when editing the MyDesktopApp.csproj file, 
@@ -129,12 +129,12 @@ you will unload, edit and reload the MyDesktopApp.Package.jsproj project file. A
 
 After you reload the MyDesktopApp.Package.jsproj project file, your project should now contain the Win32 binaries from your desktop app.
 
-![Win32 Binaries](images/uwp-win32-binaries.png)
+![Win32 Binaries](images/211-uwp-win32-binaries.png)
 
 Right click on the MyDesktopApp.exe file and select **Properties**. In the Properties window notice that the file is marked Content and Copy if newer is enabled.
 These settings will ensure that your Win32 binaries will become part of the UWP app's AppX package.
 
-![Content](images/content.png)
+![Content](images/211-content.png)
 
 #### Step 4: Edit the App Manifest to enable the Desktop Bridge Extensions
 
@@ -143,7 +143,7 @@ We need to edit this file so it includes the infomation needed to run our Win32 
 
 You can edit the package.appxmanifest xml file by right-clicking on the file in the Visual Studio project and selecting **View Code**
 
-![View Code](images/view-code.png)
+![View Code](images/211-view-code.png)
 
 Replace the line (near line 6):
 
@@ -247,11 +247,11 @@ Your converted Win32 app is now ready to be deployed and run on your computer.
 
 Select **Deploy** from the Visual Studio Build menu.
 
-![Deploy](images/deploy.png)
+![Deploy](images/211-deploy.png)
 
 Search for your MyDesktopApp in the Start menu. Click on MyDesktopApp to launch your app. 
 
-![Start menu](images/startmenu.png)
+![Start menu](images/211-startmenu.png)
 
 Your Win32 app has now been converted to a UWP App using Visual Studio.
 
@@ -260,11 +260,11 @@ Your Win32 app has now been converted to a UWP App using Visual Studio.
 In order to debug your UWP app, you need to set the UWP JavaScript MyDesktopApp.Package project as the startup project. 
 Right-click on the MyDesktopApp.Package project and select **Set as StartUp Project**
 
-![Startup Project](images/startup-project.png)
+![Startup Project](images/211-startup-project.png)
 
 Press F5 to start your UWP app. You will probably encounter the following error:
 
-![Debug Error](images/debug-error.png)
+![Debug Error](images/211-debug-error.png)
 
 We will fix this error in the next task.
 
