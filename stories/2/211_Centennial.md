@@ -139,10 +139,136 @@ These settings will ensure that your Win32 binaries will become part of the UWP 
 #### Step 4: Edit the App Manifest to enable the Desktop Bridge Extensions
 
 The MyDesktopApp.Package project contains a file called package.appxmanifest that describes how to package your app for the Windows Store and its dependencies.
-We need to edit this file so it 
+We need to edit this file so it includes the infomation needed to run our Win32 app as a UWP app. 
+
+You can edit the package.appxmanifest xml file by right-clicking on the file in the Visual Studio project and selecting **View Code**
+
+![View Code](images/view-code.png)
+
+Replace the line (near line 6):
+
+```xml
+    IgnorableNamespaces="uap mp">
+```
+
+with
+
+```xml
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap rescap">
+```
+
+Replace the line (near line 22):
+
+```xml
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+```
+
+with
+
+```xml
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />  
+```
+
+Add the following capability to the Capabilities section (near line 48)
+
+```xml
+    <rescap:Capability Name="runFullTrust" />
+```
+
+Modify the Application tag to the following (near line 30):
+
+```xml
+    <Application Id="MyDesktopApp" Executable="win32\MyDesktopApp.exe" EntryPoint="Windows.FullTrustApplication">
+```
+
+Change the DisplayName near line 33 from "MyDesktopApp.Package" to "MyDesktopApp"
 
 
-	
+Your package.appxmanifest should now look something like:
+
+```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <Package
+      xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+      xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+      xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+      xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap rescap">
+
+      <Identity
+        Name="c0063394-4c57-415d-89b5-8d1b5fcbbdf8"
+        Version="1.0.0.0"
+        Publisher="CN=dalestam" />
+
+      <mp:PhoneIdentity PhoneProductId="c0063394-4c57-415d-89b5-8d1b5fcbbdf8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+
+      <Properties>
+        <DisplayName>MyDesktopApp</DisplayName>
+        <PublisherDisplayName>dalestam</PublisherDisplayName>
+        <Logo>images\storelogo.png</Logo>
+      </Properties>
+
+      <Dependencies>
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+      </Dependencies>
+
+      <Resources>
+        <Resource Language="x-generate" />
+      </Resources>
+
+      <Applications>
+        <Application Id="MyDesktopApp" Executable="win32\MyDesktopApp.exe" EntryPoint="Windows.FullTrustApplication">
+
+          <uap:VisualElements
+            DisplayName="MyDesktopApp.Package"
+            Description="MyDesktopApp.Package"
+            BackgroundColor="transparent"
+            Square150x150Logo="images\Square150x150Logo.png"
+            Square44x44Logo="images\Square44x44Logo.png">
+
+            <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" />
+            <uap:SplashScreen Image="images\splashscreen.png" />
+
+          </uap:VisualElements>
+        </Application>
+      </Applications>
+
+      <Capabilities>
+        <Capability Name="internetClient" />
+        <rescap:Capability Name="runFullTrust" />
+      </Capabilities>
+
+    </Package>
+```
+Note: Your Publisher, PublisherDisplayName and other app id properties will be different.
+
+#### Step 5: Deploy and run your converted Win32 App
+
+Your converted Win32 app is now ready to be deployed and run on your computer.
+
+Select **Deploy** from the Visual Studio Build menu.
+
+![Deploy](images/deploy.png)
+
+Search for your MyDesktopApp in the Start menu. Click on MyDesktopApp to launch your app. 
+
+![Start menu](images/startmenu.png)
+
+Your Win32 app has now been converted to a UWP App using Visual Studio.
+
+#### Step 6: Debugging your Desktop Bridge app
+
+In order to debug your UWP app, you need to set the UWP JavaScript MyDesktopApp.Package project as the startup project. 
+Right-click on the MyDesktopApp.Package project and select **Set as StartUp Project**
+
+![Startup Project](images/startup-project.png)
+
+Press F5 to start your UWP app. You will probably encounter the following error:
+
+![Debug Error](images/debug-error.png)
+
+We will fix this error in the next task.
+
+
 ## References
 
 * https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
