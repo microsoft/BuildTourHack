@@ -67,11 +67,12 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$ACS_N
 ## Deploying our container images _(from [Step 4.1.4](./414_Docker.md))_
 
 ### 1. Store the name of your Azure Container Registry
-This registry was generated in step [4.1.4](./414_Docker.md#acr)
+This registry was generated in step [4.1.4](./414_Docker.md#acr), and is where the container-images containing the apps and services we want to deploy should be located.
 
     ACR_NAME=<name of registry that contains your images>
 
 ### 2. Deploy our two services from their respective Docker images.
+We can deploy by telling kubernetes to get the docker images and deploy them, using the run command in KubeCTL, we're passing the --env parameter, to tell the container images the connection string for our data-store, so the running services once deployed know how to connect to the DocumentDB.
 
 ```bash
 kubectl run --image=$ACR_NAME.azurecr.io/knowzy/ordersapi:1 --env "DOCDB_CONNSTRING=<your connection string>"
@@ -79,11 +80,14 @@ kubectl run --image=$ACR_NAME.azurecr.io/knowzy/productsapi:1 --env "DOCDB_CONN
 ```
 
 ### 3. Deploy our webapp from the Docker image.
+We deploy the same way as above, but we dont need the --env parameter, as the front end web application should have no direct access to the DocumentDB.
+
 ```bash
 kubectl run --image=$ACR_NAME.azurecr.io/knowzy/shippingwebapp:1  
 ```
 
 ### 4. Expose each of our applications
+All that remains is to expose our applications to the outside world by telling Kubernetes which ports to make available to the deployments we've pushed to the cluster.
 
     kubectl expose deployment ordersapi --port=80
     kubectl expose deployment productsapi --port=80 --type=LoadBalancer

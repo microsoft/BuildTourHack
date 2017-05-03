@@ -23,13 +23,11 @@ We need to create a resource-group to ring-fence all of our work, we'll start ou
     az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-## Create a DocumentDB
+## Create and initialise DocumentDB
 
-Need to create a documentDB
+### 1. Create the document database
 
-### 1. First store the name you want to use for your resource group:
-
-    az documentdb create -g rg-test -n docdb-test
+    az documentdb create -g $RESOURCE_GROUP -n buildtour-test --locations "West US2"=0
 
 
 ## References
