@@ -89,8 +89,8 @@ An explanation of what's going on here:
 You're ready to run your apps on your local Docker host. In a terminal:
 
 ```bash
-docker run -d --name ordersapi -p 8080:80 ordersapi:1
-docker run -d --name productsapi -p 8081:80 productsapi:1
+docker run -d --name ordersapi -p 8080:80 -e DOCDB_CONNSTRING="<your connection string>" ordersapi:1
+docker run -d --name productsapi -p 8081:80 -e DOCDB_CONNSTRING="<your connection string>" productsapi:1
 docker run -d --name shippingapp -p 8082:80 shippingwebapp:1
 ```
 
@@ -102,6 +102,7 @@ Several interesting things are going on here. A quick breakdown:
 | `-d` | run the container in the background |
 | `--name ordersapi` | give the container a friendly name so we can find it easily later |
 | `-p 8080:80` | map the port 8080 on the host (your computer) to port 80 inside the container |
+| `-e DOCDB_CONNSTRING="<your connection string>"` | set the `DOCDB_CONNSTRING` environment variable |
 | `ordersapi:1` | the image to be run is `ordersapi`, with the tag `11 |
 
 Now that your app is running in a container on your local Docker host, you can see it by running the following in a terminal:
@@ -155,7 +156,7 @@ So far, we've developed a few applications, packaged them in Docker images, and 
 
 We're going to create a private registry to hold our images, using [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro). We'll do this for a few reasons. First, we want to make sure our images aren't available to just anyone on the Internet. We want to be able to control access to our images! We also want our images to be available in the same region as our compute resources for quick deployments.
 
-### 1. Create an Azure Container Registry
+### <a id="acr"></a> 1. Create an Azure Container Registry
 
 Using the Azure Cloud Shell, set up some variables for your registry. These will be specific to you:
 
