@@ -16,7 +16,7 @@ This task will guide you through the process of adding the Windows Hello UWP API
 We will use the Centennail based application which was created in [Add Centennial Support using Visual Studio 2017](211_Centennial.md) as a starting point.
 
 #### Step 1: Add the UwpDesktop nuget package 
-![Add nuget](images/213-add-nuget.png)
+![Add nuget](images/213-add-nuget.PNG)
 
 #### Step 2: Add the Windows Hello API to your WPF
 Using the KeyCredentialManager UWP API we can use Windows Hello.
