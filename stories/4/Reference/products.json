@@ -1,0 +1,34 @@
+[
+    {
+        "id": "RN3454",
+        "image": "/images/banner1.svg",
+        "price": 25,
+        "quantityInStock": 82,
+        "name": "Deluxe Nose",
+        "description": "Everything you'd expect, and a little something more."
+    },
+    {
+        "id": "PN3476",
+        "image": "/images/banner2.svg",
+        "price": 75,
+        "quantityInStock": 5,
+        "name": "Collectors Edition",
+        "description": "Limited edition, very rare!"
+    },
+    {
+        "id": "YN3171",
+        "image": "/images/banner3.svg",
+        "price": 10,
+        "quantityInStock": 150,
+        "name": "Basic Nose",
+        "description": "Our best-selling classic."
+    },
+    {
+        "id": "ZX2584",
+        "image": "/images/banner4.svg",
+        "price": 45.3,
+        "quantityInStock": 24,
+        "name": "The Co'Nose seur",
+        "description": "For the discerning performance comedian."
+    }
+]
