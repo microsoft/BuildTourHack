@@ -63,7 +63,7 @@ We're going to perform the following steps for 3 collections we need to add to A
 
 i) Load up the UI version of the data migration tool by running 'dtui.exe'
 
-![DTUI Exe in folder](images/DT1.7Folder.JPG)
+![DTUI Exe in folder](images/dt1.7Folder.JPG)
 
 ii) You should be greeted with the following screen below, we can just click 'Next' for now.
 
