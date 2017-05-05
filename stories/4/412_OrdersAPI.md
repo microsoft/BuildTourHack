@@ -116,7 +116,7 @@ dotnet publish -c Release
 
 By default, this places your app files in a folder named `/bin/Release/netcoreapp1.1/publish`. We'll use this output path in [Step 4.1.4](414_Docker.md) when we build a Docker image for our app.
 
-## References
+## 6. References
 
 * [Troubleshooting guide](499_Troubleshooting.md)
 * [.NET Core CLI reference](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/)
