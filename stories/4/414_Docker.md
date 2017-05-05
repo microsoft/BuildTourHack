@@ -1,17 +1,18 @@
 # Task 4.1.4 - Create Docker images
 
-## Prerequisites 
+## 1. Prerequisites 
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) (Stable channel)
 
-### Configuring Docker for Windows
+### a. Configuring Docker for Windows
 
 On Windows, you'll need to share your drive with Docker in order to build images.
 
-1. Open up Docker settings by right-clicking the Docker icon in the taskbar, and choosing Settings
-2. Go to the `Shared Drives` tab and share the C drive ![image of share screen](images/docker-sharedrive.png)
+i) Open up Docker settings by right-clicking the Docker icon in the taskbar, and choosing Settings
 
-## 1. Building Images
+ii) Go to the `Shared Drives` tab and share the C drive ![image of share screen](images/docker-sharedrive.png)
+
+## 2. Building Images
 
 To build a Docker images, we need to create a `Dockerfile` for each of our 3 apps. In the root of each app, create a new file named `Dockerfile` and update with the following contents. Note, in some editors like Visual Studio 2017, you may need to create a new text file, then remove the .txt extension.
 
@@ -84,7 +85,7 @@ An explanation of what's going on here:
 | `-t ordersapi:1` | tell Docker the image has the name `ordersapi` and the tag `1` <br/> Note: in Docker, tags are used as version numbers |
 | `./ordersapi` | where to find the Dockerfile to be built |
 
-### 2. Running locally on Docker
+## 3. Running locally on Docker
 
 You're ready to run your apps on your local Docker host. In a terminal:
 
@@ -150,13 +151,13 @@ docker stop ordersapi productsapi shippingapp
 docker rm ordersapi productsapi shippingapp
 ```
 
-## Deploying to a Docker Registry
+## 4. Deploying to a Docker Registry
 
 So far, we've developed a few applications, packaged them in Docker images, and have tested them in a production-like environment by running them inside a container on our local computer. To get our apps running in the cloud, our next step is to push our images to a Docker registry.
 
 We're going to create a private registry to hold our images, using [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro). We'll do this for a few reasons. First, we want to make sure our images aren't available to just anyone on the Internet. We want to be able to control access to our images! We also want our images to be available in the same region as our compute resources for quick deployments.
 
-### <a id="acr"></a> 1. Create an Azure Container Registry
+### <a id="acr"></a> a. Create an Azure Container Registry
 
 Using the Azure Cloud Shell, set up some variables for your registry. These will be specific to you:
 
@@ -181,7 +182,7 @@ Execute the following command to get the admin password for your newly created r
 az acr credential show -n $ACR_NAME -g $RESOURCE_GROUP
 ```
 
-### 2. Connect to Your Registry
+### b. Connect to Your Registry
 
 Hop back over to a local terminal. Let's login to our registry so we can push some images. Run the following command, using either the `password` or `password2` result from the previous command as your password:
 
@@ -189,7 +190,7 @@ Hop back over to a local terminal. Let's login to our registry so we can push so
 docker login -u $ACR_NAME -p <your password> $ACR_NAME.azurecr.io
 ```
 
-### 3. Push an Image
+### c. Push an Image
 
 We've already got some tagged images, and now we need to tell Docker that they're associated with our newly created registry. We'll specify the `knowzy` namespace before we push them to keep these apps grouped together. This is as simple as adding another tag for our existing images, using the following commands.
 
@@ -214,7 +215,7 @@ az acr repository list -n $ACR_NAME
 az acr repository show-tags -n $ACR_NAME --repository knowzy/ordersapi
 ```
 
-## References
+## 4. References
 
 * [Troubleshooting guide](499_Troubleshooting.md)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)

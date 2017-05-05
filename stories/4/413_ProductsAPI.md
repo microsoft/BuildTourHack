@@ -24,7 +24,7 @@ Like before, we'll package our app into the `/bin/Release/netcoreapp1.1/publish`
 dotnet publish -c Release
 ```
 
-## References
+## 4. References
 
 * [Troubleshooting guide](499_Troubleshooting.md)
 * [Step 4.1.2 - Orders API](412_OrdersAPI.md)
