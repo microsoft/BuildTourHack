@@ -1,16 +1,16 @@
 # Task 4.1.1 - Create a shared DocumentDB to store all data
 
-## Pre-Requisites
+## 1. Pre-Requisites
 
-* Access to azure subscription.
+* You'll need access to an azure subscription.
 
-## Working with Cloud Shell
+### a. Working with Cloud Shell
 
 Azure Cloud Shell comes with the Azure CLI already configured, which makes setup straightforward. We'll be using Azure Cloud Shell throughout, so to get started we need to get Cloud Shell pointed toward the subscription we want to work with.
 
-1. Access Azure Cloud Shell using the `>_` Icon in the top right corner of the portal.
+i) Access Azure Cloud Shell using the `>_` Icon in the top right corner of the portal.
 
-2. Point to your Azure subscription
+ii) Point to your Azure subscription
 
     If you have more than one subscription in your azure portal, its a good idea to first check which one your CLI is pointed to, the command for this is:
 
@@ -20,33 +20,33 @@ Azure Cloud Shell comes with the Azure CLI already configured, which makes setup
 
         az account set --subscription <SubscriptionId>
 
-## Create a resource group 
+### b. Create a resource group 
 
 We need to create a resource-group to ring-fence all of our work, we'll start out by storing a couple of variables we're going to use again in our shell. _(Note; many resources within Azure require a unique name, as such we reccomend you use the guidelines in the published [naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions))_
 
-### 1. First store the name you want to use for your resource group:
+### c. First store the name you want to use for your resource group:
 Resource group names must be globally unique within azure, so make sure its both memorable, and specific to you and your project.
 
     RESOURCE_GROUP=<unique name>
 
 
-### 2. Then the location we're going to create it in _(for our example you should pick from: 'eastus', 'westeurope' or 'southeastasia')_
+### d. Then the location we're going to create it in _(for our example you should pick from: 'eastus', 'westeurope' or 'southeastasia')_
 
     LOCATION=eastus
 
-### 3. Create our new resource group within our current subscription:
+### e. Create our new resource group within our current subscription:
 ```bash 
     az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-## Create and initialise DocumentDB
+## 2. Create and initialise DocumentDB
 
-### 1. Store the name of our database:
+### a. Store the name of our database:
 Like resource group names, DocumentDB names must be globally unique within azure, so again we should select something specific.
 
     DOCUMENTDB_NAME = <unique database name>
 
-### 2. Create the DocumentDb instance
+### b. Create the DocumentDb instance
 We can now go ahead and use the Azure CLI within the Cloud Shell to create our DocumentDB Instance.
 
     az documentdb create -g $RESOURCE_GROUP -n $DOCUMENTDB_NAME --locations "EAST US2"=0
@@ -55,9 +55,9 @@ This command will take some time to complete. You'll know it's succeeded when th
 
 ![image of share screen](images/DocDbCreateSuccess.jpg)
 
-### 3. Create our collections within the documentDB
+### c. Create our collections within the documentDB
 Once your db is created, select your new documentdb instance within the portal
 
 
-## References
+## 3. References
 [DocumentDB Migration Tool Download](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
