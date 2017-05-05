@@ -2,6 +2,7 @@
 
 ## 1. Pre-Requisites
 
+* You should download and extract the [DocumentDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
 * You'll need access to an azure subscription.
 
 ### a. Working with Cloud Shell
@@ -55,8 +56,69 @@ This command will take some time to complete. You'll know it's succeeded when th
 
 ![image of share screen](images/DocDbCreateSuccess.jpg)
 
-### c. Create our collections within the documentDB
-Once your db is created, select your new documentdb instance within the portal
+### c. Import data into collections
+For this step we'll need to use the [DocumentDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436) that you should have already downloaded and extracted.
+
+We're going to perform the following steps for 3 collections we need to add to Azure; [Customers](reference/customers.json), [Products](reference/products.json) and [Orders](reference/orders.json). For convenience sake you can download a zip file containing all three: [Here](reference/HackSchemas.zip).
+
+i) Load up the UI version of the data migration tool by running 'dtui.exe'
+
+![DTUI Exe in folder](images/dt1.7Folder.jpg)
+
+ii) You should be greeted with the following screen below, we can just click 'Next' for now.
+
+![DTUI Welcome Screen](images/dtscreen1.jpg)
+
+iii) This is the 'Source Information' screen where we specify the information source for our import, select the JSON file for the collection you want to import (We'll use customers.json for our example) then click next to move on.
+
+![DTUI Source Screen](images/dtscreen2.jpg)
+
+iv) You should be presented with a screen that looks like below, the 'Target Information' screen, where specify information about the destination of our import. First set the 'Export to' option to: 'DocumentDB - Sequential record import (partitioned collection).
+
+![DTUI Target Screen](images/dtscreen3.jpg)
+
+v) We'll need to retrieve our 'Connection String' from the Azure Portal. Open the portal, and select your DocumentDB Instance, then click on 'Keys' and select 'Read/Write Keys' and click the button next to 'PRIMARY CONNECTION STRING' to copy it to your clipboard.
+
+![Azure Portal DocDB Keys Blade](images/DocDBPortalKeys.jpg)
+
+vi) Go back to the DocumentDB Data Migration Tool and paste the value into the box for the connection string. The importer also requires that you specify the database you'll be importing to so add the following string with the name of your database (which you defined in step 2a) to the end of the connection string you just pasted:
+
+    Database=<your documentdb name>
+
+So you have something that looks like this:
+
+![DTUI Target Screen](images/dtscreen3filled.jpg)
+
+v) Click the 'verify' button, and you should get confirmation that the importer can successfully connect to your DocumentDB. Which should look like this:
+
+![DTUI Target screen verified](images/dtscreen3verified.jpg)
+
+vi) Now we need to specify the other parameters for the new collection, complete the rest of the form as below:
+
+* Collection: [name of collection] - _This is the name of the collection that will be created, you should choose from (orders, customers or products) dependent which import you are completing, we chose customers.json so our collection is 'customers'_>
+* Partition Key: /[partition key] - _This is the partition key that will be applied to the collection, for customers and orders we do this for '/companyName' for products we use '/category', be careful of case sensitivity here!
+* Collection Throughput: 400 - _This is the preset throughput to configure the collection for, we want to keep costs down during dev, so we should change this from 1000 (the default) to 400.
+* Id Field: id - _This is the ID field of the schema, for sake of simplicity we've made them all 'id' (case sensitive), but this is customisable in more advanced scenarios.
+
+Once your form looks as below, then we're ready to click next!
+
+![DTUI Complete Target Screen](images/dtscreen3complete.jpg)
+
+vii) Click 'Next' on the 'Advanced' settings screen, we want our errors to show in the tool UI so we don't need to specify anything here. Then you should be presented with a screen that looks like this:
+
+![DTUI Confirm Import Screen](images/dtscreen4.jpg)
+
+viii) Carefully review the import settings, and when you're satisfied click 'Import', if the import fails, errors will be displayed in the UI. All being well, your import will succeed and you'll see a screen simmilar to:
+
+![DTUI Import Complete](images/ImportComplete.jpg)
+
+ix) You can now return to the portal, select your DocumentDB Instance, and click on 'Document Explorer' to explore your new schema.
+
+![Azure Portal Document Explorer](images/DocumentExplorer.jpg)
+
+x) To import the other two collections (products and orders in our example given here), simply click 'New Import' and follow steps (ii) through (ix) using the next JSON file and schema Name for your chosen collection.
+
+![DTUI New Import](images/NewImport.jpg)
 
 
 ## 3. References
