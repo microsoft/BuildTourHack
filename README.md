@@ -42,6 +42,9 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
         * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location (d. 3.3.1)
         * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
+    * **Deliverable** - Set up Continuous Integration and Deployment
+        * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment using Visual Studio Mobile Center
+        * [3.4.2][342] [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
