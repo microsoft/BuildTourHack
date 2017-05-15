@@ -94,3 +94,8 @@ If you are blocked, a representative from the leadership team is always there to
 [413]: stories/4/413_ProductsAPI.md
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
+
+[511]: stories/5/511_Paint3d.md
+[512a]: stories/5/512a_Unity.md
+[512b]: stories/5/512b_Babylon.md
+[521]: stories/5/521_MR.md

@@ -1,4 +1,4 @@
-# Task 5.1.1 - Create the model in Paint3D
+# Task 5.1.2a - Create a Unity solution to visualize 3D Model
 
 ## Prerequisites 
 
