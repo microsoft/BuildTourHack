@@ -53,6 +53,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
         * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
         * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
+        * [4.1.6][416] - Configure VSTS to  (d. 4.1.5)
       
 5. **User Story** - Our executives have a way to visualize the products in 3D
    * **Deliverable** - Build a UWP 3D Visualizer
@@ -94,6 +95,7 @@ If you are blocked, a representative from the leadership team is always there to
 [413]: stories/4/413_ProductsAPI.md
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
+[415]: stories/4/415_DevopsChallenge.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
