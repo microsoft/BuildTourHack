@@ -4,10 +4,10 @@ There are four User Stories that we are focusing on for this iteration. Each Use
 
 User stories are self contained, they do not have dependencies to other stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
-If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out. 
+If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out.
 
 
-1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties 
+1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
         * [1.1.1][111] [Committed] - Create Service Worker
         * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
@@ -56,6 +56,7 @@ If you are blocked, a representative from the leadership team is always there to
     * **Challenge** - Rub a little DevOps on it.
         * [4.2][420] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5)
 
+
 5. **User Story** - Our executives have a way to visualize the products in 3D
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
@@ -90,6 +91,8 @@ If you are blocked, a representative from the leadership team is always there to
 [331]: stories/3/331_CognitiveServices.md
 [332]: stories/3/332_AzureFunction.md
 [333]: stories/3/333_NoseAnalysys.md
+[341]: stories/3/341_CICD.md
+[342]: stories/3/342_EventLogging.md
 
 [411]: stories/4/411_DocumentDB.md
 [412]: stories/4/412_OrdersAPI.md

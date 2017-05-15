@@ -13,7 +13,7 @@ i) Access Azure Cloud Shell using the `>_` Icon in the top right corner of the p
 
 ii) Point to your Azure subscription
 
-    If you have more than one subscription in your azure portal, its a good idea to first check which one your CLI is pointed to, the command for this is:
+    If you have more than one subscription in your azure portal, it's a good idea to first check which one your CLI is pointed to.  The command for this is:
 
         az account show
 
@@ -21,9 +21,13 @@ ii) Point to your Azure subscription
 
         az account set --subscription <SubscriptionId>
 
+    You can list out all subscriptions you have access to using:
+
+        az account list
+
 ### b. Create a resource group 
 
-We need to create a resource-group to ring-fence all of our work, we'll start out by storing a couple of variables we're going to use again in our shell. _(Note; many resources within Azure require a unique name, as such we reccomend you use the guidelines in the published [naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions))_
+We need to create a resource-group to ring-fence all of our work, we'll start out by storing a couple of variables we're going to use again in our shell. _(Note; many resources within Azure require a unique name, as such we recommend you use the guidelines in the published [naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions))_
 
 ### c. First store the name you want to use for your resource group:
 Resource group names must be globally unique within azure, so make sure its both memorable, and specific to you and your project.
@@ -96,9 +100,9 @@ v) Click the 'verify' button, and you should get confirmation that the importer 
 vi) Now we need to specify the other parameters for the new collection, complete the rest of the form as below:
 
 * Collection: [name of collection] - _This is the name of the collection that will be created, you should choose from (orders, customers or products) dependent which import you are completing, we chose customers.json so our collection is 'customers'_>
-* Partition Key: /[partition key] - _This is the partition key that will be applied to the collection, for customers and orders we do this for '/companyName' for products we use '/category', be careful of case sensitivity here!
+* Partition Key: /[partition key] - _This is the partition key that will be applied to the collection, for customers and orders we do this for '/companyName' for products we use '/category', be careful of case sensitivity here!_
 * Collection Throughput: 400 - _This is the preset throughput to configure the collection for, we want to keep costs down during dev, so we should change this from 1000 (the default) to 400.
-* Id Field: id - _This is the ID field of the schema, for sake of simplicity we've made them all 'id' (case sensitive), but this is customisable in more advanced scenarios.
+* Id Field: id - _This is the ID field of the schema, for sake of simplicity we've made them all 'id' (case sensitive), but this is customisable in more advanced scenarios._
 
 Once your form looks as below, then we're ready to click next!
 
@@ -108,7 +112,7 @@ vii) Click 'Next' on the 'Advanced' settings screen, we want our errors to show 
 
 ![DTUI Confirm Import Screen](images/DTScreen4.JPG)
 
-viii) Carefully review the import settings, and when you're satisfied click 'Import', if the import fails, errors will be displayed in the UI. All being well, your import will succeed and you'll see a screen simmilar to:
+viii) Carefully review the import settings, and when you're satisfied click 'Import', if the import fails, errors will be displayed in the UI. All being well, your import will succeed and you'll see a screen similar to:
 
 ![DTUI Import Complete](images/ImportComplete.JPG)
 
