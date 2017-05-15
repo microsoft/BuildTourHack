@@ -48,12 +48,12 @@ If you are blocked, a representative from the leadership team is always there to
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
-        * [4.1.1][411] - Create a shared DocumentDB to store all data
-        * [4.1.2][412] - Create API endpoint for shipping services (d. 4.1.1)
-        * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
-        * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
-        * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
-        * [4.1.6][416] - Configure VSTS to  (d. 4.1.5)
+        * [4.1.1][411] [Committed] - Create a shared DocumentDB to store all data
+        * [4.1.2][412] [Committed] - Create API endpoint for shipping services (d. 4.1.1)
+        * [4.1.3][413] [Committed] - Create API endpoint for product services (d. 4.1.1)
+        * [4.1.4][414] [Committed] - Create Docker images (d. 4.1.2, 4.1.3)
+        * [4.1.5][415] [Committed] - Configure Kubernetes and publish to Azure (d. 4.1.4)
+        * [4.1.6][416] [Proposed] - Configure VSTS to  (d. 4.1.5)
       
 5. **User Story** - Our executives have a way to visualize the products in 3D
    * **Deliverable** - Build a UWP 3D Visualizer
