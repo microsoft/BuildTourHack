@@ -39,6 +39,6 @@ At the end of this challenge you should be able to have the follow these steps a
 1. Do a request into your freshly deployed API and verify that your new changes are up and running.
 
 
-[414]: stories/4/414_Docker.md
+[414]: /stories/4/414_Docker.md
 
 
