@@ -89,13 +89,15 @@ If you are blocked, a representative from the leadership team is always there to
 [331]: stories/3/331_CognitiveServices.md
 [332]: stories/3/332_AzureFunction.md
 [333]: stories/3/333_NoseAnalysys.md
+[341]: stories/3/341_CICD.md
+[342]: stories/3/342_EventLogging.md
 
 [411]: stories/4/411_DocumentDB.md
 [412]: stories/4/412_OrdersAPI.md
 [413]: stories/4/413_ProductsAPI.md
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
-[415]: stories/4/415_DevopsChallenge.md
+[416]: stories/4/415_DevopsChallenge.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
