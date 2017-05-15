@@ -53,6 +53,14 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
         * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
         * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
+      
+5. **User Story** - Our executives have a way to visualize the products in 3D
+   * **Deliverable** - Build a UWP 3D Visualizer
+      * [5.1.1][511] - [Committed] Create the model in Paint3D
+      * [5.1.2a][512a] - [Committed] Create a Unity solution to visualize 3D Model (d 5.1.1) or
+      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1)
+   * **Deliverable** - Visualize noses in VR
+      * [5.2.1][521] - [Proposed] Retarget UWP app to Mixed Reality Platform (d 5.1.2)
 
 
 
