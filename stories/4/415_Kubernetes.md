@@ -31,17 +31,17 @@ iv) Create the cluster using the Azure CLI along with values we stored.
 
     We'll also add the `--generate-ssh-keys` parameter which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory.
 
-    _(Note: These keys are needed to grant access to the cluster, and will be stored in the cloudshell storage, which is why Cloud Shell persistent storage is required as a prerequisite, as ending your Cloud Shell session will otherwise lose your key files forever. If you did not set up [persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md), then now is the time to do so.)_
+    (Note: These keys are needed to grant access to the cluster, and will be stored in the cloudshell storage, which is why Cloud Shell persistent storage is required as a prerequisite, as ending your Cloud Shell session will otherwise lose your key files forever. If you did not set up [persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md), then now is the time to do so.)
 
-    ```bash
-    az acs create --orchestrator-type=kubernetes --agent-vm-size Standard_A1 --resource-group $RESOURCE_GROUP --name=$ACS_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
-    ```
+```bash
+az acs create --orchestrator-type=kubernetes --agent-vm-size Standard_A1 --resource-group $RESOURCE_GROUP --name=$ACS_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+```
 
 v) Get the config from Kubernetes into your Cloud Terminal session so that we can send commands to it with `kubectl` we can do this with the following command:
 
-    ```bash
-    az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$ACS_NAME
-    ```
+```bash
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$ACS_NAME
+```
 
 vi) Verify that `kubectl` is talking to the cluster.
 
@@ -53,36 +53,36 @@ i) Store the name of your Azure Container Registry
 
     This registry was generated in step [4.1.4](./414_Docker.md#acr), and is where the container-images containing the apps and services we want to deploy should be located.
 
-    ```bash
-    ACR_NAME=<name of registry that contains your images>
-    ```
+```bash
+ACR_NAME=<name of registry that contains your images>
+```
 
 ii) Deploy your two services from their respective Docker images.
 
     We can deploy by telling kubernetes to get the docker images and deploy them, using the run command in `kubectl`, we're passing the `--env` parameter, to tell the container images the connection string for your data-store, so the running services once deployed know how to connect to the DocumentDB.
 
-    ```bash
-    kubectl run --image=$ACR_NAME.azurecr.io/knowzy/ordersapi:1 --env "DOCDB_CONNSTRING=<your connection string>"
-    kubectl run --image=$ACR_NAME.azurecr.io/knowzy/productsapi:1 --env "DOCDB_CONNSTRING=<your connection string>"
-    ```
+```bash
+kubectl run --image=$ACR_NAME.azurecr.io/knowzy/ordersapi:1 --env "DOCDB_CONNSTRING=<your connection string>"
+kubectl run --image=$ACR_NAME.azurecr.io/knowzy/productsapi:1 --env "DOCDB_CONNSTRING=<your connection string>"
+```
 
 iii) Deploy your webapp from the Docker image.
 
-    We deploy the same way as above, but we dont need the --env parameter, as the front end web application should have no direct access to the DocumentDB.
+    We deploy the same way as above, but we don't need the --env parameter, as the front end web application should have no direct access to the DocumentDB.
 
-    ```bash
-    kubectl run --image=$ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
-    ```
+```bash
+kubectl run --image=$ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
+```
 
 iv) Expose each of your applications
 
     All that remains is to expose your applications to the outside world by telling Kubernetes which ports to make available to the deployments we've pushed to the cluster.
 
-    ```bash
-    kubectl expose deployment ordersapi --port=80
-    kubectl expose deployment productsapi --port=80 --type=LoadBalancer
-    kubectl expose deployment shippingwebapp --port=80 --type=LoadBalancer
-    ```
+```bash
+kubectl expose deployment ordersapi --port=80
+kubectl expose deployment productsapi --port=80 --type=LoadBalancer
+kubectl expose deployment shippingwebapp --port=80 --type=LoadBalancer
+```
 
 ## 3. References
 
