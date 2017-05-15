@@ -4,10 +4,10 @@ There are four User Stories that we are focusing on for this iteration. Each Use
 
 User stories are self contained, they do not have dependencies to other stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
-If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out. 
+If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out.
 
 
-1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties 
+1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
         * [1.1.1][111] [Committed] - Create Service Worker
         * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
@@ -48,13 +48,15 @@ If you are blocked, a representative from the leadership team is always there to
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
-        * [4.1.1][411] [Committed] - Create a shared DocumentDB to store all data
-        * [4.1.2][412] [Committed] - Create API endpoint for shipping services (d. 4.1.1)
-        * [4.1.3][413] [Committed] - Create API endpoint for product services (d. 4.1.1)
-        * [4.1.4][414] [Committed] - Create Docker images (d. 4.1.2, 4.1.3)
-        * [4.1.5][415] [Committed] - Configure Kubernetes and publish to Azure (d. 4.1.4)
-        * [4.1.6][416] [Proposed] - Configure VSTS to  (d. 4.1.5)
-      
+        * [4.1.1][411] - Create a shared DocumentDB to store all data
+        * [4.1.2][412] - Create API endpoint for shipping services (d. 4.1.1)
+        * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
+        * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
+        * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
+    * **Challenge** - Rub a little DevOps on it.
+        * [4.2][420] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5)
+
+
 5. **User Story** - Our executives have a way to visualize the products in 3D
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
@@ -97,7 +99,7 @@ If you are blocked, a representative from the leadership team is always there to
 [413]: stories/4/413_ProductsAPI.md
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
-[416]: stories/4/415_DevopsChallenge.md
+[420]: stories/4/420_DevopsChallenge.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
