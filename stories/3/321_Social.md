@@ -6,9 +6,37 @@ Our users want to be able to share images to their social networks. We want user
 
 This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites
 
+## Task
+
+1. Support sharing content through each platform native share integration (1pt)
+2. Support sharing to Facebook or Twitter directly from the app (min UWP) (1pt)
+
 ## Comments
 
-###### Engineer #4 @ 9:02am
-I've done a but of investigation, and it looks like we can use a [sharing plugin from Xamarin](https://blog.xamarin.com/simplify-sharing-with-plugins-for-xamarin/) to make sharing easier cross platform.
+###### @ 9:02am
+I've done a but of investigation, found this [sharing plugin from Xamarin](https://blog.xamarin.com/simplify-sharing-with-plugins-for-xamarin/) to make sharing easier cross platform.
+
+###### @ 9:23am
+We can use the same method as in [Task 3.1.2](312_Camera.md) to create a sharing class for every platform. Found [this blog](https://xamarinhelp.com/share-dialog-xamarin-forms/) post that does something similar.
+
+###### @ 10:31am
+We can use the UWP Community toolkit to share to [Facebook](http://docs.uwpcommunitytoolkit.com/en/master/services/Facebook/) and/or [Twitter](http://docs.uwpcommunitytoolkit.com/en/master/services/Twitter/) directly on UWP. Sharing to facebook seems super easy:
+
+```csharp
+// Initialize service
+FacebookService.Instance.Initialize("AppID");
+
+// Login to Facebook
+if (!await FacebookService.Instance.LoginAsync())
+{
+    return;
+}
+
+// Post a message with a picture on your wall
+await FacebookService.Instance.PostPictureToFeedAsync("Title", picture.Name, stream);
+```
+
+
+
 
 
