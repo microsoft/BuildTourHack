@@ -26,5 +26,5 @@ Now that you've made an app that works, the CTO would like to ensure higher qual
 * [Visual Studio Mobile Center documentation](https://docs.microsoft.com/en-us/mobile-center/general/support-center)
 
 [311]: /stories/3/311_XamarinForms.md
-[341]: /stores/3/341_CICD_WindowsApp.md
+[341]: /stories/3/341_CICD_WindowsApp.md
 [420]: /stories/4/420_SetupVSTS.md
