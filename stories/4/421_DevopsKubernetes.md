@@ -10,7 +10,7 @@ The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now t
 * This task has a dependency on [Task 4.1.5][415], [Task 4.2.0](420_SetupVSTS.md), and all of their prerequisites.
 * Access to the Azure subscription you used in [Task 4.1.5][415].
 
-## Suggestion on how to accomplish this challenge
+## Task
 
 For the sake of this exercise, **lets focus only on the API code** and any new releases you have. These changes will be tested by VSTS and, pushed into Azure Container Registry (ACR) once all your tests have passed (we won't go into writing tests today). Then VSTS will automatically deploy the latest version of the app into your cluster by obtaining the latest image from ACR.
 

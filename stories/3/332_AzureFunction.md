@@ -10,7 +10,6 @@ This walkthrough assumes that you have:
 * Visual Studio 2017 with the Azure Functions extension installed. If not, make sure you [do that first](http://docs.micrsoft.com) and then come back here.  **TODO:  Update link and text to point to correct extension.**
 
 
-
 ## Task 
 
 1.  In Visual Studio, create a new Azure Functions project.  
