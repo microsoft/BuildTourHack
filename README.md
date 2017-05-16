@@ -44,7 +44,8 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
     * **Deliverable** - Set up Continuous Integration and Deployment
         * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
-        * [3.4.2][342] [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center
+        * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center
+        * [3.4.3][343] [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
