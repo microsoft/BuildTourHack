@@ -53,8 +53,9 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.3][413] - Create API endpoint for product services (d. 4.1.1)
         * [4.1.4][414] - Create Docker images (d. 4.1.2, 4.1.3)
         * [4.1.5][415] - Configure Kubernetes and publish to Azure (d. 4.1.4)
-    * **Challenge** - Rub a little DevOps on it.
-        * [4.2][420] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5)
+    * **Deliverable** - Set up Continuous Delivery
+        * [4.2.0][420] - Set up Visual Studio Team Services
+        * [4.2.1][421] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
 
 
 5. **User Story** - Our executives have a way to visualize the products in 3D
@@ -99,7 +100,8 @@ If you are blocked, a representative from the leadership team is always there to
 [413]: stories/4/413_ProductsAPI.md
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
-[420]: stories/4/420_DevopsChallenge.md
+[420]: stories/4/420_SetupVSTS.md
+[421]: stories/4/421_DevopsKubernetes.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
