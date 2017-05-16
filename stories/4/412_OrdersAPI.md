@@ -11,9 +11,11 @@
 From the command line or Windows Explorer create a new folder called `APIs` to the `src\2. Services` folder of the solution.
 
 Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder, and create a new `ASP.NET Core` project to it in that folder:
+
 ![Add new ASP.NET Core Project](images/AddNewApiProject.png)
 
 Choose Web API for the project type, and leave the other options as they are (we will add Docker support later):
+
 ![New Web API Project](images/NewApiProject.png)
 
 Note: you can also use [the dotnet cli to create a new .NET Core WebAPI project as documented here](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc).
@@ -68,6 +70,7 @@ SET COSMOSDB_KEY=<your cosmosdb account key>
 ```
 
 If running from Visual Studio 2017, add these values to the Environment Variables section of the `Microsoft.Knowzy.OrdersAPI` project properties:
+
 ![Add Environment Variables in Visual Studio](images/AddEnvVars.png)
 
 To use these environment variables in our code, we'll just pass the entire configuration object down to a new data access class.
@@ -88,7 +91,7 @@ Now let's connect our solution to CosmosDB. Add a Nuget package reference to the
 Add a new folder called `Data` to the `Microsoft.Knowzy.OrdersAPI` project. This folder will have the classes that interact with your CosmosDB data store. 
 
 Add a new interface called `IOrdersStore.cs` to the `Data` folder and populate it with:
-```
+```csharp
 using System;
 using System.Threading.Tasks;
 
@@ -103,7 +106,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 
 Add a new class called `OrdersStore.cs` to the `Data` folder and populate it with a method to check if it can connect to CosmosDB. Make sure to update the Document Collection database and name to matchin the code yours:
 
-```
+```csharp
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -119,7 +122,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
         {
             var EndpointUri = config["COSMOSDB_ENDPOINT"];
             var PrimaryKey = config["COSMOSDB_KEY"];
-            _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+			 _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 			 //Make sure the below values match your set up
 			 _ordersLink = UriFactory.CreateDocumentCollectionUri("buildtourdb", "orders");
         }
@@ -170,7 +173,7 @@ public void ConfigureServices(IServiceConnection services)
 ```
 
 To test it out, on your `ValuesController.cs` file update it as follows:
-```
+```diff
    public class ValuesController : Controller
 {
 +        private IOrdersStore _ordersStore;
@@ -192,7 +195,7 @@ To test it out, on your `ValuesController.cs` file update it as follows:
   }
 ```
 
-If you now run and call /api/values/5 on your API you should see `We are connected to CosmosDB! and your value is 5` returned.
+If you now run and call `/api/values/5` on your API you should see `We are connected to CosmosDB! and your value is 5` returned.
 
 ### 4. Implement the Orders API
 
@@ -241,7 +244,7 @@ Edit the `ValuesController.cs` class in the `Controllers` folder to return all o
         }
 ```
 
-Now, when you run and browse your API to /api/values you should get an array with all the orders in the CosmosDB `orders` collection.
+Now, when you run and browse your API to `/api/values` you should get an array with all the orders in the CosmosDB `orders` collection.
 
 Now use this same logic and implement the rest of the Orders API methods needed by the website:
 - Get a specific order by order id
