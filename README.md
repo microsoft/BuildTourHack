@@ -63,7 +63,7 @@ If you are blocked, a representative from the leadership team is always there to
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
       * [5.1.2a][512a] - [Committed] Create a Unity solution to visualize 3D Model (d 5.1.1) or
-      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1)
+      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1) - sebastien
    * **Deliverable** - Visualize noses in VR
       * [5.2.1][521] - [Proposed] Retarget UWP app to Mixed Reality Platform (d 5.1.2)
 
