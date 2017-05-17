@@ -236,7 +236,9 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 ...
 +        public IEnumerable<Domain.Receiving> GetAllOrders()
 +        {
-+            var orders = _client.CreateDocumentQuery<Domain.Receiving>(_ordersLink);
++           FeedOptions options = new FeedOptions();
++           options.EnableCrossPartitionQuery = true;
++            var orders = _client.CreateDocumentQuery<Domain.Receiving>(_ordersLink, options);
 +            if (orders != null && orders.Count() > 0)
 +                return orders;
 +            else
