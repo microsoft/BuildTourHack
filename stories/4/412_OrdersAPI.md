@@ -1,16 +1,20 @@
 # Task 4.1.2 - Create API endpoint for shipping services
 
+Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a service based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+
 ## Prerequisites 
 
+* This task has a dependency on [Task 4.1.1][411] and all of its prerequisites.
 * [.NET Core SDK 1.1](https://www.microsoft.com/net/download/core)
+
 
 ## Creating a .NET Core App
 
 ### 1. Create a New WebAPI Project
 
-From the command line or Windows Explorer create a new folder called `APIs` to the `src\2. Services` folder of the solution.
+From the command line or Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
 
-Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder, and create a new `ASP.NET Core` project to it in that folder:
+Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new **solution** folder called `APIs` to the `2. Services` folder, and create a new `ASP.NET Core` project to it in that folder:
 
 ![Add new ASP.NET Core Project](images/AddNewApiProject.png)
 
@@ -91,6 +95,7 @@ Now let's connect our solution to CosmosDB. Add a Nuget package reference to the
 Add a new folder called `Data` to the `Microsoft.Knowzy.OrdersAPI` project. This folder will have the classes that interact with your CosmosDB data store. 
 
 Add a new interface called `IOrdersStore.cs` to the `Data` folder and populate it with:
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -104,7 +109,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 }
 ```
 
-Add a new class called `OrdersStore.cs` to the `Data` folder and populate it with a method to check if it can connect to CosmosDB. Make sure to update the Document Collection database and name to matchin the code yours:
+Add a new class called `OrdersStore.cs` to the `Data` folder and populate it with a method to check if it can connect to CosmosDB. Make sure to update the Document Collection database and name to match the yours:
 
 ```csharp
 using System;
@@ -162,6 +167,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 ```
 
 Modify `Startup.cs` and register our data access with the list of services:
+
 ```diff
 public void ConfigureServices(IServiceConnection services)
 {
@@ -173,6 +179,7 @@ public void ConfigureServices(IServiceConnection services)
 ```
 
 To test it out, on your `ValuesController.cs` file update it as follows:
+
 ```diff
    public class ValuesController : Controller
 {
@@ -204,6 +211,7 @@ Now it's time to implement the endpoints for the Orders API, running the API as 
 In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API.
 
 Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
+
 ```diff
     public interface IOrdersStore : IDisposable
     {
@@ -213,6 +221,7 @@ Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
     }
 ``` 
 And edit the `OrdersStore.cs` class to implement that method to return all orders:
+
 ```diff
 ...
 + using System.Linq;
@@ -226,7 +235,9 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +                return null;
 +        }
 ```
+
 Edit the `ValuesController.cs` class in the `Controllers` folder to return all orders in the Get method:
+
 ```diff
 ...
 + using Microsoft.Knowzy.OrdersAPI.Data;
@@ -255,12 +266,14 @@ Now use this same logic and implement the rest of the Orders API methods needed 
 Now that we've got a working API app, let's package up all of our required files into a single folder for easy distribution. This time, we'll specify the Release configuration. 
 
 In a terminal, run:
+
 ```bash
 dotnet publish -c Release
 ```
+
 Or from Visual Studio, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
 
-By default, this places your app files in a folder named `/bin/Release/netcoreapp1.1/publish` or `bin/Release/PublishOutput`. We'll use this output path in [Step 4.1.4](414_Docker.md) when we build a Docker image for our app.
+By default, this places your app files in a folder named `/bin/Release/netcoreapp1.1/publish` or `bin/Release/PublishOutput`. We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
 
 ## 6. References
 
@@ -269,3 +282,6 @@ By default, this places your app files in a folder named `/bin/Release/netcoreap
 * [Introduction to ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/)
 * [Configuration in .NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 * [Azure Cosmos DB: Getting started with the DocumentDB API and .NET Core](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-dotnetcore-get-started)
+
+[411]: /stories/4/411_DocumentDB.md
+[414]: /stories/4/414_Docker.md
