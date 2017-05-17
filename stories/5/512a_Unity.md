@@ -1,6 +1,6 @@
 # Task 5.1.2a - Create a Unity solution to visualize 3D Model
 Now that we have a proper 3D model of our nose prototype, we can start rendering it in real-time through a UWP. To create the UWP, we use the Unity 3D rendering engine.
-Unity 3D got built-in support for loading FBX, so all we need to do is to load the moderl, add it to a scene and export it as a UWP. This allows us to properly simulate how our prototypes looks in the real world!
+Unity 3D got built-in support for loading FBX, so all we need to do is to load the model, add it to a scene and export it as a UWP. This allows us to properly simulate how our prototypes looks in the real world!
 
 ## Prerequisites 
 
@@ -13,24 +13,24 @@ This walkthrough assumes that you have:
 
 #### Creating a new project
 1. Launch Unity 3D using the Windows Start Menu. When the Unity 3D Project dialogue shows, click NEW.
-2. In the Create New Project dialogue, give the project a proer name like "Nose3D", select the 3D toggle and where you want it before clicking [Create project].
+2. In the Create New Project dialogue, give the project a proper name like "Nose3D", select the 3D toggle and where you want it before clicking [Create project].
 
     ![3D objects tool](images/512a_1.png)
 
-3. Unity will spend a few seconds on generating the new project on your hardrive. When done, you will see a default blank Unity 3D project.
+3. Unity will spend a few seconds on generating the new project. When done, you will see a default blank Unity 3D project.
 4. Let's save the empty scene first by using **CTRL+S** or **File->Save Scenes** and name it **Main.unity**. Save it directly in the new projects default Assets-folder.
-5. Unity 3D is a complex 3D engine, but for rendering our 3D nose we will just have to touch some of the basics. Congratulations, you now have a new shiny Unity 3D project!
+5. Unity 3D is a complex 3D engine, but for rendering our 3D nose we have to touch some of the basics.
 
 **The interface:**
 
 ![3D objects tool](images/512a_2.png)
 
-The Unity 3D interface got 5 main parts. The big 3D view is your scene. There are a couple of tabs above this scene named Scene and Game. Scene is where you will be working, and the Game tab is where you can see how the Game looks when you press Play.
+The Unity 3D interface has 5 main parts. The big 3D view is your scene. There are a couple of tabs above this scene named Scene and Game. Scene is where you will be working, and the Game tab is where you can see how the Game looks when you press Play.
 
-The hierarchy is where you can see all objects currently in your scene. If your Main scene is collapesed, click the triangle to expand its content (just a normal tree-view). By default, the scene got a camera (what you see through in the Game tab), and a Directional Light (think of this as the sun).
+The hierarchy is where you can see all objects currently in your scene. If your Main scene is collapsed, click the triangle to expand its content (just a normal tree-view). By default, the scene got a camera (what you see through in the Game tab), and a Directional Light (think of this as the sun).
 This is where we will be adding our own objects to build up the scene. Each of these items is a GameObject.
 
-The Project tab contains the entire projects file structure. Everything you work with needs to be in the Default Assets folder. Inside this folder you are free to do everything you want to build up your own folder structure.
+The Project tab contains the entire projects file structure. Everything you work with needs to be in the default Assets folder. Inside this folder you are free to do everything you want to build up your own folder structure.
 
 The Inspector tab contains all the properties of a selected GameObject. If you select the Main Camera GameObject from the Hierarchy, you can see all components and properties attached to this GameObject. This is the way objects are built in Unity. a combination of different components create and defines a GameObjects purpose.
 
@@ -47,7 +47,7 @@ Next we will have to load the 3D nose model we created earlier.
 
     ![3D objects tool](images/512a_4.png)
 
-4. Now drag the nose into the scene hierarchy (release it on the great area) to place it in the center.
+4. Now drag the nose into the scene hierarchy (release it on the gray area) to place it in the scene.
 5. You should see the Nose in the Herarchy View, but it might not be visible in the scene view. Having the GameObject selected, hover the mouse over the scene view window and press **F** on the keyboard to focus on the object. You should now see it.
     
     ![3D objects tool](images/512a_5.png)
@@ -56,7 +56,7 @@ Next we will have to load the 3D nose model we created earlier.
 
     ![3D objects tool](images/512a_6.png)
 
-6. There are some issues:
+6. There are some issues we need to solve:
     * The scale is different between Unity and Paint 3D, so the object we imported is very big.
     * The origo for the polygons in the 3D model got an offset from center of the GameObject.
     * The color is a bit dark
@@ -86,11 +86,11 @@ Next we will have to load the 3D nose model we created earlier.
 
     ![3D objects tool](images/512a_12.png)
 
-    When we imported the object, it automatically generated a Material, set the texture to what we made in Paint 3D and assigned it to the model in Unity. The property that allows us to control the texture is the Albedo property inder Main Maps on the Material. You can see the texture next to it in a miniature thumbnail. Next to this property you can see a gray color. This is multiplied with the texture, thus darkening it. Set this color to white to fix the dark coloring issues. Feel free to play around with the metallic and smoothness settings to give it a metallic or matte look based on your preference.
+    When we imported the object, it automatically generated a Material, set the texture to what we made in Paint 3D and assigned it to the model in Unity. The property that allows us to control the texture is the Albedo property under Main Maps on the Material. You can see the texture next to it in a miniature thumbnail. Next to this property you can see a gray color. This is multiplied with the texture, thus darkening it. Set this color to white to fix the dark coloring issues. Feel free to play around with the metallic and smoothness settings to give it a metallic or matte look based on your preference.
 
     ![3D objects tool](images/512a_13.png)
 
-9. With the issues fixed, the color now looks more natural, the object got a better size and is centered.
+9. With the issues fixed, the color now looks more natural, the object has a better size and is centered.
 
     ![3D objects tool](images/512a_14.png)
 
@@ -99,7 +99,7 @@ Next we will have to load the 3D nose model we created earlier.
     ![3D objects tool](images/512a_15.png)
 
 #### Making the nose rotate
-To make this look less like an image, we will create a custom component using C# to make the nose rotate.
+To make this look less static, we will create a custom component using C# to make the nose rotate.
 1. Under Assets, create a new folder named Scripts:
 
     ![3D objects tool](images/512a_16.png)
@@ -117,7 +117,7 @@ To make this look less like an image, we will create a custom component using C#
     ![3D objects tool](images/512a_19.png)
 
 5. Double click the NoseRotator script in the Project view to edit the code. You can use the Unity Preferences (**Edit->Preferences**) to set what Editor you want to use. I set it up to use Visual Studio.
-6. The script got two functions by default, Start() and Update(). Start is called once when the game launches, and Update() is called every frame.
+6. The script got two functions by default, Start() and Update(). Start is called once when the app launches, and Update() is called every frame.
 Since we will animate this nose, we want to rotate it slightly every time Update is called. In Update(), add the following line:
 
     ```csharp
@@ -162,7 +162,7 @@ The final step is to export our fresh Nose 3D visualizer app as a UWP so we can 
 
     Export it to a new folder somewhere on your PC and press OK to start exporting the project. This will take a minute.
 3. When the export is done, the folder will open in File Explorer. Open the Nose3D.sln solution in Visual Studio.
-4. Change the Build COnfiguration to **Master** and **x64** and build, deploy and run the project.
+4. Change the Build Configuration to **Master** and **x64** and build, deploy and run the project.
 
 ![3D objects tool](images/512a_22.png)
 

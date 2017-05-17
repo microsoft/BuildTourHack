@@ -1,6 +1,6 @@
 # Task 5.1.1 - Create the model in Paint3D
 
-Creating a 3D model of our products will open up a world of oppertunities. We can 3D print prototypes, render them in 3D to visualize how they look, or even see them for ourselves in Virtual Reality!
+Creating a 3D model of our products will open up a world of opportunities. We can 3D print prototypes, render them in 3D to visualize how they look, or even see them for ourselves in Virtual Reality!
 
 3D Paint is a simple tool embedded in Windows 10 Creators Update that allows us to create models. Perfect for this task!
 
@@ -14,7 +14,7 @@ This walkthrough assumes that you have:
 
 #### The Nose 3D model
 
-The first part of this task is to create the Nose 3D model itself, with a base color 
+The first part of this task is to create the Nose 3D model itself, with a base color.
 
 1. Launch **Paint 3D** using the Windows Start Menu. If the Welcome Screen is displayed, dismiss it.
 2. You will see a blank white scene when Paint 3D has launched. This is the canvas you will be working on to create your Knowzy nose prototype.
