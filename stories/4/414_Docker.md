@@ -14,9 +14,23 @@ ii) Go to the `Shared Drives` tab and share the C drive ![image of share screen]
 
 ## 2. Building Images
 
-To build a Docker images, we need to create a `Dockerfile` for each of our 3 apps. In the root of each app, create a new file named `Dockerfile` and update with the following contents. Note, in some editors like Visual Studio 2017, you may need to create a new text file, then remove the .txt extension.
 
-### OrdersApi
+If you have Visual Studio 2017 you can have it create docker files for you by simply:
+* Right click on the Microsoft.Knowzy.WebApp project, select `Add -> Docker Support`, then choose `Linux` and click OK.
+
+![Add Docker Support](images/AddDockerSupport.png)
+![Choose Docker Linux](images/ChooseLinux.png)
+
+This will create a Dockerfile file in your WebApp project, and add a new docker-compose project type to your solution.
+
+* Use the same instructions and add Docker Support to the Microsoft.Knowzy.OrdersAPI project 
+* Use the same instructions and add Docker Support to the Microsoft.Knowzy.ProductsAPI project
+
+In the end you should have Dockerfile in each of those three projects, and all three referenced in your Docker compose project. Now edit each of the docker files for each project to match the Docker File in the next section.
+
+If not using visual Studio you can still create the `Dockerfile` files for each of our 3 apps. In the root of each app, create a new file named `Dockerfile` and update with the following contents. 
+
+### Orders Api
 ```Dockerfile
 # Use the aspnetcore image as a base
 FROM microsoft/aspnetcore:1.1
@@ -34,11 +48,11 @@ ENV ASPNETCORE_URLS http://+:80
 # Expose port 80 from our created container
 EXPOSE 80
 
-# Run our app using "dotnet ordersapi.dll"
-ENTRYPOINT ["dotnet", "ordersapi.dll"]
+# Run our app using "dotnet Microsoft.Knowzy.OrdersAPI.dll"
+ENTRYPOINT ["dotnet", "Microsoft.Knowzy.OrdersAPI.dll"]
 ```
 
-### ProductsApi
+### Products Api
 ```Dockerfile
 # Use the aspnetcore image as a base
 FROM microsoft/aspnetcore:1.1
@@ -56,11 +70,11 @@ ENV ASPNETCORE_URLS http://+:80
 # Expose port 80 from our created container
 EXPOSE 80
 
-# Run our app using "dotnet productsapi.dll"
-ENTRYPOINT ["dotnet", "productsapi.dll"]
+# Run our app using "dotnet Microsoft.Knowzy.ProductsAPI.dll"
+ENTRYPOINT ["dotnet", "Microsoft.Knowzy.ProductsAPI.dll"]
 ```
 
-### Shipping App
+### Web App
 ```Dockerfile
 # Use the nginx image as a base
 FROM nginx:1.13.0
@@ -68,6 +82,8 @@ FROM nginx:1.13.0
 # Copy the site files to the nginx html folder
 COPY . /usr/share/nginx/html
 ```
+
+Note how we are using different web server implementations to host APIs and the Web App in their containers. For more information on hosting ASP.NET Core see this [article](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/).
 
 In a terminal, let's build our images, giving them specific names and tags:
 

@@ -181,6 +181,9 @@ public void ConfigureServices(IServiceConnection services)
 To test it out, on your `ValuesController.cs` file update it as follows:
 
 ```diff
+...
+using Microsoft.Knowzy.OrdersAPI.Data;
+...
    public class ValuesController : Controller
 {
 +        private IOrdersStore _ordersStore;
@@ -193,7 +196,8 @@ To test it out, on your `ValuesController.cs` file update it as follows:
 ...
     // GET api/values/5
     [HttpGet("{id}")]
-    public string Get(int id)
+-    public string Get(int id)
++    public async Task<string> Get(int id)
     {
 -      return "value";
 +      var status = await _ordersStore.Connected() ? "connected" : "not connected";
@@ -213,6 +217,9 @@ In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Kn
 Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
 
 ```diff
+...
++ using System.Collections.Generic;
+...
     public interface IOrdersStore : IDisposable
     {
         Task<bool> Connected();
@@ -224,6 +231,7 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 
 ```diff
 ...
++ using System.Collections.Generic;
 + using System.Linq;
 ...
 +        public IEnumerable<Domain.Receiving> GetAllOrders()
@@ -240,8 +248,6 @@ Edit the `ValuesController.cs` class in the `Controllers` folder to return all o
 
 ```diff
 ...
-+ using Microsoft.Knowzy.OrdersAPI.Data;
-...
     public class ValuesController : Controller
     {
 
@@ -253,13 +259,16 @@ Edit the `ValuesController.cs` class in the `Controllers` folder to return all o
 -            return new string[] { "value1", "value2" };
 +            return _ordersStore.GetAllOrders();
         }
+...
 ```
 
-Now, when you run and browse your API to `/api/values` you should get an array with all the orders in the CosmosDB `orders` collection.
+Now, when you run and browse your API to `/api/values` you should get back the json array with all the orders in the CosmosDB `orders` collection.
 
-Now use this same logic and implement the rest of the Orders API methods needed by the website:
-- Get a specific order by order id
-- Insert a new order
+Now use this same logic to modify `ValuesController.cs`, `IOrdersStore.cs` and `OrdersStore.cs` and implement the rest of the Orders API methods needed by the website:
+- Get a specific order by order id (modify the `GET api/values/5` method)
+- Insert a new order (modify the `POST api/values` method)
+- Update a new order (modify the `PUT api/values/5` method)
+- Delete an order (modify the `DELETE api/values/5` method) 
 
 ### 5. Package for release
 
@@ -271,7 +280,7 @@ In a terminal, run:
 dotnet publish -c Release
 ```
 
-Or from Visual Studio, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
+Or from Visual Studio 2017, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
 
 By default, this places your app files in a folder named `/bin/Release/netcoreapp1.1/publish` or `bin/Release/PublishOutput`. We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
 
