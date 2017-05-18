@@ -129,7 +129,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
             var PrimaryKey = config["COSMOSDB_KEY"];
 			 _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 			 //Make sure the below values match your set up
-			 _ordersLink = UriFactory.CreateDocumentCollectionUri("buildtourdb", "orders");
+			 _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); //Update with your database name
         }
 
         public async Task<bool> Connected()
