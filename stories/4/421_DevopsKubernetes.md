@@ -17,7 +17,7 @@ For the sake of this exercise, **lets focus only on the API code** and any new r
 The following two resources will provide you all the answers on how to accomplish this task, it´s your duty to understand them and consolidate the concepts to set up a full development cycle. Please note that none of these are a step-by-step tutorial to achieve what you want, but jointly you will be able to make it work:
 
 1. [CI/CD to Kubernetes clusters using VSTS](https://github.com/dtzar/blog/tree/master/CD-Kubernetes-VSTS)
-2. [Build and deploy your ASP.NET Core app to Azure](https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnetcore-to-azure#enable-continuous-integration-ci)
+2. [Use Visual Studio to automatically generate a CI/CD pipeline to deploy an ASP.NET Core web app with Docker to Azure](https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnetcore-docker-to-azure)
 
 You should be able to do the following steps to provide CI/CD in a Kubernetes cluster using Azure.
 
