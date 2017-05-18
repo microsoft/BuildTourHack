@@ -14,7 +14,7 @@ This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prereq
 ## Comments
 
 ###### @ 9:02am
-I've done a but of investigation, found this [sharing plugin from Xamarin](https://blog.xamarin.com/simplify-sharing-with-plugins-for-xamarin/) to make sharing easier cross platform.
+I've done a bit of investigation, found this [sharing plugin from Xamarin](https://blog.xamarin.com/simplify-sharing-with-plugins-for-xamarin/) to make sharing easier cross platform.
 
 ###### @ 9:23am
 We can use the same method as in [Task 3.1.2](312_Camera.md) to create a sharing class for every platform. Found [this blog](https://xamarinhelp.com/share-dialog-xamarin-forms/) post that does something similar.
