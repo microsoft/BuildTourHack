@@ -136,21 +136,14 @@ services:
 
 And the `docker-compose.override.yml` file with the contents of the file explained earlier in this article.
 
-In a terminal, let's build our images, giving them specific names and tags:
-
-```bash
-docker build -t ordersapi:1 ./ordersapi
-docker build -t productsapi:1 ./productsapi
-docker build -t shippingwebapp:1 ./shippingwebapp
-```
-
 An explanation of what's going on here:
 
 |Argument|Description|
 |---|---|
-| `build` | tells Docker to build a new image |
-| `-t ordersapi:1` | tell Docker the image has the name `ordersapi` and the tag `1` <br/> Note: in Docker, tags are used as version numbers |
-| `./ordersapi` | where to find the Dockerfile to be built |
+| `build` | Commands Docker to build a new image |
+| `image` | The image name, for example `microsoft.knowzy.ordersapi`  <br/> Note: in Docker, tags are used as version numbers |
+| `context` | Location of the Dockerfile |
+
 
 ## 3. Running locally on Docker
 
@@ -164,6 +157,20 @@ docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" start
 ```
 
 This will kill and remove any previous versions of the containers, build and start them again.
+
+Confirm that your images are part of docker:
+
+```bash
+docker image ls 
+```
+
+````
+REPOSITORY                                                     TAG                 IMAGE ID            CREATED             SIZE
+microsoft.knowzy.productsapi                                   latest              0cf302713f5a        12 minutes ago      325 MB
+microsoft.knowzy.webapp                                        latest              a26d42ad4ecd        12 minutes ago      337 MB
+microsoft.knowzy.ordersapi                                     latest              f48275db75b4        12 minutes ago      325 MB
+````
+
 
 Now that your app is running in a container on your local Docker host, you can see it by running the following in a terminal:
 
@@ -242,9 +249,9 @@ docker login -u $ACR_NAME -p <your password> $ACR_NAME.azurecr.io
 We've already got some tagged images, and now we need to tell Docker that they're associated with our newly created registry. We'll specify the `knowzy` namespace before we push them to keep these apps grouped together. This is as simple as adding another tag for our existing images, using the following commands.
 
 ```bash
-docker tag ordersapi:1 $ACR_NAME.azurecr.io/knowzy/ordersapi:1
-docker tag productsapi:1 $ACR_NAME.azurecr.io/knowzy/productsapi:1
-docker tag shippingwebapp:1 $ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
+docker tag microsoft.knowzy.orderssapi $ACR_NAME.azurecr.io/knowzy/ordersapi:1
+docker tag microsoft.knowzy.productsapi $ACR_NAME.azurecr.io/knowzy/productsapi:1
+docker tag microsoft.knowzy.webapp $ACR_NAME.azurecr.io/knowzy/webapp:1
 ```
 
 To push images to your registry, use the following commands:
@@ -252,7 +259,7 @@ To push images to your registry, use the following commands:
 ```bash
 docker push $ACR_NAME.azurecr.io/knowzy/ordersapi:1
 docker push $ACR_NAME.azurecr.io/knowzy/productsapi:1
-docker push $ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
+docker push $ACR_NAME.azurecr.io/knowzy/webapp:1
 ```
 
 When finished, you can verify that your repositories and tags have been created by using the following commands:
