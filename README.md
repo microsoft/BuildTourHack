@@ -59,6 +59,8 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Set up Continuous Delivery
         * [4.2.0][420] - Set up Visual Studio Team Services
         * [4.2.1][421] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
+    * **Deliverable** - Set up Telemetry
+        * [4.3.1][431] - Set up telemetry for the web app and APIs
 
 
 5. **User Story** - Our executives have a way to visualize the products in 3D
@@ -107,6 +109,7 @@ If you are blocked, a representative from the leadership team is always there to
 [415]: stories/4/415_Kubernetes.md
 [420]: stories/4/420_SetupVSTS.md
 [421]: stories/4/421_DevopsKubernetes.md
+[431]: stories/4/431_Telemetry.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
