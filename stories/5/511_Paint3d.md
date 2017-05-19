@@ -1,8 +1,8 @@
 # Task 5.1.1 - Create the model in Paint3D
 
-Creating a 3D model of our products will open up a world of opportunities. We can 3D print prototypes, render them in 3D to visualize how they look, or even see them for ourselves in Virtual Reality!
+Creating a 3D model of our products will open up a world of opportunities. We can 3D print prototype noses, render them in 3D to visualize how they look, or even see them for ourselves in Virtual Reality!
 
-3D Paint is a simple tool embedded in Windows 10 Creators Update that allows us to create models. Perfect for this task!
+3D Paint is a simple tool in the Windows 10 Creators Update that allows us to create and paint 3D models. Perfect for this task!
 
 ## Prerequisites 
 
@@ -31,9 +31,11 @@ The second task is to give the nose some details. This can be stickers, color va
 1. Select the Art Tools tab to see what tools you have for drawing. 
 > Note: For these steps, it is very important to not draw on the white canvas itself as it will make it a part of the 3D model itself.
 
-2. You can now use any of these Art Tools to draw on the model itself. Feel free to be creative here! For our first prototype, we simply used the Caligraphy Tool with the Thickness set to 36px to draw to nose holes on the bottom part of the nose.
+2. You can now use any of the Art Tools to draw on the model itself. Feel free to be creative here! For our first prototype, we simply used the Caligraphy Tool with the Thickness set to 36px to draw to nose holes on the bottom of the nose.
+
     ![Adding color](images/511_3.png)
-3. The thirst menu tab is for placing Stickers on the model. Feel free to play around with the various tools to become familiar with the tool - this allows you to be very creative when designing new protoypes for us!
+
+3. The third menu tab is for placing Stickers on the model. Feel free to play around with the various tools to become familiar with the software - this allows you to be very creative when designing new protoypes for us!
 
 
 #### Saving and Exporting
@@ -41,7 +43,9 @@ The last task here is to save the model, and export it as FBX to be used with Un
 
 1. Save the Project itself as a Paint 3D project by clicking the Folder icon on the top-left corner of the window, and give it a proper name.
 2. Now, export the scene by clicking the same folder icon on the top-left corner of the window, and select FBX under Export:
+    
     ![Export as FBX](images/511_4.png)
+
 3. Save it in a location you can remember for the tasks ahead.
 
 Congratulations, you have now mastered Paint 3D and how to use it to create Nose Prototypes in 3D!
