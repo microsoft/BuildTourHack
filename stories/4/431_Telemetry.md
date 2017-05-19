@@ -4,7 +4,7 @@ Our development team want to be able to monitor the health of the applications a
 
 ## Prerequisites 
 
-This task has a dependency on the Web App and the APIs created under section [4.1.2](../4/412_OrdersAPI.md) and [4.1.3](../4/413_ProductsAPI.md) and all of their prerequisites.
+This task has a dependency on the Web App from [1.1.1](../1/111_BuildWebApp.md) and the APIs created under section [4.1.2](../4/412_OrdersAPI.md) and [4.1.3](../4/413_ProductsAPI.md) and all of their prerequisites.
 
 ## Task
 
