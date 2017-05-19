@@ -4,7 +4,7 @@ Now that you've created a database to store your data, it's time to create APIs 
 
 ## Prerequisites 
 
-* This task has a dependency on [Task 4.1.1][411] and all of its prerequisites.
+* This task has a dependency on Tasks [1.1.1][111] and [4.1.1] and all of their prerequisites.
 * [.NET Core SDK 1.1](https://www.microsoft.com/net/download/core)
 
 
@@ -296,3 +296,4 @@ By default, this places your app files in a folder named `/bin/Release/netcoreap
 
 [411]: /stories/4/411_DocumentDB.md
 [414]: /stories/4/414_Docker.md
+[111]: /stories/1/111_BuildWebApp.md
