@@ -14,7 +14,7 @@ Now that you've created a database to store your data, it's time to create APIs 
 
 From the command line or Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
 
-Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new **solution** folder called `APIs` to the `2. Services` folder, and create a new `ASP.NET Core` project to it in that folder:
+Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project in that folder:
 
 ![Add new ASP.NET Core Project](images/AddNewApiProject.png)
 
@@ -24,17 +24,14 @@ Choose Web API for the project type, and leave the other options as they are (we
 
 Note: you can also use [the dotnet cli to create a new .NET Core WebAPI project as documented here](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc).
 
-Let's test it out to make sure everything is working properly. You can use both the command line/terminal from the folder of this new project (`src\2. Services\APIs\Microsoft.Knowzy.OrdersAPI`):
+Let's test it out to make sure everything is working properly. In Visual Studio right click on the project and select `Debug -> Start New Instance`. Or you can use the terminal from the folder of this new project (`src\2. Services\APIs\Microsoft.Knowzy.OrdersAPI`) and use the `dotnet` cli as follows:
 
 ```bash
 dotnet restore
 dotnet run
-```
+``` 
 
-Or in Visual Studio right click on the project and select `Debug -> Start New Instance`.
- 
-
-Navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5) to see your app running, you should see the word `value` returned in the browser. Press `Ctrl+C` if you started in the console/terminal or click the Stop button in Visual Studio to stop the API.
+Navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5) to see your app running, you should see the word `value` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the Stop button in Visual Studio to stop the API.
 
 ### 2. Add functionality
 
@@ -50,13 +47,11 @@ public string Get(int id)
 }
 ```
 
-Using the terminal run the project to see our changes:
+Run the project from Visual Studio again or from the terminal run the project to see our changes:
 
 ```bash
 dotnet run
 ```
-Or run the project from Visual Studio again.
-
 
 This time, when you navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5), you should see `The value is 5`
 
@@ -64,9 +59,9 @@ This time, when you navigate to [http://localhost:5000/api/values/5](http://loca
 
 In a real-world app, you won't check your secrets into source control, and you won't be writing local code that connects directly to your production data store. Depending on your environment, you might not even have access to production. To address these issues and see how they tie in with Docker, we're going to use the `COSMOSDB_ENDPOINT` and `COSMOSDB_KEY` environment variables.
 
-The default Web API template already calls `.AddEnvironmentVariables()`, so we just need to set a variable, then access it in our code. 
+The default Web API template already calls `.AddEnvironmentVariables()` (look for it in `Startup.cs`), so we just need to set a variable, then access it in our code. 
 
-If running from the command line, to set a variable run the following in a command prompt with the primary connection string for your account:
+If running from the terminal, to set a variable run the following in a command prompt with the primary connection string for your account:
 
 ```
 SET COSMOSDB_ENDPOINT=<your cosmosdb endpoint>
@@ -90,11 +85,13 @@ public void ConfigureServices(IServiceConnection services)
 }
 ```
 
-Now let's connect our solution to CosmosDB. Add a Nuget package reference to the `Microsoft.Azure.DocumentDB.Core` version 1.3.0 to the `Microsoft.Knowzy.OrdersAPI` project.
+Now let's connect our solution to our data store in [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) that was created as part of task [4.1.1][[411]. 
+
+Start by adding a Nuget package reference to `Microsoft.Azure.DocumentDB.Core` version 1.3.0 to the `Microsoft.Knowzy.OrdersAPI` project.
 
 Add a new folder called `Data` to the `Microsoft.Knowzy.OrdersAPI` project. This folder will have the classes that interact with your CosmosDB data store. 
 
-Add a new interface called `IOrdersStore.cs` to the `Data` folder and populate it with:
+Add a new interface called `IOrdersStore.cs` to the `Data` folder and populate it with the following:
 
 ```csharp
 using System;
@@ -109,7 +106,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 }
 ```
 
-Add a new class called `OrdersStore.cs` to the `Data` folder and populate it with a method to check if it can connect to CosmosDB. Make sure to update the Document Collection database and name to match the yours:
+Add a new class called `OrdersStore.cs` to the `Data` folder and populate it with a method to check if it can connect to CosmosDB. Make sure to update the database and collection name in this code to match yours:
 
 ```csharp
 using System;
@@ -129,7 +126,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
             var PrimaryKey = config["COSMOSDB_KEY"];
 			 _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 			 //Make sure the below values match your set up
-			 _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); //Update with your database name
+			 _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); 
         }
 
         public async Task<bool> Connected()
@@ -166,7 +163,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 }
 ```
 
-Modify `Startup.cs` and register our data access with the list of services:
+Modify `Startup.cs` and register our data access with the list of services (IoC):
 
 ```diff
 public void ConfigureServices(IServiceConnection services)
@@ -178,7 +175,7 @@ public void ConfigureServices(IServiceConnection services)
 }
 ```
 
-To test it out, on your `ValuesController.cs` file update it as follows:
+To test it outupdate the `ValuesController.cs` file follows:
 
 ```diff
 ...
@@ -206,13 +203,13 @@ using Microsoft.Knowzy.OrdersAPI.Data;
   }
 ```
 
-If you now run and call `/api/values/5` on your API you should see `We are connected to CosmosDB! and your value is 5` returned.
+If you now run the API app again and call `/api/values/5` on your API you should see `We are connected to CosmosDB! and your value is 5` returned.
 
 ### 4. Implement the Orders API
 
-Now it's time to implement the endpoints for the Orders API, running the API as needed to verify your app locally before moving on.
+Now it's time to implement the endpoints for the Orders API, running the API app as needed to verify your app locally before moving on.
 
-In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API.
+In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API for serialization.
 
 Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
 
@@ -276,15 +273,17 @@ Now use this same logic to modify `ValuesController.cs`, `IOrdersStore.cs` and `
 
 Now that we've got a working API app, let's package up all of our required files into a single folder for easy distribution. This time, we'll specify the Release configuration. 
 
-In a terminal, run:
+
+Or from Visual Studio 2017, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
+
+Or in a terminal, run:
 
 ```bash
 dotnet publish -c Release
 ```
 
-Or from Visual Studio 2017, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
 
-By default, this places your app files in a folder named `/bin/Release/netcoreapp1.1/publish` or `bin/Release/PublishOutput`. We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
+By default, this places your app files in a folder named `bin/Release/PublishOutput` (Visual Studio) or `/bin/Release/netcoreapp1.1/publish` (terminal). We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
 
 ## 6. References
 
