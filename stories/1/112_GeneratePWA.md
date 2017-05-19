@@ -1,12 +1,1 @@
-# Task 1.1.2 - Generate Progressive Web App
-
-## Prerequisites 
-
-What to do first, what to know, machine requirements
-
-## Task 
-
-Walkthrough goes here
-
-## References
-
+# Task 1.1.2 - Generate Progressive Web App## Prerequisites This task has a dependency on [Task 1.1.1](111_BuildWebApp.md) and all of it's prerequisites## Task ### Build out Web App Manifest### Generate Images for Manifest### Build out Service Worker### Download Code## References

@@ -1,0 +1,1 @@
+# Task 1.1.3 - Update your Web App with PWA features## Prerequisites This task has a dependency on [Task 1.1.2](112_GeneratePWA.md) and all of it's prerequisites## Task ###  Add Web App Manifest to your site### Add SW code to your site### Generate json pre-cache file for service worker### Publish Changes## References

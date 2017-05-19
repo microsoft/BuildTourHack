@@ -1,0 +1,1 @@
+# Task 1.2.4 - Integrate Camera for scanning barcodes## Prerequisites This task has a dependency on [Task 1.2.2](122_Add_WIndows_Features.md) and all of it's prerequisites## Task 1. Add support for capturing image with the windows 10 camera tool2. add image to upload package you send back to serverWalkthrough goes here## References
