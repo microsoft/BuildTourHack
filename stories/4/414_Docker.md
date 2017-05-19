@@ -26,101 +26,151 @@ This will create a Dockerfile file in your WebApp project, and add a new docker-
 * Use the same instructions and add Docker Support to the Microsoft.Knowzy.OrdersAPI project 
 * Use the same instructions and add Docker Support to the Microsoft.Knowzy.ProductsAPI project
 
-In the end you should have Dockerfile in each of those three projects, and all three referenced in your Docker compose project. Now edit each of the docker files for each project to match the Docker File in the next section.
+In the end you should have Dockerfile in each of those three projects, and all three referenced in your Docker compose project. 
 
-If not using visual Studio you can still create the `Dockerfile` files for each of our 3 apps. In the root of each app, create a new file named `Dockerfile` and update with the following contents. 
+Now under the `docker-compose.yml` file, find the `docker-compose.override.yml` file, and modify it with the following (changing the values of your CosmosDB endpoint and key):
+```dockerfile
+version: '3'
 
-### Orders Api
+services:
+  microsoft.knowzy.webapp:
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+     - ASPNETCORE_URLS=http://0.0.0.0:5101
+     - ORDERAPI_URL=http://microsoft.knowzy.ordersapi:5102
+     - PRODUCTSAPI_URL=http://microsoft.knowzy.productsapi:5103
+    ports:
+      - "5101:5101"
+
+  microsoft.knowzy.ordersapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:5102
+      - COSMOSDB_ENDPOINT=<**YOUR COSMOSDB ENDPOINT**>
+      - COSMOSDB_KEY=<**YOUR KEY**>
+    ports:
+      - "5102:5102"
+
+  microsoft.knowzy.productsapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:5103
+      - COSMOSDB_ENDPOINT=<**YOUR COSMOSDB ENDPOINT**>
+      - COSMOSDB_KEY=<**YOUR KEY**>
+    ports:
+      - "5103:5103"
+```
+
+You can now start debugging the Docker Compose project; it will create all three docker images and run them on your local dev environment.
+
+> NOTE: If not using Visual Studio you can still create the `Dockerfile` in the root of the web app and each of the APIs, the Docker Compose and Docker Compose override files using the reference below and above.
+
+
+### Orders Api Dockerfile Reference
 ```Dockerfile
 # Use the aspnetcore image as a base
 FROM microsoft/aspnetcore:1.1
 
+# Create a variable called source that has the path of the publish directory
+ARG source
+
 # Use /app inside the created container to hold our files
 WORKDIR /app
 
-# Copy our app into the current folder (/app)
-# Note we used the path from the previous step
-COPY ./bin/Release/netcoreapp1.1/publish .
-
-# Set an environment variable to listen on all addresses using port 80
-ENV ASPNETCORE_URLS http://+:80
-
-# Expose port 80 from our created container
+# Expose port 80 from our created container. This gets overwritten by the docker compose override file
 EXPOSE 80
 
-# Run our app using "dotnet Microsoft.Knowzy.OrdersAPI.dll"
+# Copy our app into the current folder (/app). 
+# Change path to ./bin/Release/netcoreapp1.1/publish if you used the command line to build the web and API apps
+COPY ${source:-obj/Docker/publish} .
+
+# The entrypoint for the container is the command: dotnet Microsoft.Knowzy.OrdersAPI.dll
 ENTRYPOINT ["dotnet", "Microsoft.Knowzy.OrdersAPI.dll"]
 ```
 
-### Products Api
+### Products Api Dockerfile Reference
 ```Dockerfile
-# Use the aspnetcore image as a base
 FROM microsoft/aspnetcore:1.1
-
-# Use /app inside the created container to hold our files
+ARG source
 WORKDIR /app
-
-# Copy our app into the current folder (/app)
-# Note we used the path from the previous step
-COPY ./bin/Release/netcoreapp1.1/publish .
-
-# Set an environment variable to listen on all addresses using port 80
-ENV ASPNETCORE_URLS http://+:80
-
-# Expose port 80 from our created container
 EXPOSE 80
-
-# Run our app using "dotnet Microsoft.Knowzy.ProductsAPI.dll"
+COPY ${source:-obj/Docker/publish} .
 ENTRYPOINT ["dotnet", "Microsoft.Knowzy.ProductsAPI.dll"]
 ```
 
-### Web App
+### Web App Dockerfile Reference
 ```Dockerfile
-# Use the nginx image as a base
-FROM nginx:1.13.0
-
-# Copy the site files to the nginx html folder
-COPY . /usr/share/nginx/html
+FROM microsoft/aspnetcore:1.1
+ARG source
+WORKDIR /app
+EXPOSE 80
+COPY ${source:-obj/Docker/publish} .
+ENTRYPOINT ["dotnet", "Microsoft.Knowzy.WebApp.dll"]
 ```
 
-Note how we are using different web server implementations to host APIs and the Web App in their containers. For more information on hosting ASP.NET Core see this [article](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/).
+> Note how we are using `dotnet` and the kestrel web server in the configuration to host the APIs and the Web App in their containers. For more information on hosting ASP.NET Core in production see this [article](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/).
 
-In a terminal, let's build our images, giving them specific names and tags:
+### docker-compose.yml Reference
+```Dockerfile
+version: '3'
 
-```bash
-docker build -t ordersapi:1 ./ordersapi
-docker build -t productsapi:1 ./productsapi
-docker build -t shippingwebapp:1 ./shippingwebapp
+services:
+  microsoft.knowzy.webapp:
+    image: microsoft.knowzy.webapp
+    build:
+      context: ./src/1. WebApp/Microsoft.Knowzy.WebApp
+      dockerfile: Dockerfile
+
+  microsoft.knowzy.ordersapi:
+    image: microsoft.knowzy.ordersapi
+    build:
+      context: ./src/2. Services/APIs/Microsoft.Knowzy.OrdersAPI
+      dockerfile: Dockerfile
+
+  microsoft.knowzy.productsapi:
+    image: microsoft.knowzy.productsapi
+    build:
+      context: ./src/2. Services/APIs/Microsoft.Knowzy.ProductsAPI
+      dockerfile: Dockerfile
 ```
+
+And the `docker-compose.override.yml` file with the contents of the file explained earlier in this article.
 
 An explanation of what's going on here:
 
 |Argument|Description|
 |---|---|
-| `build` | tells Docker to build a new image |
-| `-t ordersapi:1` | tell Docker the image has the name `ordersapi` and the tag `1` <br/> Note: in Docker, tags are used as version numbers |
-| `./ordersapi` | where to find the Dockerfile to be built |
+| `build` | Commands Docker to build a new image |
+| `image` | The image name, for example `microsoft.knowzy.ordersapi`  <br/> Note: in Docker, tags are used as version numbers |
+| `context` | Location of the Dockerfile |
+
 
 ## 3. Running locally on Docker
 
 You're ready to run your apps on your local Docker host. In a terminal:
 
 ```bash
-docker run -d --name ordersapi -p 8080:80 -e DOCDB_CONNSTRING="<your connection string>" ordersapi:1
-docker run -d --name productsapi -p 8081:80 -e DOCDB_CONNSTRING="<your connection string>" productsapi:1
-docker run -d --name shippingapp -p 8082:80 shippingwebapp:1
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" kill
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" down --rmi local --remove-orphans
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" up -d --build
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" start
 ```
 
-Several interesting things are going on here. A quick breakdown:
+This will kill and remove any previous versions of the containers, build and start them again.
 
-|Argument|Description|
-|---|---|
-| `run` | tells Docker to run a new container |
-| `-d` | run the container in the background |
-| `--name ordersapi` | give the container a friendly name so we can find it easily later |
-| `-p 8080:80` | map the port 8080 on the host (your computer) to port 80 inside the container |
-| `-e DOCDB_CONNSTRING="<your connection string>"` | set the `DOCDB_CONNSTRING` environment variable |
-| `ordersapi:1` | the image to be run is `ordersapi`, with the tag `11 |
+Confirm that your images are part of docker:
+
+```bash
+docker image ls 
+```
+
+````
+REPOSITORY                                                     TAG                 IMAGE ID            CREATED             SIZE
+microsoft.knowzy.productsapi                                   latest              0cf302713f5a        12 minutes ago      325 MB
+microsoft.knowzy.webapp                                        latest              a26d42ad4ecd        12 minutes ago      337 MB
+microsoft.knowzy.ordersapi                                     latest              f48275db75b4        12 minutes ago      325 MB
+````
+
 
 Now that your app is running in a container on your local Docker host, you can see it by running the following in a terminal:
 
@@ -128,16 +178,17 @@ Now that your app is running in a container on your local Docker host, you can s
 docker ps
 ```
 
-Note the port mappings (ex: from `0.0.0.0:8080->80/tcp`). This is great! Without Docker, we'd only be able to launch one app at a time, or we'd have to figure out how to share port 80 across several apps, making them less independent. Since we've mapped host ports to containers, we're now able to interact with them by navigating to these urls:
+The port mappings are defined in the docker compose override file. This is great! Without Docker, we'd only be able to launch one app at a time, or we'd have to figure out how to share port 80 across several apps, making them less independent. Since we've mapped host ports to containers, we're now able to interact with them by navigating to these urls:
 
-* Orders API - [http://localhost:8080/api/values/5](http://localhost:8080/api/values/5)
-* Products API - [http://localhost:8081/api/values/5](http://localhost:8081/api/values/5)
-* Shipping App - [http://localhost:8082](http://localhost:8082)
+* Orders API - [http://localhost:5102/api/values/5](http://localhost:5102/api/values/5)
+* Products API - [http://localhost:5103/api/values/5](http://localhost:5103/api/values/5)
+* Web App - [http://localhost:5101](http://localhost:5101)
 
 Docker containers come and go frequently. We'll stop our currently running containers to free up some computing resources and ports on our host for future work.  In a terminal, run the following:
 
 ```bash
-docker stop ordersapi productsapi shippingapp
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" kill
+docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml" down --rmi local --remove-orphans
 ```
 
 Your containers are now stopped. To verify, run:
@@ -152,20 +203,7 @@ Note that the containers still exist, they're just not currently running. You ca
 docker ps -a
 ```
 
-To restart your containers, run:
-
-```bash
-docker start ordersapi productsapi shippingapp
-```
-
-You'll see that your apps are back up and running, and their endpoints are available once again
-
-Finally, destroy your local containers by running:
-
-```bash
-docker stop ordersapi productsapi shippingapp
-docker rm ordersapi productsapi shippingapp
-```
+You don't have to use Docker Compose to run your containers and could do it all using just the `docker` command to create / start / remove the containers. 
 
 ## 4. Deploying to a Docker Registry
 
@@ -211,9 +249,9 @@ docker login -u $ACR_NAME -p <your password> $ACR_NAME.azurecr.io
 We've already got some tagged images, and now we need to tell Docker that they're associated with our newly created registry. We'll specify the `knowzy` namespace before we push them to keep these apps grouped together. This is as simple as adding another tag for our existing images, using the following commands.
 
 ```bash
-docker tag ordersapi:1 $ACR_NAME.azurecr.io/knowzy/ordersapi:1
-docker tag productsapi:1 $ACR_NAME.azurecr.io/knowzy/productsapi:1
-docker tag shippingwebapp:1 $ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
+docker tag microsoft.knowzy.orderssapi $ACR_NAME.azurecr.io/knowzy/ordersapi:1
+docker tag microsoft.knowzy.productsapi $ACR_NAME.azurecr.io/knowzy/productsapi:1
+docker tag microsoft.knowzy.webapp $ACR_NAME.azurecr.io/knowzy/webapp:1
 ```
 
 To push images to your registry, use the following commands:
@@ -221,7 +259,7 @@ To push images to your registry, use the following commands:
 ```bash
 docker push $ACR_NAME.azurecr.io/knowzy/ordersapi:1
 docker push $ACR_NAME.azurecr.io/knowzy/productsapi:1
-docker push $ACR_NAME.azurecr.io/knowzy/shippingwebapp:1
+docker push $ACR_NAME.azurecr.io/knowzy/webapp:1
 ```
 
 When finished, you can verify that your repositories and tags have been created by using the following commands:

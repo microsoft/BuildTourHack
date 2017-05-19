@@ -46,6 +46,8 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
         * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center
         * [3.4.3][343] [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center
+    * **Deliverable** - Create a chat bot for support and for order status management 
+        * [3.5.1][351] [Proposed] - Create a bot using the Microsoft Bot Framework
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
@@ -57,6 +59,8 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Set up Continuous Delivery
         * [4.2.0][420] - Set up Visual Studio Team Services
         * [4.2.1][421] - Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
+    * **Deliverable** - Set up Telemetry
+        * [4.3.1][431] - Set up telemetry for the web app and APIs
 
 
 5. **User Story** - Our executives have a way to visualize the products in 3D
@@ -96,6 +100,7 @@ If you are blocked, a representative from the leadership team is always there to
 [341]: stories/3/341_CICD_WindowsApp.md
 [342]: stories/3/342_CICD_AndroidApp.md
 [343]: stories/3/343_EventLogging.md
+[351]: stories/3/351_Bot.md
 
 [411]: stories/4/411_DocumentDB.md
 [412]: stories/4/412_OrdersAPI.md
@@ -104,6 +109,7 @@ If you are blocked, a representative from the leadership team is always there to
 [415]: stories/4/415_Kubernetes.md
 [420]: stories/4/420_SetupVSTS.md
 [421]: stories/4/421_DevopsKubernetes.md
+[431]: stories/4/431_Telemetry.md
 
 [511]: stories/5/511_Paint3d.md
 [512a]: stories/5/512a_Unity.md
