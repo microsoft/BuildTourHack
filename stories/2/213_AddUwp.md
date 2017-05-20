@@ -263,38 +263,20 @@ This code uses the Package class in Windows.ApplicationModel.Package to determin
 
 using System.IO;
 
-
-namespace Microsoft.Knowzy.Common.Helpers
+public Product[] GetData()
 {
-    public class AppFolders
+    String jsonFilePath;
+
+    if (ExecutionMode.IsRunningAsUwp())
     {
-        public static string Current
-        {
-            get
-            {
-                string path = null;
-                if (ExecutionMode.IsRunningAsUwp())
-                {
-                    path = GetSafeAppxFolder();
-                }
-                return path;
-            }
-        }
-
-        internal static string GetSafeAppxFolder()
-        {
-            try
-            {
-                return Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
-            }
-            catch (Exception ex)
-            {
-
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
-            return null;
-        }
+        jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
     }
+    else
+    {
+        jsonFilePath = _configuration.Configuration.JsonFilePath;
+    }
+
+    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
