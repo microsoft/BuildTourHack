@@ -253,7 +253,7 @@ Your converted Win32 app is now ready to be deployed and run as a UWP app on you
 
 ![Deploy](images/211-deploy.png)
 
-Note: If your Solution configuration is **Debug | Any CPU ** you will need to enable both the Build and Deploy of the Microsoft.Knowzy.UWP app using the Configuration Manager.
+Note: If your Solution configuration is **Debug | Any CPU** you will need to enable both the Build and Deploy of the Microsoft.Knowzy.UWP app using the Configuration Manager.
 
 ![Configuration Manager](images/211-configuration-manager.png)
 
@@ -301,7 +301,7 @@ Search for your Microsoft.Knowzy.UWP in the Windows Start menu. Click on Microso
 
 Unfortunately the Microsoft.Knowzy.UWP app did not run. Actually it did run but exited immediately due to an error.
 The actual error is the app cannot load the project.json file it needs to generate the Products list. The app then 
-throws and exception and exits.
+throws an exception and exits.
 
 Just so you aren't disappointed in not seeing the new UWP app run after completing all of these steps, let's quickly fix the issue with a hack.
 
@@ -337,12 +337,13 @@ The Microsoft.Knowzy.UWP app should now run with the hacked code.
 
 #### Step 6: Debugging your Desktop Bridge app
 
-In order to fix the crashing bug in the UWP app, you need to set the UWP C# MyDesktopApp.Package project as the startup project. 
-Right-click on the Microsoft.Knowzy.UWP project and select **Set as StartUp Project**
+In order to fix the crashing bug in the UWP app, you need to be able to debug the various Knowzy projects. Let's try to debug the Microsoft.Knowzy.UWP project. 
+
+* Right-click on the Microsoft.Knowzy.UWP project and select **Set as StartUp Project**
 
 ![Startup Project](images/211-startup-project.png)
 
-Press F5 to start a debugging session for your UWP app. You will either encounter the following error:
+* Press F5 to start a debugging session for your UWP app. You will either encounter the following error:
 
 ![Debug Error](images/211-debug-error.png)
 
