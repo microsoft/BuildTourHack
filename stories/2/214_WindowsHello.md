@@ -185,6 +185,7 @@ private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
 
 ![Login WPF](images/214-login-wpf.png)
 
+We will continue to add more Windows 10 UWP features to our app in the [next task](221_XAMLView.md).
 
 ## References
 
