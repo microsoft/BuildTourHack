@@ -196,6 +196,17 @@ private async void View_Click(object sender, EventArgs e)
 
 ![Knowzy XAML UI](images/221-xaml-ui.png)
 
+* If you want to suggest to Windows 10 the size of the XAML UI Window, add the following code to the MainPage constructor:
+
+```c#
+using Windows.UI.ViewManagement;
+public MainPage()
+{
+    this.InitializeComponent();
+    ApplicationView.PreferredLaunchViewSize = new Size(800, 800);
+    ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+}
+```
     
 We will continue to add more Windows 10 UWP features to our app in the [next task](222_Share.md).
 
