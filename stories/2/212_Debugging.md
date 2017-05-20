@@ -80,7 +80,7 @@ incorrect Debugging Project settings.
 
 * Open the AppXPackageFileList.xml file in the Microsoft.Knowzy.Debug project
 
-![AppXPackageFileList.xml](images/212-appXPackageFileList.png)
+![AppXPackageFileList.xml](images/212-appxpackagefilelist.png)
 
 * Modify the xml to the following:
 
