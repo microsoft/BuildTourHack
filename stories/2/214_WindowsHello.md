@@ -161,13 +161,14 @@ using System.Windows.Forms;
 
 private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
 {
-    if (!Helpers.ExecutionMode.IsRunningAsUwp())
+    if (ExecutionMode.IsRunningAsUwp())
+    {
+        await WindowsHello.Login();
+    }
+    else
     {
         MessageBox.Show("Login not implemented in WPF version", "Microsoft.Knowzy.WPF");
-        return;
     }
-
-    await Helpers.WindowsHello.Login();
 }
 ```
 
@@ -176,6 +177,14 @@ private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
 * Click on the Login Menu item. 
     * If your computer is capable of running the Windows Hello Login you will be presented with the Windows Hello Login interface.
     * If your computer is not capable of running the Windows Hello Login, a Toast will appear in the lower left corner of your screen.
+    
+ ![Login UWP](images/214-login-uwp.png)
+
+ 
+* Run just the WPF version (right-click on the Microsoft.Knowzy.WPF project and select Debug | Start new instance). Clicking on the Login button will show:
+
+![Login WPF](images/214-login-wpf.png)
+
 
 ## References
 
