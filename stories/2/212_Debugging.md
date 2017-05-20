@@ -120,7 +120,7 @@ Then build the solution again.
 ![Exception](images/212-exception.png)
 
 For some reason, our UWP app is trying to load the Project.json file from C:\Windows\SysWOW64\Products.json. UWP apps do not have access to this folder. This is a common problem with newly converted Desktop Bridge apps.
-Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the next task.
+Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the [next task](213_AddUwp.md).
 
 
 
