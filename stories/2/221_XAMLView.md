@@ -197,7 +197,9 @@ private async void View_Click(object sender, EventArgs e)
 ![Knowzy XAML UI](images/221-xaml-ui.png)
 
     
-    
+We will continue to add more Windows 10 UWP features to our app in the [next task](222_Share.md).
+
+## References    
 
 * https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation
 * https://github.com/ljw1004/uwp-desktop
