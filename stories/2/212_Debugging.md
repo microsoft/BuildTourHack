@@ -72,8 +72,11 @@ Visual 2017 C# UWP Desktop Bridge deployment bug we experienced in the previous 
 ![Debug Properties](images/212-debug-properties.png)
 
 
-* Save and Close the Properties windows. **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
-incorrects Debugging Project settings.
+* Save and Close the Properties windows. 
+	* **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
+incorrect Debugging Project settings.
+	* **Note:** You will need to add the Debugging Project Properties for x86 Release and x64 Debug and Release configurations.
+
 
 * Open the AppXPackageFileList.xml file in the Microsoft.Knowzy.Debug project
 
@@ -95,6 +98,10 @@ incorrects Debugging Project settings.
   </ItemGroup>
 </Project>
 ```
+
+This XML describes to the DesktopBridge Debugging project the location of the Microsoft.Knowzy.WPF.exe after it is built. It will use it when the project is launched and copy it to the correct location in the AppX package.
+This will allow for any changes to the Microsoft.Knowzy.WPF project code to be included in the debugging session. The need for the Desktop Bridge Debugging project will most likely change in future updates to Visual Studio 2017.
+
 * Save your changes. 
 
 * Now it is time to **Clean** the solution and then **Build** the Solution.
