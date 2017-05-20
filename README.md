@@ -18,9 +18,10 @@ If you are blocked, a representative from the leadership team is always there to
 
 2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development life cycle
     * **Deliverable** - Enable integration of UWP APIs
-        * [2.1.1][211] [Committed] - Add Centennial support in Visual Studio
+        * [2.1.1][211] [Committed] - Add Desktop Bridge support in Visual Studio
         * [2.1.2][212] [Committed] - Debugging a Windows Desktop Bridge App (d. 2.1.1)
-        * [2.1.3][213] [Proposed] - Integrate Windows Hello authentication (d. 2.1.1)
+        * [2.1.3][213] [Committed] - Adding UWP APIs to a Desktop Bridge App (d. 2.1.2)        
+        * [2.1.4][214] [Committed] - Integrate Windows Hello authentication (d. 2.1.3)
     * **Deliverable** - Add UWP XAML support
         * [2.2.1][221] [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)
         * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
@@ -81,7 +82,8 @@ If you are blocked, a representative from the leadership team is always there to
 
 [211]: stories/2/211_Centennial.md
 [212]: stories/2/212_Debugging.md
-[213]: stories/2/213_WindowsHello.md
+[213]: stories/2/213_AddUwp.md
+[214]: stories/2/214_WindowsHello.md
 [221]: stories/2/221_XAMLView.md
 [222]: stories/2/222_Share.md
 [223]: stories/2/223_AppServices.md
