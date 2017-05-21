@@ -343,19 +343,9 @@ In order to fix the crashing bug in the UWP app, you need to be able to debug th
 
 ![Startup Project](images/211-startup-project.png)
 
-* Press F5 to start a debugging session for your UWP app. You will either encounter the following error:
+* Press F5 to start a debugging session for your UWP app. You will probably encounter the following error:
 
 ![Debug Error](images/211-debug-error.png)
-
-Or you will again get the Deployment error:
-
-```console
-1>------ Build started: Project: Microsoft.Knowzy.UWP, Configuration: Debug x86 ------
-1>  Microsoft.Knowzy.UWP -> C:\Users\stammen\github\BuildTourHack\src\Microsoft.Knowzy.UWP\bin\x86\Debug\Microsoft.Knowzy.UWP.exe
-1>C:\Program Files (x86)\MSBuild\15.0\.Net\CoreRuntime\Microsoft.Net.CoreRuntime.targets(236,5): error : Applications with custom entry point executables are not supported. Check Executable attribute of the Application element in the package manifest
-========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
-========== Deploy: 0 succeeded, 0 failed, 0 skipped ==========
-```
 
 We will fix this error and enable the debugging of our app in the [next task](212_Debugging.md).
 
