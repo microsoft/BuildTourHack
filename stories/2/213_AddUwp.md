@@ -284,12 +284,11 @@ Finally our Knowzy UWP app can load the Products.json file from the correct loca
 
 ![Knowzy UWP](images/213-knowzy-uwp.png)
 
-We can also run our original WPF version. The UWP additions are ignored by the WPF version. To try this out right-click on the
-Microsoft.Knowzy.WPF project and select **Debug | Start new instance**
+We can also still run our original WPF version. The UWP additions are ignored by the WPF version. To try this out right-click on the Microsoft.Knowzy.WPF project and select **Debug | Start new instance**
 
 ![Knowzy WPF Start New Instance](images/213-knowzy-wpf-start.png)
 
-The WPF still continues to work as it was originally coded.
+The WPF app still continues to work as it was originally coded.
 
 ![Knowzy WPF](images/213-knowzy-wpf.png)
 
