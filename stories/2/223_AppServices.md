@@ -523,8 +523,7 @@ You have now successfully developed a solution for communicating between the UWP
 
 
 
-
-
 ## References
-https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service 
-https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices 
+* https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service 
+* https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices 
+* https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97
