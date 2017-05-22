@@ -1,4 +1,4 @@
-# Task 2.2.3 -  Integrate the Knowzy Desktop Bridge App with App Services
+# Task 2.2.3 -  Adding App Services to the Knowzy Desktop Bridge App
 
 Our development department has identified a problem with the Desktop Bridge version of the Knowzy app.
 
@@ -58,9 +58,9 @@ We want to implement the following App Service  scenario:
 
 
 Our research has found a starting point for the App Service idea [here](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service).
-You will need to modify this code to enable bi-directional communication betweem the UWP XAML UI and the WPF application code.
+You will need to modify this code to enable bi-directional communication between the UWP Xaml ui and the WPF application code.
 
-We also found some [sample code](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices).
+We also found some App Service sample code [here](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices).
 
 ## Prerequisites 
 
@@ -139,7 +139,7 @@ namespace Microsoft.Knowzy.AppService
 
 #### Add the App Service to the Package.appxmanifest ####
 
-* Open the Package.appxmanifest file in the Microsoft.Knowzy.UWP project by right-clicking on the file and selecteding **View Code**.
+* Open the Package.appxmanifest file in the Microsoft.Knowzy.UWP project by right-clicking on the file and select **View Code**.
 
 * Add the following xml to the Extensions section.
 
@@ -155,13 +155,13 @@ namespace Microsoft.Knowzy.AppService
 xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
 ```
 
-#### Add a project reference to App Service ####
+#### Add a project reference to Microsoft.Knowzy.AppService ####
 
 * Right-click on the Microsoft.Knowzy.UWP project and select **Add | Reference...**
 
-* Select the **Microsoft.Knowzy.AppService** project under the **Projects | Solution ** section. 
+* Select the **Microsoft.Knowzy.AppService** project under the **Projects | Solution** section. 
 
-* The App Service will now be part of the Knowzy UWP AppX package after a build.
+* The Microsoft.Knowzy.AppService will now be part of the Knowzy UWP AppX package after a build.
 
 #### Add an AppService helper class to Microsoft.Knowzy.Common.Helpers ####
 
@@ -241,7 +241,7 @@ public class AppService
 
 #### Add Listener support to the App Service ####
 
-We will now modify the App Service component to support the adding and removed of connection listeners
+We will now modify the Microsoft.Knowzy.AppService component to support the adding and removing of connection listeners
 
 * If necessary, add the following using directive to AppServiceTask.cs in the Microsoft.Knowzy.AppService project:
 
@@ -319,10 +319,10 @@ private async Task<ValueSet> SendMessage(String id, ValueSet message)
     error.Add("Status", "Error");
     error.Add("ErrorMessage", errorMessage);
     return error;
-        }
+}
 ```
 
-* Update the OnRequestReceived method to handle listen registration and sending messages to listeners
+* Update the OnRequestReceived method to handle listener registration and the sending messages to listeners.
 
 ```cs
 async void OnRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
@@ -371,6 +371,8 @@ async void OnRequestReceived(AppServiceConnection sender, AppServiceRequestRecei
 }
 ```
 
+#### Enable Microsoft.Knowzy.WPF to use the App Service ####
+
 * Add a Click event to the Help Menu in MainView.xaml in the Microsoft.Knowzy.WPF project.
 
 ```xml
@@ -399,8 +401,8 @@ private async void Help_Click(object sender, EventArgs e)
 }
 ```
 
-This code will open a connection to the Knowzy App Service and will also open the Xaml Page AppServiceTest. The AppServiceTest page will also connect to the AppService and send a message
-to the WPF app through the App Service when the use clicks on the Connect button. The WPF app will echo the message and send it back to the UWP app through the App Service.
+This code will open a connection to the Knowzy App Service and will also open the Xaml AppServiceTest page in the UWP portion of Knowzy. The AppServiceTest page will connect to the AppService and send a message
+to the WPF app through the AppService when the use clicks on the Connect button. The WPF app will echo the message and send it back to the UWP app through the App Service.
 
 
 #### Add the new Uri protocol to package.appxmanifest in the Microsoft.Knowzy.UWP project
@@ -411,8 +413,7 @@ to the WPF app through the App Service when the use clicks on the Connect button
 </uap:Extension>
 ```
 
-
-#### Add the XAML UI Page that will communicate with the App Service
+#### Add the XAML ui page that will communicate with the App Service
 
 * Add a new XAML page to Microsoft.Knowzy.UWP project. Name the page AppServiceTest.
 
