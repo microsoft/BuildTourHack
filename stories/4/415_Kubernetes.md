@@ -116,7 +116,7 @@ NAME          CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
 kubernetes    10.0.0.1       <none>          443/TCP          2d
 ordersapi     10.0.8.27      13.8.60.236    8080:30213/TCP   3h
 productsapi   10.0.148.198   52.232.72.12   80:30175/TCP     5m
-productsapi   10.0.142.191   54.22.172.17   80:31945/TCP     5m
+webapp   10.0.142.191   54.22.172.17   80:31945/TCP     5m
 ```
 
 ## 3. References
