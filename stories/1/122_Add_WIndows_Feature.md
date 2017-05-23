@@ -37,7 +37,7 @@ if(window.Windows && Windows.UI.Core.SystemNavigationManager){
 /*execute code that calls WIndows APIs */
 }
 
-``
+```
 
 
 ### Add code for specific feature
