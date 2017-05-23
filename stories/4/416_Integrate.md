@@ -14,8 +14,9 @@ This task has a dependency on the Web App from [1.1.1](../1/111_BuildWebApp.md),
 services.AddScoped<IOrderRepository, OrderRepository>();
 ```
 
-2. In the Kubernetes instructions in [4.1.5 Kubernetes][415] the web app container should have environment variables with the two API endpoints URLs passed in to it. Update the website code to use those values to interact with the APIs from the your implementation of `IOrderRepository`. 
+2. In the Docker and Kubernetes instructions in [4.1.4][414] and [4.1.5][415] the web app container should have the ORDERSAPI_URL and PRODUCTSAPI_URL environment variables with the two API endpoints URLs passed in to it. Update the website code to use those values to interact with the APIs from the your implementation of `IOrderRepository`. 
 
 [412]: /stories/4/412_OrdersAPI.md
 [413]: /stories/4/413_ProductsAPI.md
+[414]: /stories/4/414_Docker.md
 [415]: /stories/4/415_Kubernetes.md

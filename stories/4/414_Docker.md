@@ -37,7 +37,7 @@ services:
     environment:
      - ASPNETCORE_ENVIRONMENT=Development
      - ASPNETCORE_URLS=http://0.0.0.0:5101
-     - ORDERAPI_URL=http://microsoft.knowzy.ordersapi:5102
+     - ORDERSAPI_URL=http://microsoft.knowzy.ordersapi:5102
      - PRODUCTSAPI_URL=http://microsoft.knowzy.productsapi:5103
     ports:
       - "5101:5101"
