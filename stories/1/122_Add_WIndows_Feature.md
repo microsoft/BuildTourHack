@@ -30,6 +30,7 @@ if(window.Windows){
 ```
 
 Keep in mind that not all Windows APIs are available on all Windows 10 devices.  Think about the fact that a Windows Phone has a "dialer" for making phone calls, so it has unique APIs that are not available on other device types.  Another example is the "surface dial" that can be paired to Many Windows devices, but not the Xbox, so the "radial dial" APIs are not present on the Xbox.  For more specific feature detection, you'll also want to feature detect the API family as well like below:
+
 ```
 
 if(window.Windows && Windows.UI.Core.SystemNavigationManager){
