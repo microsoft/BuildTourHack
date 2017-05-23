@@ -4,8 +4,8 @@
 
 * Access to Azure subscription.
 * Azure Cloud Shell should be [Configured for persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md).
-* Azure Cloud shell should be pointed toward the correct subscription, more details in [Step 4.1.1](./411_DocumentDB.md)
-* You'll also need the name of the resource group created in [Step 4.1.1](./411_DocumentDB.md)
+* Azure Cloud shell should be pointed toward the correct subscription, more details in [Step 4.1.1](./411_CosmosDB.md)
+* You'll also need the name of the resource group created in [Step 4.1.1](./411_CosmosDB.md)
 
 ### a. Working with Cloud Shell
 We're going to be working within the Azure Cloud Shell, as it not only already has the AzureCLI configured, but also 
@@ -15,7 +15,7 @@ We're going to be working within the Azure Cloud Shell, as it not only already h
 ### a. 
 but first we'll need a few more variables:
 
-i) Store the name of the resource group created in [Step 4.1.1](./411_DocumentDB.md) if this not the same Azure Cloud Shell session.
+i) Store the name of the resource group created in [Step 4.1.1](./411_CosmosDB.md) if this not the same Azure Cloud Shell session.
 
         RESOURCE_GROUP=<resource group name>
 
@@ -59,7 +59,7 @@ i) Store the name of your Azure Container Registry
 
 ii) Deploy your two services from their respective Docker images.
 
-    We can deploy by telling kubernetes to get the docker images and deploy them, using the run command in `kubectl`, we're passing the `--env` parameter, to tell the container images the connection string for your data-store, so the running services once deployed know how to connect to the DocumentDB.
+    We can deploy by telling kubernetes to get the docker images and deploy them, using the run command in `kubectl`, we're passing the `--env` parameter, to tell the container images the connection string for your data-store, so the running services once deployed know how to connect to the CosmosDB.
 
     ```bash
     kubectl run ordersapi --image=$ACR_NAME.azurecr.io/knowzy/ordersapi:1 --env "COSMOSDB_ENDPOINT=https://<< your cosmosdb name>>.documents.azure.com:443/" --env "COSMOSDB_KEY=<your Cosmos DB key string>"
@@ -102,7 +102,7 @@ iii) Expose your services
 
 iii) Deploy your webapp from the Docker image.
 
-    We deploy the same way as above, but we don't need the database parameter, as the front end web application should have no direct access to the DocumentDB. Instead we should provide the url to the api services
+    We deploy the same way as above, but we don't need the database parameter, as the front end web application should have no direct access to the CosmosDB. Instead we should provide the url to the api services
 
     ```bash
     kubectl run webapp --image=$ACR_NAME.azurecr.io/knowzy/webapp:1 --env "PRODUCTS_API=<<Orders API IP>>" --env "ORDERS_API=<<Orders API IP>>"

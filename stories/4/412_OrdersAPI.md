@@ -267,7 +267,10 @@ Now use this same logic to modify `ValuesController.cs`, `IOrdersStore.cs` and `
 - Get a specific order by order id (modify the `GET api/values/5` method)
 - Insert a new order (modify the `POST api/values` method)
 - Update a new order (modify the `PUT api/values/5` method)
-- Delete an order (modify the `DELETE api/values/5` method) 
+- Delete an order (modify the `DELETE api/values/5` method)
+- Get Postal Carriers (get them from selecting distinct using LINQ from `orders`)
+- Get Customers (create a separate Controller that pulls from the `customers` collection in CosmosDB )
+
 
 ### 5. Package for release
 
@@ -291,8 +294,8 @@ By default, this places your app files in a folder named `bin/Release/PublishOut
 * [.NET Core CLI reference](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/)
 * [Introduction to ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/)
 * [Configuration in .NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
-* [Azure Cosmos DB: Getting started with the DocumentDB API and .NET Core](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-dotnetcore-get-started)
+* [Azure Cosmos DB: Getting started with the CosmosDB API and .NET Core](https://docs.microsoft.com/en-us/azure/CosmosDB/CosmosDB-dotnetcore-get-started)
 
-[411]: /stories/4/411_DocumentDB.md
+[411]: /stories/4/411_CosmosDB.md
 [414]: /stories/4/414_Docker.md
 [111]: /stories/1/111_BuildWebApp.md
