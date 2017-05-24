@@ -115,9 +115,9 @@ Then build the solution again.
 
 ![Breakpoint](images/212-breakpoint.png)
 
-* Set a breakpoint at line 85 in the file ViewModels\MainViewModel.cs in the Microsoft.Knowzy.WPF project. Restart the debugging session and it should break into the debugger at line 85.
+* Set a breakpoint at line 79 in the file ViewModels\MainViewModel.cs in the Microsoft.Knowzy.WPF project. Restart the debugging session and it should break into the debugger at line 79.
 
-* Stop debugging and remove the return statement we added in the previous task. Press F5 to start the app. You should get the following exception:
+* Stop debugging and remove the comments we added in the previous task. Press F5 to start the app. You should get the following exception:
 
 ![Exception](images/212-exception.png)
 
