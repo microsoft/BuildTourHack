@@ -11,7 +11,7 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Make app more responsive
         * [1.1.1][111] [Committed] - Build a responsive Web App
         * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
-        * [1.1.3][113] [Committed] - Configure Your Service Worker (d. 1.1.1) 
+        * [1.1.3][113] [Committed] - Update Web App to PWA (d. 1.1.1) 
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
         * [1.1.5][115] [Committed] - Add Live Tile (d. 1.1.1) 
