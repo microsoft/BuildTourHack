@@ -106,7 +106,7 @@ Let's take a look at how the Knowzy solution is organzied:
 
 ![Microsoft.Knowzy.Helpers](images/213-microsoft-knowzy-helpers.png)
 
-We see that there is a project called Microsoft.Knowzy.Common that already contains a set of helper classes for Files and JSON. This project is referenced by the other projects in this solution, so if we add our 
+We see that there is a project called Microsoft.Knowzy.Common. This project is referenced by the other projects in this solution, so if we add our 
 UWP helpers here, all of the other projects will be able to use that code.
 
 There already exists a NuGet package called DesktopBridge.Helpers that contains code to detect if an app is running as a UWP Desktop Bridge App. Let's add this NuGet package to our Microsoft.Knowzy.Common project.
@@ -122,13 +122,15 @@ There already exists a NuGet package called DesktopBridge.Helpers that contains 
 * **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project.
 If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
 
+* Add a new folder to Microsoft.Knowzy.Common project by right-clicking on the Microsoft.Knowzy.Common project and selecting **Add | New Folder** . Name the folder **UwpHelpers**.
 
-* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file ExecutionMode.cs.
+
+* Add a new C# class to the UwpHelpers folder of the Microsoft.Knowzy.Common project. Name the file ExecutionMode.cs.
 
 * Add the following code to ExecutionMode.cs. This code uses methods from the DesktopBridge.Helpers NuGet package.
 
 ```c#
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.Common.UwpHelpers
 {
     public class ExecutionMode
     {
@@ -145,6 +147,7 @@ namespace Microsoft.Knowzy.Common.Helpers
 
 ```c#
 using System;
+using Microsoft.Knowzy.Common.UwpHelpers;
 
 public Product[] GetData()
 {
