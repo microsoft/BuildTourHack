@@ -49,6 +49,10 @@ You solution should now contain the following projects.
 
 ![Solution Projects](images/212-solution-projects.png)
 
+* Right-click on the Microsoft.Knowzy.Debug project and select **Build Dependencies | Project Dependencies..."**
+
+* Select the Microsoft.Knowzy.WPF and Microsoft.Knowzy.UWP projects and click **OK**.
+
 ## Step 3: Configure the Desktop Bridge Debugging Project
 
 Since we will be working a lot with the Microsoft.Knowzy.UWP project, set the Build Configuration and Platform to **Debug | x86**
