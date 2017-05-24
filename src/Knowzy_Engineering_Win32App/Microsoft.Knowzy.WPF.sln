@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.WPF", "src\Microsoft.Knowzy.WPF\Microsoft.Knowzy.WPF.csproj", "{A5C6D61A-0FD5-48F8-B574-4B46D188550B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62} = {0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA} = {ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {1443FCD4-B293-409E-8E58-39D2C0F49572}
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04} = {F99001E8-E315-46AA-A6CD-718A15AC0B04}
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972} = {FEC807FF-1C76-4D0C-BB45-92255CE90972}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{494D40EA-694C-49FA-8347-840B8BF1BAD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0202C4AB-A98F-4526-8AFB-5814E1571BF0}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.AuthenticationService", "src\Microsoft.Knowzy.AuthenticationService\Microsoft.Knowzy.AuthenticationService.csproj", "{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {1443FCD4-B293-409E-8E58-39D2C0F49572}
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04} = {F99001E8-E315-46AA-A6CD-718A15AC0B04}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Common", "src\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj", "{F99001E8-E315-46AA-A6CD-718A15AC0B04}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {1443FCD4-B293-409E-8E58-39D2C0F49572}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Domain", "src\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj", "{1443FCD4-B293-409E-8E58-39D2C0F49572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.JsonDataProvider", "src\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj", "{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {1443FCD4-B293-409E-8E58-39D2C0F49572}
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04} = {F99001E8-E315-46AA-A6CD-718A15AC0B04}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.ConfigurationService", "src\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj", "{FEC807FF-1C76-4D0C-BB45-92255CE90972}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5C6D61A-0FD5-48F8-B574-4B46D188550B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C6D61A-0FD5-48F8-B574-4B46D188550B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C6D61A-0FD5-48F8-B574-4B46D188550B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C6D61A-0FD5-48F8-B574-4B46D188550B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1443FCD4-B293-409E-8E58-39D2C0F49572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1443FCD4-B293-409E-8E58-39D2C0F49572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1443FCD4-B293-409E-8E58-39D2C0F49572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1443FCD4-B293-409E-8E58-39D2C0F49572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5C6D61A-0FD5-48F8-B574-4B46D188550B} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{ABE64476-A9EF-4A57-802C-C2CC7BBE1AFA} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{FEC807FF-1C76-4D0C-BB45-92255CE90972} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+	EndGlobalSection
+EndGlobal
