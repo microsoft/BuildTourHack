@@ -55,7 +55,7 @@ Press F7 (or whatever your Build Solution shortcut key is) to build the Solution
 
 #### Step 3: Add the  Microsoft.Knowzy.WPF binaries to the UWP Project
 
-In order to convert the Microsoft.Knowzy.WPF app to a Desktop Bridge UWP app, you will need to add the binaries created by your app to the C# Microsoft.Knowzy.UWP app. 
+In order to convert the Microsoft.Knowzy.WPF app to a Desktop Bridge UWP app, you will need to add the binaries created by the Microsoft.Knowzy.WPF app to the Microsoft.Knowzy.UWP app. 
 We are going to use the Microsoft.Knowzy.UWP project to create the AppX package that will eventually be submitted to the Windows Store. In later tasks, we will also use theMicrosoft.Knowzy.UWP
 project to add UWP features to our converted Microsoft.Knowzy.WPF app.
 
