@@ -66,7 +66,7 @@ For Debug builds use the following settings:
 
 * Package Layout: ..\Microsoft.Knowzy.UWP\bin\x86\Release
 * Select Uninstall and then re-install my package.
-* From the **Package Layout** field tab to the **Start Up Tile** field and select Microsoft.Knowzy.UWP.
+* From the **Package Layout** field tab to the **Start Up Tile** field and select Microsoft.Knowzy.WPF.
 
 Notice that we are specifying the path to the **Release** build of the Microsoft.Knowzy.UWP project. This is a fix for the
 Visual 2017 C# UWP Desktop Bridge deployment bug we experienced in the previous task.
