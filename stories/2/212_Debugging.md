@@ -10,6 +10,8 @@ This task will guide you through the process of debugging a Windows Desktop Brid
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
 * The [Desktop Bridge Debugging Project template](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.DesktoptoUWPPackagingProject) installed into Visual Studio 2017
+* Complete the section on [Add Desktop Bridge Support using Visual Studio 2017](211_Centennial.md)
+
 
 
 ## Step 1: Install the Desktop Bridge Debugging Project Extension
