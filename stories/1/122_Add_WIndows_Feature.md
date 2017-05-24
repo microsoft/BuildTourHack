@@ -40,16 +40,58 @@ if(window.Windows && Windows.UI.Core.SystemNavigationManager){
 ```
 
 
-### Add code for specific feature
+### Add Code to Customize your PWA App Container
+Start out by adding some code that adds a message to the tile in the start menu.  This code can be ran from any page, but you'll likely want to put it on index.cshtml so that it is ran as soon as the app is opened. 
 
-###Deploy changes
+1. Open index.cshtml in Visual Studio and add a script tag at the bottom of the page
+2. add the following feature detection inside the script tag
+
+```
+if(window.Windows && Windows.UI.Notifications){
+/*execute code that calls WIndows APIs */
+}
+
+```
+
+3. Inside the feature detection, add the following code to load the live tile
+
+```
+var tileContent = new Windows.Data.Xml.Dom.XmlDocument();
+ 
+var tile = tileContent.createElement("tile");
+tileContent.appendChild(tile);
+ 
+var visual = tileContent.createElement("visual");
+tile.appendChild(visual);
+ 
+var bindingMedium = tileContent.createElement("binding");
+bindingMedium.setAttribute("template", "TileMedium");
+visual.appendChild(bindingMedium);
+ 
+var peekImage = tileContent.createElement("image");
+peekImage.setAttribute("placement", "peek");
+peekImage.setAttribute("src", "https://unsplash.it/150/150/?random");
+peekImage.setAttribute("alt", "Welcome to Knowsie!");
+bindingMedium.appendChild(peekImage);
+ 
+var text = tileContent.createElement("text");
+text.setAttribute("hint-wrap", "true");
+text.innerText = "Demo Message";
+bindingMedium.appendChild(text);
+
+//fire the notification
+
+var notifications = Windows.UI.Notifications;
+var tileNotification = new notifications.TileNotification(tileContent);
+notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
+
+
+```
+
 
 ### test your changes
-1. Uninstall your app
-2. Reinstall app from 
+Now you want to test the changes you've just made.  Follow the instructions in section 1.1.3 for deploying your web app, and repdeploy your changes.  One of the great things about a PWA is that you don't need to redeploy your app to see the changes, you just need to deploy to the web server.  You should be able to run your app again, and see your live tile code take effect.  If you don't see it imediately, it may because of the gerat caching you have in your app.  if this happens, you can force a cache clear by uninstalling your PWA, and then installing it again from the script you downloaded from PWABuilder.com
 
-
-Walkthrough goes here
 
 ## References
 
