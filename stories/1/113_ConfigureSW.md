@@ -36,10 +36,12 @@ Your Service Worker needs likewise needs to be added to your site to take effect
 1. Copy the "pwabuilder-sw.js" file from the zip you downloaded from the service worker page of PWA Builder and add it to your js folder in wwwroot > js
 
 /*
+
 2.  You will then want to add a short "time to live" for your manifest file so it can be updated often.  To do this you will need to add the following block of code to
 
 !!!!!!!!!!!!!!!!!!!!!!!how do you sent a short expiration on this file"!!!!!!!!!!!!!!!!?????????????
-/*
+
+*/
 
 2. Open up the landing page of your app (index.cshtml) and create a new script tag in the head also wrapped in a HeadExtension section like so:
 
