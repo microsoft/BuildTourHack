@@ -124,8 +124,8 @@ This segment of XML completes several important tasks:
 
 Reload the Microsoft.Knowzy.UWP.csproj and build the solution. 
 
-* Verify that the src\Microsoft.Knowzy.UWP folder contains Microsoft.Knowzy.WPF.exe and all of its dependencies.
-* You should be able to run the Microsoft.Knowzy.WPF.exe app from the desktop folder
+* Verify that the src\Microsoft.Knowzy.UWP folder contains a desktop folder. If the folder is missing, close and reopen the Microsoft.Knowzy.WPF.sln.
+* You should be able to run the src\Microsoft.Knowzy.UWP\desktop\Microsoft.Knowzy.WPF.exe app by navigating to the folder and double-clicking on Microsoft.Knowzy.WPF.exe. This will test that all of the dependencies for Microsoft.Knowzy.WPF.exewere copied correctly to the desktop folder.
 
 ![desktop folder](images/211-desktop-folder.png)
 
