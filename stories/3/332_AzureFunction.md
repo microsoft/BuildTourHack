@@ -7,18 +7,26 @@ Now that you've created a Cognitive Service to tell you where noses are in pictu
 This task has a dependency on [Task 3.3.1](331_CognitiveServices.md) and all of it's prerequisites
 
 This walkthrough assumes that you have:
-* Visual Studio 2017 with the Azure Functions extension installed. If not, make sure you [do that first](http://docs.micrsoft.com) and then come back here.  **TODO:  Update link and text to point to correct extension.**
+* [Visual Studio 2017 Preview 3](https://www.visualstudio.com/vs/preview/) with the [Azure Functions extension](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) installed. If not, make sure you do that first and then come back here. 
 
 
 ## Task 
 
-1.  In Visual Studio, create a new Azure Functions project.  
-2.  Expose an HTTP endpoint which expects a file to be sent across in the body of the request and returns a JSON object.
+1.  Create a new Azure Functions project in Visual Studio.  
+2.  Create an HTTP Trigger which will take in a picture and return data.
 3.  Within your Function, use the *Name* and *Key* from [Task 3.3.1](331_CognitiveServices.md) to connect to your Cognitive Service and run face detection on the image.
-4.  Return the JSON for the nose location(s) from your Function.
+4.  Return the data for the nose location(s) from your Function.
 
-## References
+## Comments
 
-1.  [Face API V1.0](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-2.  [Face API C# Quick Start](https://docs.microsoft.com/en-us/azure/cognitive-services/face/quickstarts/csharp)
-3.  [HTTP and Webhook Bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook)
+###### @ 11:48am
+[This](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post shows off the Visual Studio tooling that you can use to create a new Azure function.
+
+###### @ 1:03pm
+I found this explanation for Azure Functions of how to do [HTTP and Webhook Bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook).
+
+###### @ 2:57pm
+I was curious about what the Face API is capable of so I found the [REST Docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
+###### @ 4:32pm
+This [quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/face/quickstarts/csharp) really walks through how to call the Face API from C#.

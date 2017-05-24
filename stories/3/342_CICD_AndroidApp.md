@@ -9,21 +9,25 @@ Now that you've made an app that works, the CTO would like to ensure higher qual
 
 ## Task 
 
-1.  You'll first need to ensure your Mobile App's source code is checked into a valid Version Control System (VCS).  If [Task 4.2.0][420] was already completed, you can reuse that account.  Otherwise, create a Visual Studio Team Services account, Github account, or BitBucket account.
-2.  Using whichever VCS you've decided upon, create a new project and check your Mobile App code into it.
-3.  Create or sign-in to an account at [Visual Studio Mobile Center](http://mobile.azure.com).
-4.  Create a new Android app targeting Xamarin.
-5.  Connect the **Build** page to the repository you have created.
-6.  Set things to build on every push and distribute builds.
-7.  Ensure your app builds the first time.  
-8.  Commit a code change to your application and ensure your app is automatically rebuilt.
-9.  You should already be a member of the group that receives app update notifications.  Add your teammates.
-10.  If someone has a compatible Android device, install your app via Mobile Center and ensure it receives updates when the app is updated.
+1.  Add your application to a compatible source control system.
+2.  Create an Android app in Mobile Center, and connect it to your repo.
+3.  Ensure your app builds the first time.  
+4.  Add your teammates so they receive notifications on build.
+5.  Make sure your teammates can install your app.
 
-## References
+## Comments
 
-* [Creating a Keystore for signing an app](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/part_2_-_signing_the_android_application_package/visual-studio-xa-4.2.5-and-earlier/)
-* [Visual Studio Mobile Center documentation](https://docs.microsoft.com/en-us/mobile-center/general/support-center)
+###### @ 9:37am
+It sounds like we can use multiple different source control systems with Mobile Center.  Check out [these docs](https://docs.microsoft.com/en-us/mobile-center/build/connect) I found about connecting to a repository.
+
+###### @ 10:04am
+I finally figured out how to [creating a Keystore for signing an app](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/part_2_-_signing_the_android_application_package/visual-studio-xa-4.2.5-and-earlier/).  This should save you some time!
+
+###### @ 1:22pm
+It sounds like the Build config in Mobile Center let's us trigger a build with every code check-in.  That means our builds will happen automatically!
+
+###### @ 3:56pm
+My friends wanted to know whenever I built an app so I figured out how to create a distribution group [here](https://docs.microsoft.com/en-us/mobile-center/distribution/groups).
 
 [311]: /stories/3/311_XamarinForms.md
 [341]: /stories/3/341_CICD_WindowsApp.md

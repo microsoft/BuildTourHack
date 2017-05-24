@@ -1,8 +1,8 @@
-# Task 4.1.1 - Create a shared DocumentDB to store all data
+# Task 4.1.1 - Create a shared CosmosDB to store all data
 
 ## 1. Pre-Requisites
 
-* You should download and extract the [DocumentDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
+* You should download and extract the [CosmosDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
 * You'll need access to an azure subscription.
 
 ### a. Working with Cloud Shell
@@ -44,24 +44,24 @@ Resource group names must be globally unique within azure, so make sure its both
     az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-## 2. Create and initialise DocumentDB
+## 2. Create and initialise CosmosDB
 
 ### a. Store the name of our database:
-Like resource group names, DocumentDB names must be globally unique within azure, so again we should select something specific.
+Like resource group names, CosmosDB names must be globally unique within azure, so again we should select something specific.
 
-    DOCUMENTDB_NAME = <unique database name>
+    CosmosDB_NAME = <unique database name>
 
-### b. Create the DocumentDb instance
-We can now go ahead and use the Azure CLI within the Cloud Shell to create our DocumentDB Instance.
+### b. Create the CosmosDB instance
+We can now go ahead and use the Azure CLI within the Cloud Shell to create our CosmosDB Instance.
 
-    az documentdb create -g $RESOURCE_GROUP -n $DOCUMENTDB_NAME --locations "EAST US2"=0
+    az CosmosDB create -g $RESOURCE_GROUP -n $CosmosDB_NAME --locations "EAST US2"=0
 
 This command will take some time to complete. You'll know it's succeeded when the cloud shell console outputs something like this, containing the name you specified in step 1 above in the 'documentEndpoint':
 
 ![image of share screen](images/DocDbCreateSuccess.JPG)
 
 ### c. Import data into collections
-For this step we'll need to use the [DocumentDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436) that you should have already downloaded and extracted.
+For this step we'll need to use the [CosmosDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436) that you should have already downloaded and extracted.
 
 We're going to perform the following steps for 3 collections we need to add to Azure; [Customers](reference/customers.json), [Products](reference/products.json) and [Orders](reference/orders.json). For convenience sake you can download a zip file containing all three: [Here](reference/HackSchemas.zip).
 
@@ -77,23 +77,23 @@ iii) This is the 'Source Information' screen where we specify the information so
 
 ![DTUI Source Screen](images/DTScreen2.JPG)
 
-iv) You should be presented with a screen that looks like below, the 'Target Information' screen, where specify information about the destination of our import. First set the 'Export to' option to: 'DocumentDB - Sequential record import (partitioned collection).
+iv) You should be presented with a screen that looks like below, the 'Target Information' screen, where specify information about the destination of our import. First set the 'Export to' option to: 'CosmosDB - Sequential record import (partitioned collection).
 
 ![DTUI Target Screen](images/DTScreen3.JPG)
 
-v) We'll need to retrieve our 'Connection String' from the Azure Portal. Open the portal, and select your DocumentDB Instance, then click on 'Keys' and select 'Read/Write Keys' and click the button next to 'PRIMARY CONNECTION STRING' to copy it to your clipboard.
+v) We'll need to retrieve our 'Connection String' from the Azure Portal. Open the portal, and select your CosmosDB Instance, then click on 'Keys' and select 'Read/Write Keys' and click the button next to 'PRIMARY CONNECTION STRING' to copy it to your clipboard.
 
 ![Azure Portal DocDB Keys Blade](images/DocDBPortalKeys.JPG)
 
-vi) Go back to the DocumentDB Data Migration Tool and paste the value into the box for the connection string. The importer also requires that you specify the database you'll be importing to so add the following string with the name of your database (which you defined in step 2a) to the end of the connection string you just pasted:
+vi) Go back to the CosmosDB Data Migration Tool and paste the value into the box for the connection string. The importer also requires that you specify the database you'll be importing to so add the following string with the name of your database (which you defined in step 2a) to the end of the connection string you just pasted:
 
-    Database=<your documentdb name>
+    Database=<your CosmosDB name>
 
 So you have something that looks like this:
 
 ![DTUI Target Screen](images/DTScreen3Filled.JPG)
 
-v) Click the 'verify' button, and you should get confirmation that the importer can successfully connect to your DocumentDB. Which should look like this:
+v) Click the 'verify' button, and you should get confirmation that the importer can successfully connect to your CosmosDB. Which should look like this:
 
 ![DTUI Target screen verified](images/DTScreen3Verified.JPG)
 
@@ -116,7 +116,7 @@ viii) Carefully review the import settings, and when you're satisfied click 'Imp
 
 ![DTUI Import Complete](images/ImportComplete.JPG)
 
-ix) You can now return to the portal, select your DocumentDB Instance, and click on 'Document Explorer' to explore your new schema.
+ix) You can now return to the portal, select your CosmosDB Instance, and click on 'Document Explorer' to explore your new schema.
 
 ![Azure Portal Document Explorer](images/DocumentExplorer.JPG)
 
@@ -126,4 +126,4 @@ x) To import the other two collections (products and orders in our example given
 
 
 ## 3. References
-[DocumentDB Migration Tool Download](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
+[CosmosDB Migration Tool Download](https://www.microsoft.com/en-us/download/details.aspx?id=46436)
