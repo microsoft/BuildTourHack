@@ -8,13 +8,21 @@ This task has a dependency on the Web App from [1.1.1](../1/111_BuildWebApp.md),
 
 ## Task
 
-1. The website code currently uses a mock implementation of its data access, getting the initial data from static json files, and keeping the data in memory. In order to override the existing implementation for accesing data and integrate with the APIs you must implement the `IOrderRepository` interface whith your own custom class implementation (use `OrderRepositoryMock.cs` as guidance). You also have to change the service configuration in `Startup.cs` class adding the new implementation files:
+1. Update the website code to use the APIs instead of static files for data access.
+
+2. Redeploy the website with the updates.
+
+## Comments
+
+###### @ 9:02am
+I looked at the website code, and it seems to currently use a mock implementation of the API/data access. It's getting the initial data from static json files, and keeping the data in memory. In order to override the existing implementation for accesing data and integrate with the APIs we should implement the `IOrderRepository` interface whith our own custom class implementation that calls the APIs (using `OrderRepositoryMock.cs` as guidance), and then change the service configuration in `Startup.cs` class adding the new implementation files:
 
  ```c#
 services.AddScoped<IOrderRepository, OrderRepository>();
 ```
 
-2. In the Docker and Kubernetes instructions in [4.1.4][414] and [4.1.5][415] the web app container should have the ORDERSAPI_URL and PRODUCTSAPI_URL environment variables with the two API endpoints URLs passed in to it. Update the website code to use those values to interact with the APIs from the your implementation of `IOrderRepository`. 
+###### @ 11:15am
+In the Docker instructions in [4.1.4][414] for the dev machine, and Kubernetes instructions in [4.1.5][415] the web app container has the ORDERSAPI_URL and PRODUCTSAPI_URL environment variables with the two API endpoints URLs passed in to it. Now we can run website in the dev machine and deploy it via kubernetes again to get it to use the APIs.
 
 [412]: /stories/4/412_OrdersAPI.md
 [413]: /stories/4/413_ProductsAPI.md
