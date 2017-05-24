@@ -47,6 +47,20 @@ You solution should now contain the following projects.
 
 ![Solution projects](images/211-solution.png)
 
+* Add a Project Dependency to Microsoft.Knowzy.WPF. Right click on the Microsoft.Knowzy.UWP project
+
+* Select **Build Dependencies | Project Dependencies..."**
+
+![Build Dependencies](images/211-add-project-dependencies.png)
+
+* Select the Microsoft.Knowzy.WPF project and click **OK**
+
+![Build Dependencies](images/211-add-project-dependencies-2.png)
+
+
+
+![MainViewModel.cs](images/211-mainviewmodel.png)
+
 Press F7 (or whatever your Build Solution shortcut key is) to build the Solution. To see what an empty C# UWP app looks like:
 
 * Right click on the Microsoft.Knowzy.UWP project and select **Debug | Start new instance ** to run the UWP app.
@@ -309,7 +323,7 @@ Just so you aren't disappointed in not seeing the new UWP app run after completi
 
 ![MainViewModel.cs](images/211-mainviewmodel.png)
 
-* Go to the OnActivate() method at line 83 and add a return statement after base.OnActivate();
+* Go to the OnViewAttached() method at line 70 and add a comment out lines 72-75 statement after base.OnActivate();
 
 ```c#
 protected override void OnActivate()
