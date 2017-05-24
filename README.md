@@ -9,7 +9,7 @@ If you are blocked, a representative from the leadership team is always there to
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
-        * [1.1.1][111] [Committed] - Create Service Worker
+        * [1.1.1][111] [Committed] - Build a responsive Web App
         * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
         * [1.1.3][113] [Proposed] - Make app offline (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
@@ -75,7 +75,7 @@ If you are blocked, a representative from the leadership team is always there to
 
 
 
-[111]: stories/1/111_CreateServiceWorker.md
+[111]: stories/1/111_BuildWebApp.md
 [112]: stories/1/112_GeneratePWA.md
 [113]: stories/1/113_Offline.md
 [121]: stories/1/121_PushNotifications.md
