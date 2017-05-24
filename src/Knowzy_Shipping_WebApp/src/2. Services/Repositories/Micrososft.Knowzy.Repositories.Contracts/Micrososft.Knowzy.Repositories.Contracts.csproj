@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj" />
+  </ItemGroup>
+
+</Project>

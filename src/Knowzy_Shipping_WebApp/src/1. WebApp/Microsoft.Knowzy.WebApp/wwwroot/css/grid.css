@@ -1,0 +1,78 @@
+﻿.main-grid {
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+    /* Hyphens is not yet supported in Chrome 55 in Windows platforms*/
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+    .main-grid th, .main-grid td {
+        height: 60px;
+        color: black;
+        font-size: 18px;
+        border: none !important;
+        vertical-align: middle !important;
+        padding-left: 20px !important;
+        font-weight: normal !important;
+    }
+
+    .main-grid > tbody > tr:nth-of-type(even) {
+        background-color: #ebebeb;
+    }
+
+    .main-grid > thead > tr {
+        background-color: #f9bd39;
+    }
+
+    .main-grid > tbody > tr:hover {
+        background-color: #0078d7;
+        cursor: pointer;
+    }
+
+        .main-grid > tbody > tr:hover > td {
+            color: white;
+        }
+
+.items-grid {
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+    .items-grid th, .items-grid td {
+        height: 105px;
+        color: black;
+        font-size: 18px;
+        border: none !important;
+        vertical-align: middle !important;
+        padding-left: 20px !important;
+        font-weight: normal !important;
+    }
+
+    .items-grid > tbody > tr:nth-of-type(even) {
+        background-color: #ebebeb;
+    }
+
+    .items-grid > thead > tr {
+        background-color: #cc0202;
+    }
+
+        .items-grid > thead > tr > th {
+            height: 44px;
+            color: white;
+        }
+
+@media screen and (max-width: 767px) {
+    .items-grid td {
+        height: 60px;
+    }
+
+    .items-grid > tbody > tr > td img {
+        width: 57px;
+        height: 45px;
+    }
+}

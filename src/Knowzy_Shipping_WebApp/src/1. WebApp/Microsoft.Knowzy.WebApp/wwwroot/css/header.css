@@ -1,0 +1,251 @@
+﻿.navbar-default {
+    border: none;
+    background: url("../images/menu-bar1.png") no-repeat;
+    background-size: cover;
+    height: 68px;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(50, 50, 83, 0.25);
+    -moz-box-shadow: 0 3px 3px 0 rgba(50, 50, 83, 0.25);
+    box-shadow: 0 3px 3px 0 rgba(50, 50, 83, 0.25);
+}
+
+    .navbar-default .navbar-collapse {
+        margin-left: -40px;
+    }
+
+.navbar-nav > li {
+    width: 160px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    font-family: Segoe UI;
+    font-size: 24px;
+    padding-top: 26px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.navbar-default .navbar-nav li > a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav li.active > a,
+.navbar-default .navbar-nav li.active > a:hover,
+.navbar-default .navbar-nav li.active > a:focus {
+    border-bottom: 7px solid #f9bd39;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: -100px;
+    margin-right: 15px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+header .images {
+    position: relative;
+}
+
+.logo {
+    margin-top: 36px;
+    margin-bottom: 24px;
+    width: 276px;
+    height: 127px;
+}
+
+.clowns {
+    position: absolute;
+    width: 366px;
+    bottom: -3px;
+    right: 0;
+}
+
+.button-header {
+    width: 259px;
+    height: 49px;
+    font-size: 18px;
+    float: right;
+}
+
+    .button-header:hover object {
+        color: white;
+    }
+
+.toolbar {
+    margin-top: 22px;
+    margin-bottom: 48px;
+    line-height: 49px;
+    height: 49px;
+}
+
+    .toolbar button .glyphicon {
+        height: 14px;
+        width: 14px;
+        margin-right: 18px;
+    }
+
+    .toolbar .section-title {
+        font-size: 30px;
+        float: left;
+    }
+
+    .toolbar.toolbar-details {
+        padding-left: 0;
+        background-color: #f9bd39;
+        text-align: center;
+    }
+
+        .toolbar.toolbar-details span {
+            width: 100%;
+            color: black;
+        }
+
+        .toolbar.toolbar-details .button-header {
+            background-color: transparent;
+            top: 0;
+            right: 20px;
+            font-size: 35px;
+        }
+
+            .toolbar.toolbar-details .button-header:hover {
+                background-color: transparent;
+            }
+
+                .toolbar.toolbar-details .button-header:hover .glyphicon {
+                    color: #0078d7;
+                }
+
+.toolbar.toolbar-details .button-header:active {
+    box-shadow: none;
+}
+
+
+.navbar-default .navbar-brand {
+    color: white;
+    margin-top: 10px;
+}
+
+.navbar-xs ul li {
+    z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+    .logo {
+        width: 105px;
+        height: 48px;
+        margin: 10px 0 0 3px;
+    }
+
+    .images {
+        margin: 0;
+        height: 70px;
+    }
+
+    .navbar-default .navbar-nav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+        .navbar-default .navbar-nav > li {
+            width: 100%;
+            background-color: #cc0202;
+        }
+
+        .navbar-default .navbar-nav li:last-child {
+            border-top: 1px solid white;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            padding: 0;
+            line-height: 66px;
+            font-size: 18px;
+        }
+
+        .navbar-default .navbar-nav li.active > a,
+        .navbar-default .navbar-nav li.active > a:hover,
+        .navbar-default .navbar-nav li.active > a:focus {
+            border: none;
+        }
+
+    .navbar-header button {
+        position: absolute;
+        right: 0;
+        top: 50px;
+    }
+
+        .navbar-header button.collapsed .icon-bar {
+            background-color: #cc0202;
+            height: 3px;
+            display: block;
+        }
+
+        .navbar-header button .icon-bar {
+            display: none;
+        }
+
+        .navbar-header button.collapsed .icon-close {
+            display: none;
+        }
+
+        .navbar-header button .icon-close {
+            display: inline-block;
+            color: #cc0202;
+            font-size: 25px;
+            margin-top: -3px;
+        }
+
+    .navbar-default .navbar-collapse {
+        margin-left: -15px;
+    }
+
+    .toolbar {
+        height: 68px;
+        line-height: 68px;
+        margin: 0 -15px;
+        position: absolute;
+        width: 100%;
+        padding-left: 15px;
+    }
+
+        .toolbar button object {
+            height: 14px;
+            width: 14px;
+            margin-right: 0;
+        }
+
+        .toolbar .section-title {
+            font-size: 24px;
+            float: left;
+            color: white;
+            padding-left: 5px;
+        }
+
+    .button-header {
+        width: 45px;
+        height: 39px;
+        border-radius: 10px;
+        background-color: #f9bd39;
+        border-color: transparent;
+        font-size: 18px;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+}

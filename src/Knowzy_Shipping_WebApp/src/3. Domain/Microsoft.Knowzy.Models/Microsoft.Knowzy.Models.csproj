@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>$(SolutionDir)\bin\Debug\netcoreapp1.1\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+    <PackageReference Include="FluentValidation" Version="7.0.0-beta3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

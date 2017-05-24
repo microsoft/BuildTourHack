@@ -1,0 +1,121 @@
+@*// ******************************************************************
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THE CODE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+// THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
+// *******************************************************************@
+
+@using Microsoft.Knowzy.Domain
+@model Microsoft.Knowzy.Models.ViewModels.ReceivingViewModel
+@{
+    ViewData["Title"] = "Edit Receiving";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="details-close icon-close hidden-xs" onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'"></div>
+<form asp-action="Edit" novalidate>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="row detail-main-info">
+                <div class="col-xs-7">
+                    <dl class="dl-horizontal detail-item detail-item-number">
+                        <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+                        <dd>@Html.DisplayFor(model => model.Id)</dd>
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(model => model.CustomerId)
+                    </dl>
+                </div>
+                <div class="col-xs-5">
+                    <dl class="dl-horizontal detail-item detail-item-status">
+                        <dt>@Html.DisplayNameFor(model => model.Status)</dt>
+                        <dd>                            
+                            @Html.DropDownListFor(model => model.Status, Html.GetEnumSelectList<OrderStatus>(), new {@class = "form-control form-input"})
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped table-responsive items-grid">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OrderLines[0].ProductImage)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OrderLines[0].ProductId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OrderLines[0].Quantity)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{
+                        if (Model.OrderLines != null)
+                        {
+                            for (var i = 0; i < Model.OrderLines.Count; i++)
+                            {
+                                @Html.EditorFor(model => Model.OrderLines[i])
+                            }
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <span id="addItem" class="add-item @(Model.OrderLines.Count < Model.MaxAvailableItems ? "show" : "hide")"><span class="icon-add icon-separator"></span>Add new Item</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 details-right">
+            <dl class="dl-horizontal detail-item">
+                <dt><label asp-for="CompanyName"></label></dt>
+                <dd>
+                    <input asp-for="CompanyName" class="form-control form-input" maxlength="60"/>
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </dd>
+                <dt><label asp-for="ContactPerson"></label></dt>
+                <dd>
+                    <input asp-for="ContactPerson" class="form-control form-input" maxlength="60"/>
+                    <span asp-validation-for="ContactPerson" class="text-danger"></span>
+                </dd>
+                <dt><label asp-for="Email"></label></dt>
+                <dd>
+                    <input type="email" asp-for="Email" class="form-control form-input" maxlength="60"/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </dd>
+                <dt><label asp-for="PhoneNumber"></label></dt>
+                <dd>
+                    <input asp-for="PhoneNumber" type="number" oninput="this.value=this.value.slice(0, this.maxLength)" maxlength="20" class="form-control form-input" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </dd>
+                <dt><label asp-for="Address"></label></dt>
+                <dd>
+                    <textarea asp-for="Address" class="form-control form-input" maxlength="100" rows="3"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </dd>
+                <dt><label asp-for="Tracking"></label></dt>
+                <dd>
+                    <input asp-for="Tracking" class="form-control form-input" maxlength="30"/>
+                    <span asp-validation-for="Tracking" class="text-danger"></span>
+                </dd>           
+                <dt><label asp-for="PostalCarrierName"></label></dt>
+                <dd>
+                    @Html.DropDownListFor(model => model.PostalCarrierId, new SelectList(ViewBag.PostalCarrier, "Id", "Name"), new {@class = "form-control form-input"})
+                    <span asp-validation-for="PostalCarrierId" class="text-danger"></span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="center-block btn btn-default button-default button-action">
+            <span class="glyphicon glyphicon-floppy-disk"></span><span>Save changes</span>
+        </button>
+    </div>
+</form>

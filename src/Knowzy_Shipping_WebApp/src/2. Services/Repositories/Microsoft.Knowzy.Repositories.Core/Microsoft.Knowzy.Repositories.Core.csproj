@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj" />
+    <ProjectReference Include="..\Micrososft.Knowzy.Repositories.Contracts\Micrososft.Knowzy.Repositories.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

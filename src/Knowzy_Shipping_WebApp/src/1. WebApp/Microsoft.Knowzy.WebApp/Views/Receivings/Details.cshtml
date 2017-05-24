@@ -1,0 +1,63 @@
+﻿@*// ******************************************************************
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THE CODE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+// THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
+// *******************************************************************@
+
+@model Microsoft.Knowzy.Models.ViewModels.ReceivingViewModel
+
+@{
+    ViewBag.Title = "Receiving Details";
+    Layout = "_Layout";
+}
+
+<div class="details-close icon-close hidden-xs" onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'"></div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <div class="row detail-main-info">
+            <div class="col-xs-7">
+                <dl class="dl-horizontal detail-item detail-item-number">
+                    <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+                    <dd>@Html.DisplayFor(model => model.Id)</dd>
+                </dl>
+            </div>
+            <div class="col-xs-5">
+                <dl class="dl-horizontal detail-item detail-item-status">
+                    <dt>@Html.DisplayNameFor(model => model.Status)</dt>
+                    <dd>@Html.DisplayFor(model => model.Status)</dd>
+                </dl>
+            </div>
+        </div>
+        @Html.Partial("OrderLines", Model.OrderLines)
+    </div>
+    <div class="col-xs-12 col-sm-6 details-right">
+        <dl class="dl-horizontal detail-item">
+            <dt>@Html.DisplayNameFor(model => model.CompanyName)</dt>
+            <dd>@Html.DisplayFor(model => model.CompanyName)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ContactPerson)</dt>
+            <dd>@Html.DisplayFor(model => model.ContactPerson)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd>@Html.DisplayFor(model => model.Email)</dd>
+            <dt>@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+            <dd>@Html.DisplayFor(model => model.PhoneNumber)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Address)</dt>
+            <dd>@Html.DisplayFor(model => model.Address)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Tracking)</dt>
+            <dd>@Html.DisplayFor(model => model.Tracking)</dd>
+            <dt>@Html.DisplayNameFor(model => model.PostalCarrierName)</dt>
+            <dd>@Html.DisplayFor(model => model.PostalCarrierName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <button type="button" class="center-block btn btn-default button-default button-action"
+            onclick="location.href='@(Url.Action("Edit", "Receivings", new { orderId = Model.Id }))'">
+        <span class="icon-edit button-icon"></span><span>Edit order</span>
+    </button>
+</div>

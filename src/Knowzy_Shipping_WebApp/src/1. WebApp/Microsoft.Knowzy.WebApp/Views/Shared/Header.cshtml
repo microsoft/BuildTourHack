@@ -1,0 +1,61 @@
+﻿@*// ******************************************************************
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THE CODE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+// THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
+// *******************************************************************@
+
+<header>
+    <div class="container images">
+        <img class="logo" src="~/images/Knowz-logo.png" />
+        <img class="clowns hidden-xs" src="~/images/clowns.png" />
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-xs" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-close"></span>
+                </button>
+            </div>
+            @{
+                if (ViewContext.RouteData.Values["action"].ToString() == "Index")
+                {
+                    <div class="toolbar visible-xs collapse in" aria-expanded="false">
+                        <span class="section-title">@ViewData["Title"] information</span>
+                        <button type="button" class="btn btn-default button-default button-header"
+                                onclick="location.href = '@(Url.Action("Create", ViewContext.RouteData.Values["controller"].ToString()))'">
+                            <span class="icon-add"></span>
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="toolbar toolbar-details visible-xs collapse in" aria-expanded="false">
+                        <span class="section-title section-title-centered">Order details</span>
+                        <button type="button" class="btn btn-default button-default button-header"
+                                onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'">
+                            <span class="icon-close"></span>
+                        </button>
+                    </div>
+                }
+            }
+            
+            <div class="navbar-collapse collapse navbar-xs" id="navbar-xs" aria-expanded="false">
+                <ul class="nav navbar-nav">
+                    <li nav-controller="Shippings"><a asp-controller="Shippings" asp-action="Index">Shipping</a></li>
+                    <li nav-controller="Receivings"><a asp-controller="Receivings" asp-action="Index">Receiving</a></li>
+                </ul>                
+            </div>             
+        </div>
+    </nav>
+</header>

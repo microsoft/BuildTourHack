@@ -1,0 +1,40 @@
+@*// ******************************************************************
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THE CODE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+// THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
+// *******************************************************************@
+
+@using HtmlHelpers.BeginCollectionItemCore
+
+@model Microsoft.Knowzy.Models.ViewModels.OrderLineViewModel
+<tr>
+@using (Html.BeginCollectionItem("OrderLines"))
+{      
+        <td>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.ProductPrice)
+            @Html.HiddenFor(model => model.ProductImage)
+            <img src='@Html.DisplayFor(model => model.ProductImage)'/>            
+        </td>
+        <td class="itemNumber">
+            @Html.DisplayFor(model => model.ProductId)
+            @Html.HiddenFor(model => model.ProductId, new { @class = "form-control"})
+        </td>
+    <td>
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+        @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity", type = "number",
+                         oninput = "this.value=this.value.slice(0, this.maxLength)", maxlength = "3" })
+    </td>
+        <td>
+            <div class="delete-button">
+                <span class="icon-remove"></span>
+            </div>
+        </td>
+}
+</tr>  
