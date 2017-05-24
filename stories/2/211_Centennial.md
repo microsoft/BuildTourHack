@@ -132,7 +132,7 @@ Reload the Microsoft.Knowzy.UWP.csproj and build the solution.
 
 #### Step 4: Edit the Microsoft.Knowzy.UWP Package Manifest to enable the Desktop Bridge Extensions
 
-The Microsoft.Knowzy.UWP project contains a file called Package.appxmanifest that describes how to package your app for the Windows Store and its dependencies. 
+The Microsoft.Knowzy.UWP project contains a file called Package.appxmanifest that describes how to package your app and its dependencies for the Windows Store. 
 The package manifest is an XML document that contains the info the system needs to deploy, display, or update a Windows app. This info includes package identity, 
 package dependencies, required capabilities, visual elements, and extensibility points. Every app package must include one package manifest.
 
