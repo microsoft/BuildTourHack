@@ -79,8 +79,8 @@ If you are blocked, a representative from the leadership team is always there to
 
 [111]: stories/1/111_BuildWebApp.md
 [112]: stories/1/112_GeneratePWA.md
-[113]: stories/1/113_ConfigureSW
-[114]: stories/1/114_Test_App
+[113]: stories/1/113_ConfigureSW.md
+[114]: stories/1/114_Test_App.md
 [115]: stories/1/115_Add_WIndows_Feature.md
 [123]: stories/1/123_BONUS-APP-Links.md
 [124]: stories/1/124_BONUS-Speech.md
