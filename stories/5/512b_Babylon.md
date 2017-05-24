@@ -15,7 +15,10 @@ This walkthrough assumes that you have:
 
 #### Convert the model to OBJ
 
-// TODO NIKO.
+To convert the model, we will use the online FBX to OBJ converter, using the FBX we exported in 5.1.1.
+1. Go to: [Online Model Converter](http://www.greentoken.de/onlineconv/)
+2. Follow the steps in the tool to convert the FBX to OBJ, and download the OBJ file. The MTL file is not needed.
+3. The problem here is that we don't have the texture, but you can use any png file, just create a new file in pain with a red color and use it through these steps.
 
 #### Creating a new project
 1. Launch Visual Studio 2017 using the Windows Start Menu. Once open, click File>New>Project...
