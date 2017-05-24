@@ -289,7 +289,7 @@ Unfortuately there is a bug in the current version of Visual Studio 2017 that pr
 Until the bug is fixed, we will need to use the **Release** configuration for our C# Desktop Bridge app. We will use the ***Build | Configuration Manager** to set this up.
 
 * Select **Configuration Manager** from the **Build** menu.
-* For the Microsoft.Knowzy.UWP project, set the Configuration to **Release**. You should also do this for the x86 and x64 Platform builds.
+* For the Microsoft.Knowzy.UWP project, set the Configuration to **Release**. **You should also do this for the x86 and x64 Platform builds**.
 
 ![Configuration Manager Release](images/211-configuration-manager-release.png)
 
