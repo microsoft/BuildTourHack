@@ -326,15 +326,16 @@ Just so you aren't disappointed in not seeing the new UWP app run after completi
 * Go to the OnViewAttached() method at line 70 and add a comment out lines 72-75 statement after base.OnActivate();
 
 ```c#
-protected override void OnActivate()
+protected override void OnViewAttached(object view, object context)
 {
-	base.OnActivate();
-	return;
-	foreach (var item in _dataProvider.GetData())
-	{
-		DevelopmentItems.Add(new ItemViewModel(item));
-	}
-	InitializeLanes();
+    /*
+    foreach (var item in _dataProvider.GetData())
+    {
+	DevelopmentItems.Add(new ItemViewModel(item, _eventAggregator));
+    }
+    */
+
+    base.OnViewAttached(view, context);
 }
 ```
 
