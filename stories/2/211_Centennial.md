@@ -323,7 +323,7 @@ Just so you aren't disappointed in not seeing the new UWP app run after completi
 
 ![MainViewModel.cs](images/211-mainviewmodel.png)
 
-* Go to the OnViewAttached() method at line 70 and add a comment out lines 72-75 statement after base.OnActivate();
+* Go to the OnViewAttached() method at line 70 and comment out lines 72-75 statement after base.OnActivate();
 
 ```c#
 protected override void OnViewAttached(object view, object context)
