@@ -15,7 +15,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
         * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
-        * [1.2.3][123] [Proposed] - Add Cortana Voice Commands (d. 1.1.2)
+        * [1.2.3][123] [Proposed] - Add Share and Secondary Pinning (d. 1.1.2)
         * [1.2.4][124] [Proposed] - Make PWA Linkable (d. 1.1.2)
         * [1.2.5][125] [Proposed] - Add In-Memory Caching
 
@@ -82,8 +82,8 @@ If you are blocked, a representative from the leadership team is always there to
 [113]: stories/1/113_ConfigureSW.md
 [114]: stories/1/114_Test_App.md
 [121]: stories/1/121_Add_WIndows_Feature.md
-[123]: stories/1/123_BONUS-APP-Links.md
-[124]: stories/1/124_BONUS-Speech.md
+[123]: stories/1/124_BONUS-RenoFeatures.md
+[124]: stories/1/123_BONUS-APP-Links.md 
 [125]: stories/1/125_BONUS_InMemoryCaching.md
 
 [211]: stories/2/211_Centennial.md
@@ -124,5 +124,6 @@ If you are blocked, a representative from the leadership team is always there to
 [512a]: stories/5/512a_Unity.md
 [512b]: stories/5/512b_Babylon.md
 [521]: stories/5/521_MR.md
+
 
 
