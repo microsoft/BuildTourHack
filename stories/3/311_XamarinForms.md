@@ -58,7 +58,7 @@ For our first task, we want to be able to list all the different Knowzy products
         "Name": "Black Nose",
         "RawMaterial": "Black foam",
         "Notes": "Everything you'd expect, and a little something more.",
-        "ImageSource": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
     }
     ```
 
