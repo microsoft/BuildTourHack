@@ -31,7 +31,7 @@ The builder site also checks whether the manifest has defined the expected icon 
 
 2. Save the below Knowzy logo to your PC by right clicking and "save as".
 
- ![logo to upload](images/knowzylogo.png) 
+ ![logo to upload](images/Knowzylogo.png) 
 
 2. Browse to the location of the image you downloaded and if you want to generate the missing sizes, make sure the **Generate missing images from this image** checkbox is marked. 
 
