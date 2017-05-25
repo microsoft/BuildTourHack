@@ -41,7 +41,7 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 ![Add C# UWP Project](images/211-add-uwp-project.png)
 
 Make sure the minimum Windows SDK version is 14393 or higher. Windows SDK 14393 or higher is required for Desktop Bridge apps. If you only have the 15063 SDK installed 
-use 15063 for the minimum SDK. You do not need to install the 14393 to complete these tasks.
+use 15063 for the minimum SDK. You do not need to install the 14393 SDK to complete these tasks.
 
 ![Minimum SDK version](images/211-sdk-version.png)
 
