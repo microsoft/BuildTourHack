@@ -14,7 +14,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [1.1.3][113] [Committed] - Update Web App to PWA (d. 1.1.1) 
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
-        * [1.1.5][115] [Committed] - Add Live Tile (d. 1.1.1) 
+        * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
         * [1.2.3][123] [Proposed] - Add Speech APIs (d. 1.1.2)
         * [1.2.4][124] [Proposed] - Make PWA Linkable (d. 1.1.2)
 
@@ -80,7 +80,7 @@ If you are blocked, a representative from the leadership team is always there to
 [112]: stories/1/112_GeneratePWA.md
 [113]: stories/1/113_ConfigureSW.md
 [114]: stories/1/114_Test_App.md
-[115]: stories/1/115_Add_WIndows_Feature.md
+[121]: stories/1/121_Add_WIndows_Feature.md
 [123]: stories/1/123_BONUS-APP-Links.md
 [124]: stories/1/124_BONUS-Speech.md
 
