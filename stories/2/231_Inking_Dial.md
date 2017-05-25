@@ -1,4 +1,4 @@
-# Task 2.3.2 - Add support for ink or dial
+# Task 2.3.1 - Add support for ink or dial
 
 Our development department is pleased with the results of [Task 2.2.2 Add support for other apps to share images with the Knowzy App](222_Share.md) 
 that allowed Knowzy app users to share images from other Windows 10 applications with the Knowzy app. However, we would like Knowzy users to be able

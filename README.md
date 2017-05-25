@@ -29,9 +29,8 @@ If you are blocked, a representative from the leadership team is always there to
         * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
         * [2.2.3][223] [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)
     * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
-        * [2.3.1][231] [Proposed] - Integrate the UWP Community Toolkit to add animations, new controls, services to the new view (d. 2.2.*)
-        * [2.3.2][232] [Proposed] - Add support for ink or dial (d. 2.2.*)
-        * [2.3.3][233] [Proposed] - Add composition effects or (connected) animations (d. 2.2.*)
+        * [2.3.1][231] [Proposed] - Add support for ink or dial (d. 2.2.*)
+        * [2.3.2][232] [Proposed] - Add support for more UWP features (d. 2.2.*)
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Android mobile app
@@ -70,9 +69,9 @@ If you are blocked, a representative from the leadership team is always there to
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
       * [5.1.2a][512a] - [Committed] Create a Unity solution to visualize 3D Model (d 5.1.1) or
-      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1) - sebastien
+      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1)
    * **Deliverable** - Visualize noses in VR
-      * [5.2.1][521] - [Proposed] Retarget UWP app to Mixed Reality Platform (d 5.1.2)
+      * [5.2.1][521] - [Proposed] Re-target UWP app to Mixed Reality Platform (d 5.1.2)
 
 
 
@@ -92,9 +91,8 @@ If you are blocked, a representative from the leadership team is always there to
 [221]: stories/2/221_XAMLView.md
 [222]: stories/2/222_Share.md
 [223]: stories/2/223_AppServices.md
-[231]: stories/2/231_Toolkit.md
-[232]: stories/2/232_Inking_Dial.md
-[233]: stories/2/233_Composition.md
+[231]: stories/2/231_Inking_Dial.md
+[232]: stories/2/232_Extend.md
 
 [311]: stories/3/311_XamarinForms.md
 [312]: stories/3/312_Camera.md
