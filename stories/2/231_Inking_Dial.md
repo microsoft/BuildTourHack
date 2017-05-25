@@ -8,7 +8,8 @@ to annotate the image with the Windows 10 Inking APIs before sharing the image.
 Requirements for this task:
 * Share an image from another Windows 10 App. The Knowzy app should appear as one of the options for Share Targets.
 * Display a XAML UI for sharing with the Knowzy app.
-* Display a Toast that displays the image after the sharing operation has completed.
+* Enable Inking controls on the SharePage to allow the user to annotate the image.
+* Display a Toast that displays the annotated image after the sharing operation has completed.
 
 Our research has found a starting point for the inking idea [here](https://docs.microsoft.com/en-us/windows/uwp/input-and-devices/pen-and-stylus-interactions )
 
