@@ -1,4 +1,4 @@
-# Task 2.3.1 - Complete support for Windows Hello Authentication
+# Task 2.3.3 - Complete support for Windows Hello Authentication
 
 Our development department is pleased with the results of [Task 2.1.4 Integrate Windows Hello Authentication](214_WindowsHello.md) 
 that prototyped using Windows Hello to log into the Knowzy app if the user was using the Desktop Bridge verison of Knowzy. We now want you to
