@@ -261,19 +261,21 @@ Note: Your Publisher, PublisherDisplayName and other app id properties will be d
 
 Your converted Win32 app is now ready to be deployed and run as a UWP app on your computer.
 
-* Build the solution to make sure there are no errors.
-
-* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu. 
-
-![Deploy](images/211-deploy.png)
-
-Note: If your Solution configuration is **Debug | Any CPU** you will need to enable both the Build and Deploy of the Microsoft.Knowzy.UWP app using the Configuration Manager.
+Note: If your Solution configuration is **Debug | Any CPU** you will need to enable both the Build and Deploy setting of the Microsoft.Knowzy.UWP app using the Configuration Manager.
 
 ![Configuration Manager](images/211-configuration-manager.png)
 
 Make sure that both **Build** and **Deploy** are selected for the  Microsoft.Knowzy.UWP project.
 
 ![Configuration Manager Deploy](images/211-configuration-manager-deploy.png)
+
+* Build the solution to make sure there are no errors.
+
+* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu. 
+
+![Deploy](images/211-deploy.png)
+
+
 
 * Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu. You will most likely get the following error:
 
