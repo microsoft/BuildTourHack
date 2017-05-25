@@ -208,7 +208,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return _jsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
