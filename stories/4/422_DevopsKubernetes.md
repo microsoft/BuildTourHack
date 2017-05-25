@@ -1,13 +1,13 @@
-# Challenge 4.2.1 - Continuous Delivery to Kubernetes using VSTS
+# Challenge 4.2.2 - Continuous Delivery to Kubernetes using VSTS
 
 
-The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now they'd like you to set up Continuous Delivery using the Visual Studio Team Services (VSTS) account you set up in [Task 4.2.0](420_SetupVSTS.md).  Using VSTS will enable our development and operations department to have work together efficiently as a team and push new stable releases into production. The primary goal of this challenge is to automatically post a new release of our code into our production Kubernetes cluster with any commit to our git repository.
+The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now they'd like you to set up Continuous Delivery using the Visual Studio Team Services (VSTS) account you set up in [Task 4.2.0][420].  Using VSTS will enable our development and operations department to have work together efficiently as a team and push new stable releases into production. The primary goal of this challenge is to automatically post a new release of our code into our production Kubernetes cluster with any commit to our git repository.
 
 ![Release Pipeline](images/DevOpsPipeline.png)
 
 ## Prerequisites 
 
-* This task has a dependency on [Task 4.1.5][415], [Task 4.2.0](420_SetupVSTS.md), and all of their prerequisites.
+* This task has a dependency on [Task 4.1.5][415], [Task 4.2.1][421], and all of their prerequisites.
 * Access to the Azure subscription you used in [Task 4.1.5][415].
 
 ## Task
@@ -17,7 +17,7 @@ For the sake of this exercise, **lets focus only on the API code** and any new r
 The following two resources will provide you all the answers on how to accomplish this task, it´s your duty to understand them and consolidate the concepts to set up a full development cycle. Please note that none of these are a step-by-step tutorial to achieve what you want, but jointly you will be able to make it work:
 
 1. [CI/CD to Kubernetes clusters using VSTS](https://github.com/dtzar/blog/tree/master/CD-Kubernetes-VSTS)
-2. [Use Visual Studio to automatically generate a CI/CD pipeline to deploy an ASP.NET Core web app with Docker to Azure](https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnetcore-docker-to-azure)
+2. [Build and deploy your ASP.NET Core app to Azure](https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnetcore-to-azure#enable-continuous-integration-ci)
 
 You should be able to do the following steps to provide CI/CD in a Kubernetes cluster using Azure.
 
@@ -44,3 +44,4 @@ At the end of this challenge you should be able to follow these steps and get si
 
 [414]: /stories/4/414_Docker.md
 [415]: /stories/4/415_Kubernetes.md
+[421]: /stories/4/421_SetupVSTS.md
