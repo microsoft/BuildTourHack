@@ -186,6 +186,37 @@ when the app is running as a Desktop Bridge app. Add the following code to MainV
     ```
 
 1. You will need to add a getter to AppFolders.cs in Microsoft.Knowzy.UwpHelpers to return the path to Windows.Storage.ApplicationData.Current.LocalFolder. 
+
+Add the following code to AppFolders.cs
+
+```c#
+public static string Local
+{
+    get
+    {
+        string path = null;
+        if (ExecutionMode.IsRunningAsUwp())
+        {
+            path = GetSafeAppxLocalFolder();
+        }
+        return path;
+    }
+}
+
+internal static string GetSafeAppxLocalFolder()
+{
+    try
+    {
+        return Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+    }
+    catch (Exception ex)
+    {
+
+        System.Diagnostics.Debug.WriteLine(ex.Message);
+    }
+    return null;
+}
+```
     
 1. Once you have made all of your changes to to code, build and run the Microsoft.Knowzy.Debug project.
 
