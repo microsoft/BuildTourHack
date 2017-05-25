@@ -237,15 +237,10 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +            FeedOptions options = new FeedOptions();
 +            options.EnableCrossPartitionQuery = true;
 +
-+            var orders = _client.CreateDocumentQuery<Domain.Shipping>(
-+                _ordersLink,
-+                "SELECT * FROM orders o WHERE o.type='shipping'",
-+                options).ToList();
-+
-+            if (orders != null && orders.Count() > 0)
-+                return orders;
-+            else
-+                return null;
++           return _client.CreateDocumentQuery<Domain.Shipping>(
++               _ordersLink,
++               "SELECT * FROM orders o WHERE o.type='shipping'",
++               _options).ToList();
 +        }
 ```
 
