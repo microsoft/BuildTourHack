@@ -148,7 +148,7 @@ namespace Microsoft.Knowzy.UwpHelpers
 #### Step 4: Add Login Code to the WPF App
 
 When the Login menu item in clicked in the UI of the Knowzy app, a message to open the Login dialog is sent to the  Handle(OpenLoginMessage message) method in
-Microsoft.Knowzy.WPF\Models\ShellViewModel.cs.
+Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
 
 ![Knowzy UWP](images/214-knowzy-uwp.png)
 
