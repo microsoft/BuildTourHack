@@ -118,7 +118,7 @@ Since all of the other dependencies in the Knowzy WPF solution are Portable Clas
 
 ![Create Portable Class Library 2](images/213-create-pcl-2.png)
 
-There exists a convenient NuGet package called [UwpDesktop(https://www.nuget.org/packages/UwpDesktop)that makes it easy for you call into UWP APIs 
+There exists a convenient NuGet package called [UwpDesktop](https://www.nuget.org/packages/UwpDesktop) that makes it easy for you call into UWP APIs 
 from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet package to our Microsoft.Knowzy.UwpHelpers project.
 
 * Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Manage NuGet Packages...**
