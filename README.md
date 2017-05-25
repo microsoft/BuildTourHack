@@ -29,9 +29,9 @@ If you are blocked, a representative from the leadership team is always there to
         * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
         * [2.2.3][223] [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)
     * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
-        * [2.3.1][231] [Proposed] - Integrate the UWP Community Toolkit to add animations, new controls, services to the new view (d. 2.2.*)
-        * [2.3.2][232] [Proposed] - Add support for ink or dial (d. 2.2.*)
-        * [2.3.3][233] [Proposed] - Add composition effects or (connected) animations (d. 2.2.*)
+        * [2.3.1][231] [Proposed] - Add support for ink (d. 2.2.*)
+        * [2.3.2][232] [Proposed] - Add support for more UWP features (d. 2.2.*)
+        * [2.3.3][233] [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Android mobile app
@@ -43,8 +43,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
     * **Deliverable** - Add automatic image analysis
         * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
-        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location (d. 3.3.1)
-        * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
+        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)
     * **Deliverable** - Set up Continuous Integration and Deployment
         * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
         * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center
@@ -61,8 +60,8 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.5][415] - [Committed] Configure Kubernetes and publish to Azure (d. 4.1.4)
         * [4.1.6][416] - [Proposed] Integrate Website and APIs (d. 4.1.5)
     * **Deliverable** - Set up Continuous Delivery
-        * [4.2.0][420] - [Proposed] Set up Visual Studio Team Services
-        * [4.2.1][421] - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
+        * [4.2.1][421] - [Proposed] Set up Visual Studio Team Services
+        * [4.2.2][422] - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
     * **Deliverable** - Set up Telemetry
         * [4.3.1][431] - [Proposed] Set up telemetry for the web app and APIs
 
@@ -71,9 +70,9 @@ If you are blocked, a representative from the leadership team is always there to
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
       * [5.1.2a][512a] - [Committed] Create a Unity solution to visualize 3D Model (d 5.1.1) or
-      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1) - sebastien
+      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1)
    * **Deliverable** - Visualize noses in VR
-      * [5.2.1][521] - [Proposed] Retarget UWP app to Mixed Reality Platform (d 5.1.2)
+      * [5.2.1][521] - [Proposed] Re-target UWP app to Mixed Reality Platform (d 5.1.2)
 
 
 
@@ -93,9 +92,9 @@ If you are blocked, a representative from the leadership team is always there to
 [221]: stories/2/221_XAMLView.md
 [222]: stories/2/222_Share.md
 [223]: stories/2/223_AppServices.md
-[231]: stories/2/231_Toolkit.md
-[232]: stories/2/232_Inking_Dial.md
-[233]: stories/2/233_Composition.md
+[231]: stories/2/231_Inking_Dial.md
+[232]: stories/2/232_Extend.md
+[233]: stories/2/233_Windows_Hello.md
 
 [311]: stories/3/311_XamarinForms.md
 [312]: stories/3/312_Camera.md
@@ -116,8 +115,8 @@ If you are blocked, a representative from the leadership team is always there to
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
 [416]: stories/4/416_Integrate.md
-[420]: stories/4/420_SetupVSTS.md
-[421]: stories/4/421_DevopsKubernetes.md
+[421]: stories/4/421_SetupVSTS.md
+[422]: stories/4/421_DevopsKubernetes.md
 [431]: stories/4/431_Telemetry.md
 
 [511]: stories/5/511_Paint3d.md

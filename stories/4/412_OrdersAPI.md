@@ -1,6 +1,6 @@
-# Task 4.1.2 - Create API endpoint for shipping services
+# Task 4.1.2 - Create API endpoint for shipping and receiving services
 
-Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a service based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
 
 ## Prerequisites 
 
@@ -14,7 +14,7 @@ Now that you've created a database to store your data, it's time to create APIs 
 
 From the command line or Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
 
-Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project in that folder:
+Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project called `Microsoft.Knowzy.OrdersAPI` in that folder:
 
 ![Add new ASP.NET Core Project](images/AddNewApiProject.png)
 
@@ -31,7 +31,7 @@ dotnet restore
 dotnet run
 ``` 
 
-Navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5) to see your app running, you should see the word `value` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the Stop button in Visual Studio to stop the API.
+If starting from Visual Studio it will start a browser window for you to see your app running. If starting from the command line, navigate to [http://localhost:5000/api/values](http://localhost:5000/api/values) to see your app running. You should see the result `["value1","value2"]` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the `Stop` button in Visual Studio to stop the API app.
 
 ### 2. Add functionality
 
@@ -53,7 +53,7 @@ Run the project from Visual Studio again or from the terminal run the project to
 dotnet run
 ```
 
-This time, when you navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5), you should see `The value is 5`
+This time, when you navigate to http://localhost:<Your API PORT>/api/values/5 you should see `The value is 5` returned.
 
 ### 3. Using Environment Variables and Connecting to CosmosDB
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceConnection services)
 
 Now let's connect our solution to our data store in [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) that was created as part of task [4.1.1][411]. 
 
-Start by adding a Nuget package reference to `Microsoft.Azure.DocumentDB.Core` version 1.3.0 to the `Microsoft.Knowzy.OrdersAPI` project.
+Start by adding a Nuget package reference to the latest stable version of `Microsoft.Azure.DocumentDB.Core` to the `Microsoft.Knowzy.OrdersAPI` project.
 
 Add a new folder called `Data` to the `Microsoft.Knowzy.OrdersAPI` project. This folder will have the classes that interact with your CosmosDB data store. 
 
@@ -162,6 +162,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
     }
 }
 ```
+Note how we are using the [ASP.NET Core dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) to get the config instance passed into the class initializer for us, and with it we get the environment variable values. You can read more about configuration in ASP.NET Core in [this help article](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration).
 
 Modify `Startup.cs` and register our data access with the list of services (IoC):
 
@@ -179,7 +180,7 @@ To test it outupdate the `ValuesController.cs` file follows:
 
 ```diff
 ...
-using Microsoft.Knowzy.OrdersAPI.Data;
++ using Microsoft.Knowzy.OrdersAPI.Data;
 ...
    public class ValuesController : Controller
 {
@@ -207,11 +208,11 @@ If you now run the API app again and call `/api/values/5` on your API you should
 
 ### 4. Implement the Orders API
 
-Now it's time to implement the endpoints for the Orders API, running the API app as needed to verify your app locally before moving on.
+Now it's time to implement the endpoints for the Shipping and Receiving controllers of our Orders API, running the API app as needed to verify your app locally.
 
 In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API for serialization.
 
-Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
+Edit the `IOrdersStore.cs` interface to add the GetShippings method:
 
 ```diff
 ...
@@ -221,7 +222,7 @@ Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
     {
         Task<bool> Connected();
 
-+        IEnumerable<Domain.Receiving> GetAllOrders();
++        IEnumerable<Domain.Shipping> GetShippings();
     }
 ``` 
 And edit the `OrdersStore.cs` class to implement that method to return all orders:
@@ -231,11 +232,16 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 + using System.Collections.Generic;
 + using System.Linq;
 ...
-+        public IEnumerable<Domain.Receiving> GetAllOrders()
++        public IEnumerable<Domain.Shipping> GetShippings()
 +        {
-+           FeedOptions options = new FeedOptions();
-+           options.EnableCrossPartitionQuery = true;
-+            var orders = _client.CreateDocumentQuery<Domain.Receiving>(_ordersLink, options);
++            FeedOptions options = new FeedOptions();
++            options.EnableCrossPartitionQuery = true;
++
++            var orders = _client.CreateDocumentQuery<Domain.Shipping>(
++                _ordersLink,
++                "SELECT * FROM orders o WHERE o.type='shipping'",
++                options).ToList();
++
 +            if (orders != null && orders.Count() > 0)
 +                return orders;
 +            else
@@ -243,34 +249,51 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +        }
 ```
 
-Edit the `ValuesController.cs` class in the `Controllers` folder to return all orders in the Get method:
+Add a new class called `ShippingController.cs` to the `Controllers` folder to return all shipping orders in the Get method (choose to add a new class instead of a new Controller as we don't need the scaffolding from adding a Controller:
 
-```diff
-...
-    public class ValuesController : Controller
+```csharp
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Knowzy.OrdersAPI.Data;
+
+namespace Microsoft.Knowzy.OrdersAPI.Controllers
+{
+    [Route("api/[controller]")]
+    public class ShippingController : Controller
     {
-
+        private IOrdersStore _ordersStore;
+        public ShippingController(IOrdersStore ordersStore)
+        {
+            _ordersStore = ordersStore;
+        }
         // GET api/values
         [HttpGet]
--		  public IEnumerable<string> Get()
-+        public IEnumerable<Domain.Receiving> Get()
+        public IEnumerable<Domain.Shipping> Get()
         {
--            return new string[] { "value1", "value2" };
-+            return _ordersStore.GetAllOrders();
+            return _ordersStore.GetShippings();
         }
-...
+    }
+}
 ```
 
-Now, when you run and browse your API to `/api/values` you should get back the json array with all the orders in the CosmosDB `orders` collection.
+Now, when you run and browse your API to `/api/Shipping` you should get back the json array with all the shipping orders in the CosmosDB `orders` collection.
 
-Now use this same logic to modify `ValuesController.cs`, `IOrdersStore.cs` and `OrdersStore.cs` and implement the rest of the Orders API methods needed by the website:
-- Get a specific order by order id (modify the `GET api/values/5` method)
-- Insert a new order (modify the `POST api/values` method)
-- Update a new order (modify the `PUT api/values/5` method)
-- Delete an order (modify the `DELETE api/values/5` method)
-- Get Postal Carriers (get them from selecting distinct using LINQ from `orders`)
-- Get Customers (create a separate Controller that pulls from the `customers` collection in CosmosDB )
-
+Now use this same logic to modify `ShippingController.cs`, `IOrdersStore.cs` and `OrdersStore.cs`, create a new `ReceivingController.cs`, and implement the rest of the Orders API methods needed by `IOrderRepository` in the website code:
+- GetShippings (already implemented above)
+- GetReceivings
+- GetShipping(string orderId)
+- GetReceiving(string orderId)
+- GetProducts()
+- GetPostalCarriers()
+- GetCustomers()
+- GetShippingCount()
+- GetReceivingCount()
+- GetProductCount()
+- AddShipping(Shipping shipping)
+- UpdateShipping(Shipping shipping)
+- AddReceiving(Receiving receiving)
+- UpdateReceiving(Receiving receiving)
 
 ### 5. Package for release
 

@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Microsoft.KnowzyJsonDataProvider</RootNamespace>
-    <AssemblyName>Microsoft.KnowzyJsonDataProvider</AssemblyName>
+    <RootNamespace>Microsoft.Knowzy.JsonDataProvider</RootNamespace>
+    <AssemblyName>Microsoft.Knowzy.JsonDataProvider</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
