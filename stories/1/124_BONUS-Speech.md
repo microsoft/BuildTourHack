@@ -1,1 +1,20 @@
-# Task 1.2.4 - Integrate Camera for scanning barcodes## Prerequisites This task has a dependency on [Task 1.2.2](122_Add_WIndows_Features.md) and all of it's prerequisites## Task 1. Add support for capturing image with the windows 10 camera tool2. add image to upload package you send back to serverWalkthrough goes here## References
+
+This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all of it's prerequisites
+
+## Task 
+
+1. Add Applink library to page
+
+2. Add feature detect to configure app links
+
+3. deploy to web site
+
+4. reinstall your local app
+
+
+
+## References
+
+
+
+
