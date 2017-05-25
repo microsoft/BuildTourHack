@@ -12,7 +12,7 @@ This task will guide you through the process of debugging a Windows Desktop Brid
 * The [Desktop Bridge Debugging Project template](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.DesktoptoUWPPackagingProject) installed into Visual Studio 2017
 * Complete the section on [Add Desktop Bridge Support using Visual Studio 2017](211_Centennial.md)
 
-
+To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
 ## Step 1: Install the Desktop Bridge Debugging Project Extension
 
@@ -42,7 +42,7 @@ If you do not have the Desktop Bridge Debugging Project extension installed into
 
 * Name the project Microsoft.Knowzy.Debug.
 
-* Make sure you save the project to the **src** folder.
+* Make sure you save the project to the **Knowzy_Engineering_Win32App\src** folder.
 
 
 You solution should now contain the following projects.
@@ -59,6 +59,7 @@ Since we will be working a lot with the Microsoft.Knowzy.UWP project, set the Bu
 
 ![Debug | x86 Projects](images/212-debug-x86.png)
 
+Build the x86 configuration of the solution. After the build completes, deploy the Microsoft.Knowzy.UWP project so its AppX folder is created. The next step needs the AppX folder.
 
 Right-click on the Microsoft.Knowzy.Debug project and select **Set as Startup Project**. 
 
@@ -116,6 +117,9 @@ This will allow for any changes to the Microsoft.Knowzy.WPF project code to be i
 Then build the solution again.
 
 * Press F5 and your UWP app will now be deployed and launch successfully. You should now be able to set breakpoints in the Microsoft.Knowzy.WPF source code.
+
+**Note:** There is a intermitent bug in the Desktop Bridge Debugging Project ** where it may hang when deploying a build. If this happens, use the Task Manager to kill Visual Studio and then reopen then solution. 
+You should then be able to build and run the app.
 
 ![Breakpoint](images/212-breakpoint.png)
 

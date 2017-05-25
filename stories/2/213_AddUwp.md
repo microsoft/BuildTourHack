@@ -11,6 +11,8 @@ This task will guide you through the process of adding Windows 10 UWP APIs to yo
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
 * Complete the section on [Debugging a Windows Desktop Bridge App](212_Debugging.md)
 
+To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
+
 ## Task
 
 In this task we will do the following:
@@ -102,52 +104,96 @@ We are going to need to add at least 2 UWP methods to our DeskTop Bridge version
 
 We can add UWP APIs to our Knowzy app at any location we need the UWP code. However, it will be easier if we create a set of UWP helper classes and place then all in a single C# library. 
 
-Let's take a look at how the Knowzy solution is organzied:
+Since all of the other dependencies in the Knowzy WPF solution are Portable Class Libraries, we will add a new Portable Class Library called Microsoft.Knowzy.UwpHelpers.
 
-![Microsoft.Knowzy.Helpers](images/213-microsoft-knowzy-helpers.png)
+* Right-click on the src folder in the solution
 
-We see that there is a project called Microsoft.Knowzy.Common. This project is referenced by the other projects in this solution, so if we add our 
-UWP helpers here, all of the other projects will be able to use that code.
+* Select the **Visual C# | Class Library (Portable)** project template.
 
-There already exists a NuGet package called DesktopBridge.Helpers that contains code to detect if an app is running as a UWP Desktop Bridge App. Let's add this NuGet package to our Microsoft.Knowzy.Common project.
+* Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **src** directory.
 
-* Right-click on the Microsoft.Knowzy.Common project and select **Manage NuGet Packages...**
+![Create Portable Class Library](images/213-create-pcl.png)
+
+* Select the following Targets and click **OK**:
+
+![Create Portable Class Library 2](images/213-create-pcl-2.png)
+
+There exists a convenient NuGet package called [UwpDesktop(https://www.nuget.org/packages/UwpDesktop)that makes it easy for you call into UWP APIs 
+from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet package to our Microsoft.Knowzy.UwpHelpers project.
+
+* Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Manage NuGet Packages...**
 
 ![Manage NuGet Packages](images/213-manage-nuget-packages.png)
 
 * Click on **Browse**, enter DesktopBridge.Helpers in the search field and then click on  **Install**
 
-![Install DesktopBridge.Helpers](images/213-install-desktopbridge-helpers.png)
+![Install UwpDesktop](images/213-uwpdesktop.png)
 
 * **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project.
 If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
 
-* Add a new folder to Microsoft.Knowzy.Common project by right-clicking on the Microsoft.Knowzy.Common project and selecting **Add | New Folder** . Name the folder **UwpHelpers**.
 
+* Add a new C# class to the Microsoft.Knowzy.UwpHelpers . Name the file ExecutionMode.cs.
 
-* Add a new C# class to the UwpHelpers folder of the Microsoft.Knowzy.Common project. Name the file ExecutionMode.cs.
-
-* Add the following code to ExecutionMode.cs. This code uses methods from the DesktopBridge.Helpers NuGet package.
+* Add the following code to ExecutionMode.cs. This code detects if the app is running as a UWP app.
 
 ```c#
-namespace Microsoft.Knowzy.Common.UwpHelpers
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
+using Windows.System.Profile;
+
+namespace Microsoft.Knowzy.UwpHelpers
 {
     public class ExecutionMode
     {
-        public static bool IsRunningAsUwp()
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        static extern int GetCurrentPackageFullName(ref int packageFullNameLength, ref StringBuilder packageFullName);
+
+         public static bool IsRunningAsUwp()
+         {
+            if (isWindows7OrLower())
+            {
+                return false;
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder(1024);
+                int length = 0;
+                int result = GetCurrentPackageFullName(ref length, ref sb);
+
+                return result != 15700;
+            }
+        }
+
+        internal static bool isWindows7OrLower()
         {
-            DesktopBridge.Helpers helpers = new DesktopBridge.Helpers();
-            return helpers.IsRunningAsUwp();
+            try
+            {
+                string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
+                ulong version = ulong.Parse(deviceFamilyVersion);
+                ulong major = (version & 0xFFFF000000000000L) >> 48;
+                ulong minor = (version & 0x0000FFFF00000000L) >> 32;
+                double osVersion = (double)major + ((double)minor / 10.0);
+                return osVersion <= 6.1;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
 ```
 
+* Right-click on the Microsoft.Knowzy.JsonDataProvider project, select **Add | Reference...** and a reference to the Microsoft.Knowzy.UwpHelpers project.
+
 * We can now modify src\Microsoft.KnowzyJsonDataProvider\JsonDataProvider.cs as follows:
 
+
 ```c#
+using Microsoft.Knowzy.UwpHelpers;
 using System;
-using Microsoft.Knowzy.Common.UwpHelpers;
 
 public Product[] GetData()
 {
@@ -162,14 +208,14 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
-* Build your solution and then set a break point at  the following line of JsonDataProvider.cs (around line 34). 
+* Build your solution and then set a break point at the following line of JsonDataProvider.cs (around line 40). 
 
 ```c#
-    jsonFilePath = "desktop\\" + _configuration.Configuration.JsonFilePath;
+     if (ExecutionMode.IsRunningAsUwp())
 ```
    
 * Press F5 to launch your app and...
@@ -196,35 +242,27 @@ Since we will be modifying the Microsoft.Knowzy.JsonDataProvider and Microsoft.K
     <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.JsonDataProvider.dll">
       <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.JsonDataProvider.dll</PackagePath>
     </LayoutFile>
-    <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.Common.dll">
-      <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.Common.dll</PackagePath>
+    <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.UwpHelpers.dll">
+      <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.UwpHelpers.dll</PackagePath>
     </LayoutFile>
   </ItemGroup>
 </Project>
 ```
     
-Now every time you make a code change to Microsoft.Knowzy.JsonDataProvider or Microsoft.Knowzy.Common, the changes will be part of the build.
+Now every time you make a code change to Microsoft.Knowzy.JsonDataProvider or Microsoft.Knowzy.UwpHelpers, the changes will be part of the build.
 
 Press F5 again and now you should be able to hit the breakpoint in JsonDataProvider.cs.
 
 #### Step 2: Adding UWP support to detect the AppX Installation Folder
 
-We are now going to start adding Windows 10 UWP APIs to our app in order to find the AppX folder's install location and later to add new Windows 10 features to our app. 
-There is a convenient NuGet package called UwpDesktop that makes it easy to add Windows 10 UWP support to our app without breaking the WPF version. 
+We are now going to start adding Windows 10 UWP APIs to our app in order to find the AppX folder's install location and in later tasks to add new Windows 10 features to our app. 
 
-* Add the UwpDesktop NuGet package to
-Microsoft.Knowzy.Common project.
-
-![Install UWPDesktop](images/213-install-uwpdesktop.png)
-
-* Rebuilt your solution to make sure the newly added DLL(s) are part of the UWP build.
-
-* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file AppFolders.cs.
+* Add a new C# class to theMicrosoft.Knowzy.Common UwpHelpers project. Name the file AppFolders.cs.
 
 * Add the following code to AppFolders.cs. This code uses methods from the Windows 10 UWP API
 
 ```c#
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.UwpHelpers
 {
     public class AppFolders
     {
@@ -268,22 +306,25 @@ using System.IO;
 
 public Product[] GetData()
 {
-    String jsonFilePath;
-
-    if (ExecutionMode.IsRunningAsUwp())
+    public Product[] GetData()
     {
-        jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
-    }
-    else
-    {
-        jsonFilePath = _configuration.Configuration.JsonFilePath;
-    }
+        String jsonFilePath;
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+        if (ExecutionMode.IsRunningAsUwp())
+        {
+            jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
+        }
+        else
+        {
+            jsonFilePath = _configuration.Configuration.JsonFilePath;
+        }
+
+        return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
+    }
 }
 ```
 
-Finally our Knowzy UWP app can load the Products.json file from the correct location and display the information correctly.
+Press F5 to run the Microsoft.Knowzy.Debug project. Finally our Knowzy UWP app can load the Products.json file from the correct location and display the information correctly.
 
 ![Knowzy UWP](images/213-knowzy-uwp.png)
 

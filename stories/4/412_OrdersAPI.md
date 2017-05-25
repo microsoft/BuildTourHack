@@ -1,6 +1,6 @@
 # Task 4.1.2 - Create API endpoint for shipping services
 
-Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a service based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
 
 ## Prerequisites 
 
@@ -14,7 +14,7 @@ Now that you've created a database to store your data, it's time to create APIs 
 
 From the command line or Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
 
-Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project in that folder:
+Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project called `Microsoft.Knowzy.OrdersAPI` in that folder:
 
 ![Add new ASP.NET Core Project](images/AddNewApiProject.png)
 
@@ -31,7 +31,7 @@ dotnet restore
 dotnet run
 ``` 
 
-Navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5) to see your app running, you should see the word `value` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the Stop button in Visual Studio to stop the API.
+If starting from Visual Studio it will start a browser window for you to see your app running. If starting from the command line, navigate to [http://localhost:5000/api/values](http://localhost:5000/api/values) to see your app running. You should see the result `["value1","value2"]` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the `Stop` button in Visual Studio to stop the API app.
 
 ### 2. Add functionality
 
@@ -53,7 +53,7 @@ Run the project from Visual Studio again or from the terminal run the project to
 dotnet run
 ```
 
-This time, when you navigate to [http://localhost:5000/api/values/5](http://localhost:5000/api/values/5), you should see `The value is 5`
+This time, when you navigate to http://localhost:<Your API PORT>/api/values/5 you should see `The value is 5` returned.
 
 ### 3. Using Environment Variables and Connecting to CosmosDB
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceConnection services)
 
 Now let's connect our solution to our data store in [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) that was created as part of task [4.1.1][411]. 
 
-Start by adding a Nuget package reference to `Microsoft.Azure.DocumentDB.Core` version 1.3.0 to the `Microsoft.Knowzy.OrdersAPI` project.
+Start by adding a Nuget package reference to the latest stable version of `Microsoft.Azure.DocumentDB.Core` to the `Microsoft.Knowzy.OrdersAPI` project.
 
 Add a new folder called `Data` to the `Microsoft.Knowzy.OrdersAPI` project. This folder will have the classes that interact with your CosmosDB data store. 
 
@@ -162,6 +162,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
     }
 }
 ```
+Note how we are using the [ASP.NET Core dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) to get the config instance passed into the class initializer for us, and with it we get the environment variable values. You can read more about configuration in ASP.NET Core in [this help article](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration).
 
 Modify `Startup.cs` and register our data access with the list of services (IoC):
 
@@ -179,7 +180,7 @@ To test it outupdate the `ValuesController.cs` file follows:
 
 ```diff
 ...
-using Microsoft.Knowzy.OrdersAPI.Data;
++ using Microsoft.Knowzy.OrdersAPI.Data;
 ...
    public class ValuesController : Controller
 {
@@ -207,7 +208,7 @@ If you now run the API app again and call `/api/values/5` on your API you should
 
 ### 4. Implement the Orders API
 
-Now it's time to implement the endpoints for the Orders API, running the API app as needed to verify your app locally before moving on.
+Now it's time to implement the endpoints for the Orders API, running the API app as needed to verify your app locally.
 
 In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API for serialization.
 
