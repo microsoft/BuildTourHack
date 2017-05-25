@@ -1,6 +1,6 @@
 # Task 2.2.1 -  Create a new XAML view as part of app package
 
-This task will guide you through the process of adding a Windows 10 UWP XAML UI to your Win32 Desktop app using Visual Studio 2017. 
+This task will guide you through the process of adding a Windows 10 UWP XAML UI to your Win32 Desktop Bridge app using Visual Studio 2017. 
 We will also add support for using Windows 10 UWP Protocols to communicate between the WPF exe and and UWP exe. 
 
 ## Prerequisites 
@@ -10,7 +10,7 @@ We will also add support for using Windows 10 UWP Protocols to communicate betwe
 * Basic knowledge of Windows 10 and the Universal Windows Platform
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
-* Complete the section on [Adding Windows 10 UWP APIs to your Desktop Bridge App](213_AddUwp.md)
+* Complete the section on [Integrate Windows Hello Authentication](214_WindowsHello.md)
 
 ## Task 
 
@@ -33,7 +33,7 @@ There is actually no mention of Microsoft.Knowzy.UWP.exe in the Package.appxmani
   </Applications>
 ```
 
-We are now going to use the Microsoft.Knowzy.UWP.exe to create and run a UWP XAML UI page. We will launch Microsoft.Knowzy.UWP.exe by using [URI activation](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation).
+We are now going to use the Microsoft.Knowzy.UWP.exe to display a UWP XAML UI page. We will launch Microsoft.Knowzy.UWP.exe by using [URI activation](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation).
 
 #### Step 1: Specify an Application Extension in the package manifest
 
@@ -141,12 +141,12 @@ protected override void OnNavigatedTo(NavigationEventArgs args)
 
 Now that the Microsoft.Knowzy.UWP app knows how to handle a URI request, we are going to add code to the Microsoft.Knowzy.WPF project to make the URI request.
 
-* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file UriProtocol.cs.
+* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.UwpHelpers project. Name the file UriProtocol.cs.
 
 * Add the following method to the UriProtocol class. Make sure the class is public,
 
  ```c#
- public class UriProtocol
+public class UriProtocol
 {
     public static async Task<bool> SendUri(Uri uri)
     {
@@ -168,15 +168,23 @@ Our Knowzy app has an unused View menu item. We will use this to call the code t
 * Modify the XAML Microsoft.Knowzy.WPF\Views\MainView.xaml to add a Click event to the View MenuItem (around line 34)
 
 ```xml
-<MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="View_Click"/>
+<MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
+    <MenuItem Header="{x:Static localization:Resources.ListView_Tab}" Template="{StaticResource MenuItemBarControlTemplate}" 
+              cal:Message.Attach="ShowListView()"/>
+    <MenuItem Header="Grid view" Template="{StaticResource MenuItemBarControlTemplate}"
+              cal:Message.Attach="ShowGridView()"/>
+    <MenuItem Header="View 3D" Template="{StaticResource MenuItemBarControlTemplate}"
+              cal:Message.Attach="Show3DView()"/>
+</MenuItem>
 ```
 
-* Add a View_Click() method to Microsoft.Knowzy.WPF\Views\MainView.xaml.cs
+* Add a Show3DView() method to Microsoft.Knowzy.WPF\Models\MainViewModel.cs
 
 ```c#
+using Microsoft.Knowzy.UwpHelpers;
 using System;
 
-private async void View_Click(object sender, EventArgs e)
+public async void Show3DView()
 {
     if (ExecutionMode.IsRunningAsUwp())
     {
@@ -185,14 +193,15 @@ private async void View_Click(object sender, EventArgs e)
     }
     else
     {
-        MessageBox.Show("View not implemented in WPF version", "Microsoft.Knowzy.WPF");
-    }
+        MessageBox.Show("3D View not implemented in WPF version", "Microsoft.Knowzy.WPF");
+    };
 }
+
 ```        
 
 * Build and run the solution (with Windows.Knowzy.Debug as the startup application)
 
-* Click on the View Menu item. The XAML UI of the Microsoft.Knowzy.UWP app will appear and display the 3D clown nose specified by the Uri parameters.
+* Select **View 3D** from the **View** menu. The Xaml ui of the Microsoft.Knowzy.UWP app will appear and display the 3D clown nose specified by the Uri parameters.
 
 ![Knowzy XAML UI](images/221-xaml-ui.png)
 
@@ -200,11 +209,11 @@ private async void View_Click(object sender, EventArgs e)
 
 ```c#
 using Windows.UI.ViewManagement;
+
 public MainPage()
 {
     this.InitializeComponent();
-    ApplicationView.PreferredLaunchViewSize = new Size(800, 800);
-    ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+    ApplicationView.GetForCurrentView().TryResizeView(new Size(800, 800));
 }
 ```
     
