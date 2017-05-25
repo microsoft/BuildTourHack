@@ -306,22 +306,20 @@ using System.IO;
 
 public Product[] GetData()
 {
-    public Product[] GetData()
+    String jsonFilePath;
+
+    if (ExecutionMode.IsRunningAsUwp())
     {
-        String jsonFilePath;
-
-        if (ExecutionMode.IsRunningAsUwp())
-        {
-            jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
-        }
-        else
-        {
-            jsonFilePath = _configuration.Configuration.JsonFilePath;
-        }
-
-        return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
+        jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
     }
+    else
+    {
+        jsonFilePath = _configuration.Configuration.JsonFilePath;
+    }
+
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
+
 ```
 
 Press F5 to run the Microsoft.Knowzy.Debug project. Finally our Knowzy UWP app can load the Products.json file from the correct location and display the information correctly.
