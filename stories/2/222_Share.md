@@ -49,7 +49,7 @@ It should look something like:
     }
     ```
 
-1. You will need to add a new XAML page to the Microsoft.Knowzy.UWP project. Right click on the project and select **Add | New Item...**. Choose the **Blank Page** template and name it **SharePage.cs**.
+1. You will need to add a new XAML page to the Microsoft.Knowzy.UWP project. Right click on the project and select **Add | New Item...**. Choose the **Blank Page** template and name it **SharePage.xaml**.
 
 1. You will need to add the Sharing UI to the SharePage.xaml file. For now, use something like:
 
@@ -142,9 +142,10 @@ We will use a FileSystemWatcher to detect when an image has been to the Applicat
 when the app is running as a Desktop Bridge app. Add the following code to MainView.xaml.cs in the Microsoft.Knowzy.WPF project:
 
     ```c#
+    using System;
     using System.Diagnostics;
     using System.IO;
-    using Microsoft.Knowzy.Common.Helpers;
+    using Microsoft.Knowzy.UwpHelpers;
 
     public MainView()
     {
@@ -177,14 +178,14 @@ when the app is running as a Desktop Bridge app. Add the following code to MainV
         {
             if (File.Exists(e.FullPath))
             {
-                String xml = "<toast><visual><binding template='ToastGeneric'><image src='" + e.FullPath + "'/><text hint-maxLines='1'>Microsoft.Knowzy.WPF received a new image</text></binding></visual></toast>";
+                var xml = "<toast><visual><binding template='ToastGeneric'><image src='" + e.FullPath + "'/><text hint-maxLines='1'>Microsoft.Knowzy.WPF received a new image</text></binding></visual></toast>";
                 Toast.CreateToast(xml);
             }
         }
     }
     ```
 
-1. You will need to add a getter to AppFolders.cs in Microsoft.Knowzy.Common.Helpers to return the path to ApplicationData.Current.LocalFolder. 
+1. You will need to add a getter to AppFolders.cs in Microsoft.Knowzy.UwpHelpers to return the path to Windows.Storage.ApplicationData.Current.LocalFolder. 
     
 1. Once you have made all of your changes to to code, build and run the Microsoft.Knowzy.Debug project.
 
