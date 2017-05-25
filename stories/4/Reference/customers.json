@@ -51,8 +51,6 @@
         "id" : "12358137",
         "companyName": "JonG Tacos",
         "address": "2 SouthEast St. SouthEastTown, 3344",
-        "tracking": "305FDT334FXSHUK",
-        "status": "Delivered",
         "contactPerson": "Jon Gallant",
         "email": "JonG@JongTacos.com",
         "phoneNumber": "33434"
@@ -61,8 +59,6 @@
         "id" : "12358138",
         "companyName": "Happy Party Together Inc.",
         "address": "233 Party St. Festa, 2224",
-        "tracking": "275FDT334FXSHUK",
-        "status": "Pending",
         "contactPerson": "Joan Hells",
         "email": "joan.hells@happyparty.com",
         "phoneNumber": "3434343443"
