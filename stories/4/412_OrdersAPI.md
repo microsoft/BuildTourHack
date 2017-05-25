@@ -309,7 +309,7 @@ Update `ShippingController.cs` to use your updated Orders Store class with Get(i
 
 Create a new controller called `ReceivingController.cs` to handle all the CRUD methods (Create, Read all, Read by id, Update, Delete) for Receiving. Note that this can share some of the same `OrderStore.cs` methods you used for Shipping (both Shipping and Receiving domain classes implement the Order domain class).
 
-Create a new controller called `PostalCarriers.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers from inside orders. 
+Create a new controller called `PostalCarrierController.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers from inside orders. 
 
 ### 5. Package for release
 
