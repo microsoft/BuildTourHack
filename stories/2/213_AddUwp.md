@@ -226,7 +226,7 @@ The build did not pick up our changes to Microsoft.Knowzy.JsonDataProvider. (Or 
 In order to prevent having to do complete rebuilts of our solution every time we change some code, we need to tell the DesktopBridge Debugging Project (Microsoft.Knowzy.Debug) which DLL's to copy to the AppX.
 Unfortunately, the current version of Visual Studio 2017 is not able to correcty handle code changes Desktop Bridge dependencies.
 
-Since we will be modifying the Microsoft.Knowzy.JsonDataProvider and Microsoft.Knowzy.Common projects, let's add them to AppXPackageFileList.xml in the Microsoft.Knowzy.Debug project.
+Since we will be modifying the Microsoft.Knowzy.JsonDataProvider and Microsoft.Knowzy.UwpHelpers projects, let's add them to AppXPackageFileList.xml in the Microsoft.Knowzy.Debug project.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -257,7 +257,7 @@ Press F5 again and now you should be able to hit the breakpoint in JsonDataProvi
 
 We are now going to start adding Windows 10 UWP APIs to our app in order to find the AppX folder's install location and in later tasks to add new Windows 10 features to our app. 
 
-* Add a new C# class to theMicrosoft.Knowzy.Common UwpHelpers project. Name the file AppFolders.cs.
+* Add a new C# class to theMicrosoft.Knowzy.UwpHelpers project. Name the file AppFolders.cs.
 
 * Add the following code to AppFolders.cs. This code uses methods from the Windows 10 UWP API
 
