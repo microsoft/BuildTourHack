@@ -286,25 +286,25 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
     public interface IOrdersStore : IDisposable
     {
         Task<bool> Connected();
-        IEnumerable<Domain.Shipping> GetShippings();
+        IEnumerable<Shipping> GetShippings();
         Shipping GetShipping(string orderId);
-        IEnumerable<Domain.Receiving> GetReceivings();
+        IEnumerable<Receiving> GetReceivings();
         Receiving GetReceiving(string orderId);
-        Task<Domain.Order> CreateOrderAsync(Domain.Order order);
-        Task<Domain.Order> UpdateOrderAsync(Domain.Order order);
-        void DeleteOrder(string orderId);
+        Task<Order> UpsertAsync(Domain.Order order);
+        Task DeleteOrderAsync(string orderId);
+        IEnumerable<PostalCarrier> GetPostalCarriers();
     }
 }
 ```
 Note that CosmosDB [supports parameterized SQL queries](https://azure.microsoft.com/en-us/blog/announcing-sql-parameterization-in-documentdb/) to avoid SQL injection.
 
-Update `OrdersStore.cs` to implement the rest of the interface. 
+Update `OrdersStore.cs` to implement the rest of the interface. This should be all you need to implement the rest of the Shipping controller and create the Receiving and PostalCarrier controllers.
 
-Update `ShippingController.cs` to use your updated Orders Store class with Get(id), Put, and Post methods. Use [this guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) to help. 
+Update `ShippingController.cs` to use your updated Orders Store class with Get(id), Put, Post and Delete methods. Use [this guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) to help. 
 
-Create a new controller called `ReceivingController.cs` to handle all the CRUD methods (Create, Read all, Read by id, Update, Delete) for Receiving. Note that this can share some of the same `OrderStore.cs` methods you used for Shipping (both Shipping and Receiving domain classes implement the Order domain class).
+Create a new controller called `ReceivingController.cs` to handle all the CRUD methods for Receiving. Note that this can share most of of the same `OrderStore.cs` methods you used for Shipping (both Shipping and Receiving domain classes implement the Order domain class).
 
-Create a new controller called `PostalCarrierController.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers from inside orders. 
+Create a new controller called `PostalCarrierController.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers inside the orders collection in CosmosDB. 
 
 ### 5. Package for release
 

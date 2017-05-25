@@ -39,7 +39,7 @@ WPF version. We need to correct this code so that when the UWP version of Knowzy
 public Product[] GetData()
 {
     var jsonFilePath = _configuration.Configuration.JsonFilePath;
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
@@ -68,7 +68,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
@@ -92,7 +92,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
@@ -125,7 +125,7 @@ from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet pack
 
 ![Manage NuGet Packages](images/213-manage-nuget-packages.png)
 
-* Click on **Browse**, enter DesktopBridge.Helpers in the search field and then click on  **Install**
+* Click on **Browse**, enter UwpDesktop in the search field and then click on  **Install**
 
 ![Install UwpDesktop](images/213-uwpdesktop.png)
 
@@ -208,7 +208,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return _jsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
