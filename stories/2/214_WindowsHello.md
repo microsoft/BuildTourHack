@@ -22,13 +22,14 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 ## Task
 
 We will use the Desktop Bridge Knowzy application which was created in the previous tasks as a starting point.
+To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
 #### Step 1: Add a New UWP Helper Class for Windows Hello
 
 Following the techniques presented in the previous task, we are going to add the Windows 10 UWP code for the Windows Hello API and Toast notifications as helper classes.
 These helper classes can be accessed by the Knowzy app when it is running as a Desktop Bridge UWP app.
 
-* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file WindowsHello.cs.
+* Add a new C# class to the Microsoft.Knowzy.UwpHelpers project. Name the file WindowsHello.cs.
 
 * Add the following code to AppFolders.cs. This code uses methods from the Windows 10 UWP API
 
@@ -40,7 +41,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Security.Credentials;
 
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.UwpHelpers
 {
     public class WindowsHello
     {
@@ -88,7 +89,7 @@ if they are logged in. We need to add a UWP Helper class for Toasts.
 
 * Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file Toast.cs.
 
-* Add the following code to AppFolders.cs. This code uses methods from the Windows 10 UWP API
+* Add the following code to Toast.cs. This code uses methods from the Windows 10 UWP API
 
 ```c#
 using System;
@@ -100,7 +101,7 @@ using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
 
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.UwpHelpers
 {
     public class Toast
     {
@@ -109,7 +110,7 @@ namespace Microsoft.Knowzy.Common.Helpers
 
         public static void CreateToast(String xml)
         {
-            if (!Helpers.ExecutionMode.IsRunningAsUwp())
+            if (!ExecutionMode.IsRunningAsUwp())
             {
                 return;
             }
@@ -138,28 +139,29 @@ namespace Microsoft.Knowzy.Common.Helpers
     }
 }
 ```
+#### Step 3: Add a Reference to Microsoft.Knowzy.UwpHelpers
 
-#### Step 3: Add Login Code to the WPF App
+* Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...** and select the Microsoft.Knowzy.UwpHelpers project. Click **OK**.
 
-Our Knowzy app has a Login menu item in the upper right corner of the UI.
+
+
+#### Step 4: Add Login Code to the WPF App
+
+When the Login menu item in clicked in the UI of the Knowzy app, a message to open the Login dialog is sent to the  Handle(OpenLoginMessage message) method in
+Microsoft.Knowzy.WPF\Models\ShellViewModel.cs.
 
 ![Knowzy UWP](images/214-knowzy-uwp.png)
 
-We will attach a Click event to this UI element to call our login code.
 
-* Modify the XAML Microsoft.Knowzy.WPF\Views\MainView.xaml to add a Click event to the Login MenuItem (around line 40)
+* Open the file Microsoft.Knowzy.WPF\Models\ShellViewModel.cs and find the Handle(OpenLoginMessage message) method near line 78.
 
-```xml
-<MenuItem Header="{x:Static localization:Resources.Login_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" Click="Login_Click"/>
-```
+* Modify the Handle(OpenLoginMessage message) as follows:
 
-* Add a Login_Click() method to Microsoft.Knowzy.WPF\Views\MainView.xaml.cs
 
 ```c#
-using Microsoft.Knowzy.Common.Helpers;
-using System.Windows.Forms;
+using Microsoft.Knowzy.UwpHelpers;
 
-private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
+public async void Handle(OpenLoginMessage message)
 {
     if (ExecutionMode.IsRunningAsUwp())
     {
@@ -167,7 +169,7 @@ private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
     }
     else
     {
-        MessageBox.Show("Login not implemented in WPF version", "Microsoft.Knowzy.WPF");
+        _windowManager.ShowDialog(_loginViewModel);
     }
 }
 ```
@@ -184,6 +186,8 @@ private async void Login_Click(object sender, System.Windows.RoutedEventArgs e)
 * Run just the WPF version (right-click on the Microsoft.Knowzy.WPF project and select Debug | Start new instance). Clicking on the Login button will show:
 
 ![Login WPF](images/214-login-wpf.png)
+
+Please note that this is not a complete implementation of Windows Hello login. For more information, please go [here](https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport).
 
 We will continue to add more Windows 10 UWP features to our app in the [next task](221_XAMLView.md).
 
