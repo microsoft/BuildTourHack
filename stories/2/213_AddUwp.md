@@ -39,7 +39,7 @@ WPF version. We need to correct this code so that when the UWP version of Knowzy
 public Product[] GetData()
 {
     var jsonFilePath = _configuration.Configuration.JsonFilePath;
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _fileHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
@@ -68,7 +68,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _fileHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
@@ -92,7 +92,7 @@ public Product[] GetData()
         jsonFilePath = _configuration.Configuration.JsonFilePath;
     }
 
-    return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+    return _fileHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
 }
 ```
 
