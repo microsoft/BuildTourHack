@@ -111,7 +111,7 @@ Right-click again on Microsoft.Knowzy.WPF.csproj and select **Edit MyDesktopApp.
 
 ![Edit project](images/211-edit-project.png)
 
-Scroll to the end of the xml file and paste the above xml code to the end of the file before the final project tag.
+Scroll to the end of the xml file and paste the above xml code to the end of the file **before the final project tag**.
 Save your changes and then reload Microsoft.Knowzy.WPF
 
 ![Reload project](images/211-reload-project.png)
