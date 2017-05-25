@@ -171,10 +171,9 @@ The Windows 10 AppServices UWP API does not seem seem to be compatible with Port
 
 #### Add an AppService helper class to Microsoft.Knowzy.UwpHelpers.AppService ####
 
-* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers project.
-
 ![AppService Class Library](images/223-appservice-class-lib.png)
 
+* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers.AppService project.
 
 * Add the following using directives to AppService.cs
 
