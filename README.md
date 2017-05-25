@@ -61,8 +61,8 @@ If you are blocked, a representative from the leadership team is always there to
         * [4.1.5][415] - [Committed] Configure Kubernetes and publish to Azure (d. 4.1.4)
         * [4.1.6][416] - [Proposed] Integrate Website and APIs (d. 4.1.5)
     * **Deliverable** - Set up Continuous Delivery
-        * [4.2.0][420] - [Proposed] Set up Visual Studio Team Services
-        * [4.2.1][421] - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
+        * [4.2.1][421] - [Proposed] Set up Visual Studio Team Services
+        * [4.2.2][422] - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
     * **Deliverable** - Set up Telemetry
         * [4.3.1][431] - [Proposed] Set up telemetry for the web app and APIs
 
@@ -116,8 +116,8 @@ If you are blocked, a representative from the leadership team is always there to
 [414]: stories/4/414_Docker.md
 [415]: stories/4/415_Kubernetes.md
 [416]: stories/4/416_Integrate.md
-[420]: stories/4/420_SetupVSTS.md
-[421]: stories/4/421_DevopsKubernetes.md
+[421]: stories/4/421_SetupVSTS.md
+[422]: stories/4/421_DevopsKubernetes.md
 [431]: stories/4/431_Telemetry.md
 
 [511]: stories/5/511_Paint3d.md
