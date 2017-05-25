@@ -1,6 +1,7 @@
 # Task 4.1.2 - Create API endpoint for shipping and receiving services
 
 Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+The end goal is a .NET Core based cross-platform solution. The architecture proposes a simplified microservice oriented architecture implementation with multiple autonomous microservices (each one owning its own data/db). The microservices will implement a simple CRUD approach using Http as the current communication protocol.
 
 ## Prerequisites 
 
@@ -329,6 +330,7 @@ By default, this places your app files in a folder named `bin/Release/PublishOut
 * [Introduction to ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/)
 * [Configuration in .NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 * [Azure Cosmos DB: Getting started with the CosmosDB API and .NET Core](https://docs.microsoft.com/en-us/azure/CosmosDB/CosmosDB-dotnetcore-get-started)
+* [eShopOnContainers sample reference microservice and container based application](https://github.com/dotnet-architecture/eShopOnContainers)
 
 [411]: /stories/4/411_CosmosDB.md
 [414]: /stories/4/414_Docker.md
