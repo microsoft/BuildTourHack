@@ -263,7 +263,7 @@ Your converted Win32 app is now ready to be deployed and run as a UWP app on you
 
 * Build the solution to make sure there are no errors.
 
-* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu.
+* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu. 
 
 ![Deploy](images/211-deploy.png)
 
@@ -275,7 +275,7 @@ Make sure that both **Build** and **Deploy** are selected for the  Microsoft.Kno
 
 ![Configuration Manager Deploy](images/211-configuration-manager-deploy.png)
 
-* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu.
+* Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu. You will most likely get the following error:
 
 ```console
 1>------ Build started: Project: Microsoft.Knowzy.UWP, Configuration: Debug x86 ------
