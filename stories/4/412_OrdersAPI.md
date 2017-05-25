@@ -290,8 +290,8 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
         Shipping GetShipping(string orderId);
         IEnumerable<Domain.Receiving> GetReceivings();
         Receiving GetReceiving(string orderId);
-        void CreateOrder(Domain.Order order);
-        void UpdateOrder(Domain.Order order);
+        Task<Domain.Order> CreateOrderAsync(Domain.Order order);
+        Task<Domain.Order> UpdateOrderAsync(Domain.Order order);
         void DeleteOrder(string orderId);
     }
 }
