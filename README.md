@@ -28,7 +28,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [2.2.1][221] [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)
         * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
         * [2.2.3][223] [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)
-    * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
+    * **Deliverable** - Build enhanced UWP experience (d. 2.2.*)
         * [2.3.1][231] [Proposed] - Add support for ink (d. 2.2.*)
         * [2.3.2][232] [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)
         * [2.3.3][233] [Proposed] - Add support for more UWP features (d. 2.2.*)
