@@ -10,7 +10,11 @@ On Windows, you'll need to share your drive with Docker in order to build images
 
 i) Open up Docker settings by right-clicking the Docker icon in the taskbar, and choosing Settings
 
-ii) Go to the `Shared Drives` tab and share the C drive ![image of share screen](images/docker-sharedrive.png)
+ii) Go to the `Shared Drives` tab and share the C drive 
+
+![image of share screen](images/docker-sharedrive.png)
+
+If you receive a firewall error, try these [Troubleshooting](499_Troubleshooting.md) steps. 
 
 ## 2. Building Images
 
