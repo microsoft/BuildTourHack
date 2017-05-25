@@ -70,7 +70,7 @@ namespace Microsoft.Knowzy.UwpHelpers
             String imagePath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
             String xml = "<toast><visual><binding template='ToastGeneric'><text hint-maxLines='1'>" + message + "</text></binding></visual></toast>";
 
-            Helpers.Toast.CreateToast(xml);
+            Toast.CreateToast(xml);
 
             return result;
         }
@@ -87,7 +87,7 @@ a Windows Hello login in a later task.
 The previous code example for Windows Hello uses a [Toast](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts) notification to indicated to the user
 if they are logged in. We need to add a UWP Helper class for Toasts.
 
-* Add a new C# class to the Helpers folder of the Microsoft.Knowzy.Common project. Name the file Toast.cs.
+* Add a new C# class to the Microsoft.Knowzy.UwpHelpers project. Name the file Toast.cs.
 
 * Add the following code to Toast.cs. This code uses methods from the Windows 10 UWP API
 
