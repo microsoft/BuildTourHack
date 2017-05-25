@@ -31,7 +31,7 @@ These helper classes can be accessed by the Knowzy app when it is running as a D
 
 * Add a new C# class to the Microsoft.Knowzy.UwpHelpers project. Name the file WindowsHello.cs.
 
-* Add the following code to AppFolders.cs. This code uses methods from the Windows 10 UWP API
+* Add the following code to WindowsHello.cs. This code uses methods from the Windows 10 UWP API
 
 ```c#
 using System;
