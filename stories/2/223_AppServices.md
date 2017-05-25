@@ -149,11 +149,12 @@ namespace Microsoft.Knowzy.AppService
 </uap:Extension>
 ```
 
-* Add the following xmlns declaration to the Package tag
+* If necessary, add the following xmlns declaration to the Package tag
 
 ```xml
 xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
 ```
+
 
 #### Add a project reference to Microsoft.Knowzy.AppService ####
 
@@ -163,9 +164,17 @@ xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
 
 * The Microsoft.Knowzy.AppService will now be part of the Knowzy UWP AppX package after a build.
 
-#### Add an AppService helper class to Microsoft.Knowzy.Common.Helpers ####
+#### Create a new C# Class Library project Microsoft.Knowzy.UwpHelpers.AppService ####
 
-* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.Common project.
+The Windows 10 AppServices UWP API does not seem seem to be compatible with Portable Class Libraries so create a regular C# Class Library project called Microsoft.Knowzy.UwpHelpers.AppService.
+
+
+#### Add an AppService helper class to Microsoft.Knowzy.UwpHelpers.AppService ####
+
+* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers project.
+
+![AppService Class Library](images/223-appservice-class-lib.png)
+
 
 * Add the following using directives to AppService.cs
 
@@ -238,6 +247,14 @@ public class AppService
     }
 }
 ```
+
+#### Add a project reference to Microsoft.Knowzy.UwpHelpers.AppService ####
+
+* Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...**
+
+* Select the **Microsoft.Knowzy.UwpHelpers.AppService** project under the **Projects | Solution** section. 
+
+
 
 #### Add Listener support to the App Service ####
 
@@ -373,17 +390,17 @@ async void OnRequestReceived(AppServiceConnection sender, AppServiceRequestRecei
 
 #### Enable Microsoft.Knowzy.WPF to use the App Service ####
 
-* Add a Click event to the Help Menu in MainView.xaml in the Microsoft.Knowzy.WPF project.
+* Add a Click event to the Menu Menu in MainView.xaml in the Microsoft.Knowzy.WPF project.
 
 ```xml
-<MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Help_Click"/>
+<MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Menu_Click"/>
 ```
-* Add the Help_Click handler in MainView.xaml.cs in the Microsoft.Knowzy.WPF project.
+* Add the Menu_Click handler in MainView.xaml.cs in the Microsoft.Knowzy.WPF project.
 
 ```c#
 AppService _appService = null;
        
-private async void Help_Click(object sender, EventArgs e)
+private async void Menu_Click(object sender, EventArgs e)
 {
     if (ExecutionMode.IsRunningAsUwp())
     {
@@ -391,11 +408,11 @@ private async void Help_Click(object sender, EventArgs e)
         {
             // start the app service
             _appService = new AppService();
-            var result = await _appService.StartAppServiceConnection("com.microsoft.knowzy.appservice.test");
+            var result = await _appService.StartAppServiceConnection("com.microsoft.knowzy.protocol.test");
         }
 
         // start the XAML UI that will communicate with the App Service
-        Uri uri = new Uri("com.microsoft.knowzy.protocol.appservice.test://" + "message?appserviceid=" + "com.microsoft.knowzy.appservice.test");
+        Uri uri = new Uri("com.microsoft.knowzy.protocol.test://" + "message?appserviceid=" + "com.microsoft.knowzy.appservice.test");
         await UriProtocol.SendUri(uri);
     }
 }
@@ -427,6 +444,35 @@ to the WPF app through the AppService when the use clicks on the Connect button.
     </StackPanel>
 </Grid>
 ```        
+
+* Add the following to App.xaml.cs
+```c#
+protected override void OnActivated(IActivatedEventArgs args)
+{
+    if (args.Kind == ActivationKind.Protocol)
+    {
+        ProtocolActivatedEventArgs eventArgs = args as ProtocolActivatedEventArgs;
+        // TODO: Handle URI activation
+        // The received URI is eventArgs.Uri.AbsoluteUri
+
+        Uri uri = eventArgs.Uri;
+        if (uri.Scheme == "com.microsoft.knowzy.protocol.3d")
+        {
+            Frame rootFrame = new Frame();
+            Window.Current.Content = rootFrame;
+            rootFrame.Navigate(typeof(MainPage), uri.Query);
+            Window.Current.Activate();
+        }
+        else if (uri.Scheme == "com.microsoft.knowzy.protocol.test")
+        {
+            Frame rootFrame = new Frame();
+            Window.Current.Content = rootFrame;
+            rootFrame.Navigate(typeof(AppServiceTest), uri.Query);
+            Window.Current.Activate();
+        }
+    }
+}
+```     
 
 * Add the following using directive to AppServiceTest.xaml.cs
 
@@ -506,7 +552,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 * Build and run the Knowzy app by starting the Microsoft.Knowzy.Debug project.
 
-* Click on the **Help** menu item.
+* Click on the **Menu** menu item.
 
 * When the AppServiceTest windows appears, click on the **Connect** button.
 

@@ -14,7 +14,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [1.1.3][113] [Committed] - Update Web App to PWA (d. 1.1.1) 
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
-        * [1.1.5][115] [Committed] - Add Live Tile (d. 1.1.1) 
+        * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
         * [1.2.3][123] [Proposed] - Add Speech APIs (d. 1.1.2)
         * [1.2.4][124] [Proposed] - Make PWA Linkable (d. 1.1.2)
         * [1.2.5][125] [Proposed] - Add In-Memory Caching
@@ -29,10 +29,10 @@ If you are blocked, a representative from the leadership team is always there to
         * [2.2.1][221] [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)
         * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
         * [2.2.3][223] [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)
-    * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
-        * [2.3.1][231] [Proposed] - Integrate the UWP Community Toolkit to add animations, new controls, services to the new view (d. 2.2.*)
-        * [2.3.2][232] [Proposed] - Add support for ink or dial (d. 2.2.*)
-        * [2.3.3][233] [Proposed] - Add composition effects or (connected) animations (d. 2.2.*)
+    * **Deliverable** - Build enhanced UWP experience (d. 2.2.*)
+        * [2.3.1][231] [Proposed] - Add support for ink (d. 2.2.*)
+        * [2.3.2][232] [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)
+        * [2.3.3][233] [Proposed] - Add support for more UWP features (d. 2.2.*)
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Android mobile app
@@ -44,8 +44,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
     * **Deliverable** - Add automatic image analysis
         * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
-        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location (d. 3.3.1)
-        * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
+        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)
     * **Deliverable** - Set up Continuous Integration and Deployment
         * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
         * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center
@@ -72,9 +71,9 @@ If you are blocked, a representative from the leadership team is always there to
    * **Deliverable** - Build a UWP 3D Visualizer
       * [5.1.1][511] - [Committed] Create the model in Paint3D
       * [5.1.2a][512a] - [Committed] Create a Unity solution to visualize 3D Model (d 5.1.1) or
-      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1) - sebastien
+      * [5.1.2b][512b] - [Committed] Create a BabylonJS solution to visualize 3D Model (d 5.1.1)
    * **Deliverable** - Visualize noses in VR
-      * [5.2.1][521] - [Proposed] Retarget UWP app to Mixed Reality Platform (d 5.1.2)
+      * [5.2.1][521] - [Proposed] Re-target UWP app to Mixed Reality Platform (d 5.1.2)
 
 
 
@@ -82,7 +81,7 @@ If you are blocked, a representative from the leadership team is always there to
 [112]: stories/1/112_GeneratePWA.md
 [113]: stories/1/113_ConfigureSW.md
 [114]: stories/1/114_Test_App.md
-[115]: stories/1/115_Add_WIndows_Feature.md
+[121]: stories/1/121_Add_WIndows_Feature.md
 [123]: stories/1/123_BONUS-APP-Links.md
 [124]: stories/1/124_BONUS-Speech.md
 [125]: stories/1/125_BONUS_InMemoryCaching.md
@@ -94,9 +93,9 @@ If you are blocked, a representative from the leadership team is always there to
 [221]: stories/2/221_XAMLView.md
 [222]: stories/2/222_Share.md
 [223]: stories/2/223_AppServices.md
-[231]: stories/2/231_Toolkit.md
-[232]: stories/2/232_Inking_Dial.md
-[233]: stories/2/233_Composition.md
+[231]: stories/2/231_Inking_Dial.md
+[232]: stories/2/232_Windows_Hello.md
+[233]: stories/2/233_Extend.md
 
 [311]: stories/3/311_XamarinForms.md
 [312]: stories/3/312_Camera.md

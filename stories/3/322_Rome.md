@@ -8,8 +8,8 @@ This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prereq
 
 ## Task
 
-1. Support launching the app remotely on UWP from Android (1pt)
-2. Support remote controlling the app remotely (1pt)
+1. Support launching the app remotely on UWP from Android
+2. Support remote controlling the app remotely
 
 ## Comments
 

@@ -1,289 +1,440 @@
-[
-  {
-    "id": "1208943209",
-    "customerId" : "12358131",
-    "timestamp" : "2017-05-1T18:25:43.511Z",
-    "companyName": "Clown city",
-    "address": "1234 Main St. AnyTown, 04093",
-    "tracking": "135FDT334FXSHUK",
-    "status": "Delivered",
-    "statusUpdated": "2017-05-2T10:30:00.321Z",
-    "contactPerson": "Mary Jane",
-    "email": "Mary.Jane@clowncity.com",
-    "phoneNumber": "123123123",
-    "postalCarrier": {
-      "id": 1,
-      "name": "UPS"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner1.svg",
+﻿[
+    {
+      "id": "1208943209",
+      "customerId": "12358131",
+      "tracking": "135FDT334FXSHUK",
+      "status": "Delivered",
+      "companyName": "Clown city",
+      "address": "1234 Main St. AnyTown, 04093",
+      "contactPerson": "Mary Jane",
+      "email": "Mary.Jane@clowncity.com",
+      "phoneNumber": "123123123",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
           "productId": "RN3454",
-          "price": 25
+          "quantity": 150,
+          "price": 3750
         },
-        "quantity": 150,
-        "price": 3750
-      },
-      {
-        "item": {
-          "image": "/images/banner2.svg",
+        {
           "productId": "PN3476",
-          "price": 75
+          "quantity": 50,
+          "price": 3750
         },
-        "quantity": 50,
-        "price": 3750
-      },
-      {
-        "item": {
-          "image": "/images/banner3.svg",
+        {
           "productId": "YN3171",
+          "quantity": 150,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "12358132",
+      "customerId": "12358133",
+      "companyName": "Transports Citizen",
+      "address": "2 Sunshine St. Dark, 3",
+      "contactPerson": "Peter Moore",
+      "email": "p.m@transportc.com",
+      "phoneNumber": "89866e3",
+      "tracking": "235FDT334FXSHUK",
+      "status": "InTransit",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "ZX2584",
+          "quantity": 12,
+          "price": 300
+        },
+        {
+          "productId": "YN3171",
+          "quantity": 20,
+          "price": 1500
+        },
+        {
+          "productId": "PN3476",
+          "quantity": 1,
           "price": 10
         },
-        "quantity": 150,
-        "price": 1500
-      }
-    ]
-  },
-  {
-    "id": "4208943209",
-    "customerId" : "12358132",
-    "timestamp" : "2017-05-2T09:37:12.111Z",
-    "companyName": "Clowns Inc.",
-    "address": "2 South St. SouthTown, 04093",
-    "tracking": "435FDT334FXSHUK",
-    "status": "Delivered",
-    "statusUpdated": "2017-05-3T10:32:14.998Z",
-    "contactPerson": "Johan Harris",
-    "email": "johan.harris@clowns.com",
-    "phoneNumber": "66345234",
-    "postalCarrier": {
-      "id": 1,
-      "name": "UPS"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner4.svg",
-          "productId": "ZX2584",
-          "price": 45.3
-        },
-        "quantity": 21,
-        "price": 951.3
-      }
-    ]
-  },
-  {
-    "id": "2808943209",
-    "customerId" : "12358133",
-    "timestamp" : "2017-05-2T10:54:00.321Z",
-    "companyName": "Transports Citizen",
-    "address": "2 Sunshine St. Dark, 3",
-    "tracking": "285FDT334FXSHUK",
-    "status": "Delivered",
-    "statusUpdated": "2017-05-3T10:12:34.444Z",
-    "contactPerson": "Peter Moore",
-    "email": "p.m@transportc.com",
-    "phoneNumber": "89866e3",
-    "postalCarrier": {
-      "id": 2,
-      "name": "FedEx"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner1.svg",
+        {
           "productId": "RN3454",
-          "price": 25
-        },
-        "quantity": 1,
-        "price": 25
-      }
-    ]
-  },
-  {
-    "id": "2908943209",
-    "customerId" : "12358134",
-    "timestamp" : "2017-05-3T13:00:01.001Z",
-    "companyName": "Party Creators",
-    "address": "22 NorthEast St. NorthEast, 632",
-    "tracking": "295FDT334FXSHUK",
-    "status": "InTransit",
-    "statusUpdated": "2017-05-4T04:45:52.101Z",
-    "contactPerson": "Paul Harris",
-    "email": "p.harrys@partycreators.com",
-    "phoneNumber": "5454545",
-    "postalCarrier": {
-      "id": 1,
-      "name": "UPS"
+          "quantity": 3,
+          "price": 135.9
+        }
+      ]
     },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner1.svg",
-          "productId": "RN3454",
-          "price": 25
-        },
-        "quantity": 12,
-        "price": 300
+    {
+      "id": "3208943209",
+      "customerId": "12358134",
+      "companyName": "Party Creators",
+      "address": "22 NorthEast St. NorthEast, 632",
+      "contactPerson": "Paul Harris",
+      "email": "p.harrys@partycreators.com",
+      "phoneNumber": "5454545",
+      "tracking": "335FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
       },
-      {
-        "item": {
-          "image": "/images/banner2.svg",
+      "orderLines": [
+        {
           "productId": "PN3476",
-          "price": 75
+          "quantity": 12,
+          "price": 543.6
         },
-        "quantity": 20,
-        "price": 1500
-      }
-    ]
-  },
-  {
-    "id": "3208943209",
-    "customerId" : "12358135",
-    "timestamp" : "2017-05-4T05:12:42.042Z",
-    "companyName": "Smiles Co.",
-    "address": "3456 East St. EastTown, 04093",
-    "tracking": "335FDT334FXSHUK",
-    "status": "Delivered",
-    "statusUpdated": "2017-05-4T19:30:27.762Z",
-    "contactPerson": "James Pettruzi",
-    "email": "james.p@smiles.com",
-    "phoneNumber": "123123123",
-    "postalCarrier": {
-      "id": 2,
-      "name": "FedEx"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner4.svg",
-          "productId": "ZX2584",
-          "price": 45.3
-        },
-        "quantity": 12,
-        "price": 543.6
-      },
-      {
-        "item": {
-          "image": "/images/banner1.svg",
-          "productId": "RN3454",
-          "price": 25
-        },
-        "quantity": 1,
-        "price": 25
-      }
-    ]
-  },
-  {
-    "id": "2208943209",
-    "customerId" : "12358136",
-    "timestamp" : "2017-05-4T23:59:59.999Z",
-    "companyName": "Party Town LLC",
-    "address": "22 West St. WestTown, 14356",
-    "tracking": "235FDT334FXSHUK",
-    "status": "InTransit",
-    "statusUpdated": "2017-05-5T05:00:01.001Z",
-    "contactPerson": "John Doe",
-    "email": "John.Doe@partytown.com",
-    "phoneNumber": "321321321",
-    "postalCarrier": {
-      "id": 1,
-      "name": "UPS"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner1.svg",
-          "productId": "RN3454",
-          "price": 25
-        },
-        "quantity": 12,
-        "price": 300
-      },
-      {
-        "item": {
-          "image": "/images/banner2.svg",
-          "productId": "PN3476",
-          "price": 75
-        },
-        "quantity": 20,
-        "price": 1500
-      },
-      {
-        "item": {
-          "image": "/images/banner3.svg",
+        {
           "productId": "YN3171",
+          "quantity": 1,
+          "price": 25
+        }
+      ]
+    },
+    {
+      "id": "4208943209",
+      "customerId": "12358135",
+      "companyName": "Smiles Co.",
+      "address": "3456 East St. EastTown, 04093",
+      "contactPerson": "James Pettruzi",
+      "email": "james.p@smiles.com",
+      "phoneNumber": "123123123",
+      "tracking": "435FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "ZX2584",
+          "quantity": 21,
+          "price": 951.3
+        }
+      ]
+    },
+    {
+      "id": "3008943209",
+      "customerId": "12358136",
+      "companyName": "Party Town LLC",
+      "address": "22 West St. WestTown, 14356",
+      "contactPerson": "John Doe",
+      "email": "John.Doe@partytown.com",
+      "phoneNumber": "321321321",
+      "tracking": "305FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
+      },
+      "orderLines": [
+        {
+          "productId": "YN3171",
+          "quantity": 150,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "2908943209",
+      "customerId": "12358137",
+      "companyName": "JonG Tacos",
+      "address": "2 SouthEast St. SouthEastTown, 3344",
+      "contactPerson": "Jon Gallant",
+      "email": "JonG@JongTacos.com",
+      "phoneNumber": "33434",
+      "tracking": "295FDT334FXSHUK",
+      "status": "InTransit",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "PN3476",
+          "quantity": 12,
+          "price": 300
+        },
+        {
+          "productId": "RN3454",
+          "quantity": 20,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "2808943209",
+      "customerId": "12358138",
+      "companyName": "Happy Party Together Inc.",
+      "address": "233 Party St. Festa, 2224",
+      "contactPerson": "Joan Hells",
+      "email": "joan.hells@happyparty.com",
+      "phoneNumber": "3434343443",
+      "tracking": "285FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
+      },
+      "orderLines": [
+        {
+          "productId": "PN3476",
+          "quantity": 1,
+          "price": 25
+        }
+      ]
+    },
+    {
+      "id": "2708943209",
+      "customerId": "12358138",
+      "companyName": "Happy Party Together Inc.",
+      "address": "233 Party St. Festa, 2224",
+      "contactPerson": "Joan Hells",
+      "email": "joan.hells@happyparty.com",
+      "phoneNumber": "3434343443",
+      "tracking": "275FDT334FXSHUK",
+      "status": "Pending",
+      "type": "shipping",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "YN3171",
+          "quantity": 21,
+          "price": 951.3
+        }
+      ]
+    },
+    {
+      "id": "1508943209",
+      "customerId": "12358131",
+      "tracking": "135FDT334FXSHUK",
+      "companyName": "Clown city",
+      "address": "1234 Main St. AnyTown, 04093",
+      "contactPerson": "Mary Jane",
+      "email": "Mary.Jane@clowncity.com",
+      "phoneNumber": "123123123",
+      "status": "Delivered",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "RN3454",
+          "quantity": 150,
+          "price": 3750
+        },
+        {
+          "productId": "PN3476",
+          "quantity": 50,
+          "price": 3750
+        },
+        {
+          "productId": "YN3171",
+          "quantity": 150,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "2208943210",
+      "customerId": "12358133",
+      "companyName": "Transports Citizen",
+      "address": "2 Sunshine St. Dark, 3",
+      "contactPerson": "Peter Moore",
+      "email": "p.m@transportc.com",
+      "phoneNumber": "89866e3",
+      "tracking": "235FDT334FXSHUK",
+      "status": "InTransit",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "ZX2584",
+          "quantity": 12,
+          "price": 300
+        },
+        {
+          "productId": "YN3171",
+          "quantity": 20,
+          "price": 1500
+        },
+        {
+          "productId": "PN3476",
+          "quantity": 1,
           "price": 10
         },
-        "quantity": 1,
-        "price": 10
+        {
+          "productId": "RN3454",
+          "quantity": 3,
+          "price": 135.9
+        }
+      ]
+    },
+    {
+      "id": "3208943210",
+      "customerId": "12358134",
+      "companyName": "Party Creators",
+      "address": "22 NorthEast St. NorthEast, 632",
+      "contactPerson": "Paul Harris",
+      "email": "p.harrys@partycreators.com",
+      "phoneNumber": "5454545",
+      "tracking": "335FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
       },
-      {
-        "item": {
-          "image": "/images/banner4.svg",
-          "productId": "ZX2584",
-          "price": 45.3
+      "orderLines": [
+        {
+          "productId": "PN3476",
+          "quantity": 12,
+          "price": 543.6
         },
-        "quantity": 3,
-        "price": 135.9
-      }
-    ]
-  },
-  {
-    "id": "3008943209",
-    "customerId" : "12358137",
-    "timestamp" : "2017-05-5T05:55:55.555Z",
-    "companyName": "JonG Tacos",
-    "address": "2 SouthEast St. SouthEastTown, 3344",
-    "tracking": "305FDT334FXSHUK",
-    "status": "Delivered",
-    "statusUpdated" : "2017-05-5T17:55:55.555Z",
-    "contactPerson": "Jon Gallant",
-    "email": "JonG@JongTacos.com",
-    "phoneNumber": "33434",
-    "postalCarrier": {
-      "id": 2,
-      "name": "FedEx"
-    },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner3.svg",
+        {
           "productId": "YN3171",
-          "price": 10
-        },
-        "quantity": 150,
-        "price": 1500
-      }
-    ]
-  },
-  {
-    "id": "2708943209",
-    "customerId" : "12358138",
-    "timestamp" : "2017-05-6T13:14:01.337Z",
-    "companyName": "Happy Party Together Inc.",
-    "address": "233 Party St. Festa, 2224",
-    "tracking": "275FDT334FXSHUK",
-    "status": "Pending",
-    "statusUpdated" : "2017-05-6T13:15:01.337Z",
-    "contactPerson": "Joan Hells",
-    "email": "joan.hells@happyparty.com",
-    "phoneNumber": "3434343443",
-    "postalCarrier": {
-      "id": 1,
-      "name": "UPS"
+          "quantity": 1,
+          "price": 25
+        }
+      ]
     },
-    "orderLines": [
-      {
-        "item": {
-          "image": "/images/banner4.svg",
+    {
+      "id": "4208943210",
+      "customerId": "12358135",
+      "companyName": "Smiles Co.",
+      "address": "3456 East St. EastTown, 04093",
+      "contactPerson": "James Pettruzi",
+      "email": "james.p@smiles.com",
+      "phoneNumber": "123123123",
+      "tracking": "435FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
           "productId": "ZX2584",
-          "price": 45.3
+          "quantity": 21,
+          "price": 951.3
+        }
+      ]
+    },
+    {
+      "id": "3008943210",
+      "customerId": "12358136",
+      "companyName": "Party Town LLC",
+      "address": "22 West St. WestTown, 14356",
+      "contactPerson": "John Doe",
+      "email": "John.Doe@partytown.com",
+      "phoneNumber": "321321321",
+      "tracking": "305FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
+      },
+      "orderLines": [
+        {
+          "productId": "YN3171",
+          "quantity": 150,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "2708943210",
+      "customerId": "12358137",
+      "companyName": "JonG Tacos",
+      "address": "2 SouthEast St. SouthEastTown, 3344",
+      "contactPerson": "Jon Gallant",
+      "email": "JonG@JongTacos.com",
+      "phoneNumber": "33434",
+      "tracking": "295FDT334FXSHUK",
+      "status": "InTransit",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "PN3476",
+          "quantity": 12,
+          "price": 300
         },
-        "quantity": 21,
-        "price": 951.3
-      }
-    ]
-  }
+        {
+          "productId": "RN3454",
+          "quantity": 20,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": "2908943210",
+      "customerId": "12358138",
+      "companyName": "Happy Party Together Inc.",
+      "address": "233 Party St. Festa, 2224",
+      "contactPerson": "Joan Hells",
+      "email": "joan.hells@happyparty.com",
+      "phoneNumber": "3434343443",
+      "tracking": "285FDT334FXSHUK",
+      "status": "Delivered",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 2,
+        "name": "FedEx"
+      },
+      "orderLines": [
+        {
+          "productId": "PN3476",
+          "quantity": 1,
+          "price": 25
+        }
+      ]
+    },
+    {
+      "id": "2808943210",
+      "customerId": "12358138",
+      "companyName": "Happy Party Together Inc.",
+      "address": "233 Party St. Festa, 2224",
+      "contactPerson": "Joan Hells",
+      "email": "joan.hells@happyparty.com",
+      "phoneNumber": "3434343443",
+      "tracking": "275FDT334FXSHUK",
+      "status": "Pending",
+      "type": "receiving",
+      "postalCarrier": {
+        "id": 1,
+        "name": "UPS"
+      },
+      "orderLines": [
+        {
+          "productId": "YN3171",
+          "quantity": 21,
+          "price": 951.3
+        }
+      ]
+    }
 ]

@@ -1,7 +1,7 @@
 [
     {
         "id": "RN3454",
-        "image": "/images/banner1.svg",
+        "image": "/images/pink.png",
         "category": "Standard Noses",
         "price": 25,
         "quantityInStock": 82,
@@ -10,7 +10,7 @@
     },
     {
         "id": "PN3476",
-        "image": "/images/banner2.svg",
+        "image": "/images/yellow.png",
         "category": "Premium Noses",
         "price": 75,
         "quantityInStock": 5,
@@ -19,7 +19,7 @@
     },
     {
         "id": "YN3171",
-        "image": "/images/banner3.svg",
+        "image": "/images/red.png",
         "category": "Standard Noses",
         "price": 10,
         "quantityInStock": 150,
@@ -29,7 +29,7 @@
     {
         "id": "ZX2584",
         "category": "Premium Noses",
-        "image": "/images/banner4.svg",
+        "image": "/images/pink.png",
         "price": 45.3,
         "quantityInStock": 24,
         "name": "The Co'Nose seur",

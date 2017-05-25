@@ -8,8 +8,8 @@ This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prereq
 
 ## Task
 
-1. Support sharing content through each platform native share integration (1pt)
-2. Support sharing to Facebook or Twitter directly from the app (min UWP) (1pt)
+1. Support sharing content through each platform native share integration
+2. Support sharing to Facebook or Twitter directly from the app (min UWP)
 
 ## Comments
 
