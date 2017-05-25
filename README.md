@@ -43,8 +43,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
     * **Deliverable** - Add automatic image analysis
         * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
-        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location (d. 3.3.1)
-        * [3.3.3][333] [Proposed] - Integrate mobile app to draw clown nose on top of user's nose (d. 3.3.2)
+        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)
     * **Deliverable** - Set up Continuous Integration and Deployment
         * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
         * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center

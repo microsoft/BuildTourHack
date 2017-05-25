@@ -46,8 +46,6 @@ Now get to know your new app.
 
 > Note: Since we will not be using the iOS project for this release, feel free to remove it from your solution
 
-
-
 #### Add shared Business Logic
 
 For our first task, we want to be able to list all the different Knowzy products. Fortunately, there is already a public feed for all products that we can use located [here](https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/noses.json?token=AArcuB1FvHzTWESdpopKZiYk0C0H-4Kkks5ZL5AuwA%3D%3D). We can use this to get all of the data for our app. Open the shared project and add two new classes (right click on Shared project, click **Add -> Class**:
@@ -90,35 +88,37 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 1. Remove the Label and add a new element ListView instead. Give it a name. In this case it's *ProductListView**
 
-```xaml
-<ListView x:Name="ProductListView">
+    ```xaml
+    <ListView x:Name="ProductListView">
 
-</ListView>
-```
+    </ListView>
+    ```
 
 2. Open MainPage.Xaml.cs. This is where the code goes for your view. Here we can override the *OnAppearing* method which will allows us to get the list of products and set them as the source of the ListView. Add the following code:
 
-```csharp
-// TODO - needs real code
-protected async override void OnAppearing()
-{
-    ProductListView.ItemsSource = await DataProvider.GetProducts();
-}
-```
+    ```csharp
+    protected async override void OnAppearing()
+    {
+        ProductListView.ItemsSource = await DataProvider.GetProducts();
+    }
+    ```
 
 3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/):
 
-```xaml
-<ListView x:Name="ProductListView">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>
-```
+    ```xaml
+    <ListView x:Name="ProductListView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
+                        <Label Text="{Binding Name}"></Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    ```
 
 **Task Complete**. Go ahead and run the the app on your machine and in the Android emulator.
 
