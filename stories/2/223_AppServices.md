@@ -406,7 +406,7 @@ private async void Menu_Click(object sender, EventArgs e)
         {
             // start the app service
             _appService = new AppService();
-            var result = await _appService.StartAppServiceConnection("com.microsoft.knowzy.protocol.test");
+            var result = await _appService.StartAppServiceConnection("com.microsoft.knowzy.appservice.test");
         }
 
         // start the XAML UI that will communicate with the App Service
