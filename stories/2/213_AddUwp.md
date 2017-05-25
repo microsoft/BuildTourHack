@@ -106,7 +106,7 @@ We can add UWP APIs to our Knowzy app at any location we need the UWP code. Howe
 
 Since all of the other dependencies in the Knowzy WPF solution are Portable Class Libraries, we will add a new Portable Class Library called Microsoft.Knowzy.UwpHelpers.
 
-* Right-click on the src folder in the solution
+* Right-click on the src folder in the solution and select **Add | New Project...**
 
 * Select the **Visual C# | Class Library (Portable)** project template.
 
