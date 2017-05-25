@@ -12,36 +12,25 @@ The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now t
 
 ## Task
 
-For the sake of this exercise, **lets focus only on the API code** and any new releases you have. These changes will be tested by VSTS and, pushed into Azure Container Registry (ACR) once all your tests have passed (we won't go into writing tests today). Then VSTS will automatically deploy the latest version of the app into your cluster by obtaining the latest image from ACR.
+1.  Set up CI / CD with your application and Kubernetes on Azure.
 
-The following two resources will provide you all the answers on how to accomplish this task, it´s your duty to understand them and consolidate the concepts to set up a full development cycle. Please note that none of these are a step-by-step tutorial to achieve what you want, but jointly you will be able to make it work:
+## Comments
 
-1. [CI/CD to Kubernetes clusters using VSTS](https://github.com/dtzar/blog/tree/master/CD-Kubernetes-VSTS)
-2. [Build and deploy your ASP.NET Core app to Azure](https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnetcore-to-azure#enable-continuous-integration-ci)
+###### @ 3:37am
+I wasn't really sure where to get started with continuous integration or delivery but [this](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) really helped me understand!
 
-You should be able to do the following steps to provide CI/CD in a Kubernetes cluster using Azure.
+###### @ 5:23am
+It looks like you can install the [Kubernetes Extension for VSTS here](https://marketplace.visualstudio.com/items?itemName=tsuyoshiushio.k8s-endpoint).
 
-1. Create a new project in your VSTS account.
-2. Push your API code into the project's repository in VSTS.
-3. Install the VSTS Kubernetes [extension](https://marketplace.visualstudio.com/items?itemName=tsuyoshiushio.k8s-endpoint).
-4. Provide Continuous Integration with VSTS by pushing your docker images with the latest version of the tested code into ACR.
-5. Set up a trigger to pull your new docker image into your Kubernetes cluster after it has been properly tested and deployed.
+###### @ 10:15am
+I think I found [step by step instructions][497] on setting this up!
 
-## Expected behavior
+###### @ 4:58pm
+If all goes according to plan, I should be able to demonstrate this working by [following this][498].
 
-At the end of this challenge you should be able to follow these steps and get similar results:
-
-1. Commit a new change into your `master` branch.
-2. VSTS will build your project and test it.
-3. If all the tests have been passed, VSTS will create and push a new Docker image with the new code. Please refer to previous section ['Create Docker images'][414] for the definition of the image.
-4. Your Kubernetes task created with the help of the VSTS Kubernetes [extension](https://marketplace.visualstudio.com/items?itemName=tsuyoshiushio.k8s-endpoint) will now run to pull the new image into the cluster.
-5. Do a request into your freshly deployed API and verify that your new changes are up and running.
-
-## Resources
-
-* Understanding of DevOps concepts including [Continuous Integration, Continuous Delivery and, Build and Release Management](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1).
-* [Installing the Kubernetes extension for VSTS](https://marketplace.visualstudio.com/items?itemName=tsuyoshiushio.k8s-endpoint)
 
 [414]: /stories/4/414_Docker.md
 [415]: /stories/4/415_Kubernetes.md
 [421]: /stories/4/421_SetupVSTS.md
+[497]: /stories/4/497_KubernetesVSTS.md
+[498]: /stories/4/498_KubernetesCICDBehavior.md
