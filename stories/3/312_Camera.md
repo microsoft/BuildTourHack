@@ -20,13 +20,13 @@ This task has a dependency on [Task 3.1.1](311_XamarinForms.md) and all of it's 
 2. There are [multiple ways to navigate between pages](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/navigation/). In this example, we will use a **NavigationPage** to act as a host for our pages and provide hierarchical navigation. Open App.xaml.cs in the Shared project. Notice the constructor sets the MainPage to a new MainPage (the default page when the app is created):
 
     ```csharp
-    MainPage = new App1.MainPage();
+    MainPage = new MainPage();
     ```
 
     Instead of setting the MainPage to a new MainPage, set it to a new NavigationPage and pass a new MainPage as a parameter which will set it as the first page in our hierarchical navigation.
 
     ```csharp
-    MainPage = new NavigationPage(new App1.MainPage());
+    MainPage = new NavigationPage(new MainPage());
     ```
 
 3. You are now ready to navigate to the new page. We want to navigate to the new page when a product (nose) is clicked in the main page and we want to pass the nose as a parameter. The easiest way to do that is to pass the clicked nose as a parameter to the constructor when navigating to the new page. Open the code behind of the new page you created and modify the constructor to accept a parameter of type Nose.

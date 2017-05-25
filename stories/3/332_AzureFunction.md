@@ -16,6 +16,7 @@ This walkthrough assumes that you have:
 2.  Create an HTTP Trigger which will take in a picture and return data.
 3.  Within your Function, use the *Name* and *Key* from [Task 3.3.1](331_CognitiveServices.md) to connect to your Cognitive Service and run face detection on the image.
 4.  Return the data for the nose location(s) from your Function.
+5.  Position nose on top of image in app
 
 ## Comments
 

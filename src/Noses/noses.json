@@ -1,0 +1,16 @@
+[    
+    {
+        "Id": "RN3454",
+        "Name": "Black Nose",
+        "RawMaterial": "Black foam",
+        "Notes": "Everything you'd expect, and a little something more.",
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
+    },
+    {
+        "Id": "RN3454",
+        "Name": "Red Nose",
+        "RawMaterial": "Black foam",
+        "Notes": "Everything you'd expect, and a little something more.",
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
+    }
+]

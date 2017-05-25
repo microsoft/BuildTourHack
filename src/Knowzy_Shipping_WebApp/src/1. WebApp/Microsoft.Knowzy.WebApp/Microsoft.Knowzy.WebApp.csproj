@@ -43,6 +43,7 @@
     <Content Include="wwwroot\images\trash.svg" />
     <Content Include="wwwroot\images\X.svg" />
     <Content Include="wwwroot\images\yellow.png" />
+    <Content Include="wwwroot\js\pwabuilder-sw.js" />
     <Content Include="wwwroot\lib\bootstrap\.bower.json" />
     <Content Include="wwwroot\lib\bootstrap\bower.json" />
     <Content Include="wwwroot\lib\bootstrap\CHANGELOG.md" />
@@ -413,6 +414,7 @@
     <Content Include="wwwroot\lib\jquery\src\var\support.js" />
     <Content Include="wwwroot\lib\jquery\src\var\toString.js" />
     <Content Include="wwwroot\lib\jquery\src\wrap.js" />
+    <Content Include="wwwroot\pwabuilder-sw.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />

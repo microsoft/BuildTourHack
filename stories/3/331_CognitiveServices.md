@@ -8,8 +8,11 @@ This task will require you to set up a Cognitive Service to be used for facial a
 
 ## Task 
 
-1.  Create a new Cognitive Services Face API by following the instructions [here](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) and choosing **Face API**.  
+1.  Create a new Cognitive Services **Face API**.  
 
-2.  Once created in the Azure portal, navigate to your Face API's **Keys** blade and record the *Name* and *Key 1* for later usage.
+2.  Copy your Face API's *Name* and *Key 1* for later usage.
 
-## References
+## Comments
+
+###### @ 2:37am
+Creating a Face API couldn't be easier, just follow [this](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) guide I found.
