@@ -237,15 +237,10 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +            FeedOptions options = new FeedOptions();
 +            options.EnableCrossPartitionQuery = true;
 +
-+            var orders = _client.CreateDocumentQuery<Domain.Shipping>(
-+                _ordersLink,
-+                "SELECT * FROM orders o WHERE o.type='shipping'",
-+                options).ToList();
-+
-+            if (orders != null && orders.Count() > 0)
-+                return orders;
-+            else
-+                return null;
++           return _client.CreateDocumentQuery<Domain.Shipping>(
++               _ordersLink,
++               "SELECT * FROM orders o WHERE o.type='shipping'",
++               _options).ToList();
 +        }
 ```
 
@@ -279,21 +274,37 @@ namespace Microsoft.Knowzy.OrdersAPI.Controllers
 
 Now, when you run and browse your API to `/api/Shipping` you should get back the json array with all the shipping orders in the CosmosDB `orders` collection.
 
-Now use this same logic to modify `ShippingController.cs`, `IOrdersStore.cs` and `OrdersStore.cs`, create a new `ReceivingController.cs`, and implement the rest of the Orders API methods needed by `IOrderRepository` in the website code:
-- GetShippings (already implemented above)
-- GetReceivings
-- GetShipping(string orderId)
-- GetReceiving(string orderId)
-- GetProducts()
-- GetPostalCarriers()
-- GetCustomers()
-- GetShippingCount()
-- GetReceivingCount()
-- GetProductCount()
-- AddShipping(Shipping shipping)
-- UpdateShipping(Shipping shipping)
-- AddReceiving(Receiving receiving)
-- UpdateReceiving(Receiving receiving)
+You now need to finalize the Orders API. This is the full `IOrderStore.cs` interface:
+```csharp
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.Knowzy.Domain;
+
+namespace Microsoft.Knowzy.OrdersAPI.Data
+{
+    public interface IOrdersStore : IDisposable
+    {
+        Task<bool> Connected();
+        IEnumerable<Domain.Shipping> GetShippings();
+        Shipping GetShipping(string orderId);
+        IEnumerable<Domain.Receiving> GetReceivings();
+        Receiving GetReceiving(string orderId);
+        void CreateOrder(Domain.Order order);
+        void UpdateOrder(Domain.Order order);
+        void DeleteOrder(string orderId);
+    }
+}
+```
+Note that CosmosDB [supports parameterized SQL queries](https://azure.microsoft.com/en-us/blog/announcing-sql-parameterization-in-documentdb/) to avoid SQL injection.
+
+Update `OrdersStore.cs` to implement the rest of the interface. 
+
+Update `ShippingController.cs` to use your updated Orders Store class with Get(id), Put, and Post methods. Use [this guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) to help. 
+
+Create a new controller called `ReceivingController.cs` to handle all the CRUD methods (Create, Read all, Read by id, Update, Delete) for Receiving. Note that this can share some of the same `OrderStore.cs` methods you used for Shipping (both Shipping and Receiving domain classes implement the Order domain class).
+
+Create a new controller called `PostalCarrierController.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers from inside orders. 
 
 ### 5. Package for release
 
