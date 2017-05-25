@@ -16,7 +16,7 @@ This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prereq
 
 #### Overlay nose on image and allow to be manipulated
 
-Once the image is captured, let's add the noe image on top and allow the user to move it by panning and resize it by pinching.
+Once the image is captured, let's add the nose image on top and allow the user to move it by panning and resize it by pinching.
 
 1. In the new page xaml, wrap the image element hosting the camera image in a new Grid element. This will allow you to have multiple elements on top of each other. In addition, add a new child element to the grid of type [AbsoluteLayout](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/absolute-layout/) with content of a new image element used for hosting the nose image. Here is what the final result will look like:
 
