@@ -165,7 +165,7 @@ Our Knowzy app has an unused View menu item. We will use this to call the code t
 
 ![Knowzy UWP](images/214-knowzy-uwp.png)
 
-* Modify the XAML Microsoft.Knowzy.WPF\Views\MainView.xaml to add a Click event to the View MenuItem (around line 34)
+* Modify the XAML Microsoft.Knowzy.WPF\Views\MainView.xaml to add a Click event to the View MenuItem (around line 43)
 
 ```xml
 <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
