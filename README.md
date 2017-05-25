@@ -15,7 +15,7 @@ If you are blocked, a representative from the leadership team is always there to
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
         * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
-        * [1.2.3][123] [Proposed] - Add Speech APIs (d. 1.1.2)
+        * [1.2.3][123] [Proposed] - Add Cortana Voice Commands (d. 1.1.2)
         * [1.2.4][124] [Proposed] - Make PWA Linkable (d. 1.1.2)
         * [1.2.5][125] [Proposed] - Add In-Memory Caching
 
