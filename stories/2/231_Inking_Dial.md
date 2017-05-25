@@ -1,4 +1,4 @@
-# Task 2.3.1 - Add support for ink or dial
+# Task 2.3.1 - Add support for ink
 
 Our development department is pleased with the results of [Task 2.2.2 Add support for other apps to share images with the Knowzy App](222_Share.md) 
 that allowed Knowzy app users to share images from other Windows 10 applications with the Knowzy app. However, we would like Knowzy users to be able
@@ -19,18 +19,7 @@ We also found sample code for Inking [here](https://github.com/Microsoft/Windows
 
 This task has a dependency on [Task 2.2.2](222_Share.md) and all of it's prerequisites
 
-
-
 ## Task 
 
 Modify the SharePage.xaml ui to add Inking controls.
 Share the inked image to the Knowzy UWP app.
-
-
-## References
-https://docs.microsoft.com/en-us/windows/uwp/input-and-devices/windows-wheel-interactions
-https://docs.microsoft.com/en-us/windows/uwp/input-and-devices/pen-and-stylus-interactions 
-https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/RadialController 
-https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/SimpleInk 
-https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/InkAnalysis 
-https://github.com/Microsoft/Windows-appsample-coloringbook 
