@@ -168,10 +168,9 @@ xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
 
 The Windows 10 AppServices UWP API does not seem seem to be compatible with Portable Class Libraries so create a regular C# Class Library project called Microsoft.Knowzy.UwpHelpers.AppService.
 
+![AppService Class Library](images/223-appservice-class-lib.png)
 
 #### Add an AppService helper class to Microsoft.Knowzy.UwpHelpers.AppService ####
-
-![AppService Class Library](images/223-appservice-class-lib.png)
 
 * Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers.AppService project.
 
