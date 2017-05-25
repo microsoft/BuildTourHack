@@ -64,8 +64,8 @@ The default Web API template already calls `.AddEnvironmentVariables()` (look fo
 If running from the terminal, to set a variable run the following in a command prompt with the primary connection string for your account:
 
 ```
-SET COSMOSDB_ENDPOINT=<your cosmosdb endpoint>
-SET COSMOSDB_KEY=<your cosmosdb account key>
+export COSMOSDB_ENDPOINT=<your cosmosdb endpoint>
+export COSMOSDB_KEY=<your cosmosdb account key>
 ```
 
 If running from Visual Studio 2017, add these values to the Environment Variables section of the `Microsoft.Knowzy.OrdersAPI` project properties:
@@ -240,7 +240,7 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +           return _client.CreateDocumentQuery<Domain.Shipping>(
 +               _ordersLink,
 +               "SELECT * FROM orders o WHERE o.type='shipping'",
-+               _options).ToList();
++               options).ToList();
 +        }
 ```
 
