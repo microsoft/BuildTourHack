@@ -16,7 +16,7 @@ This task has a dependency on [Task 1.1.4](114_Test_App.md) and all of it's prer
 - Access to Windows Runtime (WinRT) APIs via JavaScript (Calendar / Cortana / Address Book / etc)
 
 
-### feature detect for Windows Store APIs
+### Feature detect for Windows Store APIs
 In order to utilize a Windows UWP API, you'll want to implement a pattern called "feature detection".  This allows you to write JavaScript on your page that will only be executed in the context where the APIs are available.  In this case, it will only execute while inside a Windows PWA.
   
 Feature detection can be as simple as looking for the Windows object as below:
@@ -89,7 +89,7 @@ notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNot
 ```
 
 
-### test your changes
+### Test your changes
 Now you want to test the changes you've just made.  Follow the instructions in section 1.1.3 for deploying your web app, and repdeploy your changes.  One of the great things about a PWA is that you don't need to redeploy your app to see the changes, you just need to deploy to the web server.  You should be able to run your app again, and see your live tile code take effect.  If you don't see it imediately, it may because of the gerat caching you have in your app.  if this happens, you can force a cache clear by uninstalling your PWA, and then installing it again from the script you downloaded from PWABuilder.com
 
 
