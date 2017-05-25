@@ -1,4 +1,4 @@
-# Task 4.1.2 - Create API endpoint for shipping services
+# Task 4.1.2 - Create API endpoint for shipping and receiving services
 
 Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
 
@@ -208,11 +208,11 @@ If you now run the API app again and call `/api/values/5` on your API you should
 
 ### 4. Implement the Orders API
 
-Now it's time to implement the endpoints for the Orders API, running the API app as needed to verify your app locally.
+Now it's time to implement the endpoints for the Shipping and Receiving controllers of our Orders API, running the API app as needed to verify your app locally.
 
 In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Knowzy.Domain` project. This reference has the model classes we will use in the Orders API for serialization.
 
-Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
+Edit the `IOrdersStore.cs` interface to add the GetShippings method:
 
 ```diff
 ...
@@ -222,7 +222,7 @@ Edit the `IOrdersStore.cs` interface to add the GetAllOrders method:
     {
         Task<bool> Connected();
 
-+        IEnumerable<Domain.Receiving> GetAllOrders();
++        IEnumerable<Domain.Shipping> GetShippings();
     }
 ``` 
 And edit the `OrdersStore.cs` class to implement that method to return all orders:
@@ -232,11 +232,16 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 + using System.Collections.Generic;
 + using System.Linq;
 ...
-+        public IEnumerable<Domain.Receiving> GetAllOrders()
++        public IEnumerable<Domain.Shipping> GetShippings()
 +        {
-+           FeedOptions options = new FeedOptions();
-+           options.EnableCrossPartitionQuery = true;
-+            var orders = _client.CreateDocumentQuery<Domain.Receiving>(_ordersLink, options);
++            FeedOptions options = new FeedOptions();
++            options.EnableCrossPartitionQuery = true;
++
++            var orders = _client.CreateDocumentQuery<Domain.Shipping>(
++                _ordersLink,
++                "SELECT * FROM orders o WHERE o.type='shipping'",
++                options).ToList();
++
 +            if (orders != null && orders.Count() > 0)
 +                return orders;
 +            else
@@ -244,34 +249,51 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +        }
 ```
 
-Edit the `ValuesController.cs` class in the `Controllers` folder to return all orders in the Get method:
+Add a new class called `ShippingController.cs` to the `Controllers` folder to return all shipping orders in the Get method (choose to add a new class instead of a new Controller as we don't need the scaffolding from adding a Controller:
 
-```diff
-...
-    public class ValuesController : Controller
+```csharp
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Knowzy.OrdersAPI.Data;
+
+namespace Microsoft.Knowzy.OrdersAPI.Controllers
+{
+    [Route("api/[controller]")]
+    public class ShippingController : Controller
     {
-
+        private IOrdersStore _ordersStore;
+        public ShippingController(IOrdersStore ordersStore)
+        {
+            _ordersStore = ordersStore;
+        }
         // GET api/values
         [HttpGet]
--		  public IEnumerable<string> Get()
-+        public IEnumerable<Domain.Receiving> Get()
+        public IEnumerable<Domain.Shipping> Get()
         {
--            return new string[] { "value1", "value2" };
-+            return _ordersStore.GetAllOrders();
+            return _ordersStore.GetShippings();
         }
-...
+    }
+}
 ```
 
-Now, when you run and browse your API to `/api/values` you should get back the json array with all the orders in the CosmosDB `orders` collection.
+Now, when you run and browse your API to `/api/Shipping` you should get back the json array with all the shipping orders in the CosmosDB `orders` collection.
 
-Now use this same logic to modify `ValuesController.cs`, `IOrdersStore.cs` and `OrdersStore.cs` and implement the rest of the Orders API methods needed by the website:
-- Get a specific order by order id (modify the `GET api/values/5` method)
-- Insert a new order (modify the `POST api/values` method)
-- Update a new order (modify the `PUT api/values/5` method)
-- Delete an order (modify the `DELETE api/values/5` method)
-- Get Postal Carriers (get them from selecting distinct using LINQ from `orders`)
-- Get Customers (create a separate Controller that pulls from the `customers` collection in CosmosDB )
-
+Now use this same logic to modify `ShippingController.cs`, `IOrdersStore.cs` and `OrdersStore.cs`, create a new `ReceivingController.cs`, and implement the rest of the Orders API methods needed by `IOrderRepository` in the website code:
+- GetShippings (already implemented above)
+- GetReceivings
+- GetShipping(string orderId)
+- GetReceiving(string orderId)
+- GetProducts()
+- GetPostalCarriers()
+- GetCustomers()
+- GetShippingCount()
+- GetReceivingCount()
+- GetProductCount()
+- AddShipping(Shipping shipping)
+- UpdateShipping(Shipping shipping)
+- AddReceiving(Receiving receiving)
+- UpdateReceiving(Receiving receiving)
 
 ### 5. Package for release
 

@@ -31,6 +31,7 @@ If you are blocked, a representative from the leadership team is always there to
     * **Deliverable** - Build rich UWP xaml UI (d. 2.2.*)
         * [2.3.1][231] [Proposed] - Add support for ink (d. 2.2.*)
         * [2.3.2][232] [Proposed] - Add support for more UWP features (d. 2.2.*)
+        * [2.3.3][233] [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Android mobile app
@@ -93,6 +94,7 @@ If you are blocked, a representative from the leadership team is always there to
 [223]: stories/2/223_AppServices.md
 [231]: stories/2/231_Inking_Dial.md
 [232]: stories/2/232_Extend.md
+[233]: stories/2/233_Windows_Hello.md
 
 [311]: stories/3/311_XamarinForms.md
 [312]: stories/3/312_Camera.md
