@@ -7,7 +7,9 @@ Now that you have a running PWA, we'd like you to improve the speed and performa
 This task has a dependency on [Task 1.2.2](122_Add_WIndows_Features.md) and all of it's prerequisites.
 
 ## Task 
-1.  Speed up the performance of your website by adding in-memory caching.
+1.  Speed up the performance of your website by caching results from polling the Shipping and Orders APIs into memory.
+2.  Whenever you update data using the Shipping or Orders APIs, invalidate your cached data.
+3.  Experiment with different cache sliding expirations to see what happens when you use a more or less frequent expiration.
 
 ## Comments
 
