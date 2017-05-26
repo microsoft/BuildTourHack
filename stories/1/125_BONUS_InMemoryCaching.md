@@ -4,7 +4,7 @@ Now that you have a running PWA, we'd like you to improve the speed and performa
 
 ## Prerequisites 
 
-This task has a dependency on [Task 1.2.2](122_Add_WIndows_Features.md) and all of it's prerequisites.
+This task has a dependency on [Task 1.2.2][122] and all of it's prerequisites.
 
 ## Task 
 1.  Speed up the performance of your website by caching results from polling the Shipping and Orders APIs into memory.
@@ -15,3 +15,5 @@ This task has a dependency on [Task 1.2.2](122_Add_WIndows_Features.md) and all 
 
 ###### @ 3:37am
 I found [this guide](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory) that explains how in-memory caching works with ASP.NET Core.
+
+[122]: /stories/1/122_Add_Windows_Feature.md
