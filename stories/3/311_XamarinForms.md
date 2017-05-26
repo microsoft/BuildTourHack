@@ -11,7 +11,7 @@ This is going to be an entire new product for Knowzy and we will start from scra
 
 This walkthrough assumes that you have:
 * Windows 10 Creators Update
-* Visual Studio 2017 with the Mobile Development with .NET workload installed. If not, make sure you [do that first](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio) and then come back here.
+* Visual Studio 2017 with the Mobile Development with .NET workload the Universal Windows Platform development workload installed. If not, make sure you [do that first](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio) and then come back here.
 
 ## Task 
 
