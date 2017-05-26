@@ -170,9 +170,9 @@ namespace Microsoft.Knowzy.Repositories.Core
 
         private async Task Seed()
         {
-            var customerJsonPath = $"{_hostingEnvironment.WebRootPath}{_configuration["AppSettings:CustomerJsonPath"]}";
-            var productJsonPath = $"{_hostingEnvironment.WebRootPath}{_configuration["AppSettings:ProductJsonPath"]}";
-            var orderJsonPath = $"{_hostingEnvironment.WebRootPath}{_configuration["AppSettings:OrderJsonPath"]}";
+            var customerJsonPath = Path.Combine(_hostingEnvironment.WebRootPath, _configuration["AppSettings:CustomerJsonPath"]);
+            var productJsonPath = Path.Combine(_hostingEnvironment.WebRootPath, _configuration["AppSettings:ProductJsonPath"]);
+            var orderJsonPath = Path.Combine(_hostingEnvironment.WebRootPath, _configuration["AppSettings:OrderJsonPath"]);
 
             await SeedCustomers(customerJsonPath);
             await SeedProducts(productJsonPath);
