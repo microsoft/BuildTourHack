@@ -58,7 +58,7 @@ Like resource group names, CosmosDB names must be globally unique within azure, 
 ### b. Create the CosmosDB instance
 We can now go ahead and use the Azure CLI within the Cloud Shell to create our CosmosDB Instance.
 
-    az CosmosDB create -g $RESOURCE_GROUP -n $COSMOSDB_NAME --locations "EAST US2"=0
+    az cosmosdb create -g $RESOURCE_GROUP -n $COSMOSDB_NAME --locations "EAST US2"=0
 
 This command will take some time to complete. You'll know it's succeeded when the cloud shell console outputs something like this, containing the name you specified in step 1 above in the 'documentEndpoint':
 
