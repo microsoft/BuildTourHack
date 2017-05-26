@@ -7,9 +7,10 @@ Now that you have a running PWA, we'd like you to improve the speed and performa
 This task has a dependency on [Task 1.2.2][122] and all of it's prerequisites.
 
 ## Task 
-1.  Speed up the performance of your website by caching results from polling the Shipping and Orders APIs into memory.
-2.  Whenever you update data using the Shipping or Orders APIs, invalidate your cached data.
-3.  Experiment with different cache sliding expirations to see what happens when you use a more or less frequent expiration.
+1.  The website currently loads its data from static JSON files in its `wwwroot\Data` folder. Speed up the performance of your website by caching values that are being used by controllers on your website. For example, after enabling caching, update the `GenerateDropdowns` method in `ReceivingsController.cs` to cache the results.
+2.  Update the local JSON files while you are running and notice the data does not update when you refresh.
+3.  Experiment with different cache sliding expirations to see what happens when you use a more or less frequent expiration and change the local data.
+4.  Once the tasks in Section 4 are done, the site will have been updated by your team to get the data from the Shipping and Orders APIs. You can use the caching features to cache the data from the API, and include code to invalidate your cached data from the API after expiration.
 
 ## Comments
 
