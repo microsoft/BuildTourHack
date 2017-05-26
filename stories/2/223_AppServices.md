@@ -505,7 +505,7 @@ protected override void OnNavigatedTo(NavigationEventArgs args)
 }
 ```
 
-* Add the Button_Clock handler
+* Add the Button_Click handler
 
 ```c#
 private async void Button_Click(object sender, RoutedEventArgs e)
@@ -556,7 +556,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 * The following things should now happen
     * The UWP app will send a message to the AppService
-    * The AppService wil forward the event to the WPF via via its listener connection
+    * The AppService wil forward the event to the WPF via its listener connection
     * The WPF responds to the message and send the result back to the App Service
     * The App Service returns the result from the WPF app back to the UWP app
     * The UWP app displays the result it received from the WPF app.
