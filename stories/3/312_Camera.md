@@ -2,7 +2,7 @@
 
 Our marketing department has the idea to allow our app users to capture images and position Knowzy products over the image to see what how they would look like. It's a fun way to try the product without actually buying it, and the marketing department is hoping for these images to be shared on social media and spread the word.
 
-Requirements for this task:
+**Goals for this task:**
 * Capture image from camera on Android and UWP
 
 For this task, you will need to access APIs that are specific for each platform. We've done the research on how to do it and we've included the steps below.
