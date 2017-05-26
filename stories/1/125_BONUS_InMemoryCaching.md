@@ -7,9 +7,10 @@ Now that you have a running PWA, we'd like you to improve the speed and performa
 This task has a dependency on [Task 1.2.2][122] and all of it's prerequisites.
 
 ## Task 
-1.  Speed up the performance of your website by caching results from polling the Shipping and Orders APIs into memory.
-2.  Whenever you update data using the Shipping or Orders APIs, invalidate your cached data.
-3.  Experiment with different cache sliding expirations to see what happens when you use a more or less frequent expiration.
+1.  Speed up the performance of your website by caching results from reading data from the local JSON files.
+2.  Update the local JSON files while you are running and notice the data does not update when you refresh.
+3.  Experiment with different cache sliding expirations to see what happens when you use a more or less frequent expiration and change the local data.
+4.  Whenever you update data using the Shipping or Orders APIs, invalidate your cached data.
 
 ## Comments
 
