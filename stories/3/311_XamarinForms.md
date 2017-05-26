@@ -149,6 +149,8 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 **Task Complete**. Go ahead and run the the app on your machine and in the Android emulator.
 
+![Finished Noses](images/noses_finished.png)
+
 [Go to the next Task](312_Camera.md) where you will add another page and the capability to capture an image by using APIs specific to each platform.
 
 ## Resources
