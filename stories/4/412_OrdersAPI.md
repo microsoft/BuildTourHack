@@ -1,19 +1,18 @@
 # Task 4.1.2 - Create API endpoint for shipping and receiving services
 
 Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+
 The end goal is a .NET Core based cross-platform solution. The architecture proposes a simplified microservice oriented architecture implementation with multiple autonomous microservices (each one owning its own data/db). The microservices will implement a simple CRUD approach using Http as the current communication protocol.
 
 ## Prerequisites 
 
 * This task has a dependency on Tasks [1.1.1][111] and [4.1.1][411] and all of their prerequisites.
-* [.NET Core SDK 1.1](https://www.microsoft.com/net/download/core)
-
 
 ## Creating a .NET Core App
 
 ### 1. Create a New WebAPI Project
 
-From the command line or Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
+From Windows Explorer create a new folder called `APIs` in the `src\2. Services` folder of the solution.
 
 Open the `Microsoft.Knowzy` solution in Visual Studio 2017. Add a new solution folder called `APIs` to the `2. Services` folder. Create a new `ASP.NET Core Web Application` project called `Microsoft.Knowzy.OrdersAPI` in that folder:
 
@@ -23,53 +22,15 @@ Choose Web API for the project type, and leave the other options as they are (we
 
 ![New Web API Project](images/NewApiProject.png)
 
-Note: you can also use [the dotnet cli to create a new .NET Core WebAPI project as documented here](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc).
+Let's test it out to make sure everything is working properly. In Visual Studio, right click on the project and select `Debug -> Start New Instance`. Visual Studio will start a browser window for you to see your app running. Click the `Stop` button in Visual Studio to stop the API app.
 
-Let's test it out to make sure everything is working properly. In Visual Studio right click on the project and select `Debug -> Start New Instance`. Or you can use the terminal from the folder of this new project (`src\2. Services\APIs\Microsoft.Knowzy.OrdersAPI`) and use the `dotnet` cli as follows:
-
-```bash
-dotnet restore
-dotnet run
-``` 
-
-If starting from Visual Studio it will start a browser window for you to see your app running. If starting from the command line, navigate to [http://localhost:5000/api/values](http://localhost:5000/api/values) to see your app running. You should see the result `["value1","value2"]` returned in the browser. Press `Ctrl+C` if you started in the terminal or click the `Stop` button in Visual Studio to stop the API app.
-
-### 2. Add functionality
-
-Let's make a small change to the API so that it responds to our inputs. Modify the code in `ValuesController.cs` in the `Controllers` folder with the following changes:
-
-```diff
-// GET api/values/5
-[HttpGet("{id"})]
-public string Get(int id)
-{
--  return "value";
-+  return $"The value is {id}";
-}
-```
-
-Run the project from Visual Studio again or from the terminal run the project to see our changes:
-
-```bash
-dotnet run
-```
-
-This time, when you navigate to http://localhost:<Your API PORT>/api/values/5 you should see `The value is 5` returned.
-
-### 3. Using Environment Variables and Connecting to CosmosDB
+### 2. Using Environment Variables and Connecting to CosmosDB
 
 In a real-world app, you won't check your secrets into source control, and you won't be writing local code that connects directly to your production data store. Depending on your environment, you might not even have access to production. To address these issues and see how they tie in with Docker, we're going to use the `COSMOSDB_ENDPOINT` and `COSMOSDB_KEY` environment variables.
 
 The default Web API template already calls `.AddEnvironmentVariables()` (look for it in `Startup.cs`), so we just need to set a variable, then access it in our code. 
 
-If running from the terminal, to set a variable run the following in a command prompt with the primary connection string for your account:
-
-```
-SET COSMOSDB_ENDPOINT=<your cosmosdb endpoint>
-SET COSMOSDB_KEY=<your cosmosdb account key>
-```
-
-If running from Visual Studio 2017, add these values to the Environment Variables section of the `Microsoft.Knowzy.OrdersAPI` project properties:
+Add these values to the Environment Variables section of the `Microsoft.Knowzy.OrdersAPI` project properties:
 
 ![Add Environment Variables in Visual Studio](images/AddEnvVars.png)
 
@@ -125,9 +86,9 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
         {
             var EndpointUri = config["COSMOSDB_ENDPOINT"];
             var PrimaryKey = config["COSMOSDB_KEY"];
-			 _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
-			 //Make sure the below values match your set up
-			 _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); 
+            _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+            //Make sure the below values match your set up
+            _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); 
         }
 
         public async Task<bool> Connected()
@@ -207,7 +168,7 @@ To test it outupdate the `ValuesController.cs` file follows:
 
 If you now run the API app again and call `/api/values/5` on your API you should see `We are connected to CosmosDB! and your value is 5` returned.
 
-### 4. Implement the Orders API
+### 3. Implement the Orders API
 
 Now it's time to implement the endpoints for the Shipping and Receiving controllers of our Orders API, running the API app as needed to verify your app locally.
 
@@ -307,23 +268,16 @@ Create a new controller called `ReceivingController.cs` to handle all the CRUD m
 
 Create a new controller called `PostalCarrierController.cs` to handle just the Get (read all) method for it. You can find the PostalCarriers inside the orders collection in CosmosDB. 
 
-### 5. Package for release
+### 4. Package for release
 
 Now that we've got a working API app, let's package up all of our required files into a single folder for easy distribution. This time, we'll specify the Release configuration. 
 
 
 Or from Visual Studio 2017, change the configuration to `Release`, right click on the API project, select `Publish`, and choose `Folder` as the destination.
 
-Or in a terminal, run:
+By default, this places your app files in a folder named `bin/Release/PublishOutput`. We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
 
-```bash
-dotnet publish -c Release
-```
-
-
-By default, this places your app files in a folder named `bin/Release/PublishOutput` (Visual Studio) or `/bin/Release/netcoreapp1.1/publish` (terminal). We'll use this output path in [Step 4.1.4][414] when we build a Docker image for our app.
-
-## 6. References
+## 5. References
 
 * [Troubleshooting guide](499_Troubleshooting.md)
 * [.NET Core CLI reference](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/)

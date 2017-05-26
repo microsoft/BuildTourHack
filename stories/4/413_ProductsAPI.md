@@ -12,11 +12,11 @@ You've finished creating the Orders API, it's time to create one for Products.
 ### 1. Create a New WebAPI Project
 Our steps to get started with the Products API are the same as our previous step where we created the [Orders API][412]. 
 
-Again you can use the terminal or Visual Studio 2017 to create a new project in the `src\2. Services\APIs\Microsoft.Knowzy.ProductsAPI` folder.
+Again you can use Visual Studio 2017 to create a new project in the `src\2. Services\APIs\Microsoft.Knowzy.ProductsAPI` folder.
 
 ### 2. Implement the Products API
 
-Go ahead and implement the Products API endpoints, using `dotnet run` or Visual Studio 2017 to test locally.
+Go ahead and implement the Products API endpoints, using Visual Studio 2017 to test locally.
 
 Implement the following methods in the Products API that are used by the website:
 - Get all products
@@ -25,7 +25,7 @@ Implement the following methods in the Products API that are used by the website
 
 ### 3. Package for release
 
-Like before, package the Products API using the console or Visual Studio, then continue to [Task 4.1.4 - Create Docker images][414]. 
+Like before, package the Products API using Visual Studio, then continue to [Task 4.1.4 - Create Docker images][414]. 
 
 ## 4. References
 
