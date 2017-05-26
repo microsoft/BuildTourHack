@@ -4,13 +4,27 @@
         "Name": "Black Nose",
         "RawMaterial": "Black foam",
         "Notes": "Everything you'd expect, and a little something more.",
-        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/black.npg"
     },
     {
-        "Id": "RN3454",
+        "Id": "RN3455",
         "Name": "Red Nose",
         "RawMaterial": "Black foam",
         "Notes": "Everything you'd expect, and a little something more.",
-        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg?token=AArcuJLPN_TgeZBrqvm81EbVaDsh9eh2ks5ZL47AwA%3D%3D"
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/red.npg"
+    },
+    {
+        "Id": "RN3456",
+        "Name": "Purple Nose",
+        "RawMaterial": "Black foam",
+        "Notes": "Everything you'd expect, and a little something more.",
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/purple.npg"
+    },
+    {
+        "Id": "RN3457",
+        "Name": "Rainbow Nose",
+        "RawMaterial": "Black foam",
+        "Notes": "Everything you'd expect, and a little something more.",
+        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/rainbow.npg"
     }
 ]
