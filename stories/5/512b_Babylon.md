@@ -180,7 +180,7 @@ BABYLON.SceneLoader.ImportMesh(null, "assets/", "redNose.obj", scene, function (
 });
 ```
 
-5. By launching the project now,  we can see a beautifull red nose model displayed in a Javascript UWP application.
+5. By launching the project now,  we can see a beautiful red nose model displayed in a Javascript UWP application.
 
 #### Making the nose rotate
 To make this look less static, we will animate the model.

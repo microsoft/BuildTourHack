@@ -50,7 +50,7 @@ Next we will have to load the 3D nose model we created earlier.
     ![3D objects tool](images/512a_4.png)
 
 4. Now drag the nose into the scene hierarchy (release it on the gray area) to place it in the scene.
-5. You should see the Nose in the Herarchy View, but it might not be visible in the scene view. Having the GameObject selected, hover the mouse over the scene view window and press **F** on the keyboard to focus on the object. You should now see it.
+5. You should see the Nose in the Hierarchy View, but it might not be visible in the scene view. Having the GameObject selected, hover the mouse over the scene view window and press **F** on the keyboard to focus on the object. You should now see it.
     
     ![3D objects tool](images/512a_5.png)
 
@@ -84,7 +84,7 @@ Next we will have to load the 3D nose model we created earlier.
     ![3D objects tool](images/512a_11.png)
 
     Having the Nose 3D model GameObject as a child to another will position it relative to the parent GameObject. This means that if we rotate or move it, it will follow.
-8. Fixing the dark color issue: Each GameObject that got a visible surface like our Nose 3D model got a Material. A material is a descriptor on how the surface which the material is assigned to will look and behave. This includes color, texture assignment and light calculations. For those who are familiar with Graphics Programming, a Material is the Shader being used to render the polygons. To find the assigned material, you can either expand the Nose GameOBject and select the 3D model GameObject (NosePrototype) and find the Material on it, or navigate to the Materials folder generated when importing the model and clicking it from the Project view.
+8. Fixing the dark color issue: Each GameObject that got a visible surface like our Nose 3D model got a Material. A material is a descriptor on how the surface which the material is assigned to will look and behave. This includes color, texture assignment and light calculations. For those who are familiar with Graphics Programming, a Material is the Shader being used to render the polygons. To find the assigned material, you can either expand the Nose GameObject and select the 3D model GameObject (NosePrototype) and find the Material on it, or navigate to the Materials folder generated when importing the model and clicking it from the Project view.
 
     ![3D objects tool](images/512a_12.png)
 
@@ -114,7 +114,7 @@ To make this look less static, we will create a custom component using C# to mak
 
     ![3D objects tool](images/512a_18.png)
 
-4. If you click on the Nose GameObject using the Herarchy Panel, you can use the Inspector to see the component you added.
+4. If you click on the Nose GameObject using the Hierarchy Panel, you can use the Inspector to see the component you added.
 
     ![3D objects tool](images/512a_19.png)
 
@@ -150,14 +150,14 @@ Since we will animate this nose, we want to rotate it slightly every time Update
 
     Save the code and go back to Unity.
 
-7. **Testing the app**: Before exporting this as a UWP, we need to ensure the app is working. Click the Play button on top of the scene to automatically enter the Game tab, and start running the code. You sould now see the nose rotating in the center of the screen. It might have some offset to it based on how accurate you were when centering it earlier.
+7. **Testing the app**: Before exporting this as a UWP, we need to ensure the app is working. Click the Play button on top of the scene to automatically enter the Game tab, and start running the code. You should now see the nose rotating in the center of the screen. It might have some offset to it based on how accurate you were when centering it earlier.
     ![3D objects tool](images/512a_20.png)
 
     > Tip: With the Nose GameObject selected, you can see the speed variable visible, and set to 50. Since we made the speed variable public, you can directly set the variable inside the editor instead of changing the script.
 
 #### Exporting as UWP
 The final step is to export our fresh Nose 3D visualizer app as a UWP so we can distribute it. This is very simple using Unity.
-1. To export, go to the Build Settings of the project by using **File->Build Settings**. A new popup will show. A large empty gray area is visible named Scens in Build. Click the button below it named **Add Open Scene** to add our scene **Main** to the list.
+1. To export, go to the Build Settings of the project by using **File->Build Settings**. A new popup will show. A large empty gray area is visible named Scene in Build. Click the button below it named **Add Open Scene** to add our scene **Main** to the list.
 2. Select Windows Store and click Build to export:
 
     ![3D objects tool](images/512a_21.png)
