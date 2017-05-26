@@ -7,9 +7,13 @@
 
 ### a. Working with Cloud Shell
 
-Azure Cloud Shell comes with the Azure CLI already configured, which makes setup straightforward. We'll be using Azure Cloud Shell throughout, so to get started we need to get Cloud Shell pointed toward the subscription we want to work with.
+Azure Cloud Shell comes with the Azure CLI already configured, which makes setup straightforward. We'll be using Azure Cloud Shell throughout this guide, so to get started we need to get Cloud Shell pointed toward the subscription we want to work with.
 
-i) Access Azure Cloud Shell using the `>_` Icon in the top right corner of the portal.
+**NB: All shell instructions are based on using the cloud shell, using a local powershell, bash session or command prompt may cause unexpected results.**
+
+i) Access Azure Cloud Shell using the `>_` Icon in the **top right corner** of the portal.
+
+![DTUI Import Complete](images/CloudShellIcon.JPG)
 
 ii) Point to your Azure subscription
 
@@ -49,12 +53,12 @@ Resource group names must be globally unique within azure, so make sure its both
 ### a. Store the name of our database:
 Like resource group names, CosmosDB names must be globally unique within azure, so again we should select something specific.
 
-    CosmosDB_NAME = <unique database name>
+    COSMOSDB_NAME=<unique database name> _(names must be all lower case and no symbols)_
 
 ### b. Create the CosmosDB instance
 We can now go ahead and use the Azure CLI within the Cloud Shell to create our CosmosDB Instance.
 
-    az CosmosDB create -g $RESOURCE_GROUP -n $CosmosDB_NAME --locations "EAST US2"=0
+    az cosmosdb create -g $RESOURCE_GROUP -n $COSMOSDB_NAME --locations "EAST US2"=0
 
 This command will take some time to complete. You'll know it's succeeded when the cloud shell console outputs something like this, containing the name you specified in step 1 above in the 'documentEndpoint':
 
@@ -87,7 +91,7 @@ v) We'll need to retrieve our 'Connection String' from the Azure Portal. Open th
 
 vi) Go back to the CosmosDB Data Migration Tool and paste the value into the box for the connection string. The importer also requires that you specify the database you'll be importing to so add the following string with the name of your database (which you defined in step 2a) to the end of the connection string you just pasted:
 
-    Database=<your CosmosDB name>
+    Database=<your CosmosDB name> 
 
 So you have something that looks like this:
 
