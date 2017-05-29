@@ -24,6 +24,18 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 We will use the Desktop Bridge Knowzy application which was created in the previous tasks as a starting point.
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
+*Note: If you are starting with this from the **2.1.4** branch, you will need to do the following:
+
+* Set the Build configuration to **Debug | x86**
+
+![Debug | x86](images/212-debug-x86.png)
+
+* Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
+
+![Just My Code](images/212-just-my-code.png)
+
+Verify these settings before you continue with this task.
+
 #### Step 1: Add a New UWP Helper Class for Windows Hello
 
 Following the techniques presented in the previous task, we are going to add the Windows 10 UWP code for the Windows Hello API and Toast notifications as helper classes.
