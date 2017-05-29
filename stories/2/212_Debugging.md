@@ -59,7 +59,12 @@ Since we will be working a lot with the Microsoft.Knowzy.UWP project, set the Bu
 
 ![Debug | x86 Projects](images/212-debug-x86.png)
 
-Build the x86 configuration of the solution. After the build completes, deploy the Microsoft.Knowzy.UWP project so its AppX folder is created. The next step needs the AppX folder.
+Clean the solution by selecting **Clean Solution** from the **Build** menu.
+
+Build the x86 configuration of the solution. (Select **Build Solution** from the **Build** menu).
+
+After the build completes, deploy the Microsoft.Knowzy.UWP project so its AppX folder is created. The next step needs the AppX folder.
+(Select **Deploy Solution** from the **Build** menu).
 
 Right-click on the Microsoft.Knowzy.Debug project and select **Set as Startup Project**. 
 

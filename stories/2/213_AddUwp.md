@@ -104,19 +104,17 @@ We are going to need to add at least 2 UWP methods to our DeskTop Bridge version
 
 We can add UWP APIs to our Knowzy app at any location we need the UWP code. However, it will be easier if we create a set of UWP helper classes and place then all in a single C# library. 
 
-Since all of the other dependencies in the Knowzy WPF solution are Portable Class Libraries, we will add a new Portable Class Library called Microsoft.Knowzy.UwpHelpers.
+Since all of the other dependencies in the Knowzy WPF solution are Windows Classic Desktop C# Class Libraries, we will add a new C# Class library called Microsoft.Knowzy.UwpHelpers.
 
 * Right-click on the src folder in the solution and select **Add | New Project...**
 
-* Select the **Visual C# | Class Library (Portable)** project template.
+* Select the **Visual C# | Windows Classic Desktop | Class Library** project template.
 
 * Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **src** directory.
 
-![Create Portable Class Library](images/213-create-pcl.png)
+![Create C# Class Library](images/213-create-lib.png)
 
-* Select the following Targets and click **OK**:
 
-![Create Portable Class Library 2](images/213-create-pcl-2.png)
 
 There exists a convenient NuGet package called [UwpDesktop](https://www.nuget.org/packages/UwpDesktop) that makes it easy for you call into UWP APIs 
 from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet package to our Microsoft.Knowzy.UwpHelpers project.
@@ -168,19 +166,10 @@ namespace Microsoft.Knowzy.UwpHelpers
 
         internal static bool isWindows7OrLower()
         {
-            try
-            {
-                string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
-                ulong version = ulong.Parse(deviceFamilyVersion);
-                ulong major = (version & 0xFFFF000000000000L) >> 48;
-                ulong minor = (version & 0x0000FFFF00000000L) >> 32;
-                double osVersion = (double)major + ((double)minor / 10.0);
-                return osVersion <= 6.1;
-            }
-            catch
-            {
-                return false;
-            }
+            int versionMajor = Environment.OSVersion.Version.Major;
+            int versionMinor = Environment.OSVersion.Version.Minor;
+            double version = versionMajor + (double)versionMinor / 10;
+            return version <= 6.1;
         }
     }
 }
