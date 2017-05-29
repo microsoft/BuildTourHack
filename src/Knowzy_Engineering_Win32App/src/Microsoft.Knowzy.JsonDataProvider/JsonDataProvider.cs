@@ -15,6 +15,9 @@
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Common.Contracts.Helpers;
 using Microsoft.Knowzy.Domain;
+using Microsoft.Knowzy.UwpHelpers;
+using System;
+using System.IO;
 
 namespace Microsoft.Knowzy.DataProvider
 {
@@ -31,14 +34,24 @@ namespace Microsoft.Knowzy.DataProvider
             _jsonHelper = jsonHelper;
         }
 
-        public Product[] GetData()
-        {
-            var jsonFilePath = _configuration.Configuration.JsonFilePath;
 
-            return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
+    public Product[] GetData()
+    {
+        String jsonFilePath;
+
+        if (ExecutionMode.IsRunningAsUwp())
+        {
+            jsonFilePath = Path.Combine(AppFolders.Current, "desktop", _configuration.Configuration.JsonFilePath);
+        }
+        else
+        {
+            jsonFilePath = _configuration.Configuration.JsonFilePath;
         }
 
-        public void SetData(Product[] products)
+        return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
+    }
+
+    public void SetData(Product[] products)
         {
             var jsonFilePath = _configuration.Configuration.JsonFilePath;
 

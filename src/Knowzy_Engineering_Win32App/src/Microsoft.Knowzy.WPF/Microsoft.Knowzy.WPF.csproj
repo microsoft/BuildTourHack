@@ -252,4 +252,20 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <PropertyGroup>
+      <TargetUWP>..\Microsoft.Knowzy.UWP\desktop\</TargetUWP>
+    </PropertyGroup>
+    <ItemGroup>
+      <DesktopBinaries Include="$(TargetDir)\**\*.*" />
+      <ExcludeFilters Include="$(TargetDir)\**\*.winmd" />
+    </ItemGroup>
+    <ItemGroup>
+      <DesktopBinaries Include="$(TargetDir)\**\*.*" />
+    </ItemGroup>
+    <ItemGroup>
+      <DesktopBinaries Remove="@(ExcludeFilters)" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DesktopBinaries)" DestinationFiles="@(DesktopBinaries->'$(TargetUWP)\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
 </Project>
