@@ -59,9 +59,9 @@ Since we will be working a lot with the Microsoft.Knowzy.UWP project, set the Bu
 
 ![Debug | x86 Projects](images/212-debug-x86.png)
 
-Clean the solution by selecting **Clean Solution** from the **Build** menu.
+**Clean** the solution by selecting **Clean Solution** from the **Build** menu.
 
-Build the x86 configuration of the solution. (Select **Build Solution** from the **Build** menu).
+**Build** the x86 configuration of the solution. (Select **Build Solution** from the **Build** menu).
 
 After the build completes, deploy the Microsoft.Knowzy.UWP project so its AppX folder is created. The next step needs the AppX folder.
 (Select **Deploy Solution** from the **Build** menu).
@@ -87,7 +87,7 @@ Visual 2017 C# UWP Desktop Bridge deployment bug we experienced in the previous 
 * Save and Close the Properties windows. 
 	* **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
 incorrect Debugging Project settings.
-	* **Note:** You will need to add the Debugging Project Properties for x86 Release and x64 Debug and Release configurations.
+	* **Note:** You will need to add the correct Debugging Project Properties for x86 Release and x64 Debug and Release configurations if you want to build them.
 
 
 * Open the AppXPackageFileList.xml file in the Microsoft.Knowzy.Debug project
@@ -128,15 +128,27 @@ You should then be able to build and run the app.
 
 ![Breakpoint](images/212-breakpoint.png)
 
-* Set a breakpoint at line 79 in the file ViewModels\MainViewModel.cs in the Microsoft.Knowzy.WPF project. Restart the debugging session and it should break into the debugger at line 79.
+* Set a breakpoint at line 79 in the file ViewModels\MainViewModel.cs in the Microsoft.Knowzy.WPF project. Restart the debugging session and it should break into the debugger at line 79. If you do not hit the breakpoint, 
+**Clean** and **Build** your solution again.
 
 * Stop debugging and remove the comments we added in the previous task. Press F5 to start the app. You should get the following exception:
 
 ![Exception](images/212-exception.png)
 
-For some reason, our UWP app is trying to load the Project.json file from C:\Windows\SysWOW64\Products.json. UWP apps do not have access to this folder. This is a common problem with newly converted Desktop Bridge apps.
+For some reason, our UWP app is unable to load the Project.json file and it appears that our app is looking for the file in the wrong directory. This is a common problem with newly converted Desktop Bridge apps.
 Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the [next task](213_AddUwp.md).
 
+Step 4: Additional Debugging Settings
+
+In order to be able to easily debug both both the WPF and UWP portions of our app, we need to specify a few more debugging settings.
+
+* Select **Options...** from the **Debug** menu.
+
+![Debug options](images/212-debug-options.png)
+
+* Click on **Debugging | General** and turn off the **Enable Just My Code** options
+
+![Just My Code](images/212-just-my-code.png)
 
 
 ## References

@@ -161,44 +161,51 @@ You edit the Package.appxmanifest xml file by right-clicking on the file in the 
 
 We will now edit the XML to add the DeskTop Bridge extensions. This will enable your Win32 app to run as a UWP app.
 
-Replace the line (near line 7):
+* Replace the line (near line 7):
 
-```xml
-IgnorableNamespaces="uap mp">
-```
+    ```xml
+    IgnorableNamespaces="uap mp">
+    ```
 
-with
+    with
 
-```xml
-xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" 
-xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" 
-xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
-IgnorableNamespaces="uap mp rescap desktop">
-```
+    ```xml
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" 
+    xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" 
+    xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+    IgnorableNamespaces="uap mp rescap desktop">
+    ```
 
+    Adding these namespaces will allow us to add the Desktop Bridge extensions to our app.
+
+
+
+* We need to describe to Windows 10 that our app is a Desktop Bridge App. We also ned to specify a minimum version of 13493.
 Replace the line (near line 25):
 
-```xml
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
-```
+    ```xml
+        <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    ```
 
-with
+    with
 
-```xml
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />  
-```
+    ```xml
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />  
+    ```
 
-Add the following capability to the Capabilities section (near line 49)
+* We need to tell Windows 10 that our app is a Desktop Bridge App and needs to run as a Full Trust application. This
+capability grants Desktop app capabilities to our UWP app. Add the following capability to the Capabilities section (near line 49)
 
-```xml
-    <rescap:Capability Name="runFullTrust" />
-```
+    ```xml
+        <rescap:Capability Name="runFullTrust" />
+    ```
 
+* We also need to specify that we are a Full Trust application in the Application tag. This tag also points to our WPF exe as executable for out app.
 Modify the Application tag to the following (near line 34):
 
-```xml
-    <Application Id="Knowzy" Executable="desktop\Microsoft.Knowzy.WPF.exe" EntryPoint="Windows.FullTrustApplication">
-```
+    ```xml
+        <Application Id="Knowzy" Executable="desktop\Microsoft.Knowzy.WPF.exe" EntryPoint="Windows.FullTrustApplication">
+    ```
 
 
 
