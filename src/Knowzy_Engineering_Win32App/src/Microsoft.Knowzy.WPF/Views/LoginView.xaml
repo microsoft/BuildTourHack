@@ -52,7 +52,7 @@
         <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="DoLogin" Style="{StaticResource ButtonEditItemStyle}" IsDefault="True"
                     Content="{x:Static localization:Resources.Login_Login}" />
-            <Button x:Name="Cancel" Style="{StaticResource ButtonEditItemStyle}" Margin="10,0,0,0" 
+            <Button x:Name="DoClose" Style="{StaticResource ButtonEditItemStyle}" Margin="10,0,0,0" 
                     Background="{StaticResource PrimaryMediumDarkColorBrush}"
                     Content="{x:Static localization:Resources.Login_Cancel}" />
         </StackPanel>

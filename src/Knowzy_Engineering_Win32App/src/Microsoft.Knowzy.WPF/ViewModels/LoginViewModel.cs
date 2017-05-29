@@ -60,7 +60,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             {
                 _authenticationService.Login(UserName, Password);
                 _mainViewModel.NotifyOfPropertyChange(() => _mainViewModel.LoggedUser);
-                Close();
+                DoClose();
             }
             catch (Exception e)
             {
@@ -69,7 +69,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             }
         }
 
-        public void Close()
+        public void DoClose()
         {
             UserName = string.Empty;
             Password = string.Empty;
