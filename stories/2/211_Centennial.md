@@ -28,6 +28,8 @@ Set the Microsoft.Knowzy.WPF project as the startup project. Press F5 to build a
 
 #### Step 2: Add a UWP Project
 
+We will be using an empty UWP Visual Studio Project to package our WPF app into a UWP app.
+
 To create a Desktop Bridge package, first add a C# Windows Universal Blank App project to the your solution.
 
 * Right-click on the **src** folder in the Solution and select **Add | New Project...**

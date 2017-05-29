@@ -153,7 +153,7 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
 ![Knowzy UWP](images/214-knowzy-uwp.png)
 
 
-* Open the file Microsoft.Knowzy.WPF\Models\ShellViewModel.cs and find the Handle(OpenLoginMessage message) method near line 78.
+* Open the file Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs and find the Handle(OpenLoginMessage message) method near line 78.
 
 * Modify the Handle(OpenLoginMessage message) as follows:
 
