@@ -136,7 +136,7 @@ You should then be able to build and run the app.
 ![Exception](images/212-exception.png)
 
 For some reason, our UWP app is unable to load the Project.json file and it appears that our app is looking for the file in the wrong directory. This is a common problem with newly converted Desktop Bridge apps.
-Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the [next task](213_AddUwp.md).
+Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the next task.
 
 Step 4: Additional Debugging Settings
 
@@ -149,6 +149,19 @@ In order to be able to easily debug both both the WPF and UWP portions of our ap
 * Click on **Debugging | General** and turn off the **Enable Just My Code** options
 
 ![Just My Code](images/212-just-my-code.png)
+
+* Right-click on the Microsoft.Knowzy.UWP project and select **Properties**.
+
+* Select the **Build** tab and turn off **Optimize Code**
+
+![Optimize Code](images/212-optimize-code.png)
+
+* Select the **Debug** tab and turn on **Do not launch, but debug my code when it starts**
+
+![Optimize Code](images/212-do-not-launch.png)
+
+
+We will now fix the products.json issue in the [next task](213_AddUwp.md).
 
 
 ## References
