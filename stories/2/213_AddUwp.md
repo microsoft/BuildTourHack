@@ -43,7 +43,7 @@ public Product[] GetData()
 }
 ```
 
-* Setting a breakpoint at line 31 of JsonDataProvider.cs and stepping through the code we eventually find that ReadTextFile is looking for the Products.json file in the installed directory of the app.
+* Setting a breakpoint around line 40 of JsonDataProvider.cs and stepping through the code we eventually find that ReadTextFile is looking for the Products.json file in the installed directory of the app.
 
 When we created the Desktop Bridge version of Knowzy we copied all of the WPF Knowzy binaries to the desktop folder of the Desktop Bridge app. 
 After a build and deployment of the Knowzy app, we will find the Products.json file in the directory
