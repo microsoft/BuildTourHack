@@ -430,7 +430,7 @@ to the WPF app through the AppService when the use clicks on the Connect button.
 
 #### Add the XAML ui page that will communicate with the App Service
 
-* Add a new XAML page to Microsoft.Knowzy.UWP project. Name the page AppServiceTest.
+* Add a new XAML page to Microsoft.Knowzy.UWP project. Name the page AppServiceTest.xaml.
 
 * Add some XAML UI elements to AppServiceTest.xaml
 
