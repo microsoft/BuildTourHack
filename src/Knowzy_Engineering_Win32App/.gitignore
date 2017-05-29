@@ -7,6 +7,9 @@
 *.userosscache
 *.sln.docstates
 
+# Desktop Bridge folders
+src/Microsoft.Knowzy.UWP/desktop/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
