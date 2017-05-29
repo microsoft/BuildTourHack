@@ -391,7 +391,7 @@ async void OnRequestReceived(AppServiceConnection sender, AppServiceRequestRecei
 * Add a Click event to the Menu Menu in MainView.xaml in the Microsoft.Knowzy.WPF project.
 
 ```xml
-<MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Menu_Click"/>
+<MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Menu_Click"/>
 ```
 * Add the Menu_Click handler in MainView.xaml.cs in the Microsoft.Knowzy.WPF project.
 
