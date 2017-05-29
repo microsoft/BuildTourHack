@@ -205,7 +205,7 @@ public async void Show3DView()
 
 ![Knowzy XAML UI](images/221-xaml-ui.png)
 
-* If you want to suggest to Windows 10 the size of the XAML UI Window, add the following code to the MainPage constructor:
+* If you want to suggest to Windows 10 the size of the XAML UI Window, add the following code to the MainPage constructor in the file MainPage.xaml.cs in the Microsoft.Knowzy.UWP project
 
 ```c#
 using Windows.UI.ViewManagement;
