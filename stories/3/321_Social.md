@@ -33,6 +33,7 @@ if (!await FacebookService.Instance.LoginAsync())
 await FacebookService.Instance.PostPictureToFeedAsync("Title", picture.Name, stream);
 ```
 
+## continue to [next task >> ](322_Rome.md)
 
 
 

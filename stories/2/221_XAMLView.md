@@ -228,3 +228,5 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 * https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
 * https://github.com/qmatteoq/BridgeTour-Workshop
 * https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+
+## continue to [next task >> ](222_Share.md)

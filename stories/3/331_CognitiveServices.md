@@ -16,3 +16,5 @@ This task will require you to set up a Cognitive Service to be used for facial a
 
 ###### @ 2:37am
 Creating a Face API couldn't be easier, just follow [this](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) guide I found.
+
+## continue to [next task >> ](332_AzureFunction.md)

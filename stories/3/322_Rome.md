@@ -24,3 +24,5 @@ We can use an App Service to support the messaging between Android and UWP. Here
 * [Docs on creating and consuming app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
 * [Docs on communicating with a remote app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/communicate-with-a-remote-app-service)
 * [App service sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AppServices)
+
+## continue to [next task >> ](331_CognitiveServices.md)

@@ -380,3 +380,5 @@ We will fix this error and enable the debugging of our app in the [next task](21
 * https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
 * https://github.com/qmatteoq/BridgeTour-Workshop
 * https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+
+## continue to [next task >> ](212_Debugging.md)

@@ -289,3 +289,5 @@ By default, this places your app files in a folder named `bin/Release/PublishOut
 [411]: /stories/4/411_CosmosDB.md
 [414]: /stories/4/414_Docker.md
 [111]: /stories/1/111_BuildWebApp.md
+
+## continue to [next task >> ](413_ProductsAPI.md)

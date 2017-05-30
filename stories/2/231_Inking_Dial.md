@@ -27,3 +27,5 @@ Our research has found a starting point for the inking idea [here](https://docs.
 
 ###### @ 10:43am
 We also found sample code for Inking [here](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk)
+
+## continue to [next task >> ](232_Windows_Hello.md)

@@ -17,3 +17,5 @@ OR
 ## References
 
 1.  [Visual Studio Team Services landing page](https://www.visualstudio.com/team-services/)
+
+## continue to [next task >> ](422_DevopsKubernetes.md)

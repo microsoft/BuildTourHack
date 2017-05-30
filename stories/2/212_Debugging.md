@@ -170,3 +170,5 @@ We will now fix the products.json issue in the [next task](213_AddUwp.md).
 * https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
 * https://github.com/qmatteoq/BridgeTour-Workshop
 * https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+
+## continue to [next task >> ](213_AddUwp.md)

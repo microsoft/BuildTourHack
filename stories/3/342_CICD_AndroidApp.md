@@ -32,3 +32,5 @@ My friends wanted to know whenever I built an app so I figured out how to create
 [311]: /stories/3/311_XamarinForms.md
 [341]: /stories/3/341_CICD_WindowsApp.md
 [420]: /stories/4/420_SetupVSTS.md
+
+## continue to [next task >> ](343_EventLogging.md)

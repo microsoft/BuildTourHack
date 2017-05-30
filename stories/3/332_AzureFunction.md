@@ -31,3 +31,5 @@ I was curious about what the Face API is capable of so I found the [REST Docs](h
 
 ###### @ 4:32pm
 This [quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/face/quickstarts/csharp) really walks through how to call the Face API from C#.
+
+## continue to [next task >> ](341_CICD_WindowsApp.md)

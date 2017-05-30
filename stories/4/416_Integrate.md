@@ -28,3 +28,5 @@ In the Docker instructions in [4.1.4][414] for the dev machine, and Kubernetes i
 [413]: /stories/4/413_ProductsAPI.md
 [414]: /stories/4/414_Docker.md
 [415]: /stories/4/415_Kubernetes.md
+
+## continue to [next task >> ](421_SetupVSTS.md)

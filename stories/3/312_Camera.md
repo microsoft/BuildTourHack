@@ -243,3 +243,5 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 That's it, run the app and try it out. You should be able to navigate to the new page once you click on a nose. There should be a button to capture an image that will open the platform specific UI for capturing images. Once the image is captured, it should display the image  below the button.
 
 [Go to the next Task](313_InkCanvas.md) where you will extend this page to overlay the noses on top of the image and add Inking capabilities on Windows.
+
+## continue to [next task >> ](313_InkCanvas.md)

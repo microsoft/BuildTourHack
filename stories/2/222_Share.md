@@ -246,3 +246,5 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 * https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ShareSource 
 * https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97
 * https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/WPFasShareTarget
+
+## continue to [next task >> ](223_AppServices.md)

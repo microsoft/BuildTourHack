@@ -266,3 +266,5 @@ az acr repository show-tags -n $ACR_NAME --repository knowzy/ordersapi
 * [Docker CLI reference](https://docs.docker.com/engine/reference/commandline/cli/)
 * [Azure CLI reference](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)
 * [Azure Container Registry reference](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro)
+
+## continue to [next task >> ](415_Kubernetes.md)

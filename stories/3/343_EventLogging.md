@@ -26,3 +26,5 @@ It looks like there is a bit of customization you need to do for UWP.  [Check it
 
 [341]: /stories/3/341_CICD_WindowsApp.md
 [342]: /stories/3/342_CICD_AndroidApp.md
+
+## continue to [next task >> ](351_Bot.md)

@@ -34,3 +34,5 @@ If all goes according to plan, I should be able to demonstrate this working by [
 [421]: /stories/4/421_SetupVSTS.md
 [497]: /stories/4/497_KubernetesVSTS.md
 [498]: /stories/4/498_KubernetesCICDBehavior.md
+
+## continue to [next task >> ](431_Telemetry.md)

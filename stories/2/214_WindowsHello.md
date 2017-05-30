@@ -222,3 +222,4 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 * https://github.com/qmatteoq/BridgeTour-Workshop
 * https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
 
+## continue to [next task >> ](221_XAMLView.md)

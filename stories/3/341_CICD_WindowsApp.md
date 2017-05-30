@@ -30,3 +30,5 @@ My friends wanted to know whenever I built an app so I figured out how to create
 [311]: /stories/3/311_XamarinForms.md
 [342]: /stories/3/342_CICD_AndroidApp.md
 [420]: /stories/4/420_SetupVSTS.md
+
+## continue to [next task >> ](342_CICD_AndroidApp.md)

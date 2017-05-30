@@ -159,3 +159,5 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 1. [Xamarin.Forms Quickstart](https://developer.xamarin.com/guides/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/)
 2. [Introduction to Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/getting-started/introduction-to-xamarin-forms/)
 3. [Xamarin.Forms XAML documentation](https://developer.xamarin.com/guides/xamarin-forms/xaml/)
+
+## continue to [next task >> ](312_Camera.md)

@@ -128,3 +128,5 @@ webapp   10.0.142.191   54.22.172.17   80:31945/TCP     5m
 * [Azure resource naming best practices](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions)
 * [Azure CLI reference](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)
 * [kubectl overview](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+
+## continue to [next task >> ](416_Integrate.md)
