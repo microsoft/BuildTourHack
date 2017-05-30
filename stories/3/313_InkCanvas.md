@@ -130,7 +130,7 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
              >
     ```
 
-2. We can now add UWP XAML controls directly on the page. 
+2. We can now add two UWP XAML controls directly on the page. 
 
     * Add the InkCanvas below the camera image but above the nose image
     * Add the InkToolbar control between the top button and the imageGrid.
@@ -144,7 +144,7 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
                 Text="Capture Image"
                 Clicked="captureButton_Clicked"></Button>
 
-        <!-- InkToolbar -->
+        <!-- UWP XAML CONTROL InkToolbar -->
         <ContentView x:Name="InkingToolbar">
             <win:InkToolbar></win:InkToolbar>
         </ContentView>
@@ -154,7 +154,7 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
             <Image x:Name="image"></Image>
 
 
-            <!-- InkCanvas -->
+            <!-- UWP XAML CONTROL InkCanvas -->
             <ContentView x:Name="InkingContent">
                 <win:InkCanvas></win:InkCanvas>
             </ContentView>
@@ -171,7 +171,7 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
 
     > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code behind
 
-3. To use the native views in the code behind, we need to use compilation directives as the native views will only be used on the platform they are available. In this case, the InkCanvas and InkToolbar are only available on UWP, so we need to use the **WINDOWS_UWP** directive to wrap our code. In the constructor of our page, bellow the call to *InitializeComponent*, we need to bind the InkToolbar to the InkCanvas and set the input device type of the InkCanvas to all input types:
+3. To use the native views in the code behind, we need to use compilation directives as the native views will only be used on the platform they are available. In this case, the InkCanvas and InkToolbar are only available on UWP, so we need to use the **WINDOWS_UWP** directive to wrap our code. In the constructor of our page, after the call to *InitializeComponent*, we need to bind the InkToolbar to the InkCanvas and set the input device type of the InkCanvas to all input types:
 
     ```csharp
     #if WINDOWS_UWP

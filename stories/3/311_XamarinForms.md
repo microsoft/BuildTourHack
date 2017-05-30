@@ -80,7 +80,7 @@ For our first task, we want to be able to list all the different Knowzy products
     ![JSON as Class](images/json_as_class.png)
 
 2. Now that we have our model, let's create a way to retrieve the data from our feed. 
-    * First, we will use Json.Net to deserialize the JSON, so you will need to first reference the Nuget package to both the UWP and Android project. Right click on each project, click on **Manage Nuget Packages**. Search for **Newtonsoft.Json** and install it.
+    * First, we will use Json.Net to deserialize the JSON, so you will need to first reference the Nuget package to both the UWP and Android project. Right click on each project, click on **Manage Nuget Packages**. Search for **Newtonsoft.Json** and install it (make sure to switch to the **Browse** tab when searching).
 
     * Follow the same steps as above to create a new class in the shared project. 
     * Name the new class **DataProvider**
@@ -126,6 +126,7 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
     ```csharp
     protected async override void OnAppearing()
     {
+        base.OnAppearing();
         ProductListView.ItemsSource = await DataProvider.GetProducts();
     }
     ```
@@ -147,7 +148,7 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
     </ListView>
     ```
 
-**Task Complete**. Go ahead and run the the app on your machine and in the Android emulator.
+**Task Complete**. Go ahead and run the the app on your machine and run the app in the Android emulator.
 
 ![Finished Noses](images/noses_finished.png)
 

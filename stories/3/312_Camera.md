@@ -87,6 +87,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
     * In the UWP project, create a new class and call it PhotoService. Extend IPhotoService and register with the DependencyService by adding a metadata attribute above the namespace. The class would look like this:
 
         ```csharp
+        using Xamarin.Forms;
         using YourNamespace.UWP;
 
         [assembly: Dependency(typeof(PhotoService))]
@@ -111,8 +112,10 @@ Once we've navigated to the new page, the goal is to capture an image from the c
             captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
 
             StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
-            var stream =  await photo.OpenStreamForReadAsync();
-            return ImageSource.FromStream(() => stream);
+
+            if (photo == null) return null;
+
+            return ImageSource.FromFile(photo.Path);
         }
         ```
 
@@ -121,7 +124,6 @@ Once we've navigated to the new page, the goal is to capture an image from the c
         ```csharp
         using Windows.Media.Capture;
         using Windows.Storage;
-        using System.IO;
         ```
 
      That's all for UWP
@@ -168,6 +170,8 @@ Once we've navigated to the new page, the goal is to capture an image from the c
     * Just like in the UWP project, create a new class in the Android project and call it PhotoService. Extend IPhotoService and register with the DependencyService by adding a metadata attribute above the namespace. The class would look like this:
 
         ```csharp
+        using Xamarin.Forms;
+        using System.Threading.Tasks;
         using YourNamespace.Droid;
 
         [assembly: Dependency(typeof(PhotoService))]
@@ -193,9 +197,11 @@ Once we've navigated to the new page, the goal is to capture an image from the c
         {
             var mainActivity = Forms.Context as MainActivity;
             var tcs = new TaskCompletionSource<ImageSource>();
-            EventHandler<Java.IO.File> handler = (s, e) =>
+            EventHandler<Java.IO.File> handler = null;
+            handler = (s, e) =>
             {
                 tcs.SetResult(e.Path);
+                mainActivity.ImageCaptured -= handler;
             };
 
             mainActivity.ImageCaptured += handler;
