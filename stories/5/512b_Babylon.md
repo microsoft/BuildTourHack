@@ -38,19 +38,17 @@ To convert the model, we will use the online FBX to OBJ converter, using the FBX
 #### Adding Babylon JS dependency
 It is now time to add content in our UWP.
 
-1. Add the Babylon.JS dependency to your project (this allows your project to work offline). Open the following link [Babylon.JS](https://preview.babylonjs.com/babylon.js) and press Ctrl+S in order to save locally the Babylon.JS library.
+1. Add the Babylon.JS dependency to your project (this allows your project to work offline). Right click on the *js* folder, click on **Add -> Existing Item...**. Copy this link to your clipboard (```https://preview.babylonjs.com/babylon.js```) and paste it in the *File name* box. Click **Add**. 
 
-2. Copy the downloaded file in the js folder of your solution.
+    ![Add Reference](images/512b_5.png)
 
-3. Add the Babylon.JS OBJ Loader dependency to your project (this allows your project to work offline). Open the following link [Babylon.JS OBJ Loader](https://preview.babylonjs.com/loaders/babylon.objFileLoader.js) and press Ctrl+S in order to save locally the Babylon.JS loader library.
+2. Add the Babylon.JS OBJ Loader dependency to your project (this allows your project to work offline). Similar to the previous step, use this link to add the file to the js folder (```https://preview.babylonjs.com/loaders/babylon.objFileLoader.js```)
 
-4. Copy the downloaded file in the js folder of your solution.
-
-5. The solution folder should now look like this:
+3. The solution folder should now look like this:
 
     ![New Project](images/512b_3.png)
 
-6. It is now time to integrate those files in the application. Open the ```index.html``` file and add the two following script references *before* the main.js one:
+4. It is now time to integrate those files in the application. Open the ```index.html``` file and add the two following script references *before* the main.js one:
 
 ```html
 <!DOCTYPE html>
@@ -70,7 +68,7 @@ It is now time to add content in our UWP.
 </html>
 ```
 
-7. The project can now be launched in debug by pressing F5 to ensure that the setup is correct. No error should be displayed in the javascript console.
+5. The project can now be launched in debug by pressing F5 to ensure that the setup is correct. No error should be displayed in the javascript console.
 
 #### Create your first scene
 As the project is ready, we can now create our first 3D scene as explained in the [Basic Tutorial](https://doc.babylonjs.com/tutorials/creating_a_basic_scene) of Babylon JS.
