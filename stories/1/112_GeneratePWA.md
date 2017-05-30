@@ -61,7 +61,7 @@ http://docs.pwabuilder.com/whatPWA/what-is-a-service-worker/
 https://www.pwabuilder.com
 
 
-## continue to (next task >> )[113_ConfigureSW.md]
+## continue to [next task >> ](113_ConfigureSW.md)
 
 
 
