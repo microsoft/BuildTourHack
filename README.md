@@ -6,6 +6,8 @@ User stories are mostly self contained, they do not have dependencies to other s
 
 If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out.
 
+The source code for our applications is all open source and can be found on [our github account](https://github.com/Knowzy/KnowzyInternalApps).
+
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
