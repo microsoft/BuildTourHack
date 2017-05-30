@@ -11,7 +11,7 @@ This task will guide you through the process of adding Windows 10 UWP APIs to yo
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
 * Complete the section on [Debugging a Windows Desktop Bridge App](212_Debugging.md)
 
-To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
+To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
 ## Task
 

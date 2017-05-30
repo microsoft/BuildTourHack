@@ -57,7 +57,7 @@ Now get to know your new app.
 
 #### Add shared Business Logic
 
-For our first task, we want to be able to list all the different Knowzy products. Fortunately, there is already a public feed for all products that we can use located [here](https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/noses.json). We can use this to get all of the data for our app. 
+For our first task, we want to be able to list all the different Knowzy products. Fortunately, there is already a public feed for all products that we can use located [here](https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json). We can use this to get all of the data for our app. 
 
 1. Let's create a new class that we can use to represent our nose model. Right click on the Shared project (the one without a platform specifier at the end) and click **Add -> Class**:
 
@@ -71,7 +71,7 @@ For our first task, we want to be able to list all the different Knowzy products
         "Name": "Black Nose",
         "RawMaterial": "Black foam",
         "Notes": "Everything you'd expect, and a little something more.",
-        "Image": "https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/Frabicnose400x300.jpg"
+        "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
     }
     ```
 
@@ -92,7 +92,7 @@ For our first task, we want to be able to list all the different Knowzy products
         {
             using (var client = new HttpClient())
             {
-                var json = await client.GetStringAsync("https://raw.githubusercontent.com/Microsoft/BuildTourHack/master/src/Noses/noses.json");
+                var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
 
                 return JsonConvert.DeserializeObject<Nose[]>(json);
             }

@@ -12,7 +12,7 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 * Basic knowledge of Windows 10 and the Universal Windows Platform
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
-* Go to the git repo at https://github.com/Microsoft/BuildTourHack and clone or download the content onto your local computer.
+* Go to the git repo at [https://github.com/Knowzy/KnowzyInternalApps](https://github.com/Knowzy/KnowzyInternalApps) and clone or download the content onto your local computer.
 
 
 
@@ -21,7 +21,7 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 
 #### Step 1: Open the existing Knowzy Win32 Solution with Visual Studio 2017
 
-We will be converting an exiting WPF application from Win32 to UWP. To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
+We will be converting an exiting WPF application from Win32 to UWP. To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
 Set the Microsoft.Knowzy.WPF project as the startup project. Press F5 to build and run the project. Feel free to try out the application and then quit the application and return to Visual Studio.
 

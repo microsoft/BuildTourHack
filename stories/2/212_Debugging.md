@@ -12,7 +12,7 @@ This task will guide you through the process of debugging a Windows Desktop Brid
 * The [Desktop Bridge Debugging Project template](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.DesktoptoUWPPackagingProject) installed into Visual Studio 2017
 * Complete the section on [Add Desktop Bridge Support using Visual Studio 2017](211_Centennial.md)
 
-To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **BuildTourHack\src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
+To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
 ## Step 1: Install the Desktop Bridge Debugging Project Extension
 
