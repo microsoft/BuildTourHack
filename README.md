@@ -1,4 +1,4 @@
-# Adventure Works KNOWZY Backlog
+# Adventure Works Knowzy Backlog
 
 There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. Tasks marked as committed have been committed to our leadership, and task marked as proposed have been requested or proposed.
 
