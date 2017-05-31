@@ -11,7 +11,10 @@
         <StackPanel>
             <Button Content="Share to Microsoft.Knowzy.WPF" Click="ShareButton_Click"/>
             <TextBlock x:Name="tbFileName" />
-            <Image x:Name="img"/>
+            <Grid>
+                <Image x:Name="img"/>
+                <InkCanvas x:Name="ink"></InkCanvas>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>
