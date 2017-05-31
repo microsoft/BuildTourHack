@@ -23,6 +23,8 @@ Implement the following methods in the Products API that are used by the website
 - Get Product by id (includes product stock availability)
 - Add new product
 
+Again: you have access to an [end version of the APIs for your reference in the `azurecompleted` branch of the `KnowzyInternalApps` repo](https://github.com/Knowzy/KnowzyInternalApps/tree/azurecompleted/src/Knowzy_Shipping_WebApp/src/2.%20Services/APIs) to help.
+
 ### 3. Package for release
 
 Like before, package the Products API using Visual Studio, then continue to [Task 4.1.4 - Create Docker images][414]. 
