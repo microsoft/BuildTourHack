@@ -115,25 +115,27 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 1. Remove the Label and add a new element ListView instead. Give it a name. In this case it's *ProductListView**
 
-    ```xaml
+```xaml
     <ListView x:Name="ProductListView">
 
     </ListView>
-    ```
+    
+ ```
 
 2. Open MainPage.xaml.cs. This is where the code goes for your view. Here we can override the *OnAppearing* method which will allows us to get the list of products and set them as the source of the ListView. Add the following code:
 
-    ```csharp
+```csharp
     protected async override void OnAppearing()
     {
         base.OnAppearing();
         ProductListView.ItemsSource = await DataProvider.GetProducts();
     }
-    ```
+    
+ ```
 
 3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/). Here is what the final XAML looks like for the ListView
 
-    ```xaml
+```xaml
     <ListView x:Name="ProductListView">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -146,7 +148,8 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    ```
+    
+```
 
 **Task Complete**. Go ahead and run the the app on your machine and run the app in the Android emulator.
 
