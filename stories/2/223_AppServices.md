@@ -572,4 +572,4 @@ You have now successfully developed a solution for communicating between the UWP
 * https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices 
 * https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97
 
-## continue to [next task >> ](231_Inking.md)
+## continue to [next task >> ](231_Inking_Dial.md)
