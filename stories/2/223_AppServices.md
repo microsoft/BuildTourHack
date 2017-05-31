@@ -173,15 +173,10 @@ xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
 
 * The Microsoft.Knowzy.AppService will now be part of the Knowzy UWP AppX package after a build.
 
-#### Create a new C# Class Library project Microsoft.Knowzy.UwpHelpers.AppService ####
 
-The Windows 10 AppServices UWP API does not seem seem to be compatible with Portable Class Libraries so create a regular C# Class Library project called Microsoft.Knowzy.UwpHelpers.AppService.
+#### Add a AppService helper class to Microsoft.Knowzy.UwpHelpers ####
 
-![AppService Class Library](images/223-appservice-class-lib.png)
-
-#### Add an AppService helper class to Microsoft.Knowzy.UwpHelpers.AppService ####
-
-* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers.AppService project.
+* Add a new C# class called AppService.cs to the  Microsoft.Knowzy.UwpHelpers project.
 
 * Add the following using directives to AppService.cs
 
@@ -254,14 +249,6 @@ public class AppService
     }
 }
 ```
-
-#### Add a project reference to Microsoft.Knowzy.UwpHelpers.AppService ####
-
-* Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...**
-
-* Select the **Microsoft.Knowzy.UwpHelpers.AppService** project under the **Projects | Solution** section. 
-
-
 
 #### Add Listener support to the App Service ####
 
