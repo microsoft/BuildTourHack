@@ -29,7 +29,7 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 We will use the Desktop Bridge Knowzy application which was created in the previous tasks as a starting point.
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
-*Note: If you are starting with this from the **2.1.4** branch, you will need to do the following:
+>Note: If you are starting with this from the **2.1.4** branch, you will need to do the following:
 
 * Set the Build configuration to **Debug | x86**
 
@@ -50,52 +50,50 @@ These helper classes can be accessed by the Knowzy app when it is running as a D
 
 * Add the following code to WindowsHello.cs. This code uses methods from the Windows 10 UWP API
 
-```c#
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Security.Credentials;
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Windows.Security.Credentials;
 
-namespace Microsoft.Knowzy.UwpHelpers
-{
-    public class WindowsHello
-    {
-        public static async Task<bool> Login()
+        namespace Microsoft.Knowzy.UwpHelpers
         {
-            var result = await KeyCredentialManager.IsSupportedAsync();
-            String message;
-
-            if (result)
+            public class WindowsHello
             {
-                var authenticationResult = await KeyCredentialManager.RequestCreateAsync("login", KeyCredentialCreationOption.ReplaceExisting);
-                if (authenticationResult.Status == KeyCredentialStatus.Success)
+                public static async Task<bool> Login()
                 {
-                    message = "User is logged in";
-                }
-                else
-                {
-                    message = "Login error: " + authenticationResult.Status;
+                    var result = await KeyCredentialManager.IsSupportedAsync();
+                    String message;
+
+                    if (result)
+                    {
+                        var authenticationResult = await KeyCredentialManager.RequestCreateAsync("login", KeyCredentialCreationOption.ReplaceExisting);
+                        if (authenticationResult.Status == KeyCredentialStatus.Success)
+                        {
+                            message = "User is logged in";
+                        }
+                        else
+                        {
+                            message = "Login error: " + authenticationResult.Status;
+                        }
+                    }
+                    else
+                    {
+                        message = "Windows Hello is not enabled for this device.";
+                    }
+
+                    String imagePath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
+                    String xml = "<toast><visual><binding template='ToastGeneric'><text hint-maxLines='1'>" + message + "</text></binding></visual></toast>";
+
+                    Toast.CreateToast(xml);
+
+                    return result;
                 }
             }
-            else
-            {
-                message = "Windows Hello is not enabled for this device.";
-            }
-
-            String imagePath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
-            String xml = "<toast><visual><binding template='ToastGeneric'><text hint-maxLines='1'>" + message + "</text></binding></visual></toast>";
-
-            Toast.CreateToast(xml);
-
-            return result;
         }
-    }
-}
-```
 
-This is only a starting point for Windows Hello support but it is sufficient to demonstrate how to add Windows 10 UWP APIs to your Desktop Bridge App. You will have the opporunity to complete coding
+This is only a starting point for Windows Hello support but it is sufficient to demonstrate how to add Windows 10 UWP APIs to your Desktop Bridge App. You will have the opportunity to complete coding
 a Windows Hello login in a later task.
 
 
@@ -108,59 +106,56 @@ if they are logged in. We need to add a UWP Helper class for Toasts.
 
 * Add the following code to Toast.cs. This code uses methods from the Windows 10 UWP API
 
-```c#
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Data.Xml.Dom;
-using Windows.UI.Notifications;
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Windows.Data.Xml.Dom;
+        using Windows.UI.Notifications;
 
-namespace Microsoft.Knowzy.UwpHelpers
-{
-    public class Toast
-    {
-        static ToastNotification toast = null;
-        static ToastNotifier notifier = null;
-
-        public static void CreateToast(String xml)
+        namespace Microsoft.Knowzy.UwpHelpers
         {
-            if (!ExecutionMode.IsRunningAsUwp())
+            public class Toast
             {
-                return;
-            }
+                static ToastNotification toast = null;
+                static ToastNotifier notifier = null;
 
-            try
-            {
-                if (notifier == null)
+                public static void CreateToast(String xml)
                 {
-                    notifier = ToastNotificationManager.CreateToastNotifier();
-                }
-                else
-                {
-                    notifier.Hide(toast);
-                }
-                XmlDocument toastXml = new XmlDocument();
-                toastXml.LoadXml(xml);
+                    if (!ExecutionMode.IsRunningAsUwp())
+                    {
+                        return;
+                    }
 
-                toast = new ToastNotification(toastXml);
-                notifier.Show(toast);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("CreateToast Error:" + ex.Message);
+                    try
+                    {
+                        if (notifier == null)
+                        {
+                            notifier = ToastNotificationManager.CreateToastNotifier();
+                        }
+                        else
+                        {
+                            notifier.Hide(toast);
+                        }
+                        XmlDocument toastXml = new XmlDocument();
+                        toastXml.LoadXml(xml);
+
+                        toast = new ToastNotification(toastXml);
+                        notifier.Show(toast);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("CreateToast Error:" + ex.Message);
+                    }
+                }
             }
         }
-    }
-}
-```
+
 #### Step 3: Add a Reference to Microsoft.Knowzy.UwpHelpers
 
 * Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...** and select the Microsoft.Knowzy.UwpHelpers project. Click **OK**.
-
-
 
 #### Step 4: Add Login Code to the WPF App
 
@@ -175,21 +170,19 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
 * Modify the Handle(OpenLoginMessage message) as follows:
 
 
-```c#
-using Microsoft.Knowzy.UwpHelpers;
+        using Microsoft.Knowzy.UwpHelpers;
 
-public async void Handle(OpenLoginMessage message)
-{
-    if (ExecutionMode.IsRunningAsUwp())
-    {
-        await WindowsHello.Login();
-    }
-    else
-    {
-        _windowManager.ShowDialog(_loginViewModel);
-    }
-}
-```
+        public async void Handle(OpenLoginMessage message)
+        {
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                await WindowsHello.Login();
+            }
+            else
+            {
+                _windowManager.ShowDialog(_loginViewModel);
+            }
+        }
 
 * Build and run the solution (with Windows.Knowzy.Debug as the startup application)
 
