@@ -7,6 +7,7 @@ Now that you've created a Cognitive Service to tell you where noses are in pictu
 This task has a dependency on [Task 3.3.1](331_CognitiveServices.md) and all of it's prerequisites
 
 This walkthrough assumes that you have:
+
 * [Visual Studio 2017 Preview 3](https://www.visualstudio.com/vs/preview/) with the [Azure Functions extension](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) installed. If not, make sure you do that first and then come back here. 
 
 
