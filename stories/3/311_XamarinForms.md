@@ -2,8 +2,7 @@
 
 Building a cross platform mobile application will help our marketing department reach an even wider audience and potential customers. Xamarin.Forms will allow us to build the application only once and still be able to reach multiple platforms. 
 
-**Goals for this task:**
-* Mobile application with Shared App running on Android and UWP
+**Goals for this task:** Mobile application with Shared App running on Android and UWP
 
 This is going to be an entire new product for Knowzy and we will start from scratch. We've already done some investigation from the requirements that our management has given us and we have written a guide for the developer on how to get started.
 
@@ -68,15 +67,13 @@ For our first task, we want to be able to list all the different Knowzy products
 
     Name the new class **Nose**. Erase everything between the namespace definition. We need our new class to match the data we get from our JSON feed, so we will create a new class from the JSON. Copy this JSON but don't paste it anywhere yet:
 
-```json
-{
-    "Id": "RN3454",
-    "Name": "Black Nose",
-    "RawMaterial": "Black foam",
-    "Notes": "Everything you'd expect, and a little something more.",
-    "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
-}
-```
+        {
+            "Id": "RN3454",
+            "Name": "Black Nose",
+            "RawMaterial": "Black foam",
+            "Notes": "Everything you'd expect, and a little something more.",
+            "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
+        }
 
     Switch to Visual Studio, place the cursor where you want to copy the new class (between the namespace braces). In Visual Studio, click on **Edit -> Paste Special -> Paste JSON as Classes**. This will generate a new class for you by using the JSON you just copied and you just need to change the name from RootObject to **Nose**.
 
@@ -90,27 +87,22 @@ For our first task, we want to be able to list all the different Knowzy products
     * Make the class public. 
     * Add this static method in the class to pull in the data from the link above:
 
-```c#
-public static async Task<Nose[]> GetProducts()
-{
-    using (var client = new HttpClient())
-    {
-        var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
+            public static async Task<Nose[]> GetProducts()
+            {
+                using (var client = new HttpClient())
+                {
+                    var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
 
-        return JsonConvert.DeserializeObject<Nose[]>(json);
-    }
-}
-```
+                    return JsonConvert.DeserializeObject<Nose[]>(json);
+                }
+            }
 
         You will need to add few namespaces for this function to work:
 
-```c#
             using Newtonsoft.Json;
             using System.Net.Http;
             using System.Threading.Tasks;
             
-```
-
    We now have a static method that retrieves the JSON feed and deserializes into Nose objects that we can use in out app.
 
 #### Add shared UI
@@ -119,39 +111,32 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 1. Remove the Label and add a new element ListView instead. Give it a name. In this case it's *ProductListView**
 
-```xml
-    <ListView x:Name="ProductListView">
+        <ListView x:Name="ProductListView">
 
-    </ListView>
-```
+        </ListView>
 
 2. Open MainPage.xaml.cs. This is where the code goes for your view. Here we can override the *OnAppearing* method which will allows us to get the list of products and set them as the source of the ListView. Add the following code:
 
-```c#
-    protected async override void OnAppearing()
-    {
-        base.OnAppearing();
-        ProductListView.ItemsSource = await DataProvider.GetProducts();
-    }
-    
-```
+            protected async override void OnAppearing()
+            {
+                base.OnAppearing();
+                ProductListView.ItemsSource = await DataProvider.GetProducts();
+            }
 
 3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/). Here is what the final XAML looks like for the ListView
 
-```xml
-<ListView x:Name="ProductListView">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
-                    <Label Text="{Binding Name}"></Label>
-                </StackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>
-```
+        <ListView x:Name="ProductListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
+                            <Label Text="{Binding Name}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 **Task Complete**. Go ahead and run the the app on your machine and run the app in the Android emulator.
 

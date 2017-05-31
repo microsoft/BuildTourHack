@@ -2,8 +2,7 @@
 
 Our marketing department has the idea to allow our app users to capture images and position Knowzy products over the image to see what how they would look like. It's a fun way to try the product without actually buying it, and the marketing department is hoping for these images to be shared on social media and spread the word.
 
-**Goals for this task:**
-* Capture image from camera on Android and UWP
+**Goals for this task:** Capture image from camera on Android and UWP
 
 For this task, you will need to access APIs that are specific for each platform. We've done the research on how to do it and we've included the steps below.
 
@@ -19,46 +18,36 @@ This task has a dependency on [Task 3.1.1](311_XamarinForms.md) and all of it's 
 
 2. There are [multiple ways to navigate between pages](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/navigation/). In this example, we will use a **NavigationPage** to act as a host for our pages and provide hierarchical navigation. Open App.xaml.cs in the Shared project. Notice the constructor sets the MainPage to a new MainPage (the default page when the app is created):
 
-```c#
-MainPage = new Knowzy.Mobile.MainPage();
-```
+        MainPage = new Knowzy.Mobile.MainPage();
 
     > Note: the **Knowzy.Mobile** namespace above might be different for you depending on what you named your project
 
     Instead of setting the MainPage to a new MainPage, set it to a new NavigationPage and pass a new MainPage as a parameter which will set it as the first page in our hierarchical navigation.
 
-```c#
-MainPage = new NavigationPage(new MainPage());
-```
+        MainPage = new NavigationPage(new MainPage());
 
 3. You are now ready to navigate to the new page. We want to navigate to the new page when a product (nose) is clicked in the main page and we want to pass the nose as a parameter. The easiest way to do that is to pass the clicked nose as a parameter to the constructor when navigating to the new page. Open the code behind of the new page you created (CameraPage in our example) and modify the constructor to accept a parameter of type Nose.
 
-```c#
-Nose _nose;
+        Nose _nose;
 
-public CameraPage(Nose nose)
-{
-    _nose = nose;
-    InitializeComponent ();
-}
-```
+        public CameraPage(Nose nose)
+        {
+            _nose = nose;
+            InitializeComponent ();
+        }
 
 4. Open the xaml file for the main page and add an ItemTapped event handler for when an item has been taped on the ListView.
 
-```xml
-<ListView x:Name="ProductListView" ItemTapped="ProductListViewItemTapped">
-    <!-- ... -->
-</ListView>
-```
+        <ListView x:Name="ProductListView" ItemTapped="ProductListViewItemTapped">
+            <!-- ... -->
+        </ListView>
 
 5. In the code behind for the main page (MainPage.xaml.cs), implement the event handler and add the code to navigate to the new page by passing the taped item
 
-```c#
-private void ProductListViewItemTapped(object sender, ItemTappedEventArgs e)
-{
-    Navigation.PushAsync(new CameraPage(e.Item as Nose));
-}
-```
+        private void ProductListViewItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushAsync(new CameraPage(e.Item as Nose));
+        }
 
 That's it. Test it out to make sure it all works as expected and you can navigate to the new (but empty) page.
 
@@ -68,63 +57,53 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
 1. Create a new interface class in the Shared Project and change it to an interface called *IPhotoService* (Right Click on Shared Project -> Add -> Class). Add a method definition for capturing the photo. It should look like this:
 
-```c#
-public interface IPhotoService
-{
-    Task<ImageSource> TakePhotoAsync();
-}
-```
+        public interface IPhotoService
+        {
+            Task<ImageSource> TakePhotoAsync();
+        }
 
     You will need to add few namespaces:
 
-```
-using System.Threading.Tasks;
-using Xamarin.Forms;
-```
+        using System.Threading.Tasks;
+        using Xamarin.Forms;
 
 2. You now need to implement this interface for each platform to use the native APIs. Let's start with UWP.
 
     * In the UWP project, create a new class and call it PhotoService. Extend IPhotoService and register with the DependencyService by adding a metadata attribute above the namespace. The class would look like this:
 
-```c#
-using Xamarin.Forms;
-using YourNamespace.UWP;
+            using Xamarin.Forms;
+            using YourNamespace.UWP;
 
-[assembly: Dependency(typeof(PhotoService))]
-namespace YourNamespace.UWP
-{
-    public class PhotoService : IPhotoService
-    {
-        public async Task<ImageSource> TakePhotoAsync()
-        {
-            
-        }
-    }
-}
-```
+            [assembly: Dependency(typeof(PhotoService))]
+            namespace YourNamespace.UWP
+            {
+                public class PhotoService : IPhotoService
+                {
+                    public async Task<ImageSource> TakePhotoAsync()
+                    {
+                        
+                    }
+                }
+            }
 
     * Implement the TakePhotoAsync method to use the native [CameraCaptureUI](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.cameracaptureui) from UWP and make it async:
 
-```c#
-public Task<ImageSource> TakePhotoAsync()
-{
-    CameraCaptureUI captureUI = new CameraCaptureUI();
-    captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+            public Task<ImageSource> TakePhotoAsync()
+            {
+                CameraCaptureUI captureUI = new CameraCaptureUI();
+                captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
 
-    StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+                StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
 
-    if (photo == null) return null;
+                if (photo == null) return null;
 
-    return ImageSource.FromFile(photo.Path);
-}
-```
+                return ImageSource.FromFile(photo.Path);
+            }
 
         You will need few namespaces:
 
-```c#
-using Windows.Media.Capture;
-using Windows.Storage;
-```
+            using Windows.Media.Capture;
+            using Windows.Storage;
 
      That's all for UWP
 
@@ -132,113 +111,99 @@ using Windows.Storage;
 
     * Open MainActivity.cs in the Android project. This file is the entry point for the Android application. Create a new static readonly property of type *File* to store the captured image and create a new method to start the new Image Capture intent to place the results in a the new file:
 
-```c#
-static readonly File file = 
-    new File(Android.OS.Environment.GetExternalStoragePublicDirectory(
-        Android.OS.Environment.DirectoryPictures), "tmp.jpg");
+            static readonly File file = 
+                new File(Android.OS.Environment.GetExternalStoragePublicDirectory(
+                    Android.OS.Environment.DirectoryPictures), "tmp.jpg");
 
-public void StartMediaCaptureActivity()
-{
-    var intent = new Intent(MediaStore.ActionImageCapture);
-    intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
-    StartActivityForResult(intent, 0);
-}
-```
+            public void StartMediaCaptureActivity()
+            {
+                var intent = new Intent(MediaStore.ActionImageCapture);
+                intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
+                StartActivityForResult(intent, 0);
+            }
 
         Add these namespaces: 
 
-```c#
-using Java.IO;
-using Android.Content;
-using Android.Provider;
-```
+            using Java.IO;
+            using Android.Content;
+            using Android.Provider;
     
     * Next, in the same file, override the OnActivityResult method to respond when the intent has completed and the image has been captured. In addition create a new event as part of the MainActivity so we can subscribe later to be notified when the image has been captured.
 
-```c#
-public event EventHandler<File> ImageCaptured;
+            public event EventHandler<File> ImageCaptured;
 
-protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-{
-    if (requestCode == 0 && resultCode == Result.Ok)
-    {
-        ImageCaptured?.Invoke(this, file);
-    }
-}
-```
+            protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+            {
+                if (requestCode == 0 && resultCode == Result.Ok)
+                {
+                    ImageCaptured?.Invoke(this, file);
+                }
+            }
 
     * Just like in the UWP project, create a new class in the Android project and call it PhotoService. Extend IPhotoService and register with the DependencyService by adding a metadata attribute above the namespace. The class would look like this:
 
-```c#
-using Xamarin.Forms;
-using System.Threading.Tasks;
-using YourNamespace.Droid;
+            using Xamarin.Forms;
+            using System.Threading.Tasks;
+            using YourNamespace.Droid;
 
-[assembly: Dependency(typeof(PhotoService))]
-namespace YourNamespace.Droid
-{
-    public class PhotoService : IPhotoService
-    {
-        public Task<ImageSource> TakePhotoAsync()
-        {
+            [assembly: Dependency(typeof(PhotoService))]
+            namespace YourNamespace.Droid
+            {
+                public class PhotoService : IPhotoService
+                {
+                    public Task<ImageSource> TakePhotoAsync()
+                    {
 
-        }
-    }
-}
-```
+                    }
+                }
+            }
 
         > Note: your namespace for Android might be **Droid** or **Android**
 
 
     * You are now ready to implement the Android version of the TakePhotoAsync method. In the method, (1) call the StartMediaCaptureActivity you created in MainActivity, (2) create an event handler to listen to when the image has been captured, and (3) create a TaskCompletionSource that will complete once the image has been captured and the event has fired. It should look like something like this:
 
-```c#
-public Task<ImageSource> TakePhotoAsync()
-{
-    var mainActivity = Forms.Context as MainActivity;
-    var tcs = new TaskCompletionSource<ImageSource>();
-    EventHandler<Java.IO.File> handler = null;
-    handler = (s, e) =>
-    {
-        tcs.SetResult(e.Path);
-        mainActivity.ImageCaptured -= handler;
-    };
+            public Task<ImageSource> TakePhotoAsync()
+            {
+                var mainActivity = Forms.Context as MainActivity;
+                var tcs = new TaskCompletionSource<ImageSource>();
+                EventHandler<Java.IO.File> handler = null;
+                handler = (s, e) =>
+                {
+                    tcs.SetResult(e.Path);
+                    mainActivity.ImageCaptured -= handler;
+                };
 
-    mainActivity.ImageCaptured += handler;
-    mainActivity.StartMediaCaptureActivity();
-    return tcs.Task;
-}
-```
+                mainActivity.ImageCaptured += handler;
+                mainActivity.StartMediaCaptureActivity();
+                return tcs.Task;
+            }
 
     You are now done with Android.
 
 5. Time to use the PhotoService. In the new page you created (CameraPage.xaml in this example), create a new Button and a new Image element to host the capture image. Create an event handler for the button when clicked.
 
-```xml
-<StackLayout VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
-                Orientation="Vertical"
-                Spacing="15">
-    <Button x:Name="captureButton" 
-            Text="Capture Image" 
-            Clicked="captureButton_Clicked"></Button>
-    <Image x:Name="image"></Image>
-</StackLayout>
-```
+        <StackLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"
+                        Spacing="15">
+            <Button x:Name="captureButton" 
+                    Text="Capture Image" 
+                    Clicked="captureButton_Clicked"></Button>
+            <Image x:Name="image"></Image>
+        </StackLayout>
 
 6. In the event handler, create an instance of the PhotoService via the DependencyService and call the TakePhotoAsync to capture an image. Once the image is captured, set the source of the image:
 
-```c#
-private async void captureButton_Clicked(object sender, EventArgs e)
-{
-    var photoService = DependencyService.Get<IPhotoService>();
-    if(photoService != null)
-    {
-        var source = await photoService.TakePhotoAsync();
-        image.Source = source;
-    }
-}
-```
+        private async void captureButton_Clicked(object sender, EventArgs e)
+        {
+            var photoService = DependencyService.Get<IPhotoService>();
+            if(photoService != null)
+            {
+                var source = await photoService.TakePhotoAsync();
+                image.Source = source;
+            }
+        }
 
 That's it, run the app and try it out. You should be able to navigate to the new page once you click on a nose. There should be a button to capture an image that will open the platform specific UI for capturing images. Once the image is captured, it should display the image  below the button.
 
