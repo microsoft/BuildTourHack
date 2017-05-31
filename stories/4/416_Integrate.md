@@ -21,6 +21,9 @@ I looked at the website code, and it seems to currently use a mock implementatio
 services.AddScoped<IOrderRepository, OrderRepository>();
 ```
 
+###### @ 9:15am
+We can check the [end version of the code for reference, in the `azurecompleted` branch of the `KnowzyInternalApps` repo](https://github.com/Knowzy/KnowzyInternalApps/tree/azurecompleted/src/Knowzy_Shipping_WebApp) to help. Especially the implementation of [OrderRepository](https://github.com/Knowzy/KnowzyInternalApps/blob/azurecompleted/src/Knowzy_Shipping_WebApp/src/2.%20Services/Repositories/Microsoft.Knowzy.Repositories.Core/OrderRepository.cs).
+
 ###### @ 11:15am
 In the Docker instructions in [4.1.4][414] for the dev machine, and Kubernetes instructions in [4.1.5][415] the web app container has the ORDERSAPI_URL and PRODUCTSAPI_URL environment variables with the two API endpoints URLs passed in to it. Now we can run website in the dev machine and deploy it via kubernetes again to get it to use the APIs.
 
