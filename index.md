@@ -12,61 +12,61 @@ The source code for our applications is all open source and can be found on [our
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
         * [1.1.1 [Committed] - Build a responsive Web App][111]
-        * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
-        * [1.1.3][113] [Committed] - Update Web App to PWA (d. 1.1.1) 
-        * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
+        * [1.1.2 [Committed] - Generate Progressive Web App (d. 1.1.1)][112]
+        * [1.1.3 [Committed] - Update Web App to PWA (d. 1.1.1)][113]
+        * [1.1.4 [Committed] - Test Your App (d. 1.1.1)][114]
     * **Deliverable** - Add Native functionality
-        * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
-        * [1.2.2][122] [Proposed] - Add Share and Secondary Pinning (d. 1.1.2)
-        * [1.2.3][123] [Proposed] - Make PWA Linkable (d. 1.1.2)
-        * [1.2.4][124] [Proposed] - Add In-Memory Caching
+        * [1.2.1 [Committed] - Add Live Tile (d. 1.1.1) ][121]
+        * [1.2.2 [Proposed] - Add Share and Secondary Pinning (d. 1.1.2)][122]
+        * [1.2.3 [Proposed] - Make PWA Linkable (d. 1.1.2)][123]
+        * [1.2.4 [Proposed] - Add In-Memory Caching][124]
 
 2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development life cycle
     * **Deliverable** - Enable integration of UWP APIs
-        * [2.1.1][211] [Committed] - Add Desktop Bridge support in Visual Studio
-        * [2.1.2][212] [Committed] - Debugging a Windows Desktop Bridge App (d. 2.1.1)
-        * [2.1.3][213] [Committed] - Adding UWP APIs to a Desktop Bridge App (d. 2.1.2)        
-        * [2.1.4][214] [Committed] - Integrate Windows Hello authentication (d. 2.1.3)
+        * [2.1.1 [Committed] - Add Desktop Bridge support in Visual Studio][211]
+        * [2.1.2 [Committed] - Debugging a Windows Desktop Bridge App (d. 2.1.1)][212]
+        * [2.1.3 [Committed] - Adding UWP APIs to a Desktop Bridge App (d. 2.1.2)][213]        
+        * [2.1.4 [Committed] - Integrate Windows Hello authentication (d. 2.1.3)][214]
     * **Deliverable** - Add UWP XAML support
-        * [2.2.1][221] [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)
-        * [2.2.2][222] [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)
-        * [2.2.3][223] [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)
+        * [2.2.1 [Proposed] - Create a new XAML view as part of app package (d. 2.1.1)][221]
+        * [2.2.2 [Proposed] - Add support for other apps to share images and create new items (d. 2.1.1)][222]
+        * [2.2.3 [Proposed] - Create a new UWP app that integrates with App Services (d. 2.1.1)][223]
     * **Deliverable** - Build enhanced UWP experience (d. 2.2.*)
-        * [2.3.1][231] [Proposed] - Add support for ink (d. 2.2.*)
-        * [2.3.2][232] [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)
-        * [2.3.3][233] [Proposed] - Add support for more UWP features (d. 2.2.*)
+        * [2.3.1 [Proposed] - Add support for ink (d. 2.2.*)][231]
+        * [2.3.2 [Proposed] - Add complete support for Windows Hello Authentication (d. 2.1.3)][232]
+        * [2.3.3 [Proposed] - Add support for more UWP features (d. 2.2.*)][233]
 
 3. **User Story** - Consumers have a fun mobile experience 
     * **Deliverable** - Create a UWP and Android mobile app
-        * [3.1.1][311] [Committed] - Create a Xamarin.Forms app with shared UI
-        * [3.1.2][312] [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)
-        * [3.1.3][313] [Committed] - Add InkCanvas support for UWP (d. 3.1.2)
+        * [3.1.1 [Committed] - Create a Xamarin.Forms app with shared UI][311]
+        * [3.1.2 [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)][312]
+        * [3.1.3 [Committed] - Add InkCanvas support for UWP (d. 3.1.2)][313]
     * **Deliverable** - Create a fun social experience
-        * [3.2.1][321] [Proposed] - Support sharing images to Social Networks (d. 3.1.2)
-        * [3.2.2][322] [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)
+        * [3.2.1 [Proposed] - Support sharing images to Social Networks (d. 3.1.2)][321]
+        * [3.2.2 [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)][322]
     * **Deliverable** - Add automatic image analysis
-        * [3.3.1][331] [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)
-        * [3.3.2][332] [Proposed] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)
+        * [3.3.1 [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)][331]
+        * [3.3.2 [Proposed] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)][332]
     * **Deliverable** - Set up Continuous Integration and Deployment
-        * [3.4.1][341] [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center
-        * [3.4.2][342] [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center
-        * [3.4.3][343] [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center
+        * [3.4.1 [Proposed] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center][341]
+        * [3.4.2 [Proposed] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center][342]
+        * [3.4.3 [Proposed] - Add Custom Event Logging using Visual Studio Mobile Center][343]
     * **Deliverable** - Create a chat bot for support and for order status management 
-        * [3.5.1][351] [Proposed] - Create a bot using the Microsoft Bot Framework
+        * [3.5.1 [Proposed] - Create a bot using the Microsoft Bot Framework][351]
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services
-        * [4.1.1][411] - [Committed] Create a shared CosmosDB to store all data
-        * [4.1.2][412] - [Committed] Create API endpoint for shipping services (d. 4.1.1)
-        * [4.1.3][413] - [Committed] Create API endpoint for product services (d. 4.1.1)
-        * [4.1.4][414] - [Committed] Create Docker images (d. 4.1.2, 4.1.3)
-        * [4.1.5][415] - [Committed] Configure Kubernetes and publish to Azure (d. 4.1.4)
-        * [4.1.6][416] - [Proposed] Integrate Website and APIs (d. 4.1.5)
+        * [4.1.1 - [Committed] Create a shared CosmosDB to store all data][411]
+        * [4.1.2 - [Committed] Create API endpoint for shipping services (d. 4.1.1)][412]
+        * [4.1.3 - [Committed] Create API endpoint for product services (d. 4.1.1)][413]
+        * [4.1.4 - [Committed] Create Docker images (d. 4.1.2, 4.1.3)][414]
+        * [4.1.5 - [Committed] Configure Kubernetes and publish to Azure (d. 4.1.4)][415]
+        * [4.1.6 - [Proposed] Integrate Website and APIs (d. 4.1.5)][416]
     * **Deliverable** - Set up Continuous Delivery
-        * [4.2.1][421] - [Proposed] Set up Visual Studio Team Services
-        * [4.2.2][422] - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)
+        * [4.2.1 - [Proposed] Set up Visual Studio Team Services][421]
+        * [4.2.2 - [Proposed] Continuous Delivery to Kubernetes using VSTS (d. 4.1.5, 4.2.0)][422]
     * **Deliverable** - Set up Telemetry
-        * [4.3.1][431] - [Proposed] Set up telemetry for the web app and APIs
+        * [4.3.1 - [Proposed] Set up telemetry for the web app and APIs][431]
 
 
 [Bonus tasks that will be removed from the home page](stories/5/story_5.md)
