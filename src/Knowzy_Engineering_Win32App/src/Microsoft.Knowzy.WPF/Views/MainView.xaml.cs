@@ -11,6 +11,10 @@
 // THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
 
 // ******************************************************************
+using System;
+using System.Diagnostics;
+using System.IO;
+using Microsoft.Knowzy.UwpHelpers;
 
 namespace Microsoft.Knowzy.WPF.Views
 {
@@ -19,6 +23,33 @@ namespace Microsoft.Knowzy.WPF.Views
         public MainView()
         {
             InitializeComponent();
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                try
+                {
+                    // get the path to the App folder (WPF or UWP).
+                    var path = AppFolders.Local;
+                    FileSystemWatcher watcher = new FileSystemWatcher(path);
+                    watcher.EnableRaisingEvents = true;
+                    watcher.Changed += Watcher_Changed;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("FileSystemWatcher Error:" + ex.Message);
+                }
+            }
+        }
+
+        private void Watcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                if (File.Exists(e.FullPath))
+                {
+                    var xml = "<toast><visual><binding template='ToastGeneric'><image src='" + e.FullPath + "'/><text hint-maxLines='1'>Microsoft.Knowzy.WPF received a new image</text></binding></visual></toast>";
+                    Toast.CreateToast(xml);
+                }
+            }
         }
     }
 }
