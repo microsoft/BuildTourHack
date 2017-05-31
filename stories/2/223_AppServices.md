@@ -86,6 +86,10 @@ This tutorial will familiarize you with the following:
 
 Once you have completed the tutorial, you will be ready to add an App Service to the Knowzy DeskTop Bridge app.
 
+* Make sure the Microsoft.Knowzy.WPF.sln Build configuration to **Debug | x86**
+
+![Debug | x86](images/212-debug-x86.png)
+
 ## Task 
 
 #### Create the App Service Project ####
