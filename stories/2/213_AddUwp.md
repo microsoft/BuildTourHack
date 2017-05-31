@@ -328,17 +328,17 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 
 ## References
-* https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.package
-* https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/
-* https://github.com/qmatteoq/DesktopBridgeHelpers
-* https://www.nuget.org/packages/DesktopBridge.Helpers/
-* https://blogs.windows.com/buildingapps/2017/01/17/announcing-uwpdesktop-nuget-package-version-14393/#SfO8ORg9vZY6h9dj.97
-* https://www.nuget.org/packages/UwpDesktop
-* https://github.com/ljw1004/uwp-desktop
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug
-* https://github.com/Microsoft/DesktopBridgeToUWP-Samples 
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
-* https://github.com/qmatteoq/BridgeTour-Workshop
-* https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+* [Package Class](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.package)
+* [Desktop Bridge – Identify the application’s context](https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/)
+* [Announcing “UWPDesktop” NuGet Package Version 14393](https://blogs.windows.com/buildingapps/2017/01/17/announcing-uwpdesktop-nuget-package-version-14393/#SfO8ORg9vZY6h9dj.97)
+* [UWP for Desktop NuGet Package](https://www.nuget.org/packages/UwpDesktop)
+* [UWP for Desktop](https://github.com/ljw1004/uwp-desktop)
+* [Run, debug, and test a packaged desktop app (Desktop Bridge)](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug)
+* [DesktopBridge To UWP Samples](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
+* [Package a .NET app using Visual Studio ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)
+* [BridgeTour Workshop](https://github.com/qmatteoq/BridgeTour-Workshop)
+* [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
+
+
 
 ## continue to [next task >> ](214_WindowsHello.md)

@@ -165,10 +165,11 @@ We will now fix the products.json issue in the [next task](213_AddUwp.md).
 
 
 ## References
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug
-* https://github.com/Microsoft/DesktopBridgeToUWP-Samples 
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
-* https://github.com/qmatteoq/BridgeTour-Workshop
-* https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+* [Run, debug, and test a packaged desktop app (Desktop Bridge)](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug)
+* [DesktopBridge To UWP Samples](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
+* [Package a .NET app using Visual Studio ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)
+* [BridgeTour Workshop](https://github.com/qmatteoq/BridgeTour-Workshop)
+* [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
+
 
 ## continue to [next task >> ](213_AddUwp.md)

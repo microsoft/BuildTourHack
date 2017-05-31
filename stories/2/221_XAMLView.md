@@ -221,12 +221,7 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 ## References    
 
-* https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation
-* https://github.com/ljw1004/uwp-desktop
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug
-* https://github.com/Microsoft/DesktopBridgeToUWP-Samples 
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
-* https://github.com/qmatteoq/BridgeTour-Workshop
-* https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+* [Handle URI activation](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation)
+
 
 ## continue to [next task >> ](222_Share.md)

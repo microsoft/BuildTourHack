@@ -568,8 +568,8 @@ You have now successfully developed a solution for communicating between the UWP
 
 
 ## References
-* https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service 
-* https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices 
-* https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97
+* [Create and consume an app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
+* [App services sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices)
+* [Adding UWP features to your existing PC software](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
 
 ## continue to [next task >> ](231_Inking_Dial.md)

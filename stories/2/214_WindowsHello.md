@@ -205,21 +205,10 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 ## References
 
-* https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport
-* https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-badges-notifications
-* https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts
-* https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts
-* https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.package
-* https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/
-* https://github.com/qmatteoq/DesktopBridgeHelpers
-* https://www.nuget.org/packages/DesktopBridge.Helpers/
-* https://blogs.windows.com/buildingapps/2017/01/17/announcing-uwpdesktop-nuget-package-version-14393/#SfO8ORg9vZY6h9dj.97
-* https://www.nuget.org/packages/UwpDesktop
-* https://github.com/ljw1004/uwp-desktop
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug
-* https://github.com/Microsoft/DesktopBridgeToUWP-Samples 
-* https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net 
-* https://github.com/qmatteoq/BridgeTour-Workshop
-* https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373
+* [Windows Hello](https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport)
+* [Tiles, badges, and notifications for UWP apps](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-badges-notifications)
+* [Adaptive and interactive toast notifications](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts)
+
+
 
 ## continue to [next task >> ](221_XAMLView.md)
