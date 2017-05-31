@@ -11,7 +11,7 @@ A great opportunity has developed! We are invited to speak in the keynote of Nos
 
 
 
-[511]: stories/5/511_Paint3d.md
-[512a]: stories/5/512a_Unity.md
-[512b]: stories/5/512b_Babylon.md
-[521]: stories/5/521_MR.md
+[511]: 511_Paint3d.md
+[512a]: 512a_Unity.md
+[512b]: 512b_Babylon.md
+[521]: 521_MR.md
