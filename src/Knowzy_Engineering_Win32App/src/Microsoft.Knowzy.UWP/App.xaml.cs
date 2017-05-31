@@ -113,6 +113,13 @@ namespace Microsoft.Knowzy.UWP
                     rootFrame.Navigate(typeof(MainPage), uri.Query);
                     Window.Current.Activate();
                 }
+                else if (uri.Scheme == "com.microsoft.knowzy.protocol.test")
+                {
+                    Frame rootFrame = new Frame();
+                    Window.Current.Content = rootFrame;
+                    rootFrame.Navigate(typeof(AppServiceTest), uri.Query);
+                    Window.Current.Activate();
+                }
             }
         }
 
@@ -123,5 +130,6 @@ namespace Microsoft.Knowzy.UWP
             rootFrame.Navigate(typeof(SharePage), e.ShareOperation);
             Window.Current.Activate();
         }
+
     }
 }

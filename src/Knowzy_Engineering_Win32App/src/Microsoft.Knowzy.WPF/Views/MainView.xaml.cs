@@ -20,6 +20,8 @@ namespace Microsoft.Knowzy.WPF.Views
 {
     public partial class MainView
     {
+        AppService _appService = null;
+
         public MainView()
         {
             InitializeComponent();
@@ -49,6 +51,23 @@ namespace Microsoft.Knowzy.WPF.Views
                     var xml = "<toast><visual><binding template='ToastGeneric'><image src='" + e.FullPath + "'/><text hint-maxLines='1'>Microsoft.Knowzy.WPF received a new image</text></binding></visual></toast>";
                     Toast.CreateToast(xml);
                 }
+            }
+        }
+
+        private async void Menu_Click(object sender, EventArgs e)
+        {
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                if (_appService == null)
+                {
+                    // start the app service
+                    _appService = new AppService();
+                    var result = await _appService.StartAppServiceConnection("com.microsoft.knowzy.appservice.test");
+                }
+
+                // start the XAML UI that will communicate with the App Service
+                Uri uri = new Uri("com.microsoft.knowzy.protocol.test://" + "message?appserviceid=" + "com.microsoft.knowzy.appservice.test");
+                await UriProtocol.SendUri(uri);
             }
         }
     }

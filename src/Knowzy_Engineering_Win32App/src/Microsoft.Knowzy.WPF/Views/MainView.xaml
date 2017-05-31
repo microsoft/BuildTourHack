@@ -39,7 +39,7 @@
                 <MenuItem Header="{x:Static localization:Resources.Exit_Menu}" Template="{StaticResource MenuItemBarControlTemplate}"
                           cal:Message.Attach="Exit()"/>
             </MenuItem>
-            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Menu_Click"/>
             <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
                 <MenuItem Header="{x:Static localization:Resources.ListView_Tab}" Template="{StaticResource MenuItemBarControlTemplate}" 
                           cal:Message.Attach="ShowListView()"/>

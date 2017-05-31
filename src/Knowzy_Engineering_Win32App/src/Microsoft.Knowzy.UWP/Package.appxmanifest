@@ -53,6 +53,12 @@
             <uap:DataFormat>Bitmap</uap:DataFormat>
           </uap:ShareTarget>
         </uap:Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="Microsoft.Knowzy.AppService.AppServiceTask">
+          <uap:AppService Name="com.microsoft.knowzy.appservice" uap4:SupportsMultipleInstances="false"/>
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol" Executable="Microsoft.Knowzy.UWP.exe" EntryPoint="Microsoft.Knowzy.UWP.App">
+          <uap:Protocol Name="com.microsoft.knowzy.protocol.test" />
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
