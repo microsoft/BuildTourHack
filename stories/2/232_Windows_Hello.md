@@ -11,7 +11,9 @@ This task has a dependency on [Task 2.1.4](214_WindowsHello.md) and all of it's 
 ## Task 
 
 * Implement a complete solution for Windows Hello.
+
 * Implement a local Windows Hello Server
+
 * Update Xaml UI as needed.
 
 ## Comments

@@ -13,10 +13,15 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 ## Prerequisites 
 
 * Basic knowledge of C# development
+
 * Basic knowledge of client development with the .NET framework
+
 * Basic knowledge of Windows 10 and the Universal Windows Platform
+
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
+
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
+
 * Complete the section on [Adding Windows 10 UWP APIs to your Desktop Bridge App](213_AddUwp.md)
 
 ## Task
@@ -189,7 +194,9 @@ public async void Handle(OpenLoginMessage message)
 * Build and run the solution (with Windows.Knowzy.Debug as the startup application)
 
 * Click on the Login Menu item. 
+
     * If your computer is capable of running the Windows Hello Login you will be presented with the Windows Hello Login interface.
+    
     * If your computer is not capable of running the Windows Hello Login, a Toast will appear in the lower left corner of your screen.
     
  ![Login UWP](images/214-login-uwp.png)
@@ -206,7 +213,9 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 ## References
 
 * [Windows Hello](https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport)
+
 * [Tiles, badges, and notifications for UWP apps](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-badges-notifications)
+
 * [Adaptive and interactive toast notifications](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts)
 
 

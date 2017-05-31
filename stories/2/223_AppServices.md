@@ -3,7 +3,9 @@
 Our development department has identified a problem with the Desktop Bridge version of the Knowzy app.
 
 1. There appears to be no way to implement bi-directional communication between the WPF code and the UWP code of the Knowzy app.
+
     * We can send Uri protocol messages to the UWP code using Windows.System.Launcher.LaunchUriAsync(uri) but we can't receive a response.
+    
     * [Windows.System.Launcher.LaunchUriForResultsAsync](https://docs.microsoft.com/en-us/uwp/api/windows.system.launcher) seems to be a solution as it returns a response to the request
 but LaunchUriForResultsAsync is not supported in DesktopBridge applications.
    
@@ -34,8 +36,11 @@ We still need the WPF app to be the UI for our desktop bridge app. So we will ne
 
 
 Requirements for this task:
+
 * Create an App Service that enables the sharing of the Product information.
+
 * Share Clown nose product information between the UWP XAML UI and the WPF Knowzy application.
+
 * Share Clown nose product information from the WPF Knowzy application and an external Windows 10 UWP application.
 
 We want to implement the following App Service  scenario:
@@ -70,9 +75,13 @@ Since this will be quite a complicated task, it is recommended that you work thr
 This tutorial will familiarize you with the following:
 
 1. How to create an App Service project and add it to your solution.
+
 1. How to specify the App Service in the Package.appxmanifest.
+
 1. How to open a connection to an App Service.
+
 1. How to send a request to an App Service.
+
 1. How to receive a message from an App Service.
 
 Once you have completed the tutorial, you will be ready to add an App Service to the Knowzy DeskTop Bridge app.
@@ -555,10 +564,15 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 * When the AppServiceTest windows appears, click on the **Connect** button.
 
 * The following things should now happen
+
     * The UWP app will send a message to the AppService
+    
     * The AppService wil forward the event to the WPF via its listener connection
+    
     * The WPF responds to the message and send the result back to the App Service
+    
     * The App Service returns the result from the WPF app back to the UWP app
+    
     * The UWP app displays the result it received from the WPF app.
     
 ![AppServiceTest](images/223-appservicetest.png)
@@ -569,7 +583,9 @@ You have now successfully developed a solution for communicating between the UWP
 
 ## References
 * [Create and consume an app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
+
 * [App services sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices)
+
 * [Adding UWP features to your existing PC software](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
 
 ## continue to [next task >> ](231_Inking_Dial.md)

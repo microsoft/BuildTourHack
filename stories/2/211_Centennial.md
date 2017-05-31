@@ -8,10 +8,15 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 ## Prerequisites 
 
 * Basic knowledge of C# development
+
 * Basic knowledge of client development with the .NET framework
+
 * Basic knowledge of Windows 10 and the Universal Windows Platform
+
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn't available in the Home version.
+
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
+
 * Go to the git repo at [https://github.com/Knowzy/KnowzyInternalApps](https://github.com/Knowzy/KnowzyInternalApps) and clone or download the content onto your local computer.
 
 
@@ -37,7 +42,9 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 ![Add Project](images/211-add-project.png)
 
 * Select the **Visual C# | Windows Universal | Blank App (Universal Windows)** project template. 
+
 * Name the project **Microsoft.Knowzy.UWP**. 
+
 * Make sure you save the project to the **Knowzy_Engineering_Win32App\src** directory.
 
 ![Add C# UWP Project](images/211-add-uwp-project.png)
@@ -65,6 +72,7 @@ You solution should now contain the following projects.
 Press F7 (or whatever your Build Solution shortcut key is) to build the Solution. To see what an empty C# UWP app looks like:
 
 * Right click on the Microsoft.Knowzy.UWP project and select **Debug | Start new instance ** to run the UWP app.
+
 * An empty UWP app window will appear. Close the window to return to Visual Studio 2017.
 
 
@@ -139,12 +147,15 @@ you will unload, edit and reload the Microsoft.Knowzy.UWP.csproj project file. A
 This segment of XML completes several important tasks:
 
 * All of the files in the desktop folder will be packaged with the UWP app
+
 * The files will be copied to the AppX preserving their directory structure by specifying %(RecursiveDir)%(Filename)%(Extension) in the Link tag
+
 * This process will be automated with every build of the solution.
 
 Reload the Microsoft.Knowzy.UWP.csproj and build the solution. 
 
 * Verify that the src\Microsoft.Knowzy.UWP folder contains a desktop folder. If the folder is missing, close and reopen the Microsoft.Knowzy.WPF.sln.
+
 * You should be able to run the src\Microsoft.Knowzy.UWP\desktop\Microsoft.Knowzy.WPF.exe app by navigating to the folder and double-clicking on Microsoft.Knowzy.WPF.exe. This will test that all of the dependencies for Microsoft.Knowzy.WPF.exe were copied correctly to the desktop folder.
 
 ![desktop folder](images/211-desktop-folder.png)
@@ -381,7 +392,9 @@ We will fix this error and enable the debugging of our app in the [next task](21
 ## References
 
 * [Package a .NET app using Visual Studio ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)
+
 * [BridgeTour Workshop](https://github.com/qmatteoq/BridgeTour-Workshop)
+
 * [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
 
 ## continue to [next task >> ](212_Debugging.md)

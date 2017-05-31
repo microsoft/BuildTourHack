@@ -5,11 +5,17 @@ This task will guide you through the process of debugging a Windows Desktop Brid
 ## Prerequisites 
 
 * Basic knowledge of C# development
+
 * Basic knowledge of client development with the .NET framework
+
 * Basic knowledge of Windows 10 and the Universal Windows Platform
+
 * A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
+
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
+
 * The [Desktop Bridge Debugging Project template](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.DesktoptoUWPPackagingProject) installed into Visual Studio 2017
+
 * Complete the section on [Add Desktop Bridge Support using Visual Studio 2017](211_Centennial.md)
 
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
@@ -75,7 +81,9 @@ Right-click on the Microsoft.Knowzy.Debug project and select **Properties**.
 For Debug builds use the following settings:
 
 * Package Layout: ..\Microsoft.Knowzy.UWP\bin\x86\Release
+
 * Select Uninstall and then re-install my package.
+
 * From the **Package Layout** field tab to the **Start Up Tile** field and select Microsoft.Knowzy.WPF.
 
 Notice that we are specifying the path to the **Release** build of the Microsoft.Knowzy.UWP project. This is a fix for the
@@ -85,8 +93,10 @@ Visual 2017 C# UWP Desktop Bridge deployment bug we experienced in the previous 
 
 
 * Save and Close the Properties windows. 
+
 	* **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
 incorrect Debugging Project settings.
+
 	* **Note:** You will need to add the correct Debugging Project Properties for x86 Release and x64 Debug and Release configurations if you want to build them.
 
 
@@ -166,10 +176,15 @@ We will now fix the products.json issue in the [next task](213_AddUwp.md).
 
 ## References
 * [Run, debug, and test a packaged desktop app (Desktop Bridge)](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-debug)
+
 * [DesktopBridge To UWP Samples](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
+
 * [Package a .NET app using Visual Studio ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)
+
 * [BridgeTour Workshop](https://github.com/qmatteoq/BridgeTour-Workshop)
+
 * [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
+
 
 
 ## continue to [next task >> ](213_AddUwp.md)

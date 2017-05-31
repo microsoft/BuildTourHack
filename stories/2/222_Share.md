@@ -6,7 +6,9 @@ with the image.
 
 Requirements for this task:
 * Share an image from another Windows 10 App. The Knowzy app should appear as one of the options for Share Targets.
+
 * Display a XAML UI for sharing with the Knowzy app.
+
 * Display a Toast that displays the image after the sharing operation has completed.
 
 Our research has found a starting point for the sharing idea [here](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
@@ -242,9 +244,14 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 ## References
 * [Share data](https://docs.microsoft.com/en-us/windows/uwp/app-to-app/share-data)
+
 * [Sharing content target app sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ShareTarget) 
+
 * [Sharing content source app sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ShareSource)
+
 * [Adding UWP features to your existing PC software](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
+
 * [WPF picture viewer as a share target](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/WPFasShareTarget)
+
 
 ## continue to [next task >> ](223_AppServices.md)

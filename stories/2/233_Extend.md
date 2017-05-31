@@ -11,12 +11,19 @@ This task assumes you have completed at least one of the Tasks in 2.2
 Chose one or more from the below APIs to integrate in your app in a meaningful way. You are not limited to the below features - if you find an API or feature is not listed below, ask your proctors if it will satisfy the requirements for this task
 
 * Composition, Animations, and Effects
+
 * UWP Community Toolkit
+
 * Dial
+
 * Project Rome
+
 * Inking
+
 * Devices/Sensors
+
 * Maps
+
 * ...
 
 ## Resource
