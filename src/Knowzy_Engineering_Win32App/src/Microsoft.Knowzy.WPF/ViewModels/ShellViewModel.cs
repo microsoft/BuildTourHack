@@ -15,6 +15,7 @@
 using System.Collections.Generic;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.Messages;
+using Microsoft.Knowzy.UwpHelpers;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
@@ -75,9 +76,16 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _windowManager.ShowDialog(_aboutViewModel);
         }
 
-        public void Handle(OpenLoginMessage message)
+        public async void Handle(OpenLoginMessage message)
         {
-            _windowManager.ShowDialog(_loginViewModel);
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                await WindowsHello.Login();
+            }
+            else
+            {
+                _windowManager.ShowDialog(_loginViewModel);
+            }
         }
     }
 }

@@ -250,6 +250,10 @@
       <Project>{078af6d3-a69f-40cc-b349-48cd82411408}</Project>
       <Name>Microsoft.Knowzy.JsonDataProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers\Microsoft.Knowzy.UwpHelpers.csproj">
+      <Project>{4c2138af-4fb0-4f73-8d7a-69c56c6e7639}</Project>
+      <Name>Microsoft.Knowzy.UwpHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
