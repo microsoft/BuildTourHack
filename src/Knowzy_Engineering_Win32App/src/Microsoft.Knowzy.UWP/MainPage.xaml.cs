@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,6 +26,24 @@ namespace Microsoft.Knowzy.UWP
         public MainPage()
         {
             this.InitializeComponent();
+            ApplicationView.GetForCurrentView().TryResizeView(new Size(800, 800));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs args)
+        {
+            if (args.Parameter != null)
+            {
+                WwwFormUrlDecoder decoder = new WwwFormUrlDecoder(args.Parameter.ToString());
+                try
+                {
+                    var message = decoder.GetFirstValueByName("nose");
+                    webView.Source = new Uri(message);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("MainPage OnNavigatedTo Error: " + ex.Message);
+                }
+            }
         }
     }
 }

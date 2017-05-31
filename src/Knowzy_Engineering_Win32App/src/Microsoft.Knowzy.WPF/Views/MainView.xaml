@@ -45,6 +45,8 @@
                           cal:Message.Attach="ShowListView()"/>
                 <MenuItem Header="Grid view" Template="{StaticResource MenuItemBarControlTemplate}"
                           cal:Message.Attach="ShowGridView()"/>
+                <MenuItem Header="View 3D" Template="{StaticResource MenuItemBarControlTemplate}"
+                          cal:Message.Attach="Show3DView()"/>
             </MenuItem>
             <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"
                       cal:Message.Attach="About()" />

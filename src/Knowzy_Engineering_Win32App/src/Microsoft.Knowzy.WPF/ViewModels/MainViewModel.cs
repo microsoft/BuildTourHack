@@ -21,6 +21,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using Microsoft.Knowzy.Authentication;
+using Microsoft.Knowzy.UwpHelpers;
+using System;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
@@ -123,6 +125,19 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             var products = DevelopmentItems?.Select(item => item.Product).ToArray();
             _dataProvider.SetData(products);
+        }
+
+        public async void Show3DView()
+        {
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                Uri uri = new Uri("com.microsoft.knowzy.protocol.3d://" + "message?nose=" + "https://www.remix3d.com/details/G009SXPQ5S3P");
+                await UriProtocol.SendUri(uri);
+            }
+            else
+            {
+                MessageBox.Show("3D View not implemented in WPF version", "Microsoft.Knowzy.WPF");
+            };
         }
     }
 }

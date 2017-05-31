@@ -96,5 +96,24 @@ namespace Microsoft.Knowzy.UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs eventArgs = args as ProtocolActivatedEventArgs;
+                // TODO: Handle URI activation
+                // The received URI is eventArgs.Uri.AbsoluteUri
+
+                Uri uri = eventArgs.Uri;
+                if (uri.Scheme == "com.microsoft.knowzy.protocol.3d")
+                {
+                    Frame rootFrame = new Frame();
+                    Window.Current.Content = rootFrame;
+                    rootFrame.Navigate(typeof(MainPage), uri.Query);
+                    Window.Current.Activate();
+                }
+            }
+        }
     }
 }
