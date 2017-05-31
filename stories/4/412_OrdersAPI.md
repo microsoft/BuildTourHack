@@ -38,7 +38,7 @@ To use these environment variables in our code, we'll just pass the entire confi
 
 In `Startup.cs`, make the following changes:
 
-```diff
+```language-diff
 public void ConfigureServices(IServiceConnection services)
 {
   // Add framework services.
@@ -128,7 +128,7 @@ Note how we are using the [ASP.NET Core dependency injection](https://docs.micro
 
 Modify `Startup.cs` and register our data access with the list of services (IoC) and with new JSON serialization settings:
 
-```diff
+```language-diff
 public void ConfigureServices(IServiceConnection services)
 {
   // Add framework services.
@@ -157,7 +157,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 To test it outupdate the `ValuesController.cs` file follows:
 
-```diff
+```language-diff
 ...
 + using Microsoft.Knowzy.OrdersAPI.Data;
 ...
@@ -193,7 +193,7 @@ In the `Microsoft.Knowzy.OrdersAPI` add a project reference to the `Microsoft.Kn
 
 Edit the `IOrdersStore.cs` interface to add the GetShippings method:
 
-```diff
+```language-diff
 ...
 + using System.Collections.Generic;
 ...
@@ -206,7 +206,7 @@ Edit the `IOrdersStore.cs` interface to add the GetShippings method:
 ``` 
 And edit the `OrdersStore.cs` class to implement that method to return all orders:
 
-```diff
+```language-diff
 ...
 + using System.Collections.Generic;
 + using System.Linq;
