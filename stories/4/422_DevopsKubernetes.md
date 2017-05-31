@@ -1,7 +1,7 @@
 # Challenge 4.2.2 - Continuous Delivery to Kubernetes using VSTS
 
 
-The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now they'd like you to set up Continuous Delivery using the Visual Studio Team Services (VSTS) account you set up in [Task 4.2.0][420].  Using VSTS will enable our development and operations department to have work together efficiently as a team and push new stable releases into production. The primary goal of this challenge is to automatically post a new release of our code into our production Kubernetes cluster with any commit to our git repository.
+The CTO is pleased that you've deployed to Azure and Kubernetes.  However, now they'd like you to set up Continuous Delivery using the Visual Studio Team Services (VSTS) account you set up in [Task 4.2.1][421].  Using VSTS will enable our development and operations department to have work together efficiently as a team and push new stable releases into production. The primary goal of this challenge is to automatically post a new release of our code into our production Kubernetes cluster with any commit to our git repository.
 
 ![Release Pipeline](images/DevOpsPipeline.png)
 

@@ -1,4 +1,4 @@
-# Task 3.4.2 - Add Custom Event Logging using Visual Studio Mobile Center
+# Task 3.4.3 - Add Custom Event Logging using Visual Studio Mobile Center
 
 Now that you've completed Continuous Integration and Delivery, it's time to get some more value out of Mobile Center.  Specifically, we want you to use the Mobile Center SDK to start recording analytics on the usage of your app.  This will help show the execs how many people are using the app and how.
 
