@@ -1,10 +1,10 @@
 # Task 5.1.1 - Create the model in Paint3D
 
-Creating a 3D model of our products will open up a world of opportunities. We can 3D print prototype noses, render them in 3D to visualize how they look, or even see them for ourselves in Virtual Reality!
+Creating 3D models of our products opens up a world of opportunities. We can 3D print prototype noses, render them in 3D to see how they look, and even view them in Virtual Reality!
 
-3D Paint is a simple tool in the Windows 10 Creators Update that allows us to create and paint 3D models. Perfect for this task!
+3D Paint is a simple tool available in the Windows 10 Creators Update that allows us to create and paint 3D models. Perfect for this task!
 
-## Prerequisites 
+## Prerequisites
 
 This walkthrough assumes that you have:
 * Windows 10 Creators Update
@@ -12,47 +12,46 @@ This walkthrough assumes that you have:
 
 ## Task
 
-#### The Nose 3D model
+### Create the basic 3D nose model
 
-The first part of this task is to create the Nose 3D model itself, with a base color.
+First we will create the nose 3D model with a base color.
 
-1. Launch **Paint 3D** using the Windows Start Menu. If the Welcome Screen is displayed, dismiss it.
-2. You will see a blank white scene when Paint 3D has launched. This is the canvas you will be working on to create your Knowzy nose prototype.
-3. The top-center menu allows you to select what tools you want to use. The first one is Art Tools for paining and coloring, while the next (cube icon) is for actually creating 3D objects. Select this menu tab.
+1. From the Windows Start menu, launch **Paint 3D**. If the **Welcome** screen is displayed, Click **New**.
+2. You will see a blank white canvas where you will create your Knowzy nose prototype.
+3. The menu at the top of the screen is where you select the tools you want to use. The brush icon (Art Tools) is for painting and coloring. The cube icon (3d objects) is for creating 3D objects. Click the cube icon to open the 3d objects menu. Ensure that the sphere in the 3D objects collection is selected:
     ![3D objects tool](images/511_1.png)
-4. In the 3D objects menu tab, select the Sphere tool (should be selected by default) by clicking the Sphere icon under 3D objects.
-5. This allows you to draw a Sphere on the canvas. Before doing so, use the Color Selector below the tool to select what color you want the nose to have as a base. Note, by changing the dropdown above the color selector from Matte to Gloss will make the nose look shiny - play with this to get the nose YOU want to design!
-6. Draw the Sphere on the canvas by placing the mouse pointer where you want it, left clicking and dragging it to the size you want. You can force the size to be uniform by holding **SHIFT** while dragging. This is how our first prototype looked like:
+4. Use the color palette to choose a color for the nose. You can click on the materials dropdown above the color palette to get different effects. For example, select **Gloss** to make the nose shiny. Play with the colors and materials options to get the color you want.
+6. Draw a sphere on the canvas by placing the mouse pointer on the canvas. Press and hold the left mouse button while dragging the mouse until the sphere is the size you want. You can force the shape to be a circle by holding **Shift** down while dragging the mouse. This is how our first prototype looked:
     ![Base nose](images/511_2.png)
 
 
-#### Painting the Nose
-The second task is to give the nose some details. This can be stickers, color variations and drawings.
-1. Select the Art Tools tab to see what tools you have for drawing. 
-> Note: For these steps, it is very important to not draw on the white canvas itself as it will make it a part of the 3D model itself.
+### Add details to the nose
 
-2. You can now use any of the Art Tools to draw on the model itself. Feel free to be creative here! For our first prototype, we simply used the Calligraphy Tool with the Thickness set to 36px to draw to nose holes on the bottom of the nose.
+The second task is to add details to the nose. You can use stickers, color variations and drawings.
+1. On the menu at the top of the screen, click the brush icon (Art tools) to see the tools available for drawing.
+> Note: For these steps, it is important not to draw outside of the model on the white canvas because it will become part of the 3D model.
+
+2. Use any of the art tools to draw on the model. Be creative! For our first prototype, we used the Calligraphy pen with the **Thickness** set to 36px to draw nostrils.
 
     ![Adding color](images/511_3.png)
 
-3. The third menu tab is for placing Stickers on the model. Feel free to play around with the various tools to become familiar with the software - this allows you to be very creative when designing new prototypes for us!
+3. The Stickers menu (third icon from the left on the main menu) allows you to place stickers on the model. Feel free to play around with the various tools.
 
+### Save and Export the model.
 
-#### Saving and Exporting
-The last task here is to save the model, and export it as FBX to be used with Unity or BabylonJS (by converting to OBJ, see BabylonJS task).
+The last task is to save the model and export it to the Filmbox (FBX) format so we can use the model in Unity or BabylonJS. (For BabylonJS, we will convert it from .FBX to .OBJ. We will handle that in a future task.)
 
-1. Save the Project itself as a Paint 3D project by clicking the Folder icon on the top-left corner of the window, and give it a proper name.
-2. Now, export the scene by clicking the same folder icon on the top-left corner of the window, and select FBX under Export:
-    
+1. Click the Folder icon located at the top-left corner of the Paint3d window to open the **Save** menu. Under **Save in Paint 3D**, click **Paint 3d Project**, provide a name, and press **Enter** to save the model.
+2. Back in the Paint3D editor, click the folder icon to open the **Save** menu again. Under **Export**, click **FBX**:
+
     ![Export as FBX](images/511_4.png)
 
-3. Save it in a location you can remember for the tasks ahead.
+3. The **Save As** dialog appears. Save the FBX file in a location you can remember for the tasks ahead.
 
-Congratulations, you have now mastered Paint 3D and how to use it to create Nose Prototypes in 3D!
-
+Congratulations, you now have a 3d Nose model that we can use in Unity or BablyonJS!
 
 ## References
-The FBX export of our first Nose Prototype:
+Our first Nose Prototype:
 [Nose Prototype (FBX)](./Reference/NosePrototype.fbx)
 
-## continue to [next task >> ](512a_Unity.md)
+## Continue to the [next task >> ](512a_Unity.md)
