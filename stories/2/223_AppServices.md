@@ -410,7 +410,9 @@ to the WPF app through the AppService when the use clicks on the Connect button.
             </StackPanel>
         </Grid>
 
-* Add the following to App.xaml.cs
+
+
+* Modify the OnActivated() method in App.xaml.cs in the Microsoft.Knowzy.UWP project as follows:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
