@@ -11,7 +11,7 @@ The source code for our applications is all open source and can be found on [our
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
-        * [1.1.1][111] [Committed] - Build a responsive Web App
+        * [1.1.1 [Committed] - Build a responsive Web App][111]
         * [1.1.2][112] [Committed] - Generate Progressive Web App (d. 1.1.1)
         * [1.1.3][113] [Committed] - Update Web App to PWA (d. 1.1.1) 
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
