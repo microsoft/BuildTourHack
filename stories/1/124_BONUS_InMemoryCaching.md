@@ -1,4 +1,4 @@
-# Task 1.2.5 - Add In-Memory Caching
+# Task 1.2.4 - Add In-Memory Caching
 
 Now that you have a running PWA, we'd like you to improve the speed and performance of the Web App.
 

@@ -99,7 +99,7 @@ Now you want to test the changes you've just made.  Follow the instructions in s
 ## References
 
 
-## continue to [Bonus task >> ](124_BONUS-RenoFeatures.md)
+## continue to [Bonus task >> ](122_BONUS-RenoFeatures.md)
 
 
 

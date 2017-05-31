@@ -17,9 +17,9 @@ The source code for our applications is all open source and can be found on [our
         * [1.1.4][114] [Committed] - Test Your App (d. 1.1.1) 
     * **Deliverable** - Add Native functionality
         * [1.2.1][121] [Committed] - Add Live Tile (d. 1.1.1) 
-        * [1.2.3][123] [Proposed] - Add Share and Secondary Pinning (d. 1.1.2)
-        * [1.2.4][124] [Proposed] - Make PWA Linkable (d. 1.1.2)
-        * [1.2.5][125] [Proposed] - Add In-Memory Caching
+        * [1.2.2][122] [Proposed] - Add Share and Secondary Pinning (d. 1.1.2)
+        * [1.2.3][123] [Proposed] - Make PWA Linkable (d. 1.1.2)
+        * [1.2.4][124] [Proposed] - Add In-Memory Caching
 
 2. **User Story** - The product department has a modern, secure and forward-looking platform for managing product development life cycle
     * **Deliverable** - Enable integration of UWP APIs
@@ -78,9 +78,9 @@ The source code for our applications is all open source and can be found on [our
 [113]: stories/1/113_ConfigureSW.md
 [114]: stories/1/114_Test_App.md
 [121]: stories/1/121_Add_WIndows_Feature.md
-[123]: stories/1/124_BONUS-RenoFeatures.md
-[124]: stories/1/123_BONUS-APP-Links.md 
-[125]: stories/1/125_BONUS_InMemoryCaching.md
+[122]: stories/1/122_BONUS-RenoFeatures.md
+[123]: stories/1/123_BONUS-APP-Links.md 
+[124]: stories/1/124_BONUS_InMemoryCaching.md
 
 [211]: stories/2/211_Centennial.md
 [212]: stories/2/212_Debugging.md
