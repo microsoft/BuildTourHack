@@ -10,7 +10,7 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 * Basic knowledge of C# development
 * Basic knowledge of client development with the .NET framework
 * Basic knowledge of Windows 10 and the Universal Windows Platform
-* A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn’t available in the Home version.
+* A computer with Windows 10 Anniversary Update or Windows 10 Creators Update. If you want to use the Desktop App Converter with an installer, you will need at least a Pro or Enterprise version, since it leverages a feature called Containers which isn't available in the Home version.
 * Visual Studio 2017 with the tools to develop applications for the Universal Windows Platform. Any edition is supported, including the free [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/)
 * Go to the git repo at [https://github.com/Knowzy/KnowzyInternalApps](https://github.com/Knowzy/KnowzyInternalApps) and clone or download the content onto your local computer.
 
@@ -100,8 +100,11 @@ to include an AfterBuild target that will copy all the Win32 output files to the
 This rather complicated bit of XML completes several important tasks:
 
 * TargetUWP specifies where to copy the Win32 binaries. In this example, the binaries will be copied to the desktop folder in the Microsoft.Knowzy.UWP project folder.
+
 * The files will be copied preserving their directory structure by specifying %(RecursiveDir)%(Filename)%(Extension) in the Copy tag
+
 * Any .winmd files in the Microsoft.Knowzy.WPF output folder will not be copied to the output directory. This is specified with the ExcludeFilters tag.
+
 * all of the DLL dependcies of the Microsoft.Knowzy.WPF exe (including the ones from the NuGet packages) will be copied to the output directory.
 
 
