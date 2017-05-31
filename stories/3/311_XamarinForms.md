@@ -30,7 +30,7 @@ This walkthrough assumes that you have:
 
 > Note: A *New Universal Windows Project* might open asking you to choose target and minimum platform version. Make sure **Target Version** is *Windows 10 Creators Update*. Minimum version can be anything.
 
-![New UWP](images/new_uwp.png)
+    ![New UWP](images/new_uwp.png)
 
 That's it. At this point, you should probably spend some time checking out the new solution. You will notice there are four projects in the solution, one shared project and three platform specific projects. To run the app on the specific platform, use the drop down at the top of Visual Studio to select what project to run:
 
@@ -41,8 +41,11 @@ We will focus on UWP and Android for our first release. To run on your machine a
 ![Run](images/run.png)
 
 To test and debug the app on Andorid, there are several options:
+
 * [Use the Android SDK Emulator](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debug-on-emulator/android-sdk-emulator/)
+
 * [Use the Visual Studio Emulator](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debug-on-emulator/visual-studio-android-emulator/)
+
 * [Use a real device](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debug-on-device/)
 
 > Note: If you try to run the faster x86 version of the Android SDK Emulator and get an exception, you might need to turn of the hypervisor by running the following command in Command Prompt as Administrator: ```bcdedit /set hypervisorlaunchtype off``` and reboot
@@ -65,15 +68,15 @@ For our first task, we want to be able to list all the different Knowzy products
 
     Name the new class **Nose**. Erase everything between the namespace definition. We need our new class to match the data we get from our JSON feed, so we will create a new class from the JSON. Copy this JSON but don't paste it anywhere yet:
 
-    ```json
-    {
-        "Id": "RN3454",
-        "Name": "Black Nose",
-        "RawMaterial": "Black foam",
-        "Notes": "Everything you'd expect, and a little something more.",
-        "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
-    }
-    ```
+```json
+{
+    "Id": "RN3454",
+    "Name": "Black Nose",
+    "RawMaterial": "Black foam",
+    "Notes": "Everything you'd expect, and a little something more.",
+    "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
+}
+```
 
     Switch to Visual Studio, place the cursor where you want to copy the new class (between the namespace braces). In Visual Studio, click on **Edit -> Paste Special -> Paste JSON as Classes**. This will generate a new class for you by using the JSON you just copied and you just need to change the name from RootObject to **Nose**.
 
@@ -87,21 +90,21 @@ For our first task, we want to be able to list all the different Knowzy products
     * Make the class public. 
     * Add this static method in the class to pull in the data from the link above:
 
-        ```csharp
-        public static async Task<Nose[]> GetProducts()
-        {
-            using (var client = new HttpClient())
-            {
-                var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
+```c#
+public static async Task<Nose[]> GetProducts()
+{
+    using (var client = new HttpClient())
+    {
+        var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
 
-                return JsonConvert.DeserializeObject<Nose[]>(json);
-            }
-        }
-        ```
+        return JsonConvert.DeserializeObject<Nose[]>(json);
+    }
+}
+```
 
         You will need to add few namespaces for this function to work:
 
-```csharp
+```c#
             using Newtonsoft.Json;
             using System.Net.Http;
             using System.Threading.Tasks;
@@ -116,42 +119,39 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 1. Remove the Label and add a new element ListView instead. Give it a name. In this case it's *ProductListView**
 
-```xaml
+```xml
     <ListView x:Name="ProductListView">
 
     </ListView>
-    
- ```
+```
 
 2. Open MainPage.xaml.cs. This is where the code goes for your view. Here we can override the *OnAppearing* method which will allows us to get the list of products and set them as the source of the ListView. Add the following code:
 
-```csharp
+```c#
     protected async override void OnAppearing()
     {
         base.OnAppearing();
         ProductListView.ItemsSource = await DataProvider.GetProducts();
     }
     
- ```
+```
 
 3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/). Here is what the final XAML looks like for the ListView
 
-     ```xaml
-     
-    <ListView x:Name="ProductListView">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
-                        <Label Text="{Binding Name}"></Label>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-    
-     ```
+```xml
+<ListView x:Name="ProductListView">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
+                    <Label Text="{Binding Name}"></Label>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
+```
 
 **Task Complete**. Go ahead and run the the app on your machine and run the app in the Android emulator.
 

@@ -22,41 +22,41 @@ Once the image is captured, let's add the nose image on top and allow the user t
 
     Before:
 
-    ```xaml
-    <Image x:Name="image"></Image>
-    ```
+```xml
+<Image x:Name="image"></Image>
+```
 
     After:
 
-    ```xaml
-    <Grid x:Name="imageGrid" IsVisible="False">
-        <Image x:Name="image"></Image>
-        <AbsoluteLayout>
-            <Image x:Name="noseImage"
-                HeightRequest="120" 
-                WidthRequest="120" 
-                AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
-                AbsoluteLayout.LayoutFlags="None">
-            </Image>
-        </AbsoluteLayout>
-    </Grid>
-    ```
+```xml
+<Grid x:Name="imageGrid" IsVisible="False">
+    <Image x:Name="image"></Image>
+    <AbsoluteLayout>
+        <Image x:Name="noseImage"
+            HeightRequest="120" 
+            WidthRequest="120" 
+            AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+            AbsoluteLayout.LayoutFlags="None">
+        </Image>
+    </AbsoluteLayout>
+</Grid>
+```
 
 2. Notice in the xaml above, we've set the visibility of the Grid to False. Once the image has been captured, we can set the visibility to visible and set the source of the noseImage. Here is what the new captureButton click handler looks like:
 
-    ```csharp
-    private async void captureButton_Clicked(object sender, EventArgs e)
+```c#
+private async void captureButton_Clicked(object sender, EventArgs e)
+{
+    var photoService = DependencyService.Get<IPhotoService>();
+    if (photoService != null)
     {
-        var photoService = DependencyService.Get<IPhotoService>();
-        if (photoService != null)
-        {
-            var source = await photoService.TakePhotoAsync();
-            noseImage.Source = ImageSource.FromUri(new Uri(_nose.Image)); // set source of nose image
-            image.Source = source;
-            imageGrid.IsVisible = true; // set visibility to true
-        }
+        var source = await photoService.TakePhotoAsync();
+        noseImage.Source = ImageSource.FromUri(new Uri(_nose.Image)); // set source of nose image
+        image.Source = source;
+        imageGrid.IsVisible = true; // set visibility to true
     }
-    ```
+}
+```
 
 3. To allow the elements to be manipulated by panning or pinching, Xamarin.Forms has built in [Gestures](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/gestures/). As part of the nose image that we added to our page, let's add a new PanGestureRecognizer and a new PinchGestureRecognizer and subscribe to the relevant events so we can manipulate the nose image with gestures:
 
