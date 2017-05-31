@@ -1,5 +1,5 @@
  
-# Add Secondary Pinning and Native Share to App (1.2.3)
+# Add Secondary Pinning and Native Share to App (1.2.2)
 
 This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all of it's prerequisites
 
