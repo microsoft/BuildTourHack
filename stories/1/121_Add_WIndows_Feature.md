@@ -91,7 +91,7 @@ notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNot
 
 ### Test your changes
 Now you want to test the changes you've just made.  Follow the instructions in section 1.1.3 for deploying your web app, and repdeploy your changes.  One of the great things about a PWA is that you don't need to redeploy your app to see the changes, you just need to deploy to the web server.  You should be able to run your app again, and see your live tile code take effect (pin tile to start menu to see).  If you don't see it imediately, it may because of the gerat caching you have in your app.  if this happens, you can force a cache clear by uninstalling your PWA, and then installing it again from the script you downloaded from PWABuilder.com
-
+![see live tile](images/livetile.PNG)
 **NOTE** if your Visual Studio session is still debugging your azure instance, you may need to halt your debugger before you test locally again.
 
 ## References
