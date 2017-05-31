@@ -20,6 +20,10 @@ We also found some [sample code](https://github.com/Microsoft/DesktopBridgeToUWP
 
 This task has a dependency on [Task 2.2.1](221_XAMLView.md) and all of it's prerequisites
 
+* Make sure the Microsoft.Knowzy.WPF.sln Build configuration to **Debug | x86**
+
+![Debug | x86](images/212-debug-x86.png)
+
 
 ## Task 
 
