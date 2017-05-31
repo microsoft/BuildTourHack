@@ -101,11 +101,12 @@ For our first task, we want to be able to list all the different Knowzy products
 
         You will need to add few namespaces for this function to work:
 
-        ```csharp
+```csharp
             using Newtonsoft.Json;
             using System.Net.Http;
             using System.Threading.Tasks;
-        ```
+            
+```
 
    We now have a static method that retrieves the JSON feed and deserializes into Nose objects that we can use in out app.
 
