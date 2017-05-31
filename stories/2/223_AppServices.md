@@ -165,15 +165,10 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 * The Microsoft.Knowzy.AppService will now be part of the Knowzy UWP AppX package after a build.
 
-#### Create a new C# Class Library project Microsoft.Knowzy.UwpHelpers.AppService ####
 
-The Windows 10 AppServices UWP API does not seem seem to be compatible with Portable Class Libraries so create a regular C# Class Library project called Microsoft.Knowzy.UwpHelpers.AppService.
+#### Add a AppService helper class to Microsoft.Knowzy.UwpHelpers ####
 
-![AppService Class Library](images/223-appservice-class-lib.png)
-
-#### Add an AppService helper class to Microsoft.Knowzy.UwpHelpers.AppService ####
-
-* Add a new C# class called AppService.cs to the Helpers folder of the Microsoft.Knowzy.UwpHelpers.AppService project.
+* Add a new C# class called AppService.cs to the  Microsoft.Knowzy.UwpHelpers project.
 
 * Add the following using directives to AppService.cs
 
@@ -242,14 +237,6 @@ App Service receives a message with the specified id, it will call the Connectio
                 _connection = null;
             }
         }
-
-#### Add a project reference to Microsoft.Knowzy.UwpHelpers.AppService ####
-
-* Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...**
-
-* Select the **Microsoft.Knowzy.UwpHelpers.AppService** project under the **Projects | Solution** section. 
-
-
 
 #### Add Listener support to the App Service ####
 
@@ -375,7 +362,7 @@ We will now modify the Microsoft.Knowzy.AppService component to support the addi
 
 #### Enable Microsoft.Knowzy.WPF to use the App Service ####
 
-* Add a Click event to the Menu Menu in MainView.xaml in the Microsoft.Knowzy.WPF project.
+* Add a Click event to the Menu Menu in Views\MainView.xaml in the Microsoft.Knowzy.WPF project near line 42.
 
         <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Click="Menu_Click"/>
 
