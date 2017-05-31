@@ -4,7 +4,7 @@ There are four User Stories that we are focusing on for this iteration. Each Use
 
 User stories are mostly self contained, they do not have dependencies to other stories. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
-If you are blocked, a representative from the leadership team is always there to help, don’t be afraid to reach out.
+If you are blocked, a representative from the leadership team is always there to help, don't be afraid to reach out.
 
 The source code for our applications is all open source and can be found on [our github account](https://github.com/Knowzy/KnowzyInternalApps).
 
