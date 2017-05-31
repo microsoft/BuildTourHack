@@ -17,6 +17,10 @@ We will also add support for using Windows 10 UWP Protocols to communicate betwe
 
 * Completed the section on [Integrate Windows Hello Authentication](214_WindowsHello.md)
 
+* Make sure the Microsoft.Knowzy.WPF.sln Build configuration to **Debug | x86**
+
+![Debug | x86](images/212-debug-x86.png)
+
 ## Task 
 
 Our Desktop Bridge version of the Knowzy app actually consists of two different executables. The original WPF version (Microsoft.Knowzy.WPF.exe) and the UWP version (Microsoft.Knowzy.UWP.exe). 
