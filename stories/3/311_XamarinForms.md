@@ -136,7 +136,8 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
 
 3. Finally, we need to define how each product will look like. For that we will create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/). Here is what the final XAML looks like for the ListView
 
-```xaml
+     ```xaml
+     
     <ListView x:Name="ProductListView">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -150,7 +151,7 @@ Now that we have the business logic out of the way, on to the UI. Xamarin.Forms 
         </ListView.ItemTemplate>
     </ListView>
     
-```
+     ```
 
 **Task Complete**. Go ahead and run the the app on your machine and run the app in the Android emulator.
 
