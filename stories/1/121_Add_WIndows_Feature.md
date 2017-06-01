@@ -2,11 +2,12 @@
 
 ## Prerequisites 
 
-This task has a dependency on [Task 1.1.4](114_Test_App.md) and all of it's prerequisites
+This task has a dependency on [Task 1.1.4](114_Test_App.md) and all of it's prerequisites.
 
 ## Task 
 
 ### Add a Windows feature to your web content.
+
  One of the coolest things about PWAs on Windows 10 is the technical advantages you get over just running in the browser:
 
 - Standalone Window
@@ -15,21 +16,20 @@ This task has a dependency on [Task 1.1.4](114_Test_App.md) and all of it's prer
 - Offline & background processes
 - Access to Windows Runtime (WinRT) APIs via JavaScript (Calendar / Cortana / Address Book / etc)
 
-
 ### Feature detect for Windows Store APIs
-In order to utilize a Windows UWP API, you'll want to implement a pattern called "feature detection".  This allows you to write JavaScript on your page that will only be executed in the context where the APIs are available.  In this case, it will only execute while inside a Windows PWA.
+
+In order to utilize a Windows UWP API, you will want to implement a pattern called "feature detection".  This allows you to write JavaScript on your page that will only be executed in the context where the APIs are available.  In this case, it will only execute while inside a Windows PWA.
   
 Feature detection can be as simple as looking for the Windows object as below:
 
 ```
-
 if(window.Windows){
 /*execute code that calls WIndows APIs */
 }
 
 ```
 
-Keep in mind that not all Windows APIs are available on all Windows 10 devices.  Think about the fact that a Windows Phone has a "dialer" for making phone calls, so it has unique APIs that are not available on other device types.  Another example is the "surface dial" that can be paired to Many Windows devices, but not the Xbox, so the "radial dial" APIs are not present on the Xbox.  For more specific feature detection, you'll also want to feature detect the API family as well like below:
+Keep in mind that not all Windows APIs are available on all Windows 10 devices.  Think about the fact that a Windows Phone has a "dialer" for making phone calls, so it has unique APIs that are not available on other device types.  Another example is the "Surface Dial" that can be paired to many Windows devices, but not the Xbox, so the "radial dial" APIs are not present on the Xbox.  For more specific feature detection, you will want to feature detect the API family as well like below:
 
 ```
 
@@ -39,12 +39,12 @@ if(window.Windows && Windows.UI.Core.SystemNavigationManager){
 
 ```
 
+### Add code to customize your PWA App container
 
-### Add Code to Customize your PWA App Container
-Start out by adding some code that adds a message to the tile in the start menu.  This code can be ran from any page, but you'll likely want to put it on index.cshtml so that it is ran as soon as the app is opened. 
+Start out by adding some code that adds a message to the tile in the start menu.  This code can be run from any page, but you will likely want to place it on index.cshtml, so that it runs as soon as the app is opened. 
 
-1. Open shipping \index.cshtml in Visual Studio and add a script tag at the bottom of the page
-2. add the following feature detection inside the script tag
+1. Open `Shipping\index.cshtml` in Visual Studio and add a script tag at the bottom of the page.
+2. Add the following feature detection inside the script tag:
 
 ```
 if(window.Windows && Windows.UI.Notifications){
@@ -53,7 +53,7 @@ if(window.Windows && Windows.UI.Notifications){
 
 ```
 
-3. Inside the feature detection, add the following code to load the live tile
+3. Inside the feature detection, add the following code to load the live tile:
 
 ```
 var tileContent = new Windows.Data.Xml.Dom.XmlDocument();
@@ -84,22 +84,17 @@ bindingMedium.appendChild(text);
 var notifications = Windows.UI.Notifications;
 var tileNotification = new notifications.TileNotification(tileContent);
 notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
-
-
 ```
 
-
 ### Test your changes
-Now you want to test the changes you've just made.  Follow the instructions in section 1.1.3 for deploying your web app, and repdeploy your changes.  One of the great things about a PWA is that you don't need to redeploy your app to see the changes, you just need to deploy to the web server.  You should be able to run your app again, and see your live tile code take effect (pin tile to start menu to see).  If you don't see it imediately, it may because of the gerat caching you have in your app.  if this happens, you can force a cache clear by uninstalling your PWA, and then installing it again from the script you downloaded from PWABuilder.com
+
+To test the changes you have just made, follow the instructions in section 1.1.3 for deploying your web app, then re-deploy your changes.  One of the great things about a PWA is that you don't need to redeploy your app to see the changes, you just need to deploy to the web server.  You should be able to run your app again and see your live tile code take effect (pin your app's tile to the start menu to see).  If you don't see it immediately, it may be because of the great caching you have in your app. If this happens, you can force a cache clear by uninstalling your PWA, then installing it again from the script you downloaded from PWABuilder.com.
 
 ![see live tile](images/livetile.png)
 
-**NOTE** if your Visual Studio session is still debugging your azure instance, you may need to halt your debugger before you test locally again.
+**NOTE** if your Visual Studio session is still debugging your Azure instance, you may need to halt your debugger before you test locally again.
 
-## References
-
-
-## continue to [Bonus task >> ](122_BONUS-RenoFeatures.md)
+## Continue to [Bonus task >> ](122_BONUS-RenoFeatures.md)
 
 
 
