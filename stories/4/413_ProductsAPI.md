@@ -1,6 +1,6 @@
 # Task 4.1.3 - Create API endpoint for product services
 
-You've finished creating the Orders API, it's time to create one for Products.  
+You've finished creating the Orders API, and now it's time to create one for Products.  
 
 ## Prerequisites 
 
@@ -10,7 +10,7 @@ You've finished creating the Orders API, it's time to create one for Products.
 ## Creating a .NET Core App
 
 ### 1. Create a New WebAPI Project
-Our steps to get started with the Products API are the same as our previous step where we created the [Orders API][412]. 
+The steps to get started with the Products API are the same as our previous step where we created the [Orders API][412]. 
 
 Again you can use Visual Studio 2017 to create a new project in the `src\2. Services\APIs\Microsoft.Knowzy.ProductsAPI` folder.
 

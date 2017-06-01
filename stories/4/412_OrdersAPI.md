@@ -1,6 +1,6 @@
 # Task 4.1.2 - Create API endpoint for shipping and receiving services
 
-Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders so the Web app is not going directly to the database.
+Now that you've created a database to store your data, it's time to create APIs to access that data.  Knowzy believes in a microservices based architecture so you'll need to start by creating a new API for orders to ensure the Web app does not go directly to the database.
 
 The end goal is a .NET Core based cross-platform solution. The architecture proposes a simplified microservice oriented architecture implementation with multiple autonomous microservices (each one owning its own data/db). The microservices will implement a simple CRUD approach using Http as the current communication protocol.
 

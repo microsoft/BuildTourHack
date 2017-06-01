@@ -8,7 +8,7 @@
 
 On Windows, you'll need to share your drive with Docker in order to build images.
 
-i) Open up Docker settings by right-clicking the Docker icon in the taskbar, and choosing Settings
+i) Open up Docker settings by right-clicking the Docker icon in the taskbar, and choosing Settings.
 
 ii) Go to the `Shared Drives` tab and share the C drive 
 
@@ -19,7 +19,7 @@ If you receive a firewall error, try these [Troubleshooting](499_Troubleshooting
 ## 2. Building Images
 
 
-If you have Visual Studio 2017 you can have it create Docker files for you by simply:
+If you have Visual Studio 2017 you can have it create Docker files for you by doing the following:
 * Right click on the Microsoft.Knowzy.WebApp project, select `Add -> Docker Support`. If you are on prompted for Target OS, choose `Linux` and click OK.
 
 ![Add Docker Support](images/AddDockerSupport.png)
@@ -149,7 +149,7 @@ Docker containers come and go frequently. You may want to practice and stop your
 docker-compose -p <YOUR_NAME_PREFIX> down
 ```
 
-If you want to spin up your containers again, you can debug the docker-compose project in Visual Studio, or interact directly via PowerShell by running the following commands
+If you want to spin up your containers again, you can debug the docker-compose project in Visual Studio, or interact directly via PowerShell by running the following commands:
 
 ```powershell
 # Create and start containers
@@ -224,7 +224,7 @@ $ACR_NAME = "buildtourregistry"
 docker login -u $ACR_NAME -p <your password> "$ACR_NAME.azurecr.io"
 ```
 
-> If you're having trouble copy/pasting the password from the Azure Cloud Shell to PowerShell, try highlighting your password and making sure your cursor is over the highlighted text, and then right click
+> If you're having trouble copy/pasting the password from the Azure Cloud Shell to PowerShell, try highlighting your password and making sure your cursor is over the highlighted text, and then right click.
 
 ### c. Push an Image
 
