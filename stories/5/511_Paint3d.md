@@ -21,7 +21,7 @@ First we will create the nose 3D model with a base color.
 3. The menu at the top of the screen is where you select the tools you want to use. The brush icon (Art Tools) is for painting and coloring. The cube icon (3d objects) is for creating 3D objects. Click the cube icon to open the 3d objects menu. Ensure that the sphere in the 3D objects collection is selected:
     ![3D objects tool](images/511_1.png)
 4. Use the color palette to choose a color for the nose. You can click on the materials dropdown above the color palette to get different effects. For example, select **Gloss** to make the nose shiny. Play with the colors and materials options to get the color you want.
-6. Draw a sphere on the canvas by placing the mouse pointer on the canvas. Press and hold the left mouse button while dragging the mouse until the sphere is the size you want. You can force the shape to be a circle by holding **Shift** down while dragging the mouse. This is how our first prototype looked:
+5. Draw a sphere on the canvas by placing the mouse pointer on the canvas. Press and hold the left mouse button while dragging the mouse until the sphere is the size you want. You can force the shape to be a circle by holding **Shift** down while dragging the mouse. This is how our first prototype looked:
     ![Base nose](images/511_2.png)
 
 
