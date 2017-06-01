@@ -17,10 +17,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
+    <PackageLayout>..\Microsoft.Knowzy.UWP\bin\x86\Release</PackageLayout>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DefineConstants>DEBUG</DefineConstants>
     <OutputPath>bin\x64\Debug\</OutputPath>
+    <PackageLayout>..\Microsoft.Knowzy.UWP\bin\x64\Release</PackageLayout>
+    <StartupTile>Microsoft.Knowzy.WPF</StartupTile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
