@@ -18,6 +18,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <PackageLayout>..\Microsoft.Knowzy.UWP\bin\x86\Release</PackageLayout>
+    <StartupTile>Microsoft.Knowzy.WPF</StartupTile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DefineConstants>DEBUG</DefineConstants>

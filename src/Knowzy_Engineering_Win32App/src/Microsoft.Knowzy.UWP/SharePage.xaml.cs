@@ -36,19 +36,18 @@ namespace Microsoft.Knowzy.UWP
         private ShareOperation operation = null;
         private StorageFile _shareFile = null;
         private String _shareFileName = "";
-        private StorageFile _file = null;
 
         public SharePage()
         {
             this.InitializeComponent();
 
-            ink.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Touch;
+            inkCanvas.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Touch;
             var attr = new InkDrawingAttributes();
             attr.Color = Colors.Red;
             attr.IgnorePressure = true;
             attr.PenTip = PenTipShape.Circle;
             attr.Size = new Size(4, 10);
-            ink.InkPresenter.UpdateDefaultDrawingAttributes(attr);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(attr);
 
         }
 
@@ -111,7 +110,7 @@ namespace Microsoft.Knowzy.UWP
             try
             {
                 CanvasDevice device = CanvasDevice.GetSharedDevice(true);
-                CanvasRenderTarget renderTarget = new CanvasRenderTarget(device, (int)ink.ActualWidth, (int)ink.ActualHeight, 96);
+                CanvasRenderTarget renderTarget = new CanvasRenderTarget(device, (int)inkCanvas.ActualWidth, (int)inkCanvas.ActualHeight, 96);
                 using (var ds = renderTarget.CreateDrawingSession())
                 {
                     ds.Clear(Colors.White);
@@ -119,7 +118,7 @@ namespace Microsoft.Knowzy.UWP
                     // draw your image first
                     ds.DrawImage(image);
                     // then draw contents of your ink canvas over it
-                    ds.DrawInk(ink.InkPresenter.StrokeContainer.GetStrokes());
+                    ds.DrawInk(inkCanvas.InkPresenter.StrokeContainer.GetStrokes());
                 }
 
                 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;

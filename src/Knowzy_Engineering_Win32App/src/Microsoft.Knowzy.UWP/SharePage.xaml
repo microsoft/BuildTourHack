@@ -13,7 +13,8 @@
             <TextBlock x:Name="tbFileName" />
             <Grid>
                 <Image x:Name="img"/>
-                <InkCanvas x:Name="ink"></InkCanvas>
+                <InkCanvas x:Name="inkCanvas"></InkCanvas>
+                <InkToolbar x:Name="inkToolbar" VerticalAlignment="Top" TargetInkCanvas="{x:Bind inkCanvas}" />
             </Grid>
         </StackPanel>
     </Grid>
