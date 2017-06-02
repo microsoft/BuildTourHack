@@ -2,11 +2,11 @@
 
 This task will require you to set up a Cognitive Service for facial analysis.  You'll use this to allow customers to run your Xamarin app and see what they look like with different KNOWZY noses on their face!
 
-## Prerequisites 
+## Prerequisites
 
 * An Azure Subscription
 
-## Task 
+## Task
 
 1.  Create a new Cognitive Services **Face API**.  
 
