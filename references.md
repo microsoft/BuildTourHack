@@ -11,6 +11,13 @@
 3. [Samples](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
 4. [Microsoft Virtual Academy Tutorials](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373?l=OwpAJ3WhD_6706218965)
 
+## Xamarin 
+1. [Xamarin Live Player](https://www.xamarin.com/live) 
+2. [Visual Studio Mobile Center](https://www.visualstudio.com/vs/mobile-center/)  
+3. Xamarin Session demos: [Tasky](https://developer.xamarin.com/samples/mobile/Tasky/), [Azure Storage](https://developer.xamarin.com/samples/xamarin-forms/WebServices/AzureStorage/), [Embedded Forms](https://github.com/davidortinau/build2017-new-in-xamarin-forms) 
+4. [What's new in Xamarin Forms, Build 2017](https://channel9.msdn.com/Events/Build/2017/B8099) 
+5. [Visual Studio Mobile Center, Build 2017](https://channel9.msdn.com/Events/Build/2017/B8072)
+
 ## Containers
 1. [Containers](http://www.microsoft.com/containers)
 2. [Microsoft Docker Hub](https://hub.docker.com/u/microsoft)
