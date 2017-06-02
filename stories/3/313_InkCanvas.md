@@ -1,12 +1,12 @@
 # Task 3.1.3 - Overlay noses and support inking for UWP
 
-Our marketing department has the idea to allow our app users to capture images and position Knowzy products over the image to see what how they would look like. It's a fun way to try the product without actually buying it, and the marketing department is hoping for these images to be shared on social media and spread the word.
+Our marketing department wants to allow our app users to capture images and position Knowzy products over the image how they would look. It's a fun way to try the product without actually buying it, and the marketing department is hoping for these images to be shared on social media to spread the word.
 
 **Goals for this task:**
 * Overlay noses on top of image and allow nose to be manipulated
 * Support inking on UWP devices
 
-For this task, you will need to access APIs that are specific for each platform. We've done the research on how to do it and we've included the steps below.
+For this task, you will need to access APIs that are specific to each platform. We've done the research on how to do it and have included the steps below.
 
 ## Prerequisites 
 
