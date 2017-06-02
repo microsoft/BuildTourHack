@@ -1,6 +1,6 @@
 # Task 3.4.1 - Set up Continuous Integration and Deployment for the Windows app using Visual Studio Mobile Center
 
-Now that you've made an app that works, the CTO would like to ensure higher quality by setting up Continuous Integration and Delivery.  To that end, you've been instructed to make sure the app compiles with every code check-in, any tests are run, and new versions can be delivered to beta testers with ease.  This task will focus on the Windows version of the app with another task focusing on Android.
+Now that you've made an app that works, the CTO would like to ensure higher quality by setting up Continuous Integration and Delivery.  To that end, you've been instructed to make sure that after every code check-in, the app compiles, any tests are run, and new versions can be delivered to beta testers with ease.  This task will focus on the Windows version of the app with the next task covering Android.
 
 ## Prerequisites 
 
@@ -11,9 +11,9 @@ Now that you've made an app that works, the CTO would like to ensure higher qual
 ## Task 
 
 1.  Add your application to a compatible source control system.
-2.  Create a UWP app in Mobile Center, and connect it to your repo.
+2.  Create a UWP app in the Mobile Center, and connect it to your repo.
 3.  Ensure your app builds the first time.  
-4.  Add your teammates so they receive notifications on build.
+4.  Add your teammates so that they will receive notifications on build.
 5.  Make sure your teammates can install your app.
 
 ## Comments
