@@ -158,11 +158,11 @@ To animate the nose, we will rotate it slightly every time `Update()` is called.
 
     Save the code and return to Unity.
 
-7. **Test the app**: Before we export the project to a UWP app, we need to verify that the project is working. Click the **Play** button on top of the scene to automatically enter the **Game** tab and start running the code. You should now see the nose rotating in the center of the screen. It may be offset somewhat depending on how accurate you when you centered it earlier.
+7. **Test the app**: Before we export the project to a UWP app, we need to verify that the project is working. Click the **Play** button on top of the scene to automatically enter the **Game** tab and start running the code. You should now see the nose rotating in the center of the screen. It may be offset somewhat depending on how accurate you were when you centered it earlier.
 
     ![3D objects tool](images/512a_20.png)
 
-    > Tip: With the Nose GameObject selected, you can see the speed variable visible, and set to 50. Since we made the speed variable public, you can directly set the variable inside the editor instead of changing the script.
+    > Tip: With the Nose GameObject selected, you can see that the speed variable is visible in the **Inspector** window, and is set to 50. Because the speed variable is public, you can set its value directly in the **Inspector** window instead of changing the script.
 
 ### Export to a UWP app
 
