@@ -3,7 +3,7 @@
 ## Prerequisites 
 
 
-This task has a dependency on [Task 1.2.1](121_Add_WIndows_Features.md) and all of it's prerequisites
+This task has a dependency on [Task 1.2.1](121_Add_WIndows_Feature.md) and all of it's prerequisites
 
 
 ## Task 
