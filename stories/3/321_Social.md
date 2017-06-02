@@ -1,6 +1,6 @@
 # Task 3.2.1 - Support sharing images to Social Networks
 
-Our users want to be able to share images to their social networks. We want users to spread the word for our products. Enabling the application to share content on every platform will make everyone happy.
+Our users want to be able to share images to their social networks. We want users to spread the word about our products. Enabling the application to share content on every platform will make everyone happy.
 
 ## Prerequisites 
 
@@ -8,7 +8,7 @@ This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prereq
 
 ## Task
 
-1. Support sharing content through each platform native share integration
+1. Support sharing content through each platform's native share integration
 2. Support sharing to Facebook or Twitter directly from the app (min UWP)
 
 ## Comments
