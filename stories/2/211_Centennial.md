@@ -24,7 +24,7 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 ## Task: Add Desktop Bridge support in Visual Studio
 
 
-#### Step 1: Open the existing Knowzy Win32 Solution with Visual Studio 2017
+#### Step 1: Open the existing Knowzy Win32 solution with Visual Studio 2017
 
 We will be converting an existing WPF application from Win32 to UWP. To get started, use Visual Studio 2017 to open **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder.
 
@@ -71,7 +71,7 @@ You solution should now contain the following projects.
 
 ![Build Dependencies](images/211-add-project-dependencies-2.png)
 
-4. Press F7 (or whatever your Build Solution shortcut key is) to build the Solution.
+4. Press F7 (or whatever your Build Solution shortcut key is) to build the solution.
 
 **To see what the empty C# UWP app looks like**
 
@@ -161,18 +161,18 @@ This segment of XML completes several important tasks:
 
 * This process will be automated with every build of the solution.
 
-Reload the Microsoft.Knowzy.UWP.csproj and build the solution.
+Reload **Microsoft.Knowzy.UWP.csproj** and build the solution.
 
-* Verify that the src\Microsoft.Knowzy.UWP folder contains a desktop folder. If the folder is missing, close and reopen  Microsoft.Knowzy.WPF.sln.
+* Verify that the src\Microsoft.Knowzy.UWP folder contains a **desktop** folder. If the folder is missing, close and reopen **Microsoft.Knowzy.WPF.sln**.
 
-* You should be able to run the src\Microsoft.Knowzy.UWP\desktop\Microsoft.Knowzy.WPF.exe app by navigating to the folder and double-clicking on Microsoft.Knowzy.WPF.exe. This will test that all of the dependencies for Microsoft.Knowzy.WPF.exe were copied correctly to the desktop folder.
+* You should be able to run the **src\Microsoft.Knowzy.UWP\desktop\Microsoft.Knowzy.WPF.exe** app by navigating to the folder and double-clicking  **Microsoft.Knowzy.WPF.exe**. This will test that all of the dependencies for Microsoft.Knowzy.WPF.exe were copied correctly to the **desktop** folder.
 
 ![desktop folder](images/211-desktop-folder.png)
 
 
 #### Step 4: Edit the Microsoft.Knowzy.UWP package manifest to enable the Desktop Bridge extensions
 
-The Microsoft.Knowzy.UWP project contains a file called Package.appxmanifest that describes how to package your UWP app and its dependencies for the Windows Store.
+The Microsoft.Knowzy.UWP project contains a file called **Package.appxmanifest** that describes how to package your UWP app and its dependencies for the Windows Store.
 
 The package manifest is an XML document that contains the info the system needs to deploy, display, or update a Windows app. This info includes package identity, package dependencies, required capabilities, visual elements, and extensibility points. Every UWP app package must include one package manifest.
 
@@ -283,7 +283,7 @@ Your converted Win32 app is now ready to be deployed and run as a UWP app on you
 
 ![Configuration Manager](images/211-configuration-manager.png)
 
-Make sure that both **Build** and **Deploy** are selected for the  Microsoft.Knowzy.UWP project.
+Make sure that the **Build** and **Deploy** check boxes are selected for the  Microsoft.Knowzy.UWP project.
 
 ![Configuration Manager Deploy](images/211-configuration-manager-deploy.png)
 
@@ -328,18 +328,18 @@ In the Windows Start menu, search for **Microsoft.Knowzy.UWP**. Click  **Microso
 
 ![Start menu](images/211-startmenu.png)
 
-Unfortunately the Microsoft.Knowzy.UWP app did not run. Actually it did run but exited immediately due to an error.
+You'll notice that the Microsoft.Knowzy.UWP app did not run. Actually, it did run but it exited immediately due to an error.
 
-The actual error is the app cannot load the project.json file it needs to generate the Products list. The app then
+The error is the app cannot load the project.json file it needs to generate the Products list. The app then
 throws an exception and exits.
 
-Just so you aren't disappointed in not seeing the new UWP app run after completing all of these steps, let's quickly fix the issue with a hack.
+Let's fix the issue with a hack:
 
-* In the **ViewModels** folder of the Microsoft.Knowzy.WPF project, open the **MainViewModel.cs** file.
+1. In the **ViewModels** folder of the Microsoft.Knowzy.WPF project, open the **MainViewModel.cs** file.
 
 ![MainViewModel.cs](images/211-mainviewmodel.png)
 
-* Go to the OnViewAttached() method at line 70 and comment out lines 72-75 statement after base.OnActivate();
+2. Go to the OnViewAttached() method at line 70 and comment out lines 72-75 statement after base.OnActivate();
 
         protected override void OnViewAttached(object view, object context)
         {
@@ -353,11 +353,11 @@ Just so you aren't disappointed in not seeing the new UWP app run after completi
             base.OnViewAttached(view, context);
         }
 
-* Select **Rebuild Solution** from the **Build** menu.
+3. Select **Rebuild Solution** from the **Build** menu.
 
-* Right-click the **Microsoft.Knowzy.UWP** project and select **Deploy** from the menu.
+4. Right-click the **Microsoft.Knowzy.UWP** project and select **Deploy** from the menu.
 
-* In the Windows Start menu, search for **Microsoft.Knowzy.UWP**. Click  **Microsoft.Knowzy.UWP** to launch your app.
+5. In the Windows Start menu, search for **Microsoft.Knowzy.UWP**. Click **Microsoft.Knowzy.UWP** to launch your app.
 
 The Microsoft.Knowzy.UWP app should now run with the hacked code.
 
@@ -367,11 +367,11 @@ The Microsoft.Knowzy.UWP app should now run with the hacked code.
 
 To fix the crashing bug in the UWP app, you need to be able to debug the various Knowzy projects. Let's try to debug the Microsoft.Knowzy.UWP project.
 
-* Right-click the **Microsoft.Knowzy.UWP** project and select **Set as StartUp Project**.
+1. Right-click the **Microsoft.Knowzy.UWP** project and select **Set as StartUp Project**.
 
 ![Startup Project](images/211-startup-project.png)
 
-* Press F5 to start a debugging session for your UWP app. You will probably encounter the following error:
+2. Press F5 to start a debugging session for your UWP app. You will probably encounter the following error:
 
 ![Debug Error](images/211-debug-error.png)
 
