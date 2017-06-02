@@ -113,7 +113,7 @@ The source code for our applications is all open source and can be found on [our
 [415]: stories/4/415_Kubernetes.md
 [416]: stories/4/416_Integrate.md
 [421]: stories/4/421_SetupVSTS.md
-[422]: stories/4/421_DevopsKubernetes.md
+[422]: stories/4/422_DevopsKubernetes.md
 [431]: stories/4/431_Telemetry.md
 
 
