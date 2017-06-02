@@ -1,6 +1,6 @@
  # Add App linking to PWA (1.2.3)
 
-This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all of it's prerequisites.
+This task has a dependency on [Task 1.2.1](121_Add_WIndows_Features.md) and all of it's prerequisites.
 
 ## Task 
 
