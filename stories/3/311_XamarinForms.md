@@ -27,13 +27,13 @@ This walkthrough assumes that you have:
 
 3. We'll start with a Blank App. Make sure Xamarin.Forms is selected under **UI Technology** and that Shared Project is selected under **Code Sharing Strategy**.
 
-![New Project](images/new_project.png)
+    ![New Project](images/new_project.png)
 
-> Note: A *Xamarin Mac Agent* window might open asking you to connect to a Mac as soon as you create the project. You can safely ignore the message and close this window.
+    > Note: A *Xamarin Mac Agent* window might open asking you to connect to a Mac as soon as you create the project. You can safely ignore the message and close this window.
 
-> Note: A *New Universal Windows Project* might open asking you to choose target and minimum platform version. Make sure **Target Version** is *Windows 10 Creators Update*. Minimum version can be anything.
+    > Note: A *New Universal Windows Project* might open asking you to choose target and minimum platform version. Make sure **Target Version** is *Windows 10 Creators Update*. Minimum version can be anything.
 
-![New UWP](images/new_uwp.png)
+    ![New UWP](images/new_uwp.png)
 
 That's it. At this point, you should probably spend some time checking out the new solution. You'll notice there are four projects in the solution, one shared project and three platform specific projects. To run the app on a specific platform, use the drop down menu near the top of Visual Studio to select which project you want to run:
 
@@ -67,19 +67,17 @@ For our first task, we want to be able to list all the different Knowzy products
 
 1. Let's create a new class that we can use to represent our nose model. Right-click the Shared project (the one without a platform specifier at the end), and select **Add -> Class**.
 
-![Add Class](images/add_class.png)
+    ![Add Class](images/add_class.png)
 
-Name the new class **Nose**. Erase everything between the namespace definition. We need our new class to match the data that we get from our JSON feed, so we'll create a new class from the JSON. Copy this JSON but don't paste it anywhere yet:
+    Name the new class **Nose**. Erase everything between the namespace definition. We need our new class to match the data that we get from our JSON feed, so we'll create a new class from the JSON. Copy this JSON but don't paste it anywhere yet:
 
-```json
-{
-    "Id": "RN3454",
-    "Name": "Black Nose",
-    "RawMaterial": "Black foam",
-    "Notes": "Everything you'd expect, and a little something more.",
-    "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
-}
-```
+        {
+            "Id": "RN3454",
+            "Name": "Black Nose",
+            "RawMaterial": "Black foam",
+            "Notes": "Everything you'd expect, and a little something more.",
+            "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
+        }
 
 In Visual Studio, place the cursor where you want to copy the new class (between the namespace braces). In the taskbar, select **Edit -> Paste Special -> Paste JSON as Classes**. This generates a new class for you by using the JSON that you just copied. You just need to change the name from RootObject to **Nose**.
 
@@ -93,25 +91,21 @@ In Visual Studio, place the cursor where you want to copy the new class (between
     * Make the class public.
     * Add this static method in the class to pull in the data from the link above:
 
-```CSharp
-public static async Task<Nose[]> GetProducts()
-{
-    using (var client = new HttpClient())
-    {
-        var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
+            public static async Task<Nose[]> GetProducts()
+            {
+                using (var client = new HttpClient())
+                {
+                    var json = await client.GetStringAsync("https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/noses.json");
 
-        return JsonConvert.DeserializeObject<Nose[]>(json);
-    }
-}
-```
+                    return JsonConvert.DeserializeObject<Nose[]>(json);
+                }
+            }
 
-You'll need to add few namespaces for this function to work:
+        You'll need to add few namespaces for this function to work:
 
-```CSharp
-using Newtonsoft.Json;
-using System.Net.Http;
-using System.Threading.Tasks;
-```
+            using Newtonsoft.Json;
+            using System.Net.Http;
+            using System.Threading.Tasks;
 
 We now have a static method that retrieves the JSON feed and deserializes it into Nose objects, which we can use in our app.
 
@@ -121,38 +115,32 @@ Now that we have the business logic out of the way, let's move on to the UI. Xam
 
 1. Remove the Label and add a ListView instead. Give it a name. In this case it's *ProductListView**.
 
-```xml
-<ListView x:Name="ProductListView">
+        <ListView x:Name="ProductListView">
 
-</ListView>
-```
+        </ListView>
 
 2. Open MainPage.xaml.cs. This is where the underlying code for your app view goes. Here we can override the *OnAppearing* method which allows us to get the list of products, and set them as the source of the ListView. Add the following code to the class:
 
-```CSharp
-protected async override void OnAppearing()
-{
-    base.OnAppearing();
-    ProductListView.ItemsSource = await DataProvider.GetProducts();
-}
-```
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            ProductListView.ItemsSource = await DataProvider.GetProducts();
+        }
 
 3. Finally, we need to define what each product will look like. For that, we'll create a data template to customize each [Cell](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/customizing-cell-appearance/). Here is the final XAML for the ListView:
 
-```xml
-<ListView x:Name="ProductListView">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
-                    <Label Text="{Binding Name}"></Label>
-                </StackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>
-```
+        <ListView x:Name="ProductListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150"></Image>
+                            <Label Text="{Binding Name}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 **Task Complete**. Go ahead and try running the app on your machine, and then in the Android emulator.
 

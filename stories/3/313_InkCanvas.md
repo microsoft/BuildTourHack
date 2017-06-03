@@ -22,107 +22,97 @@ Once the image is captured, let's add the nose image on top of it, and allow the
 
 2. Add code that does these things:
 
-   * Wraps the image element that hosts the camera image into a new Grid element.
+    * Wraps the image element that hosts the camera image into a new Grid element.
 
-     This will allow you to position multiple elements on top of each other.
+        This will allow you to position multiple elements on top of each other.
 
-   * Adds a new [AbsoluteLayout](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/absolute-layout/) element below the existing Image in the grid.
+    * Adds a new [AbsoluteLayout](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/absolute-layout/) element below the existing Image in the grid.
 
-   * Adds a new Image element inside of the AbsoluteLayout element, which will be used to host the nose image.
+    * Adds a new Image element inside of the AbsoluteLayout element, which will be used to host the nose image.
 
-   Here is what the final result should look like:
+    Here is what the final result should look like:
 
-   Before:
+    Before:
 
-   ```xml
-   <Image x:Name="image"></Image>
-   ```
+        <Image x:Name="image"></Image>
 
-   After:
+    After:
 
-   ```xml
-   <Grid x:Name="imageGrid" IsVisible="False">
-     <Image x:Name="image"></Image>
-       <AbsoluteLayout>
-         <Image x:Name="noseImage"
-            HeightRequest="120"
-            WidthRequest="120"
-            AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
-            AbsoluteLayout.LayoutFlags="None">
-         </Image>
-      </AbsoluteLayout>
-   </Grid>
-   ```
+        <Grid x:Name="imageGrid" IsVisible="False">
+            <Image x:Name="image"></Image>
+            <AbsoluteLayout>
+                <Image x:Name="noseImage"
+                    HeightRequest="120"
+                    WidthRequest="120"
+                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="None">
+                </Image>
+            </AbsoluteLayout>
+        </Grid>
 
 3. Notice that in the XAML, we've set the visibility of the Grid to False. Once the image has been captured, we can set the visibility to True, and then set the source of the noseImage element. Make those changes in the captureButton_Clicked event handler. When you're done, your code should look something like this:
 
-   ```CSharp
-   private async void captureButton_Clicked(object sender, EventArgs e)
-   {
-      var photoService = DependencyService.Get<IPhotoService>();
-      if (photoService != null)
-      {
-          var source = await photoService.TakePhotoAsync();
-          noseImage.Source = ImageSource.FromUri(new Uri(_nose.Image)); // set source of nose image
-          image.Source = source;
-          imageGrid.IsVisible = true; // set visibility to true
-      }
-  }
-  ```
+        private async void captureButton_Clicked(object sender, EventArgs e)
+        {
+            var photoService = DependencyService.Get<IPhotoService>();
+            if (photoService != null)
+            {
+                var source = await photoService.TakePhotoAsync();
+                noseImage.Source = ImageSource.FromUri(new Uri(_nose.Image)); // set source of nose image
+                image.Source = source;
+                imageGrid.IsVisible = true; // set visibility to true
+            }
+        }
 
 3. To allow elements to be manipulated by panning or pinching, Xamarin.Forms has built in [Gestures](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/gestures/). Inside of the the noseImage element that we just added to our page, let's add a new PanGestureRecognizer and a new PinchGestureRecognizer, which will subscribe to the relevant events so we can manipulate the nose image with gestures:
 
-   ```xml
-   <Image x:Name="noseImage"
-        HeightRequest="120"
-        WidthRequest="120"
-        AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
-        AbsoluteLayout.LayoutFlags="None">
+        <Image x:Name="noseImage"
+                HeightRequest="120"
+                WidthRequest="120"
+                AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="None">
 
-      <!-- Gesture Recongizers -->
-       <Image.GestureRecognizers>
-           <PanGestureRecognizer PanUpdated="OnPanUpdated" />
-           <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
-       </Image.GestureRecognizers>
+            <!-- Gesture Recognizers -->
+            <Image.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+                <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
+            </Image.GestureRecognizers>
 
-   </Image>
-  ```
+        </Image>
 
 4. In your code-behind file (CameraPage.xaml.cs in this example), implement the event handlers for the gestures that we just added. The nose moves with the finger or mouse, and the scale of the image changes when the image is pinched:
 
-   ```CSharp
-   private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
-   {
-       switch (e.StatusType)
-       {
-           case GestureStatus.Started:
-               var bounds = AbsoluteLayout.GetLayoutBounds(noseImage);
-               bounds.X += noseImage.TranslationX;
-               bounds.Y += noseImage.TranslationY;
-               AbsoluteLayout.SetLayoutBounds(noseImage, bounds);
-               noseImage.TranslationX = 0;
-               noseImage.TranslationY = 0;
-               break;
+        private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+        {
+            switch (e.StatusType)
+            {
+                case GestureStatus.Started:
+                    var bounds = AbsoluteLayout.GetLayoutBounds(noseImage);
+                    bounds.X += noseImage.TranslationX;
+                    bounds.Y += noseImage.TranslationY;
+                    AbsoluteLayout.SetLayoutBounds(noseImage, bounds);
+                    noseImage.TranslationX = 0;
+                    noseImage.TranslationY = 0;
+                    break;
 
-           case GestureStatus.Running:
-               noseImage.TranslationX = e.TotalX;
-               noseImage.TranslationY = e.TotalY;
-               break;
-       }
-   }
+                case GestureStatus.Running:
+                    noseImage.TranslationX = e.TotalX;
+                    noseImage.TranslationY = e.TotalY;
+                    break;
+            }
+        }
 
-   private void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
-   {
-       switch (e.Status)
-       {
-           case GestureStatus.Running:
-               noseImage.Scale *= e.Scale;
-               break;
-       }
-   }
-   ```
+        private void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
+        {
+            switch (e.Status)
+            {
+                case GestureStatus.Running:
+                    noseImage.Scale *= e.Scale;
+                    break;
+            }
+        }
 
-   That's it. Run the app, take a photo, position the nose, and have fun.
+    That's it. Run the app, take a photo, position the nose, and have fun.
 
 #### Add inking support on UWP devices.
 
@@ -132,82 +122,74 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
 
     We'll add the namespace for the UWP native controls as part of the ContentPage declaration that we created in the previous task (CameraPage in our example):
 
-   ```xml
-   <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        x:Class="App1.CameraPage"
+        <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="App1.CameraPage"
 
-        xmlns:win="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows,
-            Version=255.255.255.255, Culture=neutral, PublicKeyToken=null,
-            ContentType=WindowsRuntime;targetPlatform=Windows"
-        >
-   ```
+                xmlns:win="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows,
+                    Version=255.255.255.255, Culture=neutral, PublicKeyToken=null,
+                    ContentType=WindowsRuntime;targetPlatform=Windows"
+                >
 
 2. We can now add two UWP XAML controls directly to the page.
 
-* Add the InkCanvas below the camera image but above the nose image.
-* Add the InkToolbar control between the top button and the imageGrid.
+    * Add the InkCanvas below the camera image but above the nose image.
+    * Add the InkToolbar control between the top button and the imageGrid.
 
-  ```xml
-  <StackLayout VerticalOptions="FillAndExpand"
-            HorizontalOptions="FillAndExpand"
-            Orientation="Vertical"
-            Spacing="15">
-     <Button x:Name="captureButton"
-            Text="Capture Image"
-            Clicked="captureButton_Clicked"></Button>
+        <StackLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    Spacing="15">
+            <Button x:Name="captureButton"
+                    Text="Capture Image"
+                    Clicked="captureButton_Clicked"></Button>
 
-    <!-- UWP XAML CONTROL InkToolbar -->
-    <ContentView x:Name="InkingToolbar">
-        <win:InkToolbar></win:InkToolbar>
-    </ContentView>
-
-
-    <Grid x:Name="ImageGrid" IsVisible="False">
-        <Image x:Name="image"></Image>
+            <!-- UWP XAML CONTROL InkToolbar -->
+            <ContentView x:Name="InkingToolbar">
+                <win:InkToolbar></win:InkToolbar>
+            </ContentView>
 
 
-        <!-- UWP XAML CONTROL InkCanvas -->
-        <ContentView x:Name="InkingContent">
-            <win:InkCanvas></win:InkCanvas>
-        </ContentView>
+            <Grid x:Name="ImageGrid" IsVisible="False">
+                <Image x:Name="image"></Image>
+
+
+                <!-- UWP XAML CONTROL InkCanvas -->
+                <ContentView x:Name="InkingContent">
+                    <win:InkCanvas></win:InkCanvas>
+                </ContentView>
 
 
 
-        <AbsoluteLayout>
-            <!-- ... -->
-        </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <!-- ... -->
+                </AbsoluteLayout>
 
-    </Grid>
-  </StackLayout>
-  ```
+            </Grid>
+        </StackLayout>
 
-  > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code-behind file.
+    > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code-behind file.
 
 3. To use the native views in the code behind, we need to use compilation directives, as the native views will only be used on the platform in which they are available. In this case, the InkCanvas and InkToolbar are only available on UWP, so we need to use the **WINDOWS_UWP** directive to wrap our code.
 
-In the constructor of our page, after the call to **InitializeComponent**, we need to bind the InkToolbar to the InkCanvas, and then set the input device type of the InkCanvas to all input types:
+    In the constructor of our page, after the call to **InitializeComponent**, we need to bind the InkToolbar to the InkCanvas, and then set the input device type of the InkCanvas to all input types:
 
-   ```CSharp
-   #if WINDOWS_UWP
-       var inkingWrapper = (Xamarin.Forms.Platform.UWP.NativeViewWrapper)InkingContent.Content;
-       var inkCanvas = (Windows.UI.Xaml.Controls.InkCanvas)inkingWrapper.NativeElement;
-       inkCanvas.InkPresenter.InputDeviceTypes =
-           Windows.UI.Core.CoreInputDeviceTypes.Touch |
-           Windows.UI.Core.CoreInputDeviceTypes.Mouse |
-           Windows.UI.Core.CoreInputDeviceTypes.Pen;
+        #if WINDOWS_UWP
+            var inkingWrapper = (Xamarin.Forms.Platform.UWP.NativeViewWrapper)InkingContent.Content;
+            var inkCanvas = (Windows.UI.Xaml.Controls.InkCanvas)inkingWrapper.NativeElement;
+            inkCanvas.InkPresenter.InputDeviceTypes =
+                Windows.UI.Core.CoreInputDeviceTypes.Touch |
+                Windows.UI.Core.CoreInputDeviceTypes.Mouse |
+                Windows.UI.Core.CoreInputDeviceTypes.Pen;
 
-       var inkToolbarWrapper = (Xamarin.Forms.Platform.UWP.NativeViewWrapper)InkingToolbar.Content;
-       var inkToolbar = (Windows.UI.Xaml.Controls.InkToolbar)inkToolbarWrapper.NativeElement;
-       inkToolbar.TargetInkCanvas = inkCanvas;
-   #endif
-   ```
+            var inkToolbarWrapper = (Xamarin.Forms.Platform.UWP.NativeViewWrapper)InkingToolbar.Content;
+            var inkToolbar = (Windows.UI.Xaml.Controls.InkToolbar)inkToolbarWrapper.NativeElement;
+            inkToolbar.TargetInkCanvas = inkCanvas;
+        #endif
 
 4. If you run into a null reference exception, check to see if the following line is added above your page class definition:
 
-   ```CSharp
         [XamlCompilation(XamlCompilationOptions.Compile)]
-   ```
 
 Xamarin adds this line to any new page created to [improve the performance](https://developer.xamarin.com/guides/xamarin-forms/xaml/xamlc/) of XAML pages. However, this optimization will not work when using native views and needs to be deleted.
 
