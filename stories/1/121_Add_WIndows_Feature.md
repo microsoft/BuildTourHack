@@ -90,7 +90,7 @@ To test the changes you have just made, follow the instructions in section 1.1.3
 
 **NOTE** if your Visual Studio session is still debugging your Azure instance, you may need to halt your debugger before you test locally again.
 
-## Continue to [Bonus task >> ](122_BONUS-RenoFeatures.md)
+## Continue to [next task >> ](122_BONUS-RenoFeatures.md)
 
 
 
