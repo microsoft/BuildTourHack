@@ -136,37 +136,37 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
     * Add the InkCanvas below the camera image but above the nose image.
     * Add the InkToolbar control between the top button and the imageGrid.
 
-        <StackLayout VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand"
-                    Orientation="Vertical"
-                    Spacing="15">
-            <Button x:Name="captureButton"
-                    Text="Capture Image"
-                    Clicked="captureButton_Clicked"></Button>
+            <StackLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"
+                        Spacing="15">
+                <Button x:Name="captureButton"
+                        Text="Capture Image"
+                        Clicked="captureButton_Clicked"></Button>
 
-            <!-- UWP XAML CONTROL InkToolbar -->
-            <ContentView x:Name="InkingToolbar">
-                <win:InkToolbar></win:InkToolbar>
-            </ContentView>
-
-
-            <Grid x:Name="ImageGrid" IsVisible="False">
-                <Image x:Name="image"></Image>
-
-
-                <!-- UWP XAML CONTROL InkCanvas -->
-                <ContentView x:Name="InkingContent">
-                    <win:InkCanvas></win:InkCanvas>
+                <!-- UWP XAML CONTROL InkToolbar -->
+                <ContentView x:Name="InkingToolbar">
+                    <win:InkToolbar></win:InkToolbar>
                 </ContentView>
 
 
+                <Grid x:Name="ImageGrid" IsVisible="False">
+                    <Image x:Name="image"></Image>
 
-                <AbsoluteLayout>
-                    <!-- ... -->
-                </AbsoluteLayout>
 
-            </Grid>
-        </StackLayout>
+                    <!-- UWP XAML CONTROL InkCanvas -->
+                    <ContentView x:Name="InkingContent">
+                        <win:InkCanvas></win:InkCanvas>
+                    </ContentView>
+
+
+
+                    <AbsoluteLayout>
+                        <!-- ... -->
+                    </AbsoluteLayout>
+
+                </Grid>
+            </StackLayout>
 
     > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code-behind file.
 

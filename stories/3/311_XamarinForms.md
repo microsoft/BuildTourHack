@@ -9,6 +9,7 @@ This is going to be an entirely new product for Knowzy and we'll start from scra
 ## Prerequisites
 
 This walkthrough assumes that you have:
+
 * Windows 10 Creators Update
 * Visual Studio 2017 with the following additional workloads:
     * Mobile Development with .NET
@@ -76,16 +77,15 @@ For our first task, we want to be able to list all the different Knowzy products
             "Name": "Black Nose",
             "RawMaterial": "Black foam",
             "Notes": "Everything you'd expect, and a little something more.",
-            "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/Frabicnose400x300.jpg"
+            "Image": "https://raw.githubusercontent.com/Knowzy/KnowzyInternalApps/master/src/Noses/black.png"
         }
 
-In Visual Studio, place the cursor where you want to copy the new class (between the namespace braces). In the taskbar, select **Edit -> Paste Special -> Paste JSON as Classes**. This generates a new class for you by using the JSON that you just copied. You just need to change the name from RootObject to **Nose**.
+    In Visual Studio, place the cursor where you want to copy the new class (between the namespace braces). In the taskbar, select **Edit -> Paste Special -> Paste JSON as Classes**. This generates a new class for you by using the JSON that you just copied. You just need to change the name from RootObject to **Nose**.
 
-![JSON as Class](images/json_as_class.png)
+    ![JSON as Class](images/json_as_class.png)
 
 2. Now that we have our model, let's create a way to retrieve the data from our feed.
     * First, we'll use Json.Net to deserialize the JSON, so we'll need to reference the Nuget package to both the UWP and the Android project. Right-click each project and select **Manage Nuget Packages**. Search for **Newtonsoft.Json** and then install it (make sure to switch to the **Browse** tab when searching).
-
     * Follow the same steps as above to create a new class in the shared project.
     * Name the new class **DataProvider**.
     * Make the class public.
@@ -113,7 +113,7 @@ We now have a static method that retrieves the JSON feed and deserializes it int
 
 Now that we have the business logic out of the way, let's move on to the UI. Xamarin.Forms uses XAML to define the shared UI, so if you've used XAML before, you'll feel right at home. All the shared code is in the shared project of the solution, and there's already a XAML page created for us: MainPage.xaml. Go ahead and open the page. Currently there's only one element there, a [Label](https://developer.xamarin.com/guides/xamarin-forms/user-interface/text/label/). Instead of a Label, we'll use a [ListView](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/) to display all of the products.
 
-1. Remove the Label and add a ListView instead. Give it a name. In this case it's *ProductListView**.
+1. Remove the Label and add a ListView instead. Give it a name. In this case it's *ProductListView*.
 
         <ListView x:Name="ProductListView">
 

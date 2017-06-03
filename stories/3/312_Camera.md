@@ -28,7 +28,7 @@ This task has a dependency on [Task 3.1.1](311_XamarinForms.md) and all of it's 
 
         MainPage = new Knowzy.Mobile.MainPage();
 
-   > Note: the **Knowzy.Mobile** namespace above might be different for you depending on what you named your project
+    > Note: the **Knowzy.Mobile** namespace above might be different for you depending on what you named your project
 
 4. Instead of setting the MainPage to a new MainPage, set it to a new NavigationPage and pass a new MainPage as a parameter.
 
@@ -118,7 +118,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
                 return ImageSource.FromFile(photo.Path);
         }
 
-   You'll also need few namespaces:
+    You'll also need few namespaces:
 
         using Windows.Media.Capture;
         using Windows.Storage;
