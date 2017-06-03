@@ -1,15 +1,15 @@
 # Task 3.2.2 - Capture images remotely
 
-Many users like to launch their app on the desktop through their phone remotely and control it. 
+Many users like to launch and control desktop apps remotely from their phone.
 
-## Prerequisites 
+## Prerequisites
 
-This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites
+This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites.
 
 ## Task
 
-1. Support launching the app remotely on UWP from Android
-2. Support remote controlling the app remotely
+1. Support launching the app remotely on UWP from Android.
+2. Support controlling the app remotely on UWP from Android.
 
 ## Comments
 
