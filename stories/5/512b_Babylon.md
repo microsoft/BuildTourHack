@@ -7,6 +7,7 @@ As Babylon does not support natively loading FBX, we will first need to convert 
 
 ## Prerequisites
 This walkthrough assumes that you have:
+
 * Windows 10 Creators Update
 * 3D Nose Model from Paint 5.1.1
 * Visual Studio 2017 with the Universal Windows Platform Development Workload to create a Javascript UWP
@@ -50,23 +51,21 @@ It is now time to add content in our UWP.
 
 4. It is now time to integrate those files in the application. Open the ```index.html``` file and add the two following script references *before* the main.js one:
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>BabylonUWP</title>
-    <link href="css/default.css" rel="stylesheet" />
-</head>
-<body>
-    <div>Content goes here!</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>BabylonUWP</title>
+            <link href="css/default.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div>Content goes here!</div>
 
-    <script src="js/babylon.js"></script>
-    <script src="js/babylon.objFileLoader.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
-```
+            <script src="js/babylon.js"></script>
+            <script src="js/babylon.objFileLoader.js"></script>
+            <script src="js/main.js"></script>
+        </body>
+        </html>
 
 5. The project can now be launched in debug by pressing F5 to ensure that the setup is correct. No error should be displayed in the javascript console.
 
@@ -77,68 +76,62 @@ As the project is ready, we can now create our first 3D scene as explained in th
 
 2. The ```index.html``` file should look like this:
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>BabylonUWP</title>
-    <link href="css/default.css" rel="stylesheet" />
-</head>
-<body>
-    <canvas id="renderCanvas"></canvas>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>BabylonUWP</title>
+            <link href="css/default.css" rel="stylesheet" />
+        </head>
+        <body>
+            <canvas id="renderCanvas"></canvas>
 
-    <script src="js/babylon.js"></script>
-    <script src="js/babylon.objFileLoader.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
-```
+            <script src="js/babylon.js"></script>
+            <script src="js/babylon.objFileLoader.js"></script>
+            <script src="js/main.js"></script>
+        </body>
+        </html>
 
 3. To ensure that the canvas is rendered in full screen, replace the content of the file ```css/default.css``` by the following one:
 
-```css
-html, body {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-#renderCanvas {
-    width: 100%;
-    height: 100%;
-    touch-action: none;
-}
-```
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
 
 4. The setup being done, open the ```js/main.js``` file and replace its content by the following:
 
-```javascript
-// Get the canvas element from our HTML above
-var canvas = document.getElementById("renderCanvas");
+        // Get the canvas element from our HTML above
+        var canvas = document.getElementById("renderCanvas");
 
-// Load the BABYLON 3D engine
-var engine = new BABYLON.Engine(canvas, true);
+        // Load the BABYLON 3D engine
+        var engine = new BABYLON.Engine(canvas, true);
 
-// Now create a basic Babylon Scene object
-var scene = new BABYLON.Scene(engine);
+        // Now create a basic Babylon Scene object
+        var scene = new BABYLON.Scene(engine);
 
-// Let's try our built-in 'box' shape. Params: name, size.
-var box1 = BABYLON.Mesh.CreateBox("box1", 1);
+        // Let's try our built-in 'box' shape. Params: name, size.
+        var box1 = BABYLON.Mesh.CreateBox("box1", 1);
 
-// Creates a default light and camera.
-scene.createDefaultCameraOrLight(true);
+        // Creates a default light and camera.
+        scene.createDefaultCameraOrLight(true);
 
-// This attaches the input camera controls to the canvas
-scene.activeCamera.attachControl(canvas, false);
+        // This attaches the input camera controls to the canvas
+        scene.activeCamera.attachControl(canvas, false);
 
-// Register a render loop to repeatedly render the scene
-engine.runRenderLoop(function () {
-    scene.render();
-});
-```
+        // Register a render loop to repeatedly render the scene
+        engine.runRenderLoop(function () {
+            scene.render();
+        });
 
 5. The project can now be launched and displays a cube in 3D !!! The camera can rotate by holding the mouse left click on the application. The zoom level is controlled by the mouse wheel.
 
@@ -150,33 +143,31 @@ engine.runRenderLoop(function () {
 
 2. Instead of creating a sphere, the model needs to be loaded. The content of the ```js/main.js``` file needs to be updated to:
 
-```javascript
-// Get the canvas element from our HTML above
-var canvas = document.getElementById("renderCanvas");
+        // Get the canvas element from our HTML above
+        var canvas = document.getElementById("renderCanvas");
 
-// Load the BABYLON 3D engine
-var engine = new BABYLON.Engine(canvas, true);
+        // Load the BABYLON 3D engine
+        var engine = new BABYLON.Engine(canvas, true);
 
-// Now create a basic Babylon Scene object
-var scene = new BABYLON.Scene(engine);
+        // Now create a basic Babylon Scene object
+        var scene = new BABYLON.Scene(engine);
 
-// Let's load the red nose model.
-BABYLON.SceneLoader.ImportMesh(null, "assets/", "redNose.obj", scene, function (meshes) {
-    // Keeps track of our model root.
-    var redNoseModel = meshes[0];
+        // Let's load the red nose model.
+        BABYLON.SceneLoader.ImportMesh(null, "assets/", "redNose.obj", scene, function (meshes) {
+            // Keeps track of our model root.
+            var redNoseModel = meshes[0];
 
-    // Creates a default light and camera.
-    scene.createDefaultCameraOrLight(true);
+            // Creates a default light and camera.
+            scene.createDefaultCameraOrLight(true);
 
-    // This attaches the input camera controls to the canvas
-    scene.activeCamera.attachControl(canvas, false);
+            // This attaches the input camera controls to the canvas
+            scene.activeCamera.attachControl(canvas, false);
 
-    // Register a render loop to repeatedly render the scene
-    engine.runRenderLoop(function () {
-        scene.render();
-    });
-});
-```
+            // Register a render loop to repeatedly render the scene
+            engine.runRenderLoop(function () {
+                scene.render();
+            });
+        });
 
 5. By launching the project now,  we can see a beautiful red nose model displayed in a Javascript UWP application.
 
@@ -186,77 +177,75 @@ To make this look less static, we will animate the model.
 1. The main.js needs to be adapted to integrate the new animation code:
     > Note: This codes demonstrates the animation system but you could rely upon the manual animation as well: [Animation Tutorial](https://doc.babylonjs.com/tutorials/animations).
 
-```javascript
-// Get the canvas element from our HTML above
-var canvas = document.getElementById("renderCanvas");
+        // Get the canvas element from our HTML above
+        var canvas = document.getElementById("renderCanvas");
 
-// Load the BABYLON 3D engine
-var engine = new BABYLON.Engine(canvas, true);
+        // Load the BABYLON 3D engine
+        var engine = new BABYLON.Engine(canvas, true);
 
-// Now create a basic Babylon Scene object
-var scene = new BABYLON.Scene(engine);
+        // Now create a basic Babylon Scene object
+        var scene = new BABYLON.Scene(engine);
 
-// Let's load the red nose model.
-BABYLON.SceneLoader.ImportMesh(null, "assets/", "redNose.obj", scene, function (meshes) {
-    // Keeps track of our model root.
-    var redNoseModel = meshes[0];
+        // Let's load the red nose model.
+        BABYLON.SceneLoader.ImportMesh(null, "assets/", "redNose.obj", scene, function (meshes) {
+            // Keeps track of our model root.
+            var redNoseModel = meshes[0];
 
-    // Creates a default light and camera.
-    scene.createDefaultCameraOrLight(true);
+            // Creates a default light and camera.
+            scene.createDefaultCameraOrLight(true);
 
-    // This attaches the input camera controls to the canvas
-    scene.activeCamera.attachControl(canvas, false);
+            // This attaches the input camera controls to the canvas
+            scene.activeCamera.attachControl(canvas, false);
 
-    // Create a rotation animation at 30 FPS
-    var animation = new BABYLON.Animation("rotationAnimation", "rotation.y", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+            // Create a rotation animation at 30 FPS
+            var animation = new BABYLON.Animation("rotationAnimation", "rotation.y", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
-    // Add the animation key frames.
-    var keys = [];
-    // At the animation key 0, the value of rotation is "0"
-    keys.push({
-        frame: 30 * 0,
-        value: 0
-    });
+            // Add the animation key frames.
+            var keys = [];
+            // At the animation key 0, the value of rotation is "0"
+            keys.push({
+                frame: 30 * 0,
+                value: 0
+            });
 
-    // At the animation key at 1 second, the value of scaling is a quarter of turn
-    keys.push({
-        frame: 30 * 1,
-        value: Math.PI / 2
-    });
+            // At the animation key at 1 second, the value of scaling is a quarter of turn
+            keys.push({
+                frame: 30 * 1,
+                value: Math.PI / 2
+            });
 
-    // At the animation key at 2 seconds, the value of scaling is a half of turn
-    keys.push({
-        frame: 30 * 2,
-        value: Math.PI
-    });
+            // At the animation key at 2 seconds, the value of scaling is a half of turn
+            keys.push({
+                frame: 30 * 2,
+                value: Math.PI
+            });
 
-    // At the animation key at 3 seconds, the value of scaling is 3 quarter of turn
-    keys.push({
-        frame: 30 * 3,
-        value: Math.PI / 2 * 3
-    });
+            // At the animation key at 3 seconds, the value of scaling is 3 quarter of turn
+            keys.push({
+                frame: 30 * 3,
+                value: Math.PI / 2 * 3
+            });
 
-    // At the animation key at 4 seconds, the value of scaling is a full turn
-    keys.push({
-        frame: 30 * 4,
-        value: Math.PI * 2
-    });
+            // At the animation key at 4 seconds, the value of scaling is a full turn
+            keys.push({
+                frame: 30 * 4,
+                value: Math.PI * 2
+            });
 
-    // Adding keys to the animation object
-    animation.setKeys(keys);
+            // Adding keys to the animation object
+            animation.setKeys(keys);
 
-    // Then add the animation object to redNoseModel
-    redNoseModel.animations.push(animation);
+            // Then add the animation object to redNoseModel
+            redNoseModel.animations.push(animation);
 
-    // Finally, launch animations on box1, from key 0 to key 60 * 4 with loop activated
-    scene.beginAnimation(redNoseModel, 0, 60 * 4, true);
+            // Finally, launch animations on box1, from key 0 to key 60 * 4 with loop activated
+            scene.beginAnimation(redNoseModel, 0, 60 * 4, true);
 
-    // Register a render loop to repeatedly render the scene
-    engine.runRenderLoop(function () {
-        scene.render();
-    });
-});
-```
+            // Register a render loop to repeatedly render the scene
+            engine.runRenderLoop(function () {
+                scene.render();
+            });
+        });
 
 ## References
 1. [Babylon JS Documentation](https://doc.babylonjs.com/)
