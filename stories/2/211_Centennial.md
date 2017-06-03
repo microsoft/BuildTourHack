@@ -39,7 +39,7 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 
 * Right-click on the **src** folder in the Solution and select **Add | New Project...**
 
-![Add Project](images/211-add-project.png)
+    ![Add Project](images/211-add-project.png)
 
 * Select the **Visual C# | Windows Universal | Blank App (Universal Windows)** project template. 
 
@@ -47,29 +47,28 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 
 * Make sure you save the project to the **Knowzy_Engineering_Win32App\src** directory.
 
-![Add C# UWP Project](images/211-add-uwp-project.png)
+    ![Add C# UWP Project](images/211-add-uwp-project.png)
 
-Make sure the minimum Windows SDK version is 14393 or higher. Windows SDK 14393 or higher is required for Desktop Bridge apps. If you only have the 15063 SDK installed 
-use 15063 for the minimum SDK. You do not need to install the 14393 SDK to complete these tasks.
+    Make sure the minimum Windows SDK version is 14393 or higher. Windows SDK 14393 or higher is required for Desktop Bridge apps. If you only have the 15063 SDK installed use 15063 for the minimum SDK. You do not need to install the 14393 SDK to complete these tasks.
 
-![Minimum SDK version](images/211-sdk-version.png)
+    ![Minimum SDK version](images/211-sdk-version.png)
 
-You solution should now contain the following projects.
+    You solution should now contain the following projects.
 
-![Solution projects](images/211-solution.png)
+    ![Solution projects](images/211-solution.png)
 
 * Add a Project Dependency to Microsoft.Knowzy.WPF. Right click on the Microsoft.Knowzy.UWP project
 
 * Select **Build Dependencies | Project Dependencies..."**
 
-![Build Dependencies](images/211-add-project-dependencies.png)
+    ![Build Dependencies](images/211-add-project-dependencies.png)
 
 * Select the Microsoft.Knowzy.WPF project and click **OK**
 
-![Build Dependencies](images/211-add-project-dependencies-2.png)
+    ![Build Dependencies](images/211-add-project-dependencies-2.png)
 
 
-Press F7 (or whatever your Build Solution shortcut key is) to build the Solution. To see what an empty C# UWP app looks like:
+    Press F7 (or whatever your Build Solution shortcut key is) to build the Solution. To see what an empty C# UWP app looks like:
 
 * Right click on the Microsoft.Knowzy.UWP project and select **Debug | Start new instance ** to run the UWP app.
 
@@ -295,7 +294,7 @@ Until the bug is fixed, we will need to use the **Release** configuration for ou
 * Select **Configuration Manager** from the **Build** menu.
 * For the Microsoft.Knowzy.UWP project, set the Configuration to **Release**. **You should also do this for the x86 and x64 Platform builds**.
 
-![Configuration Manager Release](images/211-configuration-manager-release.png)
+    ![Configuration Manager Release](images/211-configuration-manager-release.png)
 
 * Right-click on the Microsoft.Knowzy.UWP project and select **Deploy** from the menu.
 

@@ -33,11 +33,11 @@ To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy
 
 * Set the Build configuration to **Debug | x86**
 
-![Debug | x86](images/212-debug-x86.png)
+    ![Debug | x86](images/212-debug-x86.png)
 
 * Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
 
-![Just My Code](images/212-just-my-code.png)
+    ![Just My Code](images/212-just-my-code.png)
 
 Verify these settings before you continue with this task.
 
@@ -192,7 +192,7 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
     
     * If your computer is not capable of running the Windows Hello Login, a Toast will appear in the lower left corner of your screen.
     
- ![Login UWP](images/214-login-uwp.png)
+    ![Login UWP](images/214-login-uwp.png)
 
  
 * Run just the WPF version (right-click on the Microsoft.Knowzy.WPF project and select Debug | Start new instance). Clicking on the Login button will show:
