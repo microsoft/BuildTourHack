@@ -3,6 +3,13 @@
 > Note: This is a live page that will be updated during the Build Tour. More content coming later this month.
 
 ## Keynote
+1. [Bring your app to the Windows Store](https://developer.microsoft.com/en-us/windows/bridges)
+2. [Modernize your app with UWP](https://developer.microsoft.com/en-us/windows/apps)
+3. [XAML Standard and .NET Standard 2.0](https://blogs.windows.com/buildingapps/2017/05/19/introducing-xaml-standard-net-standard-2-0/#m6S3FrRIYoLKLWJY.97)
+4. [Microsoft Graph](https://developer.microsoft.com/en-us/graph)
+5. [Microsoft Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started)
+6. [Fluent Design System](https://developer.microsoft.com/en-us/windows/apps/design)
+7. [Mixed Reality](https://developer.microsoft.com/en-us/windows/mixed-reality)
 
 ## Progressive Web Apps
 1. [PWA Builder](http://www.pwabuilder.com/)
