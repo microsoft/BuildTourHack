@@ -118,7 +118,7 @@ Once the image is captured, let's add the nose image on top of it, and allow the
 
 In addition to using the built in Xamarin.Forms controls, developers have full access to native platform controls through [native view declaration](https://developer.xamarin.com/guides/xamarin-forms/user-interface/native-views/). This allows developers to use native or custom controls (such as the UWP Community Toolkit), and mix them with Xamarin.Forms controls directly in XAML. For our app, we can use the native InkCanvas control and InkToolbar control when the app runs on UWP.
 
-1. To make native views consumable via XAML, add XML namespaces for each platform we’ll be embedding views from.
+1. To make native views consumable via XAML, add XML namespaces for each platform we'll be embedding views from.
 
     We'll add the namespace for the UWP native controls as part of the ContentPage declaration that we created in the previous task (CameraPage in our example):
 

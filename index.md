@@ -2,10 +2,10 @@
 
 There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. You will find two types of tasks:
 
-* Committed - we’ve done our research, you just need to implement the work and learn the technology along the way
-* Proposed - we like this idea, but we have not decided on the implementation, it’s up to you
+* Committed - we've done our research, you just need to implement the work and learn the technology along the way
+* Proposed - we like this idea, but we have not decided on the implementation, it's up to you
 
-User stories are mostly self contained and can be completed in paralel. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
+User stories are mostly self contained and can be completed in parallel. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
 If you are blocked, a representative from the leadership team is always there to help, don't be afraid to reach out.
 
