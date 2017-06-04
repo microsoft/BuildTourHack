@@ -1,5 +1,7 @@
 # Build Tour 2017 References
 
+> Note: This is a live page that will be updated during the Build Tour. More content coming later this month.
+
 ## Keynote
 
 ## Progressive Web Apps
