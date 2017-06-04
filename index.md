@@ -1,8 +1,11 @@
 # Adventure Works Knowzy Backlog 
 
-There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. Tasks marked as committed have been committed to our leadership, and task marked as proposed have been requested or proposed.
+There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. You will find two types of tasks:
 
-User stories are mostly self contained, they do not have dependencies to other stories. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
+* Committed - we’ve done our research, you just need to implement the work and learn the technology along the way
+* Proposed - we like this idea, but we have not decided on the implementation, it’s up to you
+
+User stories are mostly self contained and can be completed in paralel. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
 If you are blocked, a representative from the leadership team is always there to help, don't be afraid to reach out.
 
@@ -68,10 +71,7 @@ The source code for our applications is all open source and can be found on [our
     * **Deliverable** - Set up Telemetry
         * [4.3.1 - [Proposed] Set up telemetry for the web app and APIs][431]
 
-
-[Bonus tasks that will be removed from the home page](stories/5/story_5.md)
-
-
+Good luck!
 
 [111]: stories/1/111_BuildWebApp.md
 [112]: stories/1/112_GeneratePWA.md
