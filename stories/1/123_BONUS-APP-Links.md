@@ -1,6 +1,6 @@
  # Add App linking to PWA (1.2.3)
 
-This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all of it's prerequisites.
+This task has a dependency on [Task 1.2.1](121_Add_WIndows_Feature.md) and all of it's prerequisites.
 
 ## Task 
 
@@ -24,4 +24,4 @@ In this BONUS task, you want to configure your PWA to handle all requests that a
 [https://blogs.windows.com/buildingapps/2016/03/07/hosted-web-apps-go-beyond-the-app/#JoWUjrHvp5wDFPt1.97](https://blogs.windows.com/buildingapps/2016/03/07/hosted-web-apps-go-beyond-the-app/#JoWUjrHvp5wDFPt1.97) ** Note this shows you how to do a javascript activation object to navigate your app to the URL that launched it **
 
 
-## Continue to [Next Bonus task >> ](124_BONUS_InMemoryCaching.md)
+## Continue to [next task >> ](124_BONUS_InMemoryCaching.md)

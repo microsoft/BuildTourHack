@@ -7,6 +7,7 @@ Creating 3D models of our products opens up a world of opportunities. We can 3D 
 ## Prerequisites
 
 This walkthrough assumes that you have:
+
 * Windows 10 Creators Update
 * Paint 3D
 

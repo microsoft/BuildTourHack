@@ -114,7 +114,7 @@ Since all of the other dependencies in the Knowzy WPF solution are Windows Class
 
 * Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **src** directory.
 
-![Create C# Class Library](images/213-create-lib.png)
+    ![Create C# Class Library](images/213-create-lib.png)
 
 
 
@@ -123,14 +123,13 @@ from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet pack
 
 * Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Manage NuGet Packages...**
 
-![Manage NuGet Packages](images/213-manage-nuget-packages.png)
+    ![Manage NuGet Packages](images/213-manage-nuget-packages.png)
 
 * Click on **Browse**, enter UwpDesktop in the search field and then click on  **Install**
 
-![Install UwpDesktop](images/213-uwpdesktop.png)
+    ![Install UwpDesktop](images/213-uwpdesktop.png)
 
-* **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project.
-If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
+    > **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project. If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
 
 
 * Add a new C# class to the Microsoft.Knowzy.UwpHelpers . Name the file ExecutionMode.cs.

@@ -39,7 +39,7 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 
 1. In Solution Explorer, right-click the **src** folder and select **Add | New Project...**
 
-![Add Project](images/211-add-project.png)
+    ![Add Project](images/211-add-project.png)
 
 2. In the left pane of the **Add New Project** window, select the **Visual C# | Windows Universal | Blank App (Universal Windows)** project template.
 
@@ -47,17 +47,18 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 
 4. In the **Location** box, verify that you're saving the project to the **Knowzy_Engineering_Win32App\src** folder, and then click **OK**.
 
-![Add C# UWP Project](images/211-add-uwp-project.png)
+    ![Add C# UWP Project](images/211-add-uwp-project.png)
 
 5. In the **New Universal Windows Project** window, verify that **Minimum Version** is set to **Windows 10 Anniversary Update (10.0; Build 14393)** or higher.
 
 > Note: Desktop Bridge apps require Windows 10 SDK 14393 or higher. If you only have the Windows 10 SDK 15063 installed on your PC, use **Windows 10 Creators Update (10.0; Build 15063)** for the **Minimum Version**. You don't need to install the Windows 10 SDK 14393 to complete these tasks.
 
-![Minimum SDK version](images/211-sdk-version.png)
 
-You solution should now contain the following projects.
+    ![Minimum SDK version](images/211-sdk-version.png)
 
-![Solution projects](images/211-solution.png)
+    You solution should now contain the following projects.
+
+    ![Solution projects](images/211-solution.png)
 
 **Add a project dependency to Microsoft.Knowzy.WPF**
 
@@ -65,11 +66,11 @@ You solution should now contain the following projects.
 
 2. Select **Build Dependencies | Project Dependencies..."**
 
-![Build Dependencies](images/211-add-project-dependencies.png)
+    ![Build Dependencies](images/211-add-project-dependencies.png)
 
 3. In the **Depends on** section of the **Project Dependencies** window, select the **Microsoft.Knowzy.WPF** check box, and then click **OK**.
 
-![Build Dependencies](images/211-add-project-dependencies-2.png)
+    ![Build Dependencies](images/211-add-project-dependencies-2.png)
 
 4. Press F7 (or whatever your Build Solution shortcut key is) to build the solution.
 
@@ -309,7 +310,7 @@ Until the bug is fixed, we will need to use the **Release** configuration for ou
 * Select **Configuration Manager** from the **Build** menu.
 * For the Microsoft.Knowzy.UWP project, set the Configuration to **Release**. **You should also do this for the x86 and x64 Platform builds**.
 
-![Configuration Manager Release](images/211-configuration-manager-release.png)
+    ![Configuration Manager Release](images/211-configuration-manager-release.png)
 
 * Right-click the Microsoft.Knowzy.UWP project and select **Deploy** from the menu.
 
