@@ -44,47 +44,43 @@ if(window.Windows && Windows.UI.Core.SystemNavigationManager){
 Start out by adding some code that adds a message to the tile in the start menu.  This code can be run from any page, but you will likely want to place it on index.cshtml, so that it runs as soon as the app is opened. 
 
 1. Open `Shipping\index.cshtml` in Visual Studio and add a script tag at the bottom of the page.
+
 2. Add the following feature detection inside the script tag:
 
-```
-if(window.Windows && Windows.UI.Notifications){
-/*execute code that calls WIndows APIs */
-}
-
-```
+        if(window.Windows && Windows.UI.Notifications){
+        /*execute code that calls WIndows APIs */
+        }
 
 3. Inside the feature detection, add the following code to load the live tile:
 
-```
-var tileContent = new Windows.Data.Xml.Dom.XmlDocument();
- 
-var tile = tileContent.createElement("tile");
-tileContent.appendChild(tile);
- 
-var visual = tileContent.createElement("visual");
-tile.appendChild(visual);
- 
-var bindingMedium = tileContent.createElement("binding");
-bindingMedium.setAttribute("template", "TileMedium");
-visual.appendChild(bindingMedium);
- 
-var peekImage = tileContent.createElement("image");
-peekImage.setAttribute("placement", "peek");
-peekImage.setAttribute("src", "https://unsplash.it/150/150/?random");
-peekImage.setAttribute("alt", "Welcome to Knowsie!");
-bindingMedium.appendChild(peekImage);
- 
-var text = tileContent.createElement("text");
-text.setAttribute("hint-wrap", "true");
-text.innerText = "Demo Message";
-bindingMedium.appendChild(text);
+        var tileContent = new Windows.Data.Xml.Dom.XmlDocument();
+         
+        var tile = tileContent.createElement("tile");
+        tileContent.appendChild(tile);
+         
+        var visual = tileContent.createElement("visual");
+        tile.appendChild(visual);
+         
+        var bindingMedium = tileContent.createElement("binding");
+        bindingMedium.setAttribute("template", "TileMedium");
+        visual.appendChild(bindingMedium);
+         
+        var peekImage = tileContent.createElement("image");
+        peekImage.setAttribute("placement", "peek");
+        peekImage.setAttribute("src", "https://unsplash.it/150/150/?random");
+        peekImage.setAttribute("alt", "Welcome to Knowsie!");
+        bindingMedium.appendChild(peekImage);
+         
+        var text = tileContent.createElement("text");
+        text.setAttribute("hint-wrap", "true");
+        text.innerText = "Demo Message";
+        bindingMedium.appendChild(text);
 
-//fire the notification
+        //fire the notification
 
-var notifications = Windows.UI.Notifications;
-var tileNotification = new notifications.TileNotification(tileContent);
-notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
-```
+        var notifications = Windows.UI.Notifications;
+        var tileNotification = new notifications.TileNotification(tileContent);
+        notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
 
 ### Test your changes
 
@@ -94,7 +90,7 @@ To test the changes you have just made, follow the instructions in section 1.1.3
 
 **NOTE** if your Visual Studio session is still debugging your Azure instance, you may need to halt your debugger before you test locally again.
 
-## Continue to [Bonus task >> ](122_BONUS-RenoFeatures.md)
+## Continue to [next task >> ](122_BONUS-RenoFeatures.md)
 
 
 

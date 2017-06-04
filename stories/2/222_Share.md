@@ -213,19 +213,19 @@ when the app is running as a Desktop Bridge app. Add the following code to MainV
 
 * Right click on the image and select **Share picture**
 
-![Share Picture UWP](images/222-share-picture.png)
+    ![Share Picture UWP](images/222-share-picture.png)
 
 * In the list of apps that are iamge share targets, select Microsoft.Know.UWP
 
-![Knowzy Share Target](images/222-share-knowzy.png)
+    ![Knowzy Share Target](images/222-share-knowzy.png)
 
 * The Microsoft.Knowzy.UWP SharePage will appear and display the image. Click on the **Share to Microsoft.Knowzy.WPF** button.
 
-![Knowzy SharePage UI](images/222-knowzy-share-ui.png)
+    ![Knowzy SharePage UI](images/222-knowzy-share-ui.png)
 
 * The FileSystemWatcher in the Microsoft.Knowzy.WPF app will be notified that a new image has been shared to the app. It will then display the toast with the image.
 
-![Knowzy Share Toast](images/222-share-knowzy-toast.png)
+    ![Knowzy Share Toast](images/222-share-knowzy-toast.png)
 
 We will continue to add more Windows 10 UWP features to our app in the [next task](223_AppServices.md).
 

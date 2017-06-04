@@ -18,18 +18,18 @@ Here is the problem with the communications between the WPF and UWP parts of our
 
 1. The WPF app starts and connects to the App Service
 
-![App Service WFP](images/223-appservice-1.png)
+    ![App Service WFP](images/223-appservice-1.png)
 
 1. The XAML UI starts up and connects to the App Service
 
-![App Service WFP](images/223-appservice-2.png)
+    ![App Service WFP](images/223-appservice-2.png)
 
 1. The WPF app sends a request to the App Service. It can only receive a reply from the App Service. The request is not sent to the XAML UI.
 Likewise, if the XAML UI makes a request to the App Service, that request is not forwarded to the WPF app. Each app can only receive a reply from
 the App Service. Each connection from an app to the App Service may also be running a separate instance of the App Servce so the two connections are not
 aware of each other.
 
-![App Service WFP](images/223-appservice-reality.png)
+    ![App Service WFP](images/223-appservice-reality.png)
 
 There is a solution to this problem if we make Microsoft.Knowzy.UWP.exe the startup app for our DeskTop Bridge app. However, we are not ready to make the UWP version since we have not ported the WPF UI to the UWP app.
 We still need the WPF app to be the UI for our desktop bridge app. So we will need to modify our App Service to bridge the communication between the WPF and UWP portions of our Desktop Bridge app.
@@ -100,7 +100,7 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 * Make sure you are creating the project in the **src** folder and name the project **Microsoft.Knowzy.AppService**.
 
-![Create AppService Project](images/223-appservice-project.png)
+    ![Create AppService Project](images/223-appservice-project.png)
 
 * Rename the Class1.cs file in the Microsoft.Knowzy.AppService project to AppServiceTask.cs
 

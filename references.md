@@ -1,9 +1,13 @@
 # Build Tour 2017 References
 
+> Note: This is a live page that will be updated during the Build Tour. More content coming later this month.
+
+## Keynote
+
 ## Progressive Web Apps
-1. http://www.pwabuilder.com/
-2. https://blogs.windows.com/msedgedev/2017/03/10/progressive-web-apps-education/
-3. https://channel9.msdn.com/events/Build/2017/B8075
+1. [PWA Builder](http://www.pwabuilder.com/)
+2. [Web apps for education](https://blogs.windows.com/msedgedev/2017/03/10/progressive-web-apps-education/)
+3. [PWA Build session video](https://channel9.msdn.com/events/Build/2017/B8075)
 
 ## Desktop Bridge
 1. [Desktop Bridge](https://developer.microsoft.com/en-us/windows/projects/campaigns/windows-desktop-bridge)

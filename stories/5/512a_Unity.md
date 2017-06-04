@@ -5,6 +5,7 @@ Unity 3D has built-in support for loading Filmbox (FBX) files. We just need to l
 ## Prerequisites
 
 This walkthrough assumes that you have:
+
 * Windows 10 Creators Update
 * 3D Nose Model from Paint 5.1.1
 * Unity 5.6 and the UWP Plugin for exporting a Unity project to a UWP app
@@ -38,6 +39,7 @@ The **Inspector** tab displays the properties of the selected GameObject. GameOb
 ### Load the 3D Nose model
 
 Let's load the 3D Nose model that you created earlier in Paint 3D into Unity.
+
 1. Click the **Project** tab in the bottom pane. Within the **Assets** pane, right-click and select **Create > Folder**. Name the folder **Models**.
 
     ![3D objects tool](images/512a_3.png)
@@ -110,6 +112,7 @@ Let's load the 3D Nose model that you created earlier in Paint 3D into Unity.
 ### Make the nose rotate
 
 To make the nose rotate, we will create a custom component using C#.
+
 1. In the **Assets** folder at the bottom of the screen, create a new folder named **Scripts**:
 
     ![3D objects tool](images/512a_16.png)
@@ -127,33 +130,32 @@ To make the nose rotate, we will create a custom component using C#.
     ![3D objects tool](images/512a_19.png)
 
 5. In the **Project** view, double-click the **NoseRotator** to edit the code. (Note: you can use the Unity Preferences (**Edit > Preferences**) to set which Editor you want to use. By default, Visual Studio opens.)
+
 6. The script has two functions by default: `Start()` and `Update()`. `Start()` is called when the app launches. `Update()` is called every time a frame is rendered.
 To animate the nose, we will rotate it slightly every time `Update()` is called. In `Update()`, add the following code:
 
-    ```csharp
-		transform.Rotate(Time.deltaTime * Vector3.up * speed);
-    ```
+        transform.Rotate(Time.deltaTime * Vector3.up * speed);
 
     Add a new public floating point variable called `speed` to the class, just above `Start()`. The code should now look like this:
-    ```csharp
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
 
-    public class NoseRotator : MonoBehaviour {
-        public float speed = 50.0f;
+        using System.Collections;
+        using System.Collections.Generic;
+        using UnityEngine;
 
-        // Use this for initialization
-        void Start () {
+        public class NoseRotator : MonoBehaviour {
+            public float speed = 50.0f;
 
+            // Use this for initialization
+            void Start () {
+
+            }
+
+            // Update is called once per frame
+            void Update () {
+                transform.Rotate(Time.deltaTime * Vector3.up * speed);
+            }
         }
-
-        // Update is called once per frame
-        void Update () {
-            transform.Rotate(Time.deltaTime * Vector3.up * speed);
-        }
-    }
-    ```
+        
     The `Rotate` function rotates the GameObject this script is attached to. `Time.deltaTime` is the amount of time since the last frame was rendered, so it can be used to sync the timing with the clock. `Vector3.up` is a Vector that describes the X, Y, and Z-axis and is set to: 0,1,0 which means the object will only rotate around the Y-axis. `speed` determines how fast it will rotate. Since we multiply `speed` against `Time.deltaTime`,  `speed` determines how many degrees it will rotate per second.
 
     Save the code and return to Unity.
@@ -167,13 +169,17 @@ To animate the nose, we will rotate it slightly every time `Update()` is called.
 ### Export to a UWP app
 
 The final step is to export our Nose 3D visualizer as a UWP app so that we can distribute it.
+
 1. On the main menu, click **File > Build Settings**. The **Build Settings** dialog appears. A gray area is visible named **Scene in Build**. Click the button below it named **Add Open Scenes** to add the scene we have created to the list.
+
 2. In the **Platform** list, select **Windows Store** and then click **Build**:
 
     ![3D objects tool](images/512a_21.png)
 
     When the **Build Windows Store** dialog appears, choose a location on your PC for the UWP app and click OK to begin exporting the project. This will take a minute.
+
 3. When the build completes, the folder will open in File Explorer. Open **Nose3D.sln** in Visual Studio.
+
 4. In Visual Studio, from the **Build Configuration** dropdown, change the Build Configuration to **Master** and the platform to **x64**.  Press **F5** to build, deploy, and run the project.
 
     ![3D objects tool](images/512a_22.png)   
@@ -181,7 +187,5 @@ The final step is to export our Nose 3D visualizer as a UWP app so that we can d
 5. The project will take a few minutes to build. When it completes, you should see the rotating 3D nose in the center of the app.
 
 Congratulations, you have created a 3D Nose visualizer UWP app using Unity! Since this is a Windows Store app, you can access it from the Windows Start Menu.
-
-## References
 
 ## Continue to [next task >> ](512b_Babylon.md)

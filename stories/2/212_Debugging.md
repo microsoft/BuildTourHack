@@ -26,11 +26,11 @@ If you do not have the Desktop Bridge Debugging Project extension installed into
 
 1. Click on the **Tools** menu and select **Extensions and Updates...**
 
-![Tools and Extensions](images/212-extensions.png)
+    ![Tools and Extensions](images/212-extensions.png)
 
 2. Select **Online** and enter **Desktop Bridge Debugging Project** in the search field. Click **Download**.
 
-![Install Desktop Bridge Debugging Project](images/212-install-debugging-project.png)
+    ![Install Desktop Bridge Debugging Project](images/212-install-debugging-project.png)
 
 3. Close Visual Studio 2017 and the Desktop Bridge Debugging Project Extension will be installed.
 
@@ -40,11 +40,11 @@ If you do not have the Desktop Bridge Debugging Project extension installed into
 
 * Right-click on the src folder in the Solution and select **Add | New Project...**
 
-![Add project](images/212-add-project.png)
+    ![Add project](images/212-add-project.png)
 
 * Select the **Other Project Types | Desktop Bridge Debugging Project** project template. 
 
-![Add debugging project](images/212-new-debugging-project.png)
+    ![Add debugging project](images/212-new-debugging-project.png)
 
 * Name the project Microsoft.Knowzy.Debug.
 
@@ -94,15 +94,15 @@ Visual 2017 C# UWP Desktop Bridge deployment bug we experienced in the previous 
 
 * Save and Close the Properties windows. 
 
-	* **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
+	> **Note:** The Properties window can be a little buggy in saving your settings so make sure they were saved. Most issues with debugging are caused by
 incorrect Debugging Project settings.
 
-	* **Note:** You will need to add the correct Debugging Project Properties for x86 Release and x64 Debug and Release configurations if you want to build them.
+	> **Note:** You will need to add the correct Debugging Project Properties for x86 Release and x64 Debug and Release configurations if you want to build them.
 
 
 * Open the AppXPackageFileList.xml file in the Microsoft.Knowzy.Debug project
 
-![AppXPackageFileList.xml](images/212-appxpackagefilelist.png)
+    ![AppXPackageFileList.xml](images/212-appxpackagefilelist.png)
 
 * Modify the xml to the following:
 
@@ -131,17 +131,17 @@ Then build the solution again.
 
 * Press F5 and your UWP app will now be deployed and launch successfully. You should now be able to set breakpoints in the Microsoft.Knowzy.WPF source code.
 
-**Note:** There is a intermitent bug in the Desktop Bridge Debugging Project ** where it may hang when deploying a build. If this happens, use the Task Manager to kill Visual Studio and then reopen then solution. 
-You should then be able to build and run the app.
+    > **Note:** There is a intermitent bug in the Desktop Bridge Debugging Project ** where it may hang when deploying a build. If this happens, use the Task Manager to kill Visual Studio and then reopen then solution. 
+    You should then be able to build and run the app.
 
-![Breakpoint](images/212-breakpoint.png)
+    ![Breakpoint](images/212-breakpoint.png)
 
 * Set a breakpoint at line 79 in the file ViewModels\MainViewModel.cs in the Microsoft.Knowzy.WPF project. Restart the debugging session and it should break into the debugger at line 79. If you do not hit the breakpoint, 
 **Clean** and **Build** your solution again.
 
 * Stop debugging and remove the comments we added in the previous task. Press F5 to start the app. You should get the following exception:
 
-![Exception](images/212-exception.png)
+    ![Exception](images/212-exception.png)
 
 For some reason, our UWP app is unable to load the Project.json file and it appears that our app is looking for the file in the wrong directory. This is a common problem with newly converted Desktop Bridge apps.
 Depending on how the code is written, the app may be trying to load files from the wrong location. We will fix this in the next task.
@@ -152,21 +152,21 @@ In order to be able to easily debug both both the WPF and UWP portions of our ap
 
 * Select **Options...** from the **Debug** menu.
 
-![Debug options](images/212-debug-options.png)
+    ![Debug options](images/212-debug-options.png)
 
 * Click on **Debugging | General** and turn off the **Enable Just My Code** options
 
-![Just My Code](images/212-just-my-code.png)
+    ![Just My Code](images/212-just-my-code.png)
 
 * Right-click on the Microsoft.Knowzy.UWP project and select **Properties**.
 
 * Select the **Build** tab and turn off **Optimize Code**
 
-![Optimize Code](images/212-optimize-code.png)
+    ![Optimize Code](images/212-optimize-code.png)
 
 * Select the **Debug** tab and turn on **Do not launch, but debug my code when it starts**
 
-![Optimize Code](images/212-do-not-launch.png)
+    ![Optimize Code](images/212-do-not-launch.png)
 
 
 We will now fix the products.json issue in the [next task](213_AddUwp.md).

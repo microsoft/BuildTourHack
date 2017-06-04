@@ -24,4 +24,4 @@ In this BONUS task, you want to configure your PWA to handle all requests that a
 [https://blogs.windows.com/buildingapps/2016/03/07/hosted-web-apps-go-beyond-the-app/#JoWUjrHvp5wDFPt1.97](https://blogs.windows.com/buildingapps/2016/03/07/hosted-web-apps-go-beyond-the-app/#JoWUjrHvp5wDFPt1.97) ** Note this shows you how to do a javascript activation object to navigate your app to the URL that launched it **
 
 
-## Continue to [Next Bonus task >> ](124_BONUS_InMemoryCaching.md)
+## Continue to [next task >> ](124_BONUS_InMemoryCaching.md)
