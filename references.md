@@ -3,13 +3,13 @@
 > Note: This is a live page that will be updated during the Build Tour. More content coming later this month.
 
 ## Keynote
-1. [Bring your app to the Windows Store](https://developer.microsoft.com/en-us/windows/bridges)
-2. [Modernize your app with UWP](https://developer.microsoft.com/en-us/windows/apps)
+1. [Bring your app to the Windows Store](https://developer.microsoft.com/store)
+2. [Modernize your app with UWP](https://developer.microsoft.com/windows/apps)
 3. [XAML Standard and .NET Standard 2.0](https://blogs.windows.com/buildingapps/2017/05/19/introducing-xaml-standard-net-standard-2-0/#m6S3FrRIYoLKLWJY.97)
-4. [Microsoft Graph](https://developer.microsoft.com/en-us/graph)
-5. [Microsoft Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started)
-6. [Fluent Design System](https://developer.microsoft.com/en-us/windows/apps/design)
-7. [Mixed Reality](https://developer.microsoft.com/en-us/windows/mixed-reality)
+4. [Microsoft Graph](https://developer.microsoft.com/graph)
+5. [Microsoft Azure](https://docs.microsoft.com/azure/#pivot=get-started)
+6. [Fluent Design System](https://developer.microsoft.com/windows/apps/design)
+7. [Mixed Reality](https://developer.microsoft.com/windows/mixed-reality)
 
 ## Progressive Web Apps
 1. [PWA Builder](http://www.pwabuilder.com/)
@@ -17,7 +17,7 @@
 3. [PWAs, Build 2017](https://channel9.msdn.com/events/Build/2017/B8075)
 
 ## Desktop Bridge
-1. [Desktop Bridge](https://developer.microsoft.com/en-us/windows/projects/campaigns/windows-desktop-bridge)
+1. [Desktop Bridge](https://developer.microsoft.com/windows/projects/campaigns/windows-desktop-bridge)
 2. [Feedback](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial)
 3. [Samples](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
 4. [Microsoft Virtual Academy Tutorials](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373?l=OwpAJ3WhD_6706218965)
