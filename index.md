@@ -1,8 +1,11 @@
 # Adventure Works Knowzy Backlog 
 
-There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. Tasks marked as committed have been committed to our leadership, and task marked as proposed have been requested or proposed.
+There are four User Stories that we are focusing on for this iteration. Each User Story is split into multiple deliverables that each contains several tasks. You will find two types of tasks:
 
-User stories are mostly self contained, they do not have dependencies to other stories. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
+* Committed - we've done our research, you just need to implement the work and learn the technology along the way
+* Proposed - we like this idea, but we have not decided on the implementation, it's up to you
+
+User stories are mostly self contained and can be completed in parallel. However, as you get farther along in a specific user story, you might run into tasks that depend on other User Stories. Therefore, the recommendation is to assign the user stories to members of your team and to tackle them in parallel. 
 
 If you are blocked, a representative from the leadership team is always there to help, don't be afraid to reach out.
 
@@ -42,7 +45,7 @@ The source code for our applications is all open source and can be found on [our
         * [3.1.2 [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)][312]
         * [3.1.3 [Committed] - Add InkCanvas support for UWP (d. 3.1.2)][313]
     * **Deliverable** - Create a fun social experience
-        * [3.2.1 [Proposed] - Support sharing images to Social Networks (d. 3.1.2)][321]
+        <!-- * [3.2.1 [Proposed] - Support sharing images to Social Networks (d. 3.1.2)][321] -->
         * [3.2.2 [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)][322]
     * **Deliverable** - Add automatic image analysis
         * [3.3.1 [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)][331]
@@ -68,10 +71,7 @@ The source code for our applications is all open source and can be found on [our
     * **Deliverable** - Set up Telemetry
         * [4.3.1 - [Proposed] Set up telemetry for the web app and APIs][431]
 
-
-[Bonus tasks that will be removed from the home page](stories/5/story_5.md)
-
-
+Good luck!
 
 [111]: stories/1/111_BuildWebApp.md
 [112]: stories/1/112_GeneratePWA.md
@@ -113,7 +113,7 @@ The source code for our applications is all open source and can be found on [our
 [415]: stories/4/415_Kubernetes.md
 [416]: stories/4/416_Integrate.md
 [421]: stories/4/421_SetupVSTS.md
-[422]: stories/4/421_DevopsKubernetes.md
+[422]: stories/4/422_DevopsKubernetes.md
 [431]: stories/4/431_Telemetry.md
 
 

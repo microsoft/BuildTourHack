@@ -1,15 +1,15 @@
 # Task 3.2.2 - Capture images remotely
 
-Many users like to launch their app on the desktop through their phone remotely and control it. 
+Many users like to launch and control desktop apps remotely from their phone.
 
-## Prerequisites 
+## Prerequisites
 
-This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites
+This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites.
 
 ## Task
 
-1. Support launching the app remotely on UWP from Android
-2. Support remote controlling the app remotely
+1. Support launching the app remotely on UWP from Android.
+2. Support controlling the app remotely on UWP from Android.
 
 ## Comments
 
@@ -21,6 +21,7 @@ Check out [Project Rome](https://github.com/Microsoft/project-rome) for docs and
 
 ###### @ 10:45am
 We can use an App Service to support the messaging between Android and UWP. Here is great [blog post](https://blogs.windows.com/buildingapps/2017/03/23/project-rome-android-update-now-app-services-support) on exactly that. I found some resources on creating app services:
+
 * [Docs on creating and consuming app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
 * [Docs on communicating with a remote app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/communicate-with-a-remote-app-service)
 * [App service sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AppServices)

@@ -4,7 +4,7 @@ Now that you have a running PWA, we'd like you to improve the speed and performa
 
 ## Prerequisites 
 
-This task has a dependency on [Task 1.2.2][122] and all of it's prerequisites.
+This task has a dependency on [Task 1.2.1][121] and all of it's prerequisites.
 
 ## Task 
 
@@ -18,4 +18,4 @@ This task has a dependency on [Task 1.2.2][122] and all of it's prerequisites.
 ###### @ 3:37am
 I found [this guide](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory) that explains how in-memory caching works with ASP.NET Core.
 
-[122]: /stories/1/122_Add_Windows_Feature.md
+[121]: 121_Add_WIndows_Feature.md

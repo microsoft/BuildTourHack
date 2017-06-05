@@ -1,7 +1,7 @@
  
 # Add Secondary Pinning and Native Share to App (1.2.2)
 
-This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all of it's prerequisites.
+This task has a dependency on [Task 1.2.1](121_Add_WIndows_Feature.md) and all of it's prerequisites.
 
 ## Task 
 
@@ -22,4 +22,4 @@ This task has a dependency on [Task 1.1.5](115_Add_WIndows_Features.md) and all 
 - [Project Reno on GitHub](https://github.com/JimGaleForce/Reno/tree/dev)
 
 
-## Continue to [Next Bonus task >> ](123_BONUS-APP-Links.md)
+## Continue to [next task >> ](123_BONUS-APP-Links.md)

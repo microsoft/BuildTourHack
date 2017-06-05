@@ -4,7 +4,7 @@ This task will guide you through the process of adding the Windows Hello UWP API
 We will also add support for presenting Windows 10 UWP Toast notifications to the user. 
 
 ## What is Windows Hello?
-[Windows Hello](https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport) is the name Microsoft has given to the new biometric sign-in system built into Windows 10. Because it is built directly into the operating system, Windows Hello allows face or fingerprint identification to unlock users’ devices. Authentication happens when the user supplies his or her unique biometric identifier to access the device-specific credentials, which means that an attacker who steals the device can’t log on to it unless that attacker has the PIN. The Windows secure credential store protects biometric data on the device. By using Windows Hello to unlock a device, the authorized user gains access to all of his or her Windows experience, apps, data, websites, and services.
+[Windows Hello](https://docs.microsoft.com/en-us/windows/uwp/security/microsoft-passport) is the name Microsoft has given to the new biometric sign-in system built into Windows 10. Because it is built directly into the operating system, Windows Hello allows face or fingerprint identification to unlock users' devices. Authentication happens when the user supplies his or her unique biometric identifier to access the device-specific credentials, which means that an attacker who steals the device can't log on to it unless that attacker has the PIN. The Windows secure credential store protects biometric data on the device. By using Windows Hello to unlock a device, the authorized user gains access to all of his or her Windows experience, apps, data, websites, and services.
 The Windows Hello authenticator is known as a Hello. A Hello is unique to the combination of an individual device and a specific user. It does not roam across devices, is not shared with a server or calling app, and cannot easily be extracted from a device. If multiple users share a device, each user needs to set up his or her own account. Every account gets a unique Hello for that device. You can think of a Hello as a token you can use to unlock (or release) a stored credential. The Hello itself does not authenticate you to an app or service, but it releases credentials that can. In other words, the Hello is not a user credential but it is a second factor for the authenticating process.
 
 Windows Hello is shipping as part of the Windows 10 operating system and developers can implement this technology to protect their Universal Windows Platform (UWP) apps and backend services. 
@@ -33,11 +33,11 @@ To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy
 
 * Set the Build configuration to **Debug | x86**
 
-![Debug | x86](images/212-debug-x86.png)
+    ![Debug | x86](images/212-debug-x86.png)
 
 * Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
 
-![Just My Code](images/212-just-my-code.png)
+    ![Just My Code](images/212-just-my-code.png)
 
 Verify these settings before you continue with this task.
 
@@ -192,7 +192,7 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
     
     * If your computer is not capable of running the Windows Hello Login, a Toast will appear in the lower left corner of your screen.
     
- ![Login UWP](images/214-login-uwp.png)
+    ![Login UWP](images/214-login-uwp.png)
 
  
 * Run just the WPF version (right-click on the Microsoft.Knowzy.WPF project and select Debug | Start new instance). Clicking on the Login button will show:

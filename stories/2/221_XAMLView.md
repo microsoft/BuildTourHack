@@ -19,7 +19,7 @@ We will also add support for using Windows 10 UWP Protocols to communicate betwe
 
 * Make sure the Microsoft.Knowzy.WPF.sln Build configuration to **Debug | x86**
 
-![Debug | x86](images/212-debug-x86.png)
+    ![Debug | x86](images/212-debug-x86.png)
 
 ## Task 
 
@@ -193,7 +193,7 @@ Our Knowzy app has an unused View menu item. We will use this to call the code t
 
 * Select **View 3D** from the **View** menu. The Xaml ui of the Microsoft.Knowzy.UWP app will appear and display the 3D clown nose specified by the Uri parameters.
 
-![Knowzy XAML UI](images/221-xaml-ui.png)
+    ![Knowzy XAML UI](images/221-xaml-ui.png)
 
 * If you want to suggest to Windows 10 the size of the XAML UI Window, add the following code to the MainPage constructor in the file MainPage.xaml.cs in the Microsoft.Knowzy.UWP project
 

@@ -1,24 +1,36 @@
 # Task 3.1.3 - Overlay noses and support inking for UWP
 
-Our marketing department has the idea to allow our app users to capture images and position Knowzy products over the image to see what how they would look like. It's a fun way to try the product without actually buying it, and the marketing department is hoping for these images to be shared on social media and spread the word.
+Our marketing department wants to allow users of our app to capture images, and position Knowzy products over the image to see how they would look. It's a fun way to try the product without actually buying it. The marketing department is hoping that these images will be shared on social media to spread the word.
 
 **Goals for this task:**
-* Overlay noses on top of image and allow nose to be manipulated
-* Support inking on UWP devices
+* Overlay noses on top of an image and allow nose to be manipulated.
+* Support inking on UWP devices.
 
-For this task, you will need to access APIs that are specific for each platform. We've done the research on how to do it and we've included the steps below.
+For this task, you will need to access APIs that are specific to each platform. We've done the research on how to do it and have included the steps below.
 
-## Prerequisites 
+## Prerequisites
 
-This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites
+This task has a dependency on [Task 3.1.2](312_Camera.md) and all of it's prerequisites.
 
-## Task 
+## Task
 
 #### Overlay nose on image and allow to be manipulated
 
-Once the image is captured, let's add the nose image on top and allow the user to move it by panning and resize it by pinching.
+Once the image is captured, let's add the nose image on top of it, and allow the user to move it by panning and resize it by pinching.
 
-1. Open the xaml page you added in the previous task (CameraPage.xaml in this example), and wrap the image element hosting the camera image in a new Grid element. This will allow you to have multiple elements on top of each other. In addition, add a new [AbsoluteLayout](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/absolute-layout/) element in the grid below the existing Image. Inside the AbsoluteLayout add a new image element used for hosting the nose image. Here is what the final result will look like:
+1. Open the XAML page that you added in the previous task (CameraPage.xaml in this example).
+
+2. Add code that does these things:
+
+    * Wraps the image element that hosts the camera image into a new Grid element.
+
+        This will allow you to position multiple elements on top of each other.
+
+    * Adds a new [AbsoluteLayout](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/absolute-layout/) element below the existing Image in the grid.
+
+    * Adds a new Image element inside of the AbsoluteLayout element, which will be used to host the nose image.
+
+    Here is what the final result should look like:
 
     Before:
 
@@ -30,15 +42,15 @@ Once the image is captured, let's add the nose image on top and allow the user t
             <Image x:Name="image"></Image>
             <AbsoluteLayout>
                 <Image x:Name="noseImage"
-                    HeightRequest="120" 
-                    WidthRequest="120" 
-                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+                    HeightRequest="120"
+                    WidthRequest="120"
+                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
                     AbsoluteLayout.LayoutFlags="None">
                 </Image>
             </AbsoluteLayout>
         </Grid>
 
-2. Notice in the xaml above, we've set the visibility of the Grid to False. Once the image has been captured, we can set the visibility to visible and set the source of the noseImage. Here is what the new captureButton click handler looks like:
+3. Notice that in the XAML, we've set the visibility of the Grid to False. Once the image has been captured, we can set the visibility to True, and then set the source of the noseImage element. Make those changes in the captureButton_Clicked event handler. When you're done, your code should look something like this:
 
         private async void captureButton_Clicked(object sender, EventArgs e)
         {
@@ -52,24 +64,23 @@ Once the image is captured, let's add the nose image on top and allow the user t
             }
         }
 
-3. To allow the elements to be manipulated by panning or pinching, Xamarin.Forms has built in [Gestures](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/gestures/). As part of the nose image that we added to our page, let's add a new PanGestureRecognizer and a new PinchGestureRecognizer and subscribe to the relevant events so we can manipulate the nose image with gestures:
+3. To allow elements to be manipulated by panning or pinching, Xamarin.Forms has built in [Gestures](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/gestures/). Inside of the the noseImage element that we just added to our page, let's add a new PanGestureRecognizer and a new PinchGestureRecognizer, which will subscribe to the relevant events so we can manipulate the nose image with gestures:
 
         <Image x:Name="noseImage"
-                HeightRequest="120" 
-                WidthRequest="120" 
-                AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+                HeightRequest="120"
+                WidthRequest="120"
+                AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
                 AbsoluteLayout.LayoutFlags="None">
 
-            <!-- Gesture Recongizers -->
+            <!-- Gesture Recognizers -->
             <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="OnPanUpdated" />
                 <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
             </Image.GestureRecognizers>
 
-
         </Image>
 
-4. In your code behind, implement the event handlers for the gestures we added to our xaml. The nose moves with the finger or mouse, and when pinching, the scale of the image changes appropriately:
+4. In your code-behind file (CameraPage.xaml.cs in this example), implement the event handlers for the gestures that we just added. The nose moves with the finger or mouse, and the scale of the image changes when the image is pinched:
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
@@ -101,13 +112,15 @@ Once the image is captured, let's add the nose image on top and allow the user t
             }
         }
 
-That's all. Run the app, take a photo, position the nose and have fun.
+    That's it. Run the app, take a photo, position the nose, and have fun.
 
-#### Adding inking support on UWP devices.
+#### Add inking support on UWP devices.
 
-In addition to using the built in Xamarin.Forms controls, developers have full access to native platform controls as well through [native view declaration](https://developer.xamarin.com/guides/xamarin-forms/user-interface/native-views/). This allows developers to use native  or custom control (such as the UWP Community Toolkit) and mix them with Xamarin.Forms controls directly in their Xaml files. In our case, we can use the native InkCanvas control and InkToolbar control when the app runs on UWP.
+In addition to using the built in Xamarin.Forms controls, developers have full access to native platform controls through [native view declaration](https://developer.xamarin.com/guides/xamarin-forms/user-interface/native-views/). This allows developers to use native or custom controls (such as the UWP Community Toolkit), and mix them with Xamarin.Forms controls directly in XAML. For our app, we can use the native InkCanvas control and InkToolbar control when the app runs on UWP.
 
-1. To make native views consumable via XAML, we must first add XML namespaces for each platform we’ll be embedding views from. In this case, we will add the namespace for the UWP native controls as part of the ContentPage declaration of page we created in the previous task (CameraPage in our example):
+1. To make native views consumable via XAML, add XML namespaces for each platform we'll be embedding views from.
+
+    We'll add the namespace for the UWP native controls as part of the ContentPage declaration that we created in the previous task (CameraPage in our example):
 
         <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -118,16 +131,16 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
                     ContentType=WindowsRuntime;targetPlatform=Windows"
                 >
 
-2. We can now add two UWP XAML controls directly on the page. 
+2. We can now add two UWP XAML controls directly to the page.
 
-    * Add the InkCanvas below the camera image but above the nose image
+    * Add the InkCanvas below the camera image but above the nose image.
     * Add the InkToolbar control between the top button and the imageGrid.
 
             <StackLayout VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"
                         Spacing="15">
-                <Button x:Name="captureButton" 
+                <Button x:Name="captureButton"
                         Text="Capture Image"
                         Clicked="captureButton_Clicked"></Button>
 
@@ -151,13 +164,15 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
                     <AbsoluteLayout>
                         <!-- ... -->
                     </AbsoluteLayout>
-                    
+
                 </Grid>
             </StackLayout>
 
-    > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code behind
+    > Note: It is not possible to name native views, so we use a ContentView as a way to get a reference to the native views in our code-behind file.
 
-3. To use the native views in the code behind, we need to use compilation directives as the native views will only be used on the platform they are available. In this case, the InkCanvas and InkToolbar are only available on UWP, so we need to use the **WINDOWS_UWP** directive to wrap our code. In the constructor of our page, after the call to *InitializeComponent*, we need to bind the InkToolbar to the InkCanvas and set the input device type of the InkCanvas to all input types:
+3. To use the native views in the code behind, we need to use compilation directives, as the native views will only be used on the platform in which they are available. In this case, the InkCanvas and InkToolbar are only available on UWP, so we need to use the **WINDOWS_UWP** directive to wrap our code.
+
+    In the constructor of our page, after the call to **InitializeComponent**, we need to bind the InkToolbar to the InkCanvas, and then set the input device type of the InkCanvas to all input types:
 
         #if WINDOWS_UWP
             var inkingWrapper = (Xamarin.Forms.Platform.UWP.NativeViewWrapper)InkingContent.Content;
@@ -172,16 +187,15 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
             inkToolbar.TargetInkCanvas = inkCanvas;
         #endif
 
-4. If you run into a null reference exception, check to see if the following line is added above your page class definition: 
+4. If you run into a null reference exception, check to see if the following line is added above your page class definition:
 
         [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    Xamarin adds this line to any new page created to [improve the performance](https://developer.xamarin.com/guides/xamarin-forms/xaml/xamlc/) of Xaml pages. However, this optimization will not work when using native views and needs to be removed.
-    
+Xamarin adds this line to any new page created to [improve the performance](https://developer.xamarin.com/guides/xamarin-forms/xaml/xamlc/) of XAML pages. However, this optimization will not work when using native views and needs to be deleted.
 
-That's it. Run the app and draw the perfect masterpiece. You should now be able to run the app, select a nose, capture an image, position the nose where you want, and on UWP, draw using the pen, mouse or touch.
+And you're done! Run the app and draw the perfect masterpiece. You should now be able to start the app, select a nose, capture an image, position the nose where you want, and on UWP, draw using the pen, mouse or touch.
 
-Congratulations, you are now done with the first deliverable. You should now be able to take control and start adding more features on your own. Take a look at the other deliverables and tasks for ideas and small hints on implementing other features that would be useful for our users.
+Congratulations, you are now done with the first deliverable. You should now be able to take control and start adding more features on your own. Take a look at the other deliverables and tasks for ideas and small hints about how to implement other features that would be useful for our users.
 
 ## References
 

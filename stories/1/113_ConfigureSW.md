@@ -12,21 +12,17 @@ The first thing you will need to do is pull the "manifest.json" file and the "im
 
 1. Add the manifest.json and the "images" folder to the root path of your site (wwwroot).  Remember, if you change the path of your "images" folder, you need to update the json in your manifest file to reflect your changes. The easiest way to add new content to a project is to drag and drop the contents from the file explorer into the solutions explorer of your project.
 
-![add image of manifest and paths ]
+    <!-- ![add image of manifest and paths ] -->
 
 2. Reference the manifest in your page with a link tag:
 
-	````
-	<link rel="manifest" href="manifest.json"></link>
-	````
-This can be done by opening the `Views\Shippings\Index.cshtml` page in your site, and adding the following to the top of the document:
+	    <link rel="manifest" href="manifest.json"></link>
 
-```
-@section HeadExtension{ 
-<link rel="manifest" href="manifest.json" />
-}
+    This can be done by opening the `Views\Shippings\Index.cshtml` page in your site, and adding the following to the top of the document:
 
-```
+        @section HeadExtension{ 
+        <link rel="manifest" href="manifest.json" />
+        }
 
 ### Add Service Worker code to your site
 
@@ -34,48 +30,35 @@ Your Service Worker needs to be added to your site to begin working.
 
 1. Copy the "pwabuilder-sw.js" file from the zip you downloaded on the Service Worker page of the PWA Builder website and add it to your js folder in wwwroot  (not in a folder) like so:
 
-![show sw location](images/swlocal.png)
+    ![show sw location](images/swlocal.png)
 
-<!--
-
-2.  You will then want to add a short "time to live" for your manifest file so it can be updated often.  To do this you will need to add the following block of code to
-
-!!!!!!!!!!!!!!!!!!!!!!!how do you send a short expiration on this file"!!!!!!!!!!!!!!!!?????????????
-
--->
 
 2. Open up the landing page of your app (index.cshtml) and create a new script tag in the head from within the same HeadExtension section like so:
 
-```
-@section HeadExtension{ 
-<link rel="manifest" href="manifest.json" />
-<script></script>
-}
+        @section HeadExtension{ 
+        <link rel="manifest" href="manifest.json" />
+        <script></script>
+        }
 
-
-```
-You will want to place this at the top of your document.
-
+    You will want to place this at the top of your document.
 
 3. Add the following registration code inside the new script tag:
 
-```
-//This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+        //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
 
-//Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-if (navigator.serviceWorker.controller) {
-  console.log('[PWA Builder] active service worker found, no need to register')
-} else {
+        //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+        if (navigator.serviceWorker.controller) {
+          console.log('[PWA Builder] active service worker found, no need to register')
+        } else {
 
-//Register the ServiceWorker
-  navigator.serviceWorker.register('pwabuilder-sw.js', {
-    scope: './'
-  }).then(function(reg) {
-    console.log('Service worker has been registered for scope:'+ reg.scope);
-  });
-}
+        //Register the ServiceWorker
+          navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+          }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+          });
+        }
 
-```
 <!-- 
 ### Prime your Service Worker for offline
 
@@ -100,9 +83,9 @@ Now that you have these powerful new features running locally, you can publish t
 
 2. Choose "Microsoft Azure App Service" from the selection screen.
 
-**NOTE** if your Visual Studio project is still debugging your Azure server or your local server, you may need to halt the server before re-publishing.
+    > **NOTE** if your Visual Studio project is still debugging your Azure server or your local server, you may need to halt the server before re-publishing.
 
-![publish screen from vs](images/publish1.PNG)
+    ![publish screen from vs](images/publish1.PNG)
 
 3.  Choose "deploy"
 
