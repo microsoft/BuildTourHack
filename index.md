@@ -45,7 +45,7 @@ The source code for our applications is all open source and can be found on [our
         * [3.1.2 [Committed] - Integrate native camera to capture image for each platform (d. 3.1.1)][312]
         * [3.1.3 [Committed] - Add InkCanvas support for UWP (d. 3.1.2)][313]
     * **Deliverable** - Create a fun social experience
-        * [3.2.1 [Proposed] - Support sharing images to Social Networks (d. 3.1.2)][321]
+        <!-- * [3.2.1 [Proposed] - Support sharing images to Social Networks (d. 3.1.2)][321] -->
         * [3.2.2 [Proposed] - Support cross device scenarios (Project Rome) (d. 3.1.2)][322]
     * **Deliverable** - Add automatic image analysis
         * [3.3.1 [Proposed] - Set up Cognitive Services for image face analysis in Azure (d. 312)][331]
