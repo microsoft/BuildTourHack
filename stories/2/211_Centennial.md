@@ -51,8 +51,7 @@ To create a Desktop Bridge package, first add a C# Windows Universal Blank App p
 
 5. In the **New Universal Windows Project** window, verify that **Minimum Version** is set to **Windows 10 Anniversary Update (10.0; Build 14393)** or higher.
 
-    Note: Desktop Bridge apps require Windows 10 SDK 14393 or higher. If you only have the Windows 10 SDK 15063 installed on    your PC, use **Windows 10 Creators Update (10.0; Build 15063)** for the **Minimum Version**. You don't need to install the Windows 10 SDK 14393 to complete these tasks.
-
+    > Note: Desktop Bridge apps require Windows 10 SDK 14393 or higher. If you only have the Windows 10 SDK 15063 installed on    your PC, use **Windows 10 Creators Update (10.0; Build 15063)** for the **Minimum Version**. You don't need to install the Windows 10 SDK 14393 to complete these tasks.
 
     ![Minimum SDK version](images/211-sdk-version.png)
 
