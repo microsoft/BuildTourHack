@@ -28,4 +28,20 @@ Our research has found a starting point for the inking idea [here](https://docs.
 ###### @ 10:43am
 We also found sample code for Inking [here](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk)
 
+###### @ 10:49am
+
+You might need to add the following to the Dependencies tag of Package.appxmanifest in Microsoft.Knowzy.UWP in order to be able to use Win2D with Visual Studio 2017
+
+```xml
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00" MinVersion="14.0.22929.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+```
+
+###### @ 10:58am
+
+Hint: save the image file you receive from the Sharing Protocol to ApplicationData.Current.TemporaryFolder before trying to open it with Win2D.
+
+
 ## continue to [next task >> ](232_Windows_Hello.md)
