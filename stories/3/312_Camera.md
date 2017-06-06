@@ -17,7 +17,9 @@ This task has a dependency on [Task 3.1.1](311_XamarinForms.md) and all of it's 
 1. Right-click the Shared project, and then select **Add -> New Item**.
 
 2. Under **Visual C# -> Cross-Platform** select **Forms Blank Content Page Xaml**, give it a name (we use CameraPage in this guide), and then click the **Add** button.
-
+   
+   > Note: The new page might also be found under **Visual C# -> Xamarin.Forms -> Content Page**
+   
    This will create a new page which you can navigate to once a product has been selected on the Main page.
 
    There are [multiple ways to navigate between pages](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/navigation/). In this example, we'll use a **NavigationPage** to act as a host for our pages and provide hierarchical navigation.
