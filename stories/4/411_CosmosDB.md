@@ -67,7 +67,7 @@ This command will take some time to complete. You'll know it succeeded when the 
 ### c. Import data into collections
 For this step we'll need to use the [CosmosDB Data Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=46436) that you should have already downloaded and extracted.
 
-We're going to perform the following steps for the 3 collections we need to add to Azure; [Customers](Reference/customers.json), [Products](Reference/products.json) and [Orders](Reference/orders.json). For convenience sake you can download a zip file containing all three: [Here](Reference/HackSchemas.zip).
+We're going to perform the following steps for the 3 collections we need to add to Azure; Customers, Products and Orders. For convenience sake you can download a zip file containing all three: [Here](Reference/HackSchemas.zip).
 
 i) Load up the UI version of the data migration tool by running 'dtui.exe'
 
