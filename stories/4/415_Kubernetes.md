@@ -3,7 +3,7 @@
 ## 1. Prerequisites
 
 * Access to Azure subscription.
-* Azure Cloud Shell should be [Configured for persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md).
+<!--* Azure Cloud Shell should be [Configured for persistent shell storage](https://github.com/jluk/ACC-Documentation/blob/master/persisting-shell-storage.md). -->
 * Azure Cloud shell should be pointed toward the correct subscription, more details in [Step 4.1.1](./411_CosmosDB.md)
 * You'll also need the name of the resource group created in [Step 4.1.1](./411_CosmosDB.md)
 

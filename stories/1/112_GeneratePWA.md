@@ -13,7 +13,7 @@ The first step is to build the Manifest for your application using the **pwabuil
 
 ### Provide a URL 
 
-1. Open a browser and navigate to [https://preview.pwabuilder.com](https://preview.pwabuilder.com).
+1. Open a browser and navigate to [http://preview.pwabuilder.com](http://preview.pwabuilder.com).
 2. Click on the **Get Started** button. 
 3. In the URL textbox, enter the https version of your URL of your site and click on **Get Started** again. 
 
