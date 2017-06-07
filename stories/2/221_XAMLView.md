@@ -21,6 +21,8 @@ We will also add support for using Windows 10 UWP Protocols to communicate betwe
 
     ![Debug | x86](images/212-debug-x86.png)
 
+* Set the **Windows.Knowzy.Debug** project as the startup project.
+
 ## Task 
 
 Our Desktop Bridge version of the Knowzy app actually consists of two different executables. The original WPF version (Microsoft.Knowzy.WPF.exe) and the UWP version (Microsoft.Knowzy.UWP.exe). 
