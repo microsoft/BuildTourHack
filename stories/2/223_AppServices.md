@@ -90,6 +90,8 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 ![Debug | x86](images/212-debug-x86.png)
 
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
+
 ## Task 
 
 #### Create the App Service Project ####
