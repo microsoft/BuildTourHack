@@ -29,7 +29,7 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 We will use the Desktop Bridge Knowzy application which was created in the previous tasks as a starting point.
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
->Note: If you are starting with this from the **2.1.4** branch, you will need to do the following:
+>Note: If you are starting with this from the **2.1.3** solution, you will need to do the following:
 
 * Set the Build configuration to **Debug | x86**
 
