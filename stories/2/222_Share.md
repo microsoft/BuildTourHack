@@ -136,7 +136,7 @@ this folder is available [here](https://docs.microsoft.com/en-us/uwp/api/windows
 
 1. Now that the image has been copied to the ApplicationData.Current.LocalFolder, the Knowzy WPF app needs to be able to detect that an image has been shared. 
 We will use a FileSystemWatcher to detect when an image has been to the ApplicationData.Current.LocalFolder. We will make this a feature that is only supported
-when the app is running as a Desktop Bridge app. Add the following code to ViewModels\MainView.xaml.cs in the Microsoft.Knowzy.WPF project:
+when the app is running as a Desktop Bridge app. Add the following code to Views\MainView.xaml.cs in the Microsoft.Knowzy.WPF project:
 
         using System;
         using System.Diagnostics;
