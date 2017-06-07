@@ -18,6 +18,17 @@ This task will guide you through the process of adding Windows 10 UWP APIs to yo
 
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
+>Note: If you are starting with this from the **2.1.2** solution, you will need to do the following:
+
+* Set the Build configuration to **Debug | x86**
+
+    ![Debug | x86](images/212-debug-x86.png)
+
+* Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
+
+    ![Just My Code](images/212-just-my-code.png)
+
+Verify these settings before you continue with this task.
 
 ## Task
 
