@@ -507,9 +507,16 @@ to the WPF app through the AppService when the use clicks on the Connect button.
                 bool result = message.ContainsKey("Status") && message["Status"].ToString() == "OK";
                 if (result)
                 {
-                    var text = message["Data"] as String;
-                    textBox.Text = text;
+                    textBox.Text = message["Data"] as String;
                 }
+                else if (message.ContainsKey("ErrorMessage"))
+                {
+                    textBox.Text = message["ErrorMessage"] as String;
+                }
+            }
+            else
+            {
+                textBox.Text = "App Service connection error: " + response.Status;
             }
         }
 
