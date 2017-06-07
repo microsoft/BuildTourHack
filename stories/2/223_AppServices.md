@@ -544,4 +544,6 @@ You have now successfully developed a solution for communicating between the UWP
 
 * [Adding UWP features to your existing PC software](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
 
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.2.3)
+
 ## continue to [next task >> ](231_Inking_Dial.md)
