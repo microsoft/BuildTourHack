@@ -242,5 +242,6 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [WPF picture viewer as a share target](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/WPFasShareTarget)
 
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.2.2)
 
 ## continue to [next task >> ](223_AppServices.md)
