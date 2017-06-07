@@ -20,6 +20,16 @@ This task will guide you through the process of debugging a Windows Desktop Brid
 
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
+This task covers the following steps: 
+1. Install the Desktop Bridge Debugging Project Extension
+
+1. Add a Desktop Bridge Debugging project and add project dependencies to the existing WPF and UWP projects
+
+1. Configure the Debugging Project to enable F5 builds and deployment of the Knowzy app
+
+1. Enable breakpoints in projects
+
+
 ## Step 1: Install the Desktop Bridge Debugging Project Extension
 
 If you do not have the Desktop Bridge Debugging Project extension installed into Visual Studio 2017, please complete the following steps:
