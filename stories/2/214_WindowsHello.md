@@ -39,6 +39,8 @@ To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy
 
     ![Just My Code](images/212-just-my-code.png)
 
+* Set the **Windows.Knowzy.Debug** project as the startup project.
+
 Verify these settings before you continue with this task.
 
 #### Step 1: Add a New UWP Helper Class for Windows Hello
@@ -184,7 +186,7 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
             }
         }
 
-* Build and run the solution (with Windows.Knowzy.Debug as the startup application)
+* Build and run the solution (with Windows.Knowzy.Debug as the startup project)
 
 * Click on the Login Menu item. 
 
