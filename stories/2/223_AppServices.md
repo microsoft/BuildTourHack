@@ -178,7 +178,6 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 * Add the following using directives to AppService.cs
 
-        using System.Threading.Tasks;
         using Windows.ApplicationModel.AppService;
         using Windows.Foundation.Collections;
 
