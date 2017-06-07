@@ -183,6 +183,6 @@ We will now fix the products.json issue in the [next task](213_AddUwp.md).
 
 * [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
 
-
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.1.2)
 
 ## continue to [next task >> ](213_AddUwp.md)
