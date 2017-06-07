@@ -24,6 +24,7 @@ This task has a dependency on [Task 2.2.1](221_XAMLView.md) and all of it's prer
 
 ![Debug | x86](images/212-debug-x86.png)
 
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
 
 ## Task 
 
