@@ -114,7 +114,7 @@ to include an AfterBuild target that will copy all the Win32 output files to the
 
 This rather complicated bit of XML completes several important tasks:
 
-* The TargetUWP line pecifies where to copy the Win32 binaries. In this example, the binaries will be copied to the **desktop** folder in the **Microsoft.Knowzy.UWP** project folder.
+* The TargetUWP line specifies where to copy the Win32 binaries. In this example, the binaries will be copied to the **desktop** folder in the **Microsoft.Knowzy.UWP** project folder.
 
 * The ExcludeFilters line specifies that any .winmd files in the **Microsoft.Knowzy.WPF** output folder will not be copied to the output directory.
 
