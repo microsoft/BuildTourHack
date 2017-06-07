@@ -33,12 +33,12 @@ You also need to specify that you are a share target that supports Bitmap images
  
 
         <uap:Extension Category="windows.shareTarget" Executable="Microsoft.Knowzy.UWP.exe" EntryPoint="Microsoft.Knowzy.UWP.App">
-        <uap:ShareTarget>
+          <uap:ShareTarget>
             <uap:SupportedFileTypes>
-            <uap:SupportsAnyFileType />
+              <uap:SupportsAnyFileType />
             </uap:SupportedFileTypes>
             <uap:DataFormat>Bitmap</uap:DataFormat>
-        </uap:ShareTarget>
+          </uap:ShareTarget>
         </uap:Extension>
     
 1. You will need to add an OnShareTargetActivated event handler to App.xaml.cs in the Microsoft.Knowzy.UWP project. This handler will be called when a user attempts to share an image to the Knowzy app.
