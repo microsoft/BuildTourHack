@@ -366,6 +366,6 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
 
-
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.1.3)
 
 ## continue to [next task >> ](214_WindowsHello.md)
