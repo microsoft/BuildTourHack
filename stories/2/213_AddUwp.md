@@ -28,7 +28,7 @@ To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy
 
     ![Just My Code](images/212-just-my-code.png)
 
-* Set the **Windows.Knowzy.Debug** project as the startup project.
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
 
 Verify these settings before you continue with this task.
 
