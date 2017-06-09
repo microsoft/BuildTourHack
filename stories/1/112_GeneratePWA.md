@@ -46,7 +46,7 @@ The builder site also checks whether the manifest has defined the expected icon 
 
     ![Images Preview](images/quickstart-pwa-website-images-preview.png) 
 
-5. Click "download manifest" to get a copy of this manifest to add to your web site.
+5. Click "download manifest" to get a copy of this manifest to add to your web site (how this is done will be explained in the next step).
 
 
 ## Choose a Service Worker
