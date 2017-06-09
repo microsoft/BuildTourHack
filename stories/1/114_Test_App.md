@@ -22,7 +22,7 @@ First, make sure that your PWA works well in the browser.  One of the main princ
 
 Next you will want to test in the local PWA environment.  To do this, we  will use more tools from PWABuilder.com.
 
-1. In the browser, open [www.pwabuilder.com/generator](https://www.pwabuilder.com/generator).
+1. In the browser, open [preview.pwabuilder.com/generator](http://preview.pwabuilder.com/generator).
 
 2. Enter your site URL and click "Get Started".  If you have your manifest properly linked to your page, you should see the data from your manifest (including images) show up in the builder.
 
