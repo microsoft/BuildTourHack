@@ -327,6 +327,10 @@ This code uses the Package class in Windows.ApplicationModel.Package to determin
             return _jsonHelper.Deserialize<Product[]>(_fileHelper.ReadTextFile(jsonFilePath));
         }
 
+#### Step 4: Add a Reference to Microsoft.Knowzy.UwpHelpers
+
+Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...** and select the Microsoft.Knowzy.UwpHelpers project. Click **OK**.
+
 Press F5 to run the Microsoft.Knowzy.Debug project. Finally our Knowzy UWP app can load the Products.json file from the correct location and display the information correctly.
 
 ![Knowzy UWP](images/213-knowzy-uwp.png)
