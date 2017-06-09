@@ -157,4 +157,4 @@ Now that we have the business logic out of the way, let's move on to the UI. Xam
 ## continue to [next task >> ](312_Camera.md)
 
  
-+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/3/3.1.1) 
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/3/3.1.1) 
