@@ -11,6 +11,7 @@ If you are blocked, a representative from the leadership team is always there to
 
 The source code for our applications is all open source and can be found on [our github account](https://github.com/Knowzy/KnowzyInternalApps).
 
+0. **[Machine Setup Instructions][0]**
 
 1. **User Story** - The shipping department has a fast, responsive, and powerful application for managing day to day duties
     * **Deliverable** - Make app more responsive
@@ -72,6 +73,8 @@ The source code for our applications is all open source and can be found on [our
         * [4.3.1 - [Proposed] Set up telemetry for the web app and APIs][431]
 
 Good luck!
+
+[0]: stories/0/0_Setup.md
 
 [111]: stories/1/111_BuildWebApp.md
 [112]: stories/1/112_GeneratePWA.md
