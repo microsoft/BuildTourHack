@@ -131,6 +131,7 @@ In addition to using the built in Xamarin.Forms controls, developers have full a
                     ContentType=WindowsRuntime;targetPlatform=Windows"
                 >
 
+
 2. We can now add two UWP XAML controls directly to the page.
 
     * Add the InkCanvas below the camera image but above the nose image.
@@ -202,3 +203,5 @@ Congratulations, you are now done with the first deliverable. You should now be 
 * [Xamarin Native Views](https://developer.xamarin.com/guides/xamarin-forms/user-interface/native-views/)
 
 ## continue to [next task >> ](321_Social.md)
+
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/3/3.1.3) 
