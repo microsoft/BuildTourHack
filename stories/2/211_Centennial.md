@@ -304,6 +304,7 @@ Make sure that the **Build** and **Deploy** check boxes are selected for the  Mi
 
 ![Deploy](images/211-deploy.png)
 
+If you try to deploy at this point, you will see an error that says `Applications with custom entry point executables are not supported. Check Executable attribute of the Application element in the package manifest`:
 
         1>------ Build started: Project: Microsoft.Knowzy.UWP, Configuration: Debug x86 ------
         1>  Microsoft.Knowzy.UWP -> C:\Users\stammen\github\BuildTourHack\src\Microsoft.Knowzy.UWP\bin\x86\Debug\Microsoft.Knowzy.UWP.exe
@@ -332,11 +333,9 @@ Until the bug is fixed, we will need to use the **Release** configuration for ou
 
 Your Win32 WPF app has now been packaged as a UWP app using Visual Studio.
 
-In the Windows Start menu, search for **Microsoft.Knowzy.UWP**. 
+In the Windows Start menu, search for **Microsoft.Knowzy.UWP**. If you click the UWP app in the Start menu, **you'll notice that it does not run**. Actually, it did run but it exited immediately due to an error.
 
 ![Start menu](images/211-startmenu.png)
-
-If you click the UWP app in the Start menu, you'll notice that it does not run. Actually, it did run but it exited immediately due to an error.
 
 The error is the app cannot load the project.json file it needs to generate the Products list. The app then
 throws an exception and exits.
