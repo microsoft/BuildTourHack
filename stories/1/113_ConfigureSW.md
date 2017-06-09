@@ -45,19 +45,20 @@ Your Service Worker needs to be added to your site to begin working.
 3. Add the following registration code inside the new script tag:
 
         //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+        if(navigator.serviceWorker) {
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
 
-        //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-        if (navigator.serviceWorker.controller) {
-          console.log('[PWA Builder] active service worker found, no need to register')
-        } else {
-
-        //Register the ServiceWorker
-          navigator.serviceWorker.register('pwabuilder-sw.js', {
-            scope: './'
-          }).then(function(reg) {
-            console.log('Service worker has been registered for scope:'+ reg.scope);
-          });
-        }
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuilder-sw.js', {
+              scope: './'
+            }).then(function(reg) {
+              console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+          }
+	}
 
 <!-- 
 ### Prime your Service Worker for offline
