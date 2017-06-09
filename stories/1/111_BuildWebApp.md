@@ -81,6 +81,7 @@ Now that you have these powerful new features running locally, you can publish t
     ![publish screen from vs](images/publish1.PNG)
 
 3.  Choose a name for your new site and other configurations.  This can be published as a free site.
+    Note: You must use a unique name. We recommend that you use the default name that is populated in the Web App Name field.
 
     ![publish screen from vs](images/publish2.PNG)
 
