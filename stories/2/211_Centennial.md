@@ -24,10 +24,15 @@ Future updates to Visual Studio 2017 will most likely add Desktop Bridge project
 ## Task: Add Desktop Bridge support in Visual Studio
 
 This task covers the following steps: 
+
 1. Open the existing Knowzy Win32 solution with Visual Studio 2017
+
 2. Add a UWP project and add a project dependency to the existing WPF project
+
 3. Add the Microsoft.Knowzy.WPF binaries to the UWP project
+
 4. Edit the Microsoft.Knowzy.UWP package manifest to enable the Desktop Bridge extensions
+
 5. Deploy and run your converted Win32 App
 
 #### Step 1: Open the existing Knowzy Win32 solution with Visual Studio 2017
