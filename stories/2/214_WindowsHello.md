@@ -155,11 +155,7 @@ if they are logged in. We need to add a UWP Helper class for Toasts.
             }
         }
 
-#### Step 3: Add a Reference to Microsoft.Knowzy.UwpHelpers
-
-* Right-click on the Microsoft.Knowzy.WPF project and select **Add | Reference...** and select the Microsoft.Knowzy.UwpHelpers project. Click **OK**.
-
-#### Step 4: Add Login Code to the WPF App
+#### Step 3: Add Login Code to the WPF App
 
 When the Login menu item in clicked in the UI of the Knowzy app, a message to open the Login dialog is sent to the  Handle(OpenLoginMessage message) method in
 Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
