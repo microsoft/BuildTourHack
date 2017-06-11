@@ -43,5 +43,6 @@ You might need to add the following to the Dependencies tag of Package.appxmanif
 
 Hint: save the image file you receive from the Sharing Protocol to ApplicationData.Current.TemporaryFolder before trying to open it with Win2D.
 
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.3.1)
 
 ## continue to [next task >> ](232_Windows_Hello.md)

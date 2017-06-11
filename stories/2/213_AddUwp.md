@@ -18,14 +18,25 @@ This task will guide you through the process of adding Windows 10 UWP APIs to yo
 
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
+>Note: If you are starting with this from the **2.1.2** solution, you will need to do the following:
+
+* Set the Build configuration to **Debug | x86**
+
+    ![Debug | x86](images/212-debug-x86.png)
+
+* Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
+
+    ![Just My Code](images/212-just-my-code.png)
+
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
+
+Verify these settings before you continue with this task.
 
 ## Task
 
 In this task we will do the following:
 
 * Configure our Desktop Bridge projects to be able to use Windows 10 UWP APIs.
-
-* Add NuGet packages to our project that will make it easier to use the Windows 10 UWP APIs
 
 * Fix the issue from the previous tasks where the Desktop Bridge app was not able to load the Product.json file when running as a UWP app.
 
@@ -116,21 +127,39 @@ Since all of the other dependencies in the Knowzy WPF solution are Windows Class
 
     ![Create C# Class Library](images/213-create-lib.png)
 
+* Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Add** and then **Reference...**
+
+    ![Add Reference](images/213-add-reference.png)
 
 
-There exists a convenient NuGet package called [UwpDesktop](https://www.nuget.org/packages/UwpDesktop) that makes it easy for you call into UWP APIs 
-from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet package to our Microsoft.Knowzy.UwpHelpers project.
+* On the left of the Reference Manager, choose **Browse** and click the **Browse** button.
 
-* Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Manage NuGet Packages...**
+    ![Browse Reference](images/213-browse-reference.png)
 
-    ![Manage NuGet Packages](images/213-manage-nuget-packages.png)
 
-* Click on **Browse**, enter UwpDesktop in the search field and then click on  **Install**
+* Find the following file: **"C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd"**.  Add it to your project as a reference. Note: You will need to change the filter to “All Files” to see this file.
 
-    ![Install UwpDesktop](images/213-uwpdesktop.png)
 
-    > **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project. If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
+    ![Windows.winmd](images/213-winmd.png)
 
+
+* Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Add** and then **Reference...**
+
+* On the left of the Reference Manager, go to Browse and find the following file **“C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.dll”**. Add a reference to this file.
+
+    ![Windows.winmd](images/213-runtime.png)
+
+* You should now having the following references. Click **OK**.
+
+    ![References](images/213-references-complete.png)
+
+* Rebuild the solution
+
+
+Note: If you have the 14393 SDK installed in Visual Studio, instead of manually adding the above references to your porject, you can use a convenient NuGet package called [UwpDesktop](https://www.nuget.org/packages/UwpDesktop) that makes it easy for you call into UWP APIs 
+from Desktop and Centennial apps (WPF, WinForms, etc.) 
+
+#### Step 2: Adding a UWP Helper Class
 
 * Add a new C# class to the Microsoft.Knowzy.UwpHelpers . Name the file ExecutionMode.cs.
 
@@ -235,7 +264,7 @@ Now every time you make a code change to Microsoft.Knowzy.JsonDataProvider or Mi
 
 Press F5 again and now you should be able to hit the breakpoint in JsonDataProvider.cs.
 
-#### Step 2: Adding UWP support to detect the AppX Installation Folder
+#### Step 3: Adding UWP support to detect the AppX Installation Folder
 
 We are now going to start adding Windows 10 UWP APIs to our app in order to find the AppX folder's install location and in later tasks to add new Windows 10 features to our app. 
 
@@ -315,6 +344,8 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 
 ## References
+* [Calling Windows 10 APIs From a Desktop Application](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/#USXJmIhfukL14wpE.97)
+
 * [Package Class](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.package)
 
 * [Desktop Bridge – Identify the application's context](https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/)
@@ -335,6 +366,6 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [Developers Guide to the Desktop Bridge](https://mva.microsoft.com/en-us/training-courses/developers-guide-to-the-desktop-bridge-17373)
 
-
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.1.3)
 
 ## continue to [next task >> ](214_WindowsHello.md)

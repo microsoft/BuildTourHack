@@ -5,9 +5,7 @@ This task has a dependency on [Task 1.2.1](121_Add_WIndows_Feature.md) and all o
 
 ## Task 
 
-1. Navigate to [Reno.js library documentation](https://github.com/JimGaleForce/Reno/tree/dev).
-
-2. Add this js file to site.
+1. Navigate to [Reno.js library documentation](https://github.com/JimGaleForce/Reno/tree/dev) and follow the instructions in the README
 
 3. Configure the features if necessary. 
 

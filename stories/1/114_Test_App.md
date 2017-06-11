@@ -10,7 +10,7 @@ This task has a dependency on [Task 1.1.3](113_ConfigureSW.md) and all of it's p
 
 First, make sure that your PWA works well in the browser.  One of the main principles of PWAs is that the app must be "Progressive", meaning that the app should work in any environment. Once the app is confirmed to load as a basic web site, then begin taking advantage of advanced features (such as service workers and app manifest) when they are available.  In normal circumstances, you would want to test your app in the array of browsers used by your user. To get you started, we have the newest version of Edge (with service worker support) available to you for free on BrowserStack.  
 
-1. As of today, testing Service Workers can only be tested in public builds of the latest versions of chrome and FireFox. Totest Service Worker code, open Windows > 10 > Chrome > 58.
+1. As of today, testing Service Workers can only be tested in public builds of the latest versions of Chrome and Firefox. To test Service Worker code, open the latest version of Chrome on your computer.
 
 2. To test the service worker, simply visit a number of pages with the service worker attached to your app. Each page you visit will be added to the cache (don't worry the service worker will always keep itself up to date).  You can then go offline and see each of those pages still work fine without a connection.  If you are using BrowserStack and can't go offline, simply open up the F12 tooling in the browser and you can validate that the service worker is caching it's content via the console logs.
 
@@ -22,7 +22,7 @@ First, make sure that your PWA works well in the browser.  One of the main princ
 
 Next you will want to test in the local PWA environment.  To do this, we  will use more tools from PWABuilder.com.
 
-1. In the browser, open [www.pwabuilder.com/generator](https://www.pwabuilder.com/generator).
+1. In the browser, open [preview.pwabuilder.com/generator](http://preview.pwabuilder.com/generator).
 
 2. Enter your site URL and click "Get Started".  If you have your manifest properly linked to your page, you should see the data from your manifest (including images) show up in the builder.
 

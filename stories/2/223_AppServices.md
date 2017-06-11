@@ -90,6 +90,8 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 ![Debug | x86](images/212-debug-x86.png)
 
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
+
 ## Task 
 
 #### Create the App Service Project ####
@@ -176,7 +178,6 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 * Add the following using directives to AppService.cs
 
-        using System.Threading.Tasks;
         using Windows.ApplicationModel.AppService;
         using Windows.Foundation.Collections;
 
@@ -506,9 +507,16 @@ to the WPF app through the AppService when the use clicks on the Connect button.
                 bool result = message.ContainsKey("Status") && message["Status"].ToString() == "OK";
                 if (result)
                 {
-                    var text = message["Data"] as String;
-                    textBox.Text = text;
+                    textBox.Text = message["Data"] as String;
                 }
+                else if (message.ContainsKey("ErrorMessage"))
+                {
+                    textBox.Text = message["ErrorMessage"] as String;
+                }
+            }
+            else
+            {
+                textBox.Text = "App Service connection error: " + response.Status;
             }
         }
 
@@ -542,5 +550,7 @@ You have now successfully developed a solution for communicating between the UWP
 * [App services sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/AppServices)
 
 * [Adding UWP features to your existing PC software](https://blogs.windows.com/buildingapps/2017/02/01/adding-uwp-features-existing-pc-software/#vEJwTPxsf80CZvOh.97)
+
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.2.3)
 
 ## continue to [next task >> ](231_Inking_Dial.md)

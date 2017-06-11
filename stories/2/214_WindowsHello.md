@@ -29,7 +29,7 @@ Windows Hello is shipping as part of the Windows 10 operating system and develop
 We will use the Desktop Bridge Knowzy application which was created in the previous tasks as a starting point.
 To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy_Engineering_Win32App** folder with Visual Studio 2017.
 
->Note: If you are starting with this from the **2.1.4** branch, you will need to do the following:
+>Note: If you are starting with this from the **2.1.3** solution, you will need to do the following:
 
 * Set the Build configuration to **Debug | x86**
 
@@ -38,6 +38,8 @@ To get started, please open the **Microsoft.Knowzy.WPF.sln** in the **src\Knowzy
 * Select **Options** from the **Debug** menu, From the **Debugging | General** Tab,  disable the **Enable Just My Code** option.
 
     ![Just My Code](images/212-just-my-code.png)
+
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
 
 Verify these settings before you continue with this task.
 
@@ -184,7 +186,7 @@ Microsoft.Knowzy.WPF\ViewModels\ShellViewModel.cs.
             }
         }
 
-* Build and run the solution (with Windows.Knowzy.Debug as the startup application)
+* Build and run the solution (with Windows.Knowzy.Debug as the startup project)
 
 * Click on the Login Menu item. 
 
@@ -211,6 +213,6 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [Adaptive and interactive toast notifications](https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts)
 
-
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.1.4)
 
 ## continue to [next task >> ](221_XAMLView.md)

@@ -262,3 +262,5 @@ And you're done! Run the app and try it out. You should be able to navigate to t
 [Go to the next Task](313_InkCanvas.md) where you'll extend this page to overlay the noses on top of the image and add Inking capabilities on Windows.
 
 ## continue to [next task >> ](313_InkCanvas.md)
+
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/3/3.1.2) 

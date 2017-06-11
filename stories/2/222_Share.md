@@ -24,6 +24,7 @@ This task has a dependency on [Task 2.2.1](221_XAMLView.md) and all of it's prer
 
 ![Debug | x86](images/212-debug-x86.png)
 
+* Set the **Microsoft.Knowzy.Debug** project as the startup project.
 
 ## Task 
 
@@ -32,12 +33,12 @@ You also need to specify that you are a share target that supports Bitmap images
  
 
         <uap:Extension Category="windows.shareTarget" Executable="Microsoft.Knowzy.UWP.exe" EntryPoint="Microsoft.Knowzy.UWP.App">
-        <uap:ShareTarget>
+          <uap:ShareTarget>
             <uap:SupportedFileTypes>
-            <uap:SupportsAnyFileType />
+              <uap:SupportsAnyFileType />
             </uap:SupportedFileTypes>
             <uap:DataFormat>Bitmap</uap:DataFormat>
-        </uap:ShareTarget>
+          </uap:ShareTarget>
         </uap:Extension>
     
 1. You will need to add an OnShareTargetActivated event handler to App.xaml.cs in the Microsoft.Knowzy.UWP project. This handler will be called when a user attempts to share an image to the Knowzy app.
@@ -135,7 +136,7 @@ this folder is available [here](https://docs.microsoft.com/en-us/uwp/api/windows
 
 1. Now that the image has been copied to the ApplicationData.Current.LocalFolder, the Knowzy WPF app needs to be able to detect that an image has been shared. 
 We will use a FileSystemWatcher to detect when an image has been to the ApplicationData.Current.LocalFolder. We will make this a feature that is only supported
-when the app is running as a Desktop Bridge app. Add the following code to MainView.xaml.cs in the Microsoft.Knowzy.WPF project:
+when the app is running as a Desktop Bridge app. Add the following code to Views\MainView.xaml.cs in the Microsoft.Knowzy.WPF project:
 
         using System;
         using System.Diagnostics;
@@ -241,5 +242,6 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [WPF picture viewer as a share target](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/WPFasShareTarget)
 
+## The solution for this task is located [here](https://github.com/Knowzy/KnowzyAppsFinal/tree/master/stories/2/2.2.2)
 
 ## continue to [next task >> ](223_AppServices.md)
