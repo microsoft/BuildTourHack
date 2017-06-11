@@ -1,8 +1,10 @@
-# Task 3.2.2 - Set up Cognitive Services Emotion Service to Recognize People Wearing Knowzy Products
+# Task 3.2.2 - Set up Cognitive Services Emotion Service to Determine User's Excitment
 
-Our marketing department wants to let users to capture pictures of themselves wearing Knowzy products to share with their friends. Knowzy can use this information to automatically detect what products are being worn and determine the user's excitement for each of the products. This information can be used to drive improvements to those products.
+Our marketing department also wants to verify that Knowzy Inc.'s users are super excited when wearing their Knowzy products. 
 
-**Goals for this task:** Enable your Android and UWP app to use a Cognitive Services Custom Vision service to detect Knowzy products and the user's emotion from a captured image.
+You will create a Cognitive Services Emotion API to assess the emotional state of user's images. You will subsequently integrate calls to this account into the Xamarin app.
+
+**Goals for this task:** Create a Cognitive Services Emotion API account..
 
 ## Prerequisites
 
@@ -19,8 +21,15 @@ Our marketing department wants to let users to capture pictures of themselves we
 4. Click the **See All** link
 5. In the filter bar, type **emotion** and hit Enter. Select the **Emotion API (Preview)** item
 6. Click the **Create** button
-7. Enter a name, subscription and location for your account. Select **F0** for the Pricing tier (this tier enables 20 calls / minute). Select **TODO: Determine resource group** as an existing Resource Group. Check the acknowledgment and the **Create** button to create a new account.
+7. Enter a name, subscription and location for your account. Select **F0** for the Pricing tier (this tier enables 20 calls / minute). Specify a name for a new **Resource Group**. Check the acknowledgment and the **Create** button to create a new account.
+8. Once the new Emotions API account has been created, on the **Overview** tab, select the **Endpoint** value. This value will be required to be specified when you integrate calling this service from the Xamarin application.
+9. Click **Show Access Keys...**. Copy the value of **Key 1**. This value will be required to be specified when you integrate calling this service from the Xamarin application.
 
-[Go to the next Task](322_EmotionAPI.md) where you'll create a Cognitive Services Emotion API to detect the level of excitement of a user.
+[Go to the next Task](323_IntegrateCogSvc.md) where you'll add the calls to your Xamarin app to call both the Custom Vision service and the Emotion API service.
 
-## continue to [next task >> ](322_EmotionAPI.md)
+## References
+
+* [Emotion API Service](https://azure.microsoft.com/en-us/services/cognitive-services/emotion)
+
+
+## continue to [next task >> ](323_IntegrateCogSvc.md)

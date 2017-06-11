@@ -77,7 +77,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
         public interface IPhotoService
         {
-            Task<ImageSource> TakePhotoAsync();
+            Task<byte[]> TakePhotoAsync();
         }
 
     You'll need to add few namespaces:
@@ -99,7 +99,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
         {
                 public class PhotoService : IPhotoService
                 {
-                    public async Task<ImageSource> TakePhotoAsync()
+                    public async Task<byte[]> TakePhotoAsync()
                     {
 
                     }
@@ -108,7 +108,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
 2. Implement the TakePhotoAsync method to use the native [CameraCaptureUI](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.cameracaptureui) from UWP and make it async:
 
-        public Task<ImageSource> TakePhotoAsync()
+        public Task<byte[]> TakePhotoAsync()
         {
                 CameraCaptureUI captureUI = new CameraCaptureUI();
                 captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
@@ -117,7 +117,12 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
                 if (photo == null) return null;
 
-                return ImageSource.FromFile(photo.Path);
+                using (var stream = await photo.OpenReadAsync())
+                {
+                    var buffer = new Windows.Storage.Streams.Buffer((uint)stream.Size);
+                    var data = await stream.ReadAsync(buffer, (uint)stream.Size, Windows.Storage.Streams.InputStreamOptions.None);
+                    return data.ToArray();
+                }
         }
 
     You'll also need few namespaces:
@@ -181,7 +186,7 @@ Implementing the Android version is a bit more complicated because it requires t
         {
                 public class PhotoService : IPhotoService
                 {
-                    public Task<ImageSource> TakePhotoAsync()
+                    public Task<byte[]> TakePhotoAsync()
                     {
 
                     }
@@ -201,14 +206,21 @@ You're now ready to implement the Android version of the TakePhotoAsync method.
 
     Here's the code.
 
-        public Task<ImageSource> TakePhotoAsync()
+        public Task<byte[]> TakePhotoAsync()
         {
             var mainActivity = Forms.Context as MainActivity;
-            var tcs = new TaskCompletionSource<ImageSource>();
+            var tcs = new TaskCompletionSource<byte[]>();
             EventHandler<Java.IO.File> handler = null;
             handler = (s, e) =>
             {
-                tcs.SetResult(e.Path);
+                using (var streamReader = new StreamReader(e.Path))
+                {
+                    using (var memstream = new MemoryStream())
+                    {
+                        streamReader.BaseStream.CopyTo(memstream);
+                        tcs.SetResult(memstream.ToArray());
+                    }
+                }
                 mainActivity.ImageCaptured -= handler;
             };
 
@@ -240,8 +252,8 @@ You're now ready to implement the Android version of the TakePhotoAsync method.
             var photoService = DependencyService.Get<IPhotoService>();
             if(photoService != null)
             {
-                var source = await photoService.TakePhotoAsync();
-                image.Source = source;
+                var imageBytes = await photoService.TakePhotoAsync();
+                image.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
             }
         }
 

@@ -57,9 +57,9 @@ Once the image is captured, let's add the nose image on top of it, and allow the
             var photoService = DependencyService.Get<IPhotoService>();
             if (photoService != null)
             {
-                var source = await photoService.TakePhotoAsync();
+                var imageBytes = await photoService.TakePhotoAsync();
                 noseImage.Source = ImageSource.FromUri(new Uri(_nose.Image)); // set source of nose image
-                image.Source = source;
+                image.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
                 imageGrid.IsVisible = true; // set visibility to true
             }
         }
@@ -201,4 +201,4 @@ Congratulations, you are now done with the first deliverable. You should now be 
 
 * [Xamarin Native Views](https://developer.xamarin.com/guides/xamarin-forms/user-interface/native-views/)
 
-## continue to [next task >> ](321_Social.md)
+## continue to [next task >> ](321_CustomVisionService.md)

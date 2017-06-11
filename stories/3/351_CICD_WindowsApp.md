@@ -1,4 +1,4 @@
-# Task 3.4.1 - Set up Continuous Integration and Deployment for the Windows app using Visual Studio Mobile Center
+# Task 3.5.1 - Set up Continuous Integration and Deployment for the Windows app using Visual Studio Mobile Center
 
 Now that you've made an app that works, the CTO would like to ensure higher quality by setting up Continuous Integration and Delivery.  To that end, you've been instructed to make sure that after every code check-in the app compiles, all tests are run, and new versions can be delivered to beta testers with ease.  This task will focus on the Windows version of the app with the next task covering Android.
 
@@ -28,7 +28,7 @@ It sounds like the Build config in Mobile Center let's us trigger a build with e
 My friends wanted to know whenever I built an app so I figured out how to create a distribution group [here](https://docs.microsoft.com/en-us/mobile-center/distribution/groups).
 
 [311]: /stories/3/311_XamarinForms.md
-[342]: /stories/3/342_CICD_AndroidApp.md
+[352]: /stories/3/352_CICD_AndroidApp.md
 [420]: /stories/4/420_SetupVSTS.md
 
-## continue to [next task >> ](342_CICD_AndroidApp.md)
+## continue to [next task >> ](352_CICD_AndroidApp.md)

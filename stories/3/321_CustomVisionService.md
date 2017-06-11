@@ -20,21 +20,33 @@ Our marketing department wants to let users to capture pictures of themselves we
 5. Click the **Create Project** button to create the new Custom Vision project
 6. Click the **Settings** button and copy both the **Training Key** and **Prediction Key** values - these will be required later
 
-### Train the Custom Vision Service with Knowzy Products ###
+### Upload Training Images to the Custom Vision Service with Knowzy Products ###
 
 In order for the Custom Vision Service to detect which Knowzy Inc. products appear in images submitted by the app, it must first be *trained*. Training the service requires uploading a small set of images with people wearing Knowzy Inc. products in a diverse set of lighting, zooming and other conditions. Each image is *tagged* to tell the service what *classification* the image represents. Once the service has sufficient training images, it will then be able to *classify* other images (that are not part of the training set) based on matching characteristics.
 
-Because we need between 10-20 images per tag to successfully train the service, we have provided a set of images that are ready to be ingested and tagged. We have also provided a tool which is able to ingest the training images directly from an **Azure Storage** blob account (this will save needing to upload the images over the hack event wifi). The training images are organized into separate containers for each tag.
+Because you need between 10-20 images per tag to successfully train the service, we have provided a set of images that are ready to be ingested and tagged. We have also provided a tool which is able to ingest the training images directly from an **Azure Storage** blob account (this will save needing to upload the images over the hack event wifi). The training images are organized into separate containers for each tag.
 
 1. You must first build the training tool. Open the solution at `\src\Tools\Tools.sln` in Visual Studio 2017.
 2. Build the solution
 3. Open a command prompt and navigate to the location where Visual Studio output the built `CustomVisionTrainer.exe`. This is `src\Tools\CustomVisionTrainer\bin\Debug`.
-4. Run the `CustomVisionTrainer.exe` tool to upload training images for the three different Knowzy Inc. products. The tool requires you to specify the **Training Key** of your Custom Vision Service project and the name of the project:
+4. Run the `CustomVisionTrainer.exe` tool to upload training images for the three different Knowzy Inc. products. The tool requires you to specify the **Training Key** and **Project Name** of your Custom Vision Service project and the name of the project:
 
 		CustomVisionTrainer.exe {Training Key} {Project Name} https://bthackcustomvisiontrain.blob.core.windows.net/knowzy8s Knowzy8s
 		CustomVisionTrainer.exe {Training Key} {Project Name} https://bthackcustomvisiontrain.blob.core.windows.net/knowzyvr KnowzyVR
 		CustomVisionTrainer.exe {Training Key} {Project Name} https://bthackcustomvisiontrain.blob.core.windows.net/knowzybowzy KnowzyBowzy
 
+### Train the Model
+
+1. Switch back to the **Custom Vision** portal in your web browser.
+2. On the **Training Images** tab, verify that the images you just uploaded using the tool are correctly displayed and tagged. **Note:** There may be a delay of up to 3 minutes for the images to appear.
+3. Click the **Train** button. This will display progress and the training images are processed and the model is constructed. The process should take less than 2 minutes.
+4. Click on the **Performance** tab. Verify that a new **Iteration** has been created after the training has completed. Select the latest iteration and click the **Prediction URL** button. Select the URL under the **If you have an image file** heading. This URL will need to be substituted into our code file when you integrate calling this service into our Xamarin application.
+
 [Go to the next Task](322_EmotionAPI.md) where you'll create a Cognitive Services Emotion API to detect the level of excitement of a user.
+
+## References
+
+* [Custom Vision Service](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)
+
 
 ## continue to [next task >> ](322_EmotionAPI.md)
