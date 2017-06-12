@@ -72,7 +72,8 @@ Your app is now ready to be viewed on devices with different screen sizes and or
 Now that you have these powerful new features running locally, you can publish them to your website on Azure.
 
 1. In Visual Studio select the "Microsoft.Knowzy.WebApp" in the solution explorer, then choose Build > Publish... 
-**NOTE** some configurations of Visual Studio may have the "publish" option as its own menu.
+
+    **NOTE:** Some configurations of Visual Studio may have the "publish" option as its own menu.
 
     ![publish screen from vs](images/publish0.PNG)
 
@@ -80,16 +81,17 @@ Now that you have these powerful new features running locally, you can publish t
 
     ![publish screen from vs](images/publish1.PNG)
 
-3.  Choose a name for your new site and other configurations.  This can be published as a free site.
-    Note: You must use a unique name. We recommend that you use the default name that is populated in the Web App Name field.
+3.  Sign into your Azure account to create a new Azure App Service. If you do not have an Azure subscription, please ask one of the proctors for one!
+
+    **NOTE:** We recommend that you use the default Web App Name to avoid conflicts. You may also have to press "Create" more than once to confirm the creation of the App Service, the Resource Group, and the App Service Plan.
 
     ![publish screen from vs](images/publish2.PNG)
 
-4. Keep track of the new URL you have created, you'll want to use this later.
+4. Hit "Create" and wait for your web app to finish deploying.
 
-5. Hit "create" and wait for your web app to finish deploying.
+5. Keep track of the "Site URL" after creating your web app; you'll want to use this later.
 
-
+    ![publish screen from vs](images/publish3.PNG)
 
 ## References
 
