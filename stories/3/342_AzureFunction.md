@@ -1,6 +1,6 @@
 # Task 3.4.2 - Create an Azure Function to analyze an image and return nose location
 
-Now that you've created a Cognitive Service to tell you where noses are in pictures sent from the KNOWZY mobile app, you'll need to create an endpoint to accept those pictures and talk to your Cognitive Service.  This task requires you to set up a new Azure Function, and then code and design it to expose an HTTP endpoint that accepts an image file and returns the location of the nose(s) in any faces found in the picture.
+Now that you've created a Cognitive Service to tell you where noses are in pictures sent from the Knowzy mobile app, you'll need to create an endpoint to accept those pictures and talk to your Cognitive Service.  This task requires you to set up a new Azure Function, and then code and design it to expose an HTTP endpoint that accepts an image file and returns the location of the nose(s) in any faces found in the picture.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ This walkthrough assumes that you have:
 
 1.  Create a new Azure Functions project in Visual Studio.  
 2.  Create an HTTP Trigger which will take in a picture and return data.
-3.  Within your Function, use the *Name* and *Key* from [Task 3.3.1](331_CognitiveServices.md) to connect to your Cognitive Service and run face detection on the image.
+3.  Within your Function, use the *Name* and *Key* from [Task 3.4.1](341_CognitiveServices.md) to connect to your Cognitive Service and run face detection on the image.
 4.  Return the data for the nose location(s) from your Function.
 5.  Position Knowzy nose(s) on top of the image in app.
 
