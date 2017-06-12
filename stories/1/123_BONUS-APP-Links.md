@@ -16,13 +16,19 @@ In this BONUS task, you want to configure your PWA to handle all requests that a
 
 5. Reinstall your local app.
 
-**Tip:** Make sure your ASP.NET MVC site can serve up the windows-app-web-link file.  A simple way to do this for testing is to add the following lines of code to your StartUp.cs file (before the "app.UseStaticFiles();" line):
+**Tip:** Make sure your ASP.NET MVC site can serve up the windows-app-web-link file.  A simple way to do this for testing is to enable known file types to be served - modify your StartUp.cs / Configure method to look as follows:
 
         app.UseStaticFiles(new StaticFileOptions()
         {
            ServeUnknownFileTypes = true,
            DefaultContentType = "text/plain"
         });
+
+        app.UseStaticFiles();
+
+        app.UseMvc(routes =>
+        {
+        ...
 
 **Tip:** In the generated windows10 package, you can either develop via the source\App.jsproj project in Visual Studio, or you can use your favorite editor with the manifest\appxmanifest.xml file and use the test_install.ps1 script to deploy. 
 
