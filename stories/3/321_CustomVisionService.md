@@ -1,6 +1,6 @@
 # Task 3.2.1 - Set up Cognitive Services Custom Vision Service to Recognize People Wearing Knowzy Products
 
-Our marketing department wants to let users to capture pictures of themselves wearing Knowzy products to share with their friends. Knowzy can use this information to automatically detect what products are being worn and determine the user's excitement for each of the products. This information can be used to drive improvements to those products.
+Our marketing department wants to let users capture pictures of themselves wearing Knowzy products to share with their friends. Knowzy can use this information to automatically detect what products are being worn and determine the user's excitement for each of the products. This information can be used to drive improvements to those products.
 
 **Goals for this task:** Enable your Android and UWP app to use a Cognitive Services Custom Vision service to detect Knowzy products and the user's emotion from a captured image.
 
