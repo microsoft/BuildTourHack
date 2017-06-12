@@ -103,15 +103,18 @@ Good luck!
 [311]: stories/3/311_XamarinForms.md
 [312]: stories/3/312_Camera.md
 [313]: stories/3/313_InkCanvas.md
-[321]: stories/3/321_Social.md
-[322]: stories/3/322_Rome.md
-[331]: stories/3/331_CognitiveServices.md
-[332]: stories/3/332_AzureFunction.md
-[333]: stories/3/333_NoseAnalysys.md
-[341]: stories/3/341_CICD_WindowsApp.md
-[342]: stories/3/342_CICD_AndroidApp.md
-[343]: stories/3/343_EventLogging.md
-[351]: stories/3/351_Bot.md
+[321]: stories/3/321_CustomVisionService.md
+[322]: stories/3/322_EmotionAPI.md
+[323]: stories/3/323_IntegrateCogSvc.md
+[331]: stories/3/331_Social.md
+[332]: stories/3/332_Rome.md
+[341]: stories/3/341_CognitiveServices.md
+[342]: stories/3/342_AzureFunction.md
+[343]: stories/3/343_NoseAnalysys.md
+[351]: stories/3/351_CICD_WindowsApp.md
+[352]: stories/3/352_CICD_AndroidApp.md
+[353]: stories/3/353_EventLogging.md
+[361]: stories/3/361_Bot.md
 
 [411]: stories/4/411_CosmosDB.md
 [412]: stories/4/412_OrdersAPI.md
