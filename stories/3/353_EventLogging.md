@@ -1,10 +1,10 @@
-# Task 3.4.3 - Add Custom Event Logging using Visual Studio Mobile Center
+# Task 3.5.3 - Add Custom Event Logging using Visual Studio Mobile Center
 
 Now that you've completed Continuous Integration and Delivery, it's time to get some more value out of Mobile Center.  Specifically, we want you to use the Mobile Center SDK to start recording usage statistics and analytics for your app.  This will help show the execs how many people are using the app and their usage patterns.
 
 ## Prerequisites 
 
-* This task has a dependency on [Task 3.4.1][341] or [Task 3.4.2][342] so your app is already connected to Mobile Center.
+* This task has a dependency on [Task 3.5.1][351] or [Task 3.5.2][352] so your app is already connected to Mobile Center.
 
 ## Task 
 
@@ -24,7 +24,7 @@ I found a great walkthrough on installing the Mobile Center SDK [here](https://d
 It looks like there is a bit of customization you need to do for UWP.  [Check it out](https://docs.microsoft.com/en-us/mobile-center/sdk/analytics/uwp).
 
 
-[341]: /stories/3/341_CICD_WindowsApp.md
-[342]: /stories/3/342_CICD_AndroidApp.md
+[351]: /stories/3/351_CICD_WindowsApp.md
+[352]: /stories/3/352_CICD_AndroidApp.md
 
-## continue to [next task >> ](351_Bot.md)
+## continue to [next task >> ](361_Bot.md)

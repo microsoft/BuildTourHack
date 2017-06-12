@@ -1,4 +1,4 @@
-# Task 3.3.1 - Set up Cognitive Services for image face analysis in Azure
+# Task 3.4.1 - Set up Cognitive Services for image face analysis in Azure
 
 This task will require you to set up a Cognitive Service for facial analysis.  You'll use this to allow customers to run your Xamarin app and see what they look like with different KNOWZY noses on their face!
 
@@ -17,4 +17,4 @@ This task will require you to set up a Cognitive Service for facial analysis.  Y
 ###### @ 2:37am
 Creating a Face API couldn't be easier, just follow [this](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) guide I found.
 
-## continue to [next task >> ](332_AzureFunction.md)
+## continue to [next task >> ](342_AzureFunction.md)

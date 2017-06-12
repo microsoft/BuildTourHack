@@ -1,4 +1,4 @@
-# Task 3.2.2 - Capture images remotely
+# Task 3.3.2 - Capture images remotely
 
 Many users like to launch and control desktop apps remotely from their phone.
 
@@ -26,4 +26,4 @@ We can use an App Service to support the messaging between Android and UWP. Here
 * [Docs on communicating with a remote app service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/communicate-with-a-remote-app-service)
 * [App service sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AppServices)
 
-## continue to [next task >> ](331_CognitiveServices.md)
+## continue to [next task >> ](341_CognitiveServices.md)

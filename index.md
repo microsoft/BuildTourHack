@@ -45,18 +45,22 @@ The source code for our applications is all open source and can be found on [our
         * [3.1.1 [Required] - Create a Xamarin.Forms app with shared UI][311]
         * [3.1.2 [Required] - Integrate native camera to capture image for each platform (d. 3.1.1)][312]
         * [3.1.3 [Required] - Add InkCanvas support for UWP (d. 3.1.2)][313]
+    * **Deliverable** - Add intelligence to the mobile app
+        * [3.2.1 [Required] - Set up Cognitive Services Custom Vision Service][321]
+        * [3.2.2 [Required] - Set up Cognitive Services Emotion Service (d. 3.2.1)][322]
+        * [3.2.3 [Required] - Update Xamarin App to call Coginitive Services APIs (d. 3.2.2)][323]
     * **Deliverable** - Create a fun social experience
-        * [3.2.1 [Optional] - Support sharing images to Social Networks (d. 3.1.2)][321]
-        * [3.2.2 [Optional] - Support cross device scenarios (Project Rome) (d. 3.1.2)][322]
+        * [3.3.1 [Optional] - Support sharing images to Social Networks (d. 3.2.3)][331]
+        * [3.3.2 [Optional] - Support cross device scenarios (Project Rome) (d. 3.3.1)][332]
     * **Deliverable** - Add automatic image analysis
-        * [3.3.1 [Optional] - Set up Cognitive Services for image face analysis in Azure (d. 312)][331]
-        * [3.3.2 [Optional] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.3.1)][332]
+        * [3.4.1 [Optional] - Set up Cognitive Services for image face analysis in Azure (d. 323)][341]
+        * [3.4.2 [Optional] - Create an Azure Function to analyze an image and return nose location to automatically position in app (d. 3.4.1)][342]
     * **Deliverable** - Set up Continuous Integration and Deployment
-        * [3.4.1 [Optional] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center][341]
-        * [3.4.2 [Optional] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center][342]
-        * [3.4.3 [Optional] - Add Custom Event Logging using Visual Studio Mobile Center][343]
+        * [3.5.1 [Optional] - Set up Continuous Integration and Deployment for the Windows App using Visual Studio Mobile Center][351]
+        * [3.5.2 [Optional] - Set up Continuous Integration and Deployment for the Android App using Visual Studio Mobile Center][352]
+        * [3.5.3 [Optional] - Add Custom Event Logging using Visual Studio Mobile Center][353]
     * **Deliverable** - Create a chat bot for support and for order status management 
-        * [3.5.1 [Optional] - Create a bot using the Microsoft Bot Framework][351]
+        * [3.6.1 [Optional] - Create a bot using the Microsoft Bot Framework][361]
 
 4. **User Story** - All platform services are integrated in one platform
     * **Deliverable** - Unify and Publish all services

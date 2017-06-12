@@ -1,4 +1,4 @@
-# Task 3.2.1 - Support sharing images to Social Networks
+# Task 3.3.1 - Support sharing images to Social Networks
 
 Our users want to be able to share images with their social networks. We want users to spread the word about our products. Enabling the application to share content on every platform will make everyone happy.
 
@@ -33,4 +33,4 @@ if (!await FacebookService.Instance.LoginAsync())
 await FacebookService.Instance.PostPictureToFeedAsync("Title", picture.Name, stream);
 ```
 
-## continue to [next task >> ](322_Rome.md)
+## continue to [next task >> ](332_Rome.md)
