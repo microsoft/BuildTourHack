@@ -129,6 +129,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
         using Windows.Media.Capture;
         using Windows.Storage;
+        using System.Runtime.InteropServices.WindowsRuntime;
 
     That's all for UWP.
 
