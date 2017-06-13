@@ -108,7 +108,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
 2. Implement the TakePhotoAsync method to use the native [CameraCaptureUI](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.cameracaptureui) from UWP and make it async:
 
-        public Task<byte[]> TakePhotoAsync()
+        public async Task<byte[]> TakePhotoAsync()
         {
                 CameraCaptureUI captureUI = new CameraCaptureUI();
                 captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
@@ -129,6 +129,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
         using Windows.Media.Capture;
         using Windows.Storage;
+        using System.Runtime.InteropServices.WindowsRuntime;
 
     That's all for UWP.
 
