@@ -348,9 +348,9 @@ We will continue to add more Windows 10 UWP features to our app in the [next tas
 
 * [Package Class](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.package)
 
-* [Desktop Bridge – Identify the application's context](https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/)
+* [Desktop Bridge: Identify the application's context](https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/)
 
-* [Announcing “UWPDesktop” NuGet Package Version 14393](https://blogs.windows.com/buildingapps/2017/01/17/announcing-uwpdesktop-nuget-package-version-14393/#SfO8ORg9vZY6h9dj.97)
+* [Announcing UWPDesktop NuGet Package Version 14393](https://blogs.windows.com/buildingapps/2017/01/17/announcing-uwpdesktop-nuget-package-version-14393/#SfO8ORg9vZY6h9dj.97)
 
 * [UWP for Desktop NuGet Package](https://www.nuget.org/packages/UwpDesktop)
 
