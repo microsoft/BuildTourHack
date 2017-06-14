@@ -88,7 +88,7 @@ Now that you have these powerful new features running locally, you can publish t
 
     ![publish screen from vs](images/publish1.PNG)
 
-3.  Choose "deploy"
+3.  Choose "Publish"
 
 
 ## References
