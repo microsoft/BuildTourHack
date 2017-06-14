@@ -93,6 +93,17 @@ Now that you have these powerful new features running locally, you can publish t
 
     ![publish screen from vs](images/publish3.PNG)
 
+## Deployment Errors
+* When attempting to deploy, you may run into an issue where Azure complains that a certain .dll is locked. If this is the case, you'll have to perform the following steps:
+    1. Sign into [https://portal.azure.com](https://portal.azure.com) with the same credentials you used to deploy your web app
+    2. Select "App Services" from the left-most menu (see 1 in the figure below)
+    3. Select your web app (see 2 in the figure below)
+    4. Press restart on the top menu bar (see 3 in the figure below)
+
+        ![publish screen from vs](images/publish-error0.PNG)
+
+    5. Once your web app has finished restarting, re-deploying your web app should be successful.
+
 ## References
 
 - [Knowzy App GitHub Repo](https://github.com/Knowzy/KnowzyInternalApps)
