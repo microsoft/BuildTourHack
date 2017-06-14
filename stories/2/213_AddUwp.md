@@ -145,7 +145,7 @@ Since all of the other dependencies in the Knowzy WPF solution are Windows Class
 
 * Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Add** and then **Reference...**
 
-* On the left of the Reference Manager, go to Browse and find the following file **“C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.dll”**. Add a reference to this file.
+* On the left of the Reference Manager, go to Browse and find the following file **"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.dll"**. Add a reference to this file.
 
     ![Windows.winmd](images/213-runtime.png)
 
