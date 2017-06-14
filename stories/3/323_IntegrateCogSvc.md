@@ -60,8 +60,10 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 productTags.Text = "Predicting...";
                 productTagProbability.Text = "";
                 emotionTag.Text = "";
+
                 // Invoke the custom vision prediction api
                 var client = new HttpClient();
+
                 // Request headers - replace this example key with your valid subscription key.
                 client.DefaultRequestHeaders.Add("Prediction-Key", "63fe389c4f96433ba807ee948e7aa98f");
 
@@ -78,7 +80,7 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 }
             }
 
-2. You can now build and run the project. When you capture the image, make sure you are wearing one of the Knowzy Inc. products. The Custom Vision service will predict which product you are wearing with a specified probability.
+2. You can now build and run the project. When you capture the image, make sure you are wearing one of the Knowzy products. The Custom Vision service will predict which product you are wearing with a specified probability.
 
 ### Add code to call the Emotion API service
 
@@ -100,6 +102,7 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 productTags.Text = "Predicting...";
                 productTagProbability.Text = "";
                 emotionTag.Text = "";
+
                 // Invoke the custom vision prediction api
                 var customVisionTask = Task.Run(async () =>
                 {
@@ -118,6 +121,7 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                         return Tuple.Create(predictionResponse.Predictions[0].Tag, predictionResponse.Predictions[0].Probability.Value * 100);
                     }
                 });
+
                 // Invoke the Emotion API in parallel
                 var emotionTask = Task.Run(async () =>
                 {
@@ -144,14 +148,16 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                         return Tuple.Create(highestScore.Name, (double)((JValue)highestScore.Value).Value);
                     }
                 });
+
                 await Task.WhenAll(customVisionTask, emotionTask);
+
                 // Update the UI
                 productTags.Text = customVisionTask.Result.Item1;
                 productTagProbability.Text = customVisionTask.Result.Item2.ToString();
                 emotionTag.Text = emotionTask.Result.Item1;
             }
 
-2. You can now build and run the project. When you now capture an image, both the **Custom Vision** AND **Emotions API** will be called to detect the Knowzy Inc. product and how excited the user feels when wearing it. Make sure you wear a Knowzy Inc. product and try out different facial expressions to represent emotions.
+2. You can now build and run the project. When you now capture an image, both the **Custom Vision** AND **Emotions API** will be called to detect the Knowzy product and how excited the user feels when wearing it. Make sure you wear a Knowzy product and try out different facial expressions to represent emotions.
 
 ## References
 

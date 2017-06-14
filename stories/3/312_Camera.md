@@ -108,7 +108,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
 2. Implement the TakePhotoAsync method to use the native [CameraCaptureUI](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.cameracaptureui) from UWP and make it async:
 
-        public Task<byte[]> TakePhotoAsync()
+        public async Task<byte[]> TakePhotoAsync()
         {
                 CameraCaptureUI captureUI = new CameraCaptureUI();
                 captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
@@ -129,6 +129,7 @@ Once we've navigated to the new page, the goal is to capture an image from the c
 
         using Windows.Media.Capture;
         using Windows.Storage;
+        using System.Runtime.InteropServices.WindowsRuntime;
 
     That's all for UWP.
 
@@ -247,13 +248,18 @@ You're now ready to implement the Android version of the TakePhotoAsync method.
 
 6. In the button event handler, create an instance of the PhotoService class via the DependencyService, and then call the TakePhotoAsync method to capture an image. Once the image is captured, set the source of the image:
 
+        using System.IO;
+
         private async void captureButton_Clicked(object sender, EventArgs e)
         {
             var photoService = DependencyService.Get<IPhotoService>();
             if(photoService != null)
             {
                 var imageBytes = await photoService.TakePhotoAsync();
-                image.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                if(imageBytes != null)
+                {
+                    image.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                }
             }
         }
 

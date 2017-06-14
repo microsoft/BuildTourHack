@@ -1,6 +1,6 @@
-# Task 3.2.2 - Set up Cognitive Services Emotion Service to Determine User's Excitment
+# Task 3.2.2 - Set up Cognitive Services Emotion Service to Determine User's Excitement
 
-Our marketing department also wants to verify that Knowzy Inc.'s users are super excited when wearing their Knowzy products. 
+Our marketing department also wants to verify that Knowzy's users are super excited when wearing their Knowzy products. 
 
 You will create a Cognitive Services Emotion API to assess the emotional state of user's images. You will subsequently integrate calls to this account into the Xamarin app.
 

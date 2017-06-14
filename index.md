@@ -48,7 +48,7 @@ The source code for our applications is all open source and can be found on [our
     * **Deliverable** - Add intelligence to the mobile app
         * [3.2.1 [Required] - Set up Cognitive Services Custom Vision Service][321]
         * [3.2.2 [Required] - Set up Cognitive Services Emotion Service (d. 3.2.1)][322]
-        * [3.2.3 [Required] - Update Xamarin App to call Coginitive Services APIs (d. 3.2.2)][323]
+        * [3.2.3 [Required] - Update Xamarin App to call Cognitive Services APIs (d. 3.2.2)][323]
     * **Deliverable** - Create a fun social experience
         * [3.3.1 [Optional] - Support sharing images to Social Networks (d. 3.2.3)][331]
         * [3.3.2 [Optional] - Support cross device scenarios (Project Rome) (d. 3.3.1)][332]
