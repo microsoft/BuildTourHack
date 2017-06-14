@@ -26,7 +26,7 @@ In order for the Custom Vision Service to detect which Knowzy products appear in
 
 Because you need between 10-20 images per tag to successfully train the service, we have provided a set of images that are ready to be ingested and tagged. We have also provided a tool which is able to ingest the training images directly from an **Azure Storage** blob account (this will save needing to upload the images). The training images are organized into separate containers for each tag.
 
-1. You must first build the training tool. Open the solution at `\src\Tools\Tools.sln` in Visual Studio 2017.
+1. You must first build the training tool. Open the solution at `\src\Tools\Tools.sln` in Visual Studio 2017. If you didn't go through the other tasks make sure you go to the git repo https://github.com/Knowzy/KnowzyInternalApps and clone or download the content onto your local computer first.
 2. Build the solution
 3. Open a command prompt and navigate to the location where Visual Studio output the built `CustomVisionTrainer.exe`. This is `src\Tools\CustomVisionTrainer\bin\Debug`.
 4. Run the `CustomVisionTrainer.exe` tool to upload training images for the three different Knowzy products. The tool requires you to specify the **Training Key** and **Project Name** of your Custom Vision Service project and the name of the project:
