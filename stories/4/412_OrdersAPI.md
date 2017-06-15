@@ -88,7 +88,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
             var PrimaryKey = config["COSMOSDB_KEY"];
             _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
             //Make sure the below values match your set up
-            _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders"); 
+            _ordersLink = UriFactory.CreateDocumentCollectionUri("<YourCosmosDBName>", "orders"); 
         }
 
         public async Task<bool> Connected()
@@ -315,7 +315,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
             var PrimaryKey = config["COSMOSDB_KEY"];
             _client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
             //Make sure the below values match your set up
-            _ordersLink = UriFactory.CreateDocumentCollectionUri("knowzydb", "orders");
+            _ordersLink = UriFactory.CreateDocumentCollectionUri("<YourCosmosDBName>", "orders");
             _options.EnableCrossPartitionQuery = true;
         }
 
@@ -359,7 +359,7 @@ namespace Microsoft.Knowzy.OrdersAPI.Data
 
         public async Task DeleteOrderAsync(string orderId)
         {
-            await _client.DeleteDocumentAsync(UriFactory.CreateDocumentUri("knowzydb", "orders", orderId));
+            await _client.DeleteDocumentAsync(UriFactory.CreateDocumentUri("<YourCosmosDBName>", "orders", orderId));
         }
 
         public IEnumerable<PostalCarrier> GetPostalCarriers()
