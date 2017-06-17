@@ -8,6 +8,8 @@ Before you get started let's make sure your machine has everything installed to 
 
     ## Don't try to download from the internet, the network connection is really slow and you are wasting some time downloading instead of having fun
 
+    ## If you are missing Azure tools, do **NOT** try to use Web Platform Installer. Launch Visual Studio Installer and add the Azure Capability ![Adding Azure Capability](./images/add-azure.png)
+
 3. Go to [our backlog](http://aka.ms/bthack) and have some fun
 
 
