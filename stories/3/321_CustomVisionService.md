@@ -40,7 +40,7 @@ Because you need between 10-20 images per tag to successfully train the service,
 1. Switch back to the **Custom Vision** portal in your web browser.
 2. On the **Training Images** tab, verify that the images you just uploaded using the tool are correctly displayed and tagged. **Note:** There may be a delay of up to 3 minutes for the images to appear.
 3. Click the **Train** button. This will display progress and the training images are processed and the model is constructed. The process should take less than 2 minutes.
-4. Click on the **Performance** tab. Verify that a new **Iteration** has been created after the training has completed. Select the latest iteration and click the **Prediction URL** button. Select the URL under the **If you have an image file** heading. This URL will need to be substituted into our code file when you integrate calling this service into our Xamarin application.
+4. Click on the **Performance** tab. Verify that a new **Iteration** has been created after the training has completed. Select the latest iteration and click the **Prediction URL** button. Copy the URL under the **If you have an image file** heading. This URL will need to be substituted into our code file later on when you integrate calling this service into our Xamarin application.
 
 [Go to the next Task](322_EmotionAPI.md) where you'll create a Cognitive Services Emotion API to detect the level of excitement of a user.
 
