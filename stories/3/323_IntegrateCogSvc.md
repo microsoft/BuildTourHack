@@ -1,4 +1,4 @@
-# Task 3.2.3 - Update Xamarin App to call Coginitive Services APIs
+# Task 3.2.3 - Update Xamarin App to call Cognitive Services APIs
 
 It is now time to integrate calls to the Cognitive Services that you created in the previous steps into the Xamarin application. These calls can be made directly from the app. An alternative design would be to host functionality on Azure to make these calls.
 
@@ -46,7 +46,7 @@ It is now time to integrate calls to the Cognitive Services that you created in 
             using Newtonsoft.Json.Linq;
 
     * Navigate to the `captureButton_Clicked` method and update the body with the following code to invoke the **Custom Vision** service and display the results.
-      **Note:** You must replace the `Prediction-Key` header with the **Prediction Key** value from your Custom Vision project. Additionally, you must replace the `url` with the **Prediction URL** you obtained after training your model in the prior task: 
+      **Note:** You must replace the `Prediction-Key` header with the **Prediction Key** value you saved when you created your Custom Vision project in the prior task. Additionally, you must replace the `url` with the **Prediction URL** you saved after training your model: 
 
             var photoService = DependencyService.Get<IPhotoService>();
             if (photoService != null)
