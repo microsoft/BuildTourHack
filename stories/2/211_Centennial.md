@@ -298,8 +298,6 @@ Make sure that the **Build** and **Deploy** check boxes are selected for the  Mi
 
 ![Configuration Manager Deploy](images/211-configuration-manager-deploy.png)
 
-* Build the solution to make sure there are no errors.
-
 * Right-click the **Microsoft.Knowzy.UWP** project and select **Deploy** from the menu. You will most likely get the following error.
 
 ![Deploy](images/211-deploy.png)
