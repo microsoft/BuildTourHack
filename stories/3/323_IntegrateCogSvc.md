@@ -46,9 +46,10 @@ It is now time to integrate calls to the Cognitive Services that you created in 
             using Newtonsoft.Json.Linq;
 
     * Navigate to the `captureButton_Clicked` method and update the body with the following code to invoke the **Custom Vision** service and display the results.
-      **Note:** You must replace the `Prediction-Key` header with the **Prediction Key** value you saved when you created your Custom Vision project in the prior task. Additionally, you must replace the `url` with the **Prediction URL** you saved after training your model: 
+      
+      **Important:** You must update the **bolded** lines shown below: replace the value used to set the `Prediction-Key` header with the **Prediction Key** value you saved when you created your Custom Vision project in the earlier task. Additionally, you must replace the `url` with the **Prediction URL** you saved after training your model: 
 
-            var photoService = DependencyService.Get<IPhotoService>();
+<pre><code>            var photoService = DependencyService.Get<IPhotoService>();
             if (photoService != null)
             {
                 var imageBytes = await photoService.TakePhotoAsync();
@@ -65,10 +66,10 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid subscription key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "63fe389c4f96433ba807ee948e7aa98f");
+                <b>client.DefaultRequestHeaders.Add("Prediction-Key", "63fe389c4f96433ba807ee948e7aa98f");</b>
 
                 // Prediction URL - replace this example URL with your valid prediction URL obtained after training the model.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/a2545d9c-f6e9-41d5-9807-28991bec747c/image?iterationId=2f51acdf-f96c-481c-af49-6cae71e7a2cb";
+                <b>string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/a2545d9c-f6e9-41d5-9807-28991bec747c/image?iterationId=2f51acdf-f96c-481c-af49-6cae71e7a2cb";</b>
                 using (var content = new ByteArrayContent(imageBytes))
                 {
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
@@ -79,6 +80,7 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                     productTagProbability.Text = (predictionResponse.Predictions[0].Probability.Value * 100).ToString();
                 }
             }
+</code></pre>
 
 2. You can now build and run the project. When you capture the image, make sure you are wearing one of the Knowzy products. The Custom Vision service will predict which product you are wearing with a specified probability.
 
@@ -88,9 +90,10 @@ It is now time to integrate calls to the Cognitive Services that you created in 
 
     * Navigate to the `captureButton_Clicked` method and update the body with the following code to invoke the **Emotions API** services and display the results. 
       Because we are now calling both the **Custom Vision** and **Emotions API** services, we do this in parallel to improve performance. 
-      **Note:** You must replace the `Ocp-Apim-Subscription-Key` header and `url` value with the values from your Emotions API account that you saved in the previous task: 
+      
+      **Important:** You must update the **bolded** lines shown below: replace the `Ocp-Apim-Subscription-Key` header and `url` value with the values from your Emotions API account that you saved in the previous task. Also in the code that calls the Custom Vision service, just as you did in the previous step, you must replace the value used to set the `Prediction-Key` header with the **Prediction Key** value you saved when creating your own Custom Vision service, and the `url` with the **Prediction URL** for your service again: 
 
-            var photoService = DependencyService.Get<IPhotoService>();
+<pre><code>            var photoService = DependencyService.Get<IPhotoService>();
             if (photoService != null)
             {
                 var imageBytes = await photoService.TakePhotoAsync();
@@ -108,10 +111,10 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 {
                     var client = new HttpClient();
                     // Request headers - replace this example key with your valid subscription key.
-                    client.DefaultRequestHeaders.Add("Prediction-Key", "63fe389c4f96433ba807ee948e7aa98f");
+                    <b>client.DefaultRequestHeaders.Add("Prediction-Key", "63fe389c4f96433ba807ee948e7aa98f");</b>
 
                     // Prediction URL - replace this example URL with your valid prediction URL obtained after training the model.
-                    string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/a2545d9c-f6e9-41d5-9807-28991bec747c/image?iterationId=2f51acdf-f96c-481c-af49-6cae71e7a2cb";
+                    <b>string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/a2545d9c-f6e9-41d5-9807-28991bec747c/image?iterationId=2f51acdf-f96c-481c-af49-6cae71e7a2cb";</b>
                     using (var content = new ByteArrayContent(imageBytes))
                     {
                         content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
@@ -127,12 +130,12 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 {
                     var client = new HttpClient();
                     // Request headers - replace this example key with your valid key.
-                    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "7af37d1e3e6048539c76274fd4c64d72");
+                    <b>client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "7af37d1e3e6048539c76274fd4c64d72");</b>
 
                     // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
                     //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
                     //   URI below with "westcentralus".
-                    string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";
+                    <b>string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";</b>
                     using (var content = new ByteArrayContent(imageBytes))
                     {
                         // This example uses content type "application/octet-stream".
@@ -156,8 +159,11 @@ It is now time to integrate calls to the Cognitive Services that you created in 
                 productTagProbability.Text = customVisionTask.Result.Item2.ToString();
                 emotionTag.Text = emotionTask.Result.Item1;
             }
+</code></pre>
 
 2. You can now build and run the project. When you now capture an image, both the **Custom Vision** AND **Emotions API** will be called to detect the Knowzy product and how excited the user feels when wearing it. Make sure you wear a Knowzy product and try out different facial expressions to represent emotions.
+
+**Note:** If your call to the Custom Vision service returns an empty array of predictions, check that you have substituted the **Prediction Key** value and the **Prediction URL** in the code, using the correct values for your own service.
 
 ## References
 
