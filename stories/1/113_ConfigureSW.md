@@ -58,7 +58,7 @@ Your Service Worker needs to be added to your site to begin working.
               console.log('Service worker has been registered for scope:'+ reg.scope);
             });
           }
-	}
+	      }
 
 <!-- 
 ### Prime your Service Worker for offline
