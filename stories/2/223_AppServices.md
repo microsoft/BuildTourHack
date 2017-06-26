@@ -100,7 +100,7 @@ Once you have completed the tutorial, you will be ready to add an App Service to
 
 * Select the **Visual C# | Windows Univeral | Windows Runtime Component (Univeral Windows)** project template.
 
-* Make sure you are creating the project in the **src** folder and name the project **Microsoft.Knowzy.AppService**.
+* Make sure you are creating the project in the **Knowzy_Engineering_Win32App\src** folder and name the project **Microsoft.Knowzy.AppService**.
 
     ![Create AppService Project](images/223-appservice-project.png)
 
