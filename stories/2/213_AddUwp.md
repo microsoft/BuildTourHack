@@ -123,7 +123,7 @@ Since all of the other dependencies in the Knowzy WPF solution are Windows Class
 
 * Select the **Visual C# | Windows Classic Desktop | Class Library** project template.
 
-* Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **src** directory.
+* Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **Knowzy_Engineering_Win32App\src** directory. Make sure you check that the .Net Framework version is 4.6.1 or lower. (Do not select version 4.6.2).
 
     ![Create C# Class Library](images/213-create-lib.png)
 
