@@ -233,7 +233,7 @@ And edit the `OrdersStore.cs` class to implement that method to return all order
 +           return _client.CreateDocumentQuery<Domain.Shipping>(
 +               _ordersLink,
 +               "SELECT * FROM orders o WHERE o.type='shipping'",
-+               _options).ToList();
++               options).ToList();
 +        }
 ```
 
